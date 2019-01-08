@@ -56,7 +56,7 @@
             this.txtProdName = new System.Windows.Forms.TextBox();
             this.lblProdName2 = new System.Windows.Forms.Label();
             this.tabSuppliers = new System.Windows.Forms.TabPage();
-            this.btnAddEditSup2 = new System.Windows.Forms.Button();
+            this.btnAddEditSup = new System.Windows.Forms.Button();
             this.txtSupName = new System.Windows.Forms.TextBox();
             this.lblSupName2 = new System.Windows.Forms.Label();
             this.dgvProd = new System.Windows.Forms.DataGridView();
@@ -84,7 +84,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
+            this.tabControl1.Size = new System.Drawing.Size(693, 426);
             this.tabControl1.TabIndex = 0;
             // 
             // tabMainPage
@@ -101,7 +101,7 @@
             this.tabMainPage.Location = new System.Drawing.Point(4, 22);
             this.tabMainPage.Name = "tabMainPage";
             this.tabMainPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabMainPage.Size = new System.Drawing.Size(768, 400);
+            this.tabMainPage.Size = new System.Drawing.Size(685, 400);
             this.tabMainPage.TabIndex = 0;
             this.tabMainPage.Text = "Main Page";
             this.tabMainPage.UseVisualStyleBackColor = true;
@@ -114,6 +114,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Edit Package";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAddPkg
             // 
@@ -123,6 +124,7 @@
             this.btnAddPkg.TabIndex = 1;
             this.btnAddPkg.Text = "Add Package";
             this.btnAddPkg.UseVisualStyleBackColor = true;
+            this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
             // 
             // dgvPkgs
             // 
@@ -154,7 +156,7 @@
             this.tabPackages.Location = new System.Drawing.Point(4, 22);
             this.tabPackages.Name = "tabPackages";
             this.tabPackages.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPackages.Size = new System.Drawing.Size(768, 400);
+            this.tabPackages.Size = new System.Drawing.Size(685, 400);
             this.tabPackages.TabIndex = 1;
             this.tabPackages.Text = "Packages";
             this.tabPackages.UseVisualStyleBackColor = true;
@@ -306,7 +308,7 @@
             this.tabProduct.Controls.Add(this.lblProdName2);
             this.tabProduct.Location = new System.Drawing.Point(4, 22);
             this.tabProduct.Name = "tabProduct";
-            this.tabProduct.Size = new System.Drawing.Size(768, 400);
+            this.tabProduct.Size = new System.Drawing.Size(685, 400);
             this.tabProduct.TabIndex = 2;
             this.tabProduct.Text = "Product";
             this.tabProduct.UseVisualStyleBackColor = true;
@@ -338,24 +340,24 @@
             // 
             // tabSuppliers
             // 
-            this.tabSuppliers.Controls.Add(this.btnAddEditSup2);
+            this.tabSuppliers.Controls.Add(this.btnAddEditSup);
             this.tabSuppliers.Controls.Add(this.txtSupName);
             this.tabSuppliers.Controls.Add(this.lblSupName2);
             this.tabSuppliers.Location = new System.Drawing.Point(4, 22);
             this.tabSuppliers.Name = "tabSuppliers";
-            this.tabSuppliers.Size = new System.Drawing.Size(768, 400);
+            this.tabSuppliers.Size = new System.Drawing.Size(685, 400);
             this.tabSuppliers.TabIndex = 3;
             this.tabSuppliers.Text = "Suppliers";
             this.tabSuppliers.UseVisualStyleBackColor = true;
             // 
-            // btnAddEditSup2
+            // btnAddEditSup
             // 
-            this.btnAddEditSup2.Location = new System.Drawing.Point(47, 45);
-            this.btnAddEditSup2.Name = "btnAddEditSup2";
-            this.btnAddEditSup2.Size = new System.Drawing.Size(75, 23);
-            this.btnAddEditSup2.TabIndex = 6;
-            this.btnAddEditSup2.Text = "Add Supplier";
-            this.btnAddEditSup2.UseVisualStyleBackColor = true;
+            this.btnAddEditSup.Location = new System.Drawing.Point(47, 45);
+            this.btnAddEditSup.Name = "btnAddEditSup";
+            this.btnAddEditSup.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEditSup.TabIndex = 6;
+            this.btnAddEditSup.Text = "Add Supplier";
+            this.btnAddEditSup.UseVisualStyleBackColor = true;
             // 
             // txtSupName
             // 
@@ -389,6 +391,7 @@
             this.btnAddProd.TabIndex = 1;
             this.btnAddProd.Text = "Add Product";
             this.btnAddProd.UseVisualStyleBackColor = true;
+            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
             // 
             // button3
             // 
@@ -398,6 +401,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Edit Product";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAddSup
             // 
@@ -407,6 +411,7 @@
             this.btnAddSup.TabIndex = 1;
             this.btnAddSup.Text = "Add Supplier";
             this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
             // btnEditSup
             // 
@@ -416,6 +421,7 @@
             this.btnEditSup.TabIndex = 1;
             this.btnEditSup.Text = "Edit Supplier";
             this.btnEditSup.UseVisualStyleBackColor = true;
+            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
             // 
             // dgvSup
             // 
@@ -429,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 442);
+            this.ClientSize = new System.Drawing.Size(712, 442);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Travel Experts Services";
@@ -474,7 +480,7 @@
         private System.Windows.Forms.TextBox txtProdName;
         private System.Windows.Forms.Label lblProdName2;
         private System.Windows.Forms.Button btnAddEditProd;
-        private System.Windows.Forms.Button btnAddEditSup2;
+        private System.Windows.Forms.Button btnAddEditSup;
         private System.Windows.Forms.TextBox txtSupName;
         private System.Windows.Forms.Label lblSupName2;
         private System.Windows.Forms.Button btnAddEditPkg;
