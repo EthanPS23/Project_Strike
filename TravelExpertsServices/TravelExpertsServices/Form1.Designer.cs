@@ -30,7 +30,13 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMainPage = new System.Windows.Forms.TabPage();
+            this.dgvSup = new System.Windows.Forms.DataGridView();
+            this.btnEditSup = new System.Windows.Forms.Button();
+            this.dgvProd = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddSup = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnAddProd = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
             this.dgvPkgs = new System.Windows.Forms.DataGridView();
             this.tabPackages = new System.Windows.Forms.TabPage();
@@ -59,20 +65,14 @@
             this.btnAddEditSup = new System.Windows.Forms.Button();
             this.txtSupName = new System.Windows.Forms.TextBox();
             this.lblSupName2 = new System.Windows.Forms.Label();
-            this.dgvProd = new System.Windows.Forms.DataGridView();
-            this.btnAddProd = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnAddSup = new System.Windows.Forms.Button();
-            this.btnEditSup = new System.Windows.Forms.Button();
-            this.dgvSup = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabMainPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPkgs)).BeginInit();
             this.tabPackages.SuspendLayout();
             this.tabProduct.SuspendLayout();
             this.tabSuppliers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSup)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -81,10 +81,11 @@
             this.tabControl1.Controls.Add(this.tabPackages);
             this.tabControl1.Controls.Add(this.tabProduct);
             this.tabControl1.Controls.Add(this.tabSuppliers);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(16, 15);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(693, 426);
+            this.tabControl1.Size = new System.Drawing.Size(924, 524);
             this.tabControl1.TabIndex = 0;
             // 
             // tabMainPage
@@ -98,29 +99,94 @@
             this.tabMainPage.Controls.Add(this.btnAddProd);
             this.tabMainPage.Controls.Add(this.btnAddPkg);
             this.tabMainPage.Controls.Add(this.dgvPkgs);
-            this.tabMainPage.Location = new System.Drawing.Point(4, 22);
+            this.tabMainPage.Location = new System.Drawing.Point(4, 25);
+            this.tabMainPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMainPage.Name = "tabMainPage";
-            this.tabMainPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabMainPage.Size = new System.Drawing.Size(685, 400);
+            this.tabMainPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabMainPage.Size = new System.Drawing.Size(916, 495);
             this.tabMainPage.TabIndex = 0;
             this.tabMainPage.Text = "Main Page";
             this.tabMainPage.UseVisualStyleBackColor = true;
             // 
+            // dgvSup
+            // 
+            this.dgvSup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSup.Location = new System.Drawing.Point(489, 235);
+            this.dgvSup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSup.Name = "dgvSup";
+            this.dgvSup.Size = new System.Drawing.Size(379, 166);
+            this.dgvSup.TabIndex = 2;
+            // 
+            // btnEditSup
+            // 
+            this.btnEditSup.Location = new System.Drawing.Point(756, 409);
+            this.btnEditSup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditSup.Name = "btnEditSup";
+            this.btnEditSup.Size = new System.Drawing.Size(112, 28);
+            this.btnEditSup.TabIndex = 1;
+            this.btnEditSup.Text = "Edit Supplier";
+            this.btnEditSup.UseVisualStyleBackColor = true;
+            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
+            // 
+            // dgvProd
+            // 
+            this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProd.Location = new System.Drawing.Point(37, 235);
+            this.dgvProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProd.Name = "dgvProd";
+            this.dgvProd.Size = new System.Drawing.Size(379, 166);
+            this.dgvProd.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(304, 409);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 28);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Edit Product";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnAddSup
+            // 
+            this.btnAddSup.Location = new System.Drawing.Point(489, 409);
+            this.btnAddSup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddSup.Name = "btnAddSup";
+            this.btnAddSup.Size = new System.Drawing.Size(112, 28);
+            this.btnAddSup.TabIndex = 1;
+            this.btnAddSup.Text = "Add Supplier";
+            this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(228, 162);
+            this.button1.Location = new System.Drawing.Point(304, 199);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
+            this.button1.Size = new System.Drawing.Size(112, 28);
             this.button1.TabIndex = 1;
             this.button1.Text = "Edit Package";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnAddProd
+            // 
+            this.btnAddProd.Location = new System.Drawing.Point(37, 409);
+            this.btnAddProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(112, 28);
+            this.btnAddProd.TabIndex = 1;
+            this.btnAddProd.Text = "Add Product";
+            this.btnAddProd.UseVisualStyleBackColor = true;
+            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
+            // 
             // btnAddPkg
             // 
-            this.btnAddPkg.Location = new System.Drawing.Point(28, 162);
+            this.btnAddPkg.Location = new System.Drawing.Point(37, 199);
+            this.btnAddPkg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddPkg.Name = "btnAddPkg";
-            this.btnAddPkg.Size = new System.Drawing.Size(84, 23);
+            this.btnAddPkg.Size = new System.Drawing.Size(112, 28);
             this.btnAddPkg.TabIndex = 1;
             this.btnAddPkg.Text = "Add Package";
             this.btnAddPkg.UseVisualStyleBackColor = true;
@@ -129,9 +195,10 @@
             // dgvPkgs
             // 
             this.dgvPkgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPkgs.Location = new System.Drawing.Point(28, 21);
+            this.dgvPkgs.Location = new System.Drawing.Point(37, 26);
+            this.dgvPkgs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPkgs.Name = "dgvPkgs";
-            this.dgvPkgs.Size = new System.Drawing.Size(623, 135);
+            this.dgvPkgs.Size = new System.Drawing.Size(831, 166);
             this.dgvPkgs.TabIndex = 0;
             // 
             // tabPackages
@@ -153,152 +220,171 @@
             this.tabPackages.Controls.Add(this.txtPkgAgencyCommission);
             this.tabPackages.Controls.Add(this.PkgBasePrice);
             this.tabPackages.Controls.Add(this.txtPackageId);
-            this.tabPackages.Location = new System.Drawing.Point(4, 22);
+            this.tabPackages.Location = new System.Drawing.Point(4, 25);
+            this.tabPackages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPackages.Name = "tabPackages";
-            this.tabPackages.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPackages.Size = new System.Drawing.Size(685, 400);
+            this.tabPackages.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPackages.Size = new System.Drawing.Size(916, 495);
             this.tabPackages.TabIndex = 1;
             this.tabPackages.Text = "Packages";
             this.tabPackages.UseVisualStyleBackColor = true;
             // 
             // btnAddEditPkg
             // 
-            this.btnAddEditPkg.Location = new System.Drawing.Point(130, 293);
+            this.btnAddEditPkg.Location = new System.Drawing.Point(173, 361);
+            this.btnAddEditPkg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddEditPkg.Name = "btnAddEditPkg";
-            this.btnAddEditPkg.Size = new System.Drawing.Size(80, 23);
+            this.btnAddEditPkg.Size = new System.Drawing.Size(107, 28);
             this.btnAddEditPkg.TabIndex = 5;
             this.btnAddEditPkg.Text = "Add Package";
             this.btnAddEditPkg.UseVisualStyleBackColor = true;
+            this.btnAddEditPkg.Click += new System.EventHandler(this.btnAddEditPkg_Click);
             // 
             // cmbSupName
             // 
             this.cmbSupName.FormattingEnabled = true;
-            this.cmbSupName.Location = new System.Drawing.Point(159, 246);
+            this.cmbSupName.Location = new System.Drawing.Point(212, 303);
+            this.cmbSupName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbSupName.Name = "cmbSupName";
-            this.cmbSupName.Size = new System.Drawing.Size(188, 21);
+            this.cmbSupName.Size = new System.Drawing.Size(249, 24);
             this.cmbSupName.TabIndex = 4;
             // 
             // cmbProdName
             // 
             this.cmbProdName.FormattingEnabled = true;
-            this.cmbProdName.Location = new System.Drawing.Point(159, 219);
+            this.cmbProdName.Location = new System.Drawing.Point(212, 270);
+            this.cmbProdName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbProdName.Name = "cmbProdName";
-            this.cmbProdName.Size = new System.Drawing.Size(188, 21);
+            this.cmbProdName.Size = new System.Drawing.Size(249, 24);
             this.cmbProdName.TabIndex = 4;
             // 
             // txtPkgDesc
             // 
-            this.txtPkgDesc.Location = new System.Drawing.Point(159, 89);
+            this.txtPkgDesc.Location = new System.Drawing.Point(212, 110);
+            this.txtPkgDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPkgDesc.Multiline = true;
             this.txtPkgDesc.Name = "txtPkgDesc";
-            this.txtPkgDesc.Size = new System.Drawing.Size(188, 72);
+            this.txtPkgDesc.Size = new System.Drawing.Size(249, 88);
             this.txtPkgDesc.TabIndex = 3;
             // 
             // dtpPkgEndDate
             // 
-            this.dtpPkgEndDate.Location = new System.Drawing.Point(159, 60);
+            this.dtpPkgEndDate.Location = new System.Drawing.Point(212, 74);
+            this.dtpPkgEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpPkgEndDate.Name = "dtpPkgEndDate";
-            this.dtpPkgEndDate.Size = new System.Drawing.Size(188, 20);
+            this.dtpPkgEndDate.Size = new System.Drawing.Size(249, 22);
             this.dtpPkgEndDate.TabIndex = 2;
             // 
             // dtpPkgStartDate
             // 
-            this.dtpPkgStartDate.Location = new System.Drawing.Point(159, 34);
+            this.dtpPkgStartDate.Location = new System.Drawing.Point(212, 42);
+            this.dtpPkgStartDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpPkgStartDate.Name = "dtpPkgStartDate";
-            this.dtpPkgStartDate.Size = new System.Drawing.Size(188, 20);
+            this.dtpPkgStartDate.Size = new System.Drawing.Size(249, 22);
             this.dtpPkgStartDate.TabIndex = 2;
             // 
             // lblPkgEndDate
             // 
             this.lblPkgEndDate.AutoSize = true;
-            this.lblPkgEndDate.Location = new System.Drawing.Point(6, 66);
+            this.lblPkgEndDate.Location = new System.Drawing.Point(8, 81);
+            this.lblPkgEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgEndDate.Name = "lblPkgEndDate";
-            this.lblPkgEndDate.Size = new System.Drawing.Size(101, 13);
+            this.lblPkgEndDate.Size = new System.Drawing.Size(130, 17);
             this.lblPkgEndDate.TabIndex = 1;
             this.lblPkgEndDate.Text = "Package End Date:";
             // 
             // lblPkgStartDate
             // 
             this.lblPkgStartDate.AutoSize = true;
-            this.lblPkgStartDate.Location = new System.Drawing.Point(6, 40);
+            this.lblPkgStartDate.Location = new System.Drawing.Point(8, 49);
+            this.lblPkgStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgStartDate.Name = "lblPkgStartDate";
-            this.lblPkgStartDate.Size = new System.Drawing.Size(104, 13);
+            this.lblPkgStartDate.Size = new System.Drawing.Size(135, 17);
             this.lblPkgStartDate.TabIndex = 1;
             this.lblPkgStartDate.Text = "Package Start Date:";
             // 
             // lblSupName
             // 
             this.lblSupName.AutoSize = true;
-            this.lblSupName.Location = new System.Drawing.Point(6, 249);
+            this.lblSupName.Location = new System.Drawing.Point(8, 306);
+            this.lblSupName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSupName.Name = "lblSupName";
-            this.lblSupName.Size = new System.Drawing.Size(79, 13);
+            this.lblSupName.Size = new System.Drawing.Size(105, 17);
             this.lblSupName.TabIndex = 1;
             this.lblSupName.Text = "Supplier Name:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 92);
+            this.label1.Location = new System.Drawing.Point(8, 113);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.Size = new System.Drawing.Size(142, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Package Description:";
             // 
             // lblProdName
             // 
             this.lblProdName.AutoSize = true;
-            this.lblProdName.Location = new System.Drawing.Point(6, 222);
+            this.lblProdName.Location = new System.Drawing.Point(8, 273);
+            this.lblProdName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProdName.Name = "lblProdName";
-            this.lblProdName.Size = new System.Drawing.Size(78, 13);
+            this.lblProdName.Size = new System.Drawing.Size(102, 17);
             this.lblProdName.TabIndex = 1;
             this.lblProdName.Text = "Product Name:";
             // 
             // lblPkgAgencyCommission
             // 
             this.lblPkgAgencyCommission.AutoSize = true;
-            this.lblPkgAgencyCommission.Location = new System.Drawing.Point(6, 196);
+            this.lblPkgAgencyCommission.Location = new System.Drawing.Point(8, 241);
+            this.lblPkgAgencyCommission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgAgencyCommission.Name = "lblPkgAgencyCommission";
-            this.lblPkgAgencyCommission.Size = new System.Drawing.Size(145, 13);
+            this.lblPkgAgencyCommission.Size = new System.Drawing.Size(190, 17);
             this.lblPkgAgencyCommission.TabIndex = 1;
             this.lblPkgAgencyCommission.Text = "Package Agency Commision:";
             // 
             // lblPkgBasePrice
             // 
             this.lblPkgBasePrice.AutoSize = true;
-            this.lblPkgBasePrice.Location = new System.Drawing.Point(6, 170);
+            this.lblPkgBasePrice.Location = new System.Drawing.Point(8, 209);
+            this.lblPkgBasePrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgBasePrice.Name = "lblPkgBasePrice";
-            this.lblPkgBasePrice.Size = new System.Drawing.Size(107, 13);
+            this.lblPkgBasePrice.Size = new System.Drawing.Size(139, 17);
             this.lblPkgBasePrice.TabIndex = 1;
             this.lblPkgBasePrice.Text = "Package Base Price:";
             // 
             // lblPkgName
             // 
             this.lblPkgName.AutoSize = true;
-            this.lblPkgName.Location = new System.Drawing.Point(6, 11);
+            this.lblPkgName.Location = new System.Drawing.Point(8, 14);
+            this.lblPkgName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgName.Name = "lblPkgName";
-            this.lblPkgName.Size = new System.Drawing.Size(84, 13);
+            this.lblPkgName.Size = new System.Drawing.Size(108, 17);
             this.lblPkgName.TabIndex = 1;
             this.lblPkgName.Text = "Package Name:";
             // 
             // txtPkgAgencyCommission
             // 
-            this.txtPkgAgencyCommission.Location = new System.Drawing.Point(159, 193);
+            this.txtPkgAgencyCommission.Location = new System.Drawing.Point(212, 238);
+            this.txtPkgAgencyCommission.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
-            this.txtPkgAgencyCommission.Size = new System.Drawing.Size(188, 20);
+            this.txtPkgAgencyCommission.Size = new System.Drawing.Size(249, 22);
             this.txtPkgAgencyCommission.TabIndex = 0;
             // 
             // PkgBasePrice
             // 
-            this.PkgBasePrice.Location = new System.Drawing.Point(159, 167);
+            this.PkgBasePrice.Location = new System.Drawing.Point(212, 206);
+            this.PkgBasePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PkgBasePrice.Name = "PkgBasePrice";
-            this.PkgBasePrice.Size = new System.Drawing.Size(188, 20);
+            this.PkgBasePrice.Size = new System.Drawing.Size(249, 22);
             this.PkgBasePrice.TabIndex = 0;
             // 
             // txtPackageId
             // 
-            this.txtPackageId.Location = new System.Drawing.Point(159, 8);
+            this.txtPackageId.Location = new System.Drawing.Point(212, 10);
+            this.txtPackageId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPackageId.Name = "txtPackageId";
-            this.txtPackageId.Size = new System.Drawing.Size(188, 20);
+            this.txtPackageId.Size = new System.Drawing.Size(249, 22);
             this.txtPackageId.TabIndex = 0;
             // 
             // tabProduct
@@ -306,35 +392,40 @@
             this.tabProduct.Controls.Add(this.btnAddEditProd);
             this.tabProduct.Controls.Add(this.txtProdName);
             this.tabProduct.Controls.Add(this.lblProdName2);
-            this.tabProduct.Location = new System.Drawing.Point(4, 22);
+            this.tabProduct.Location = new System.Drawing.Point(4, 25);
+            this.tabProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabProduct.Name = "tabProduct";
-            this.tabProduct.Size = new System.Drawing.Size(685, 400);
+            this.tabProduct.Size = new System.Drawing.Size(916, 495);
             this.tabProduct.TabIndex = 2;
             this.tabProduct.Text = "Product";
             this.tabProduct.UseVisualStyleBackColor = true;
             // 
             // btnAddEditProd
             // 
-            this.btnAddEditProd.Location = new System.Drawing.Point(47, 45);
+            this.btnAddEditProd.Location = new System.Drawing.Point(63, 55);
+            this.btnAddEditProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddEditProd.Name = "btnAddEditProd";
-            this.btnAddEditProd.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEditProd.Size = new System.Drawing.Size(100, 28);
             this.btnAddEditProd.TabIndex = 4;
             this.btnAddEditProd.Text = "Add Product";
             this.btnAddEditProd.UseVisualStyleBackColor = true;
+            this.btnAddEditProd.Click += new System.EventHandler(this.btnAddEditProd_Click);
             // 
             // txtProdName
             // 
-            this.txtProdName.Location = new System.Drawing.Point(87, 6);
+            this.txtProdName.Location = new System.Drawing.Point(116, 7);
+            this.txtProdName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtProdName.Name = "txtProdName";
-            this.txtProdName.Size = new System.Drawing.Size(100, 20);
+            this.txtProdName.Size = new System.Drawing.Size(132, 22);
             this.txtProdName.TabIndex = 3;
             // 
             // lblProdName2
             // 
             this.lblProdName2.AutoSize = true;
-            this.lblProdName2.Location = new System.Drawing.Point(3, 9);
+            this.lblProdName2.Location = new System.Drawing.Point(4, 11);
+            this.lblProdName2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProdName2.Name = "lblProdName2";
-            this.lblProdName2.Size = new System.Drawing.Size(78, 13);
+            this.lblProdName2.Size = new System.Drawing.Size(102, 17);
             this.lblProdName2.TabIndex = 2;
             this.lblProdName2.Text = "Product Name:";
             // 
@@ -343,104 +434,56 @@
             this.tabSuppliers.Controls.Add(this.btnAddEditSup);
             this.tabSuppliers.Controls.Add(this.txtSupName);
             this.tabSuppliers.Controls.Add(this.lblSupName2);
-            this.tabSuppliers.Location = new System.Drawing.Point(4, 22);
+            this.tabSuppliers.Location = new System.Drawing.Point(4, 25);
+            this.tabSuppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabSuppliers.Name = "tabSuppliers";
-            this.tabSuppliers.Size = new System.Drawing.Size(685, 400);
+            this.tabSuppliers.Size = new System.Drawing.Size(916, 495);
             this.tabSuppliers.TabIndex = 3;
             this.tabSuppliers.Text = "Suppliers";
             this.tabSuppliers.UseVisualStyleBackColor = true;
             // 
             // btnAddEditSup
             // 
-            this.btnAddEditSup.Location = new System.Drawing.Point(47, 45);
+            this.btnAddEditSup.Location = new System.Drawing.Point(63, 55);
+            this.btnAddEditSup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddEditSup.Name = "btnAddEditSup";
-            this.btnAddEditSup.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEditSup.Size = new System.Drawing.Size(100, 28);
             this.btnAddEditSup.TabIndex = 6;
             this.btnAddEditSup.Text = "Add Supplier";
             this.btnAddEditSup.UseVisualStyleBackColor = true;
+            this.btnAddEditSup.Click += new System.EventHandler(this.btnAddEditSup_Click);
             // 
             // txtSupName
             // 
-            this.txtSupName.Location = new System.Drawing.Point(87, 7);
+            this.txtSupName.Location = new System.Drawing.Point(116, 9);
+            this.txtSupName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSupName.Name = "txtSupName";
-            this.txtSupName.Size = new System.Drawing.Size(100, 20);
+            this.txtSupName.Size = new System.Drawing.Size(132, 22);
             this.txtSupName.TabIndex = 5;
             // 
             // lblSupName2
             // 
             this.lblSupName2.AutoSize = true;
-            this.lblSupName2.Location = new System.Drawing.Point(3, 10);
+            this.lblSupName2.Location = new System.Drawing.Point(4, 12);
+            this.lblSupName2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSupName2.Name = "lblSupName2";
-            this.lblSupName2.Size = new System.Drawing.Size(79, 13);
+            this.lblSupName2.Size = new System.Drawing.Size(105, 17);
             this.lblSupName2.TabIndex = 4;
             this.lblSupName2.Text = "Supplier Name:";
             // 
-            // dgvProd
-            // 
-            this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProd.Location = new System.Drawing.Point(28, 191);
-            this.dgvProd.Name = "dgvProd";
-            this.dgvProd.Size = new System.Drawing.Size(284, 135);
-            this.dgvProd.TabIndex = 2;
-            // 
-            // btnAddProd
-            // 
-            this.btnAddProd.Location = new System.Drawing.Point(28, 332);
-            this.btnAddProd.Name = "btnAddProd";
-            this.btnAddProd.Size = new System.Drawing.Size(84, 23);
-            this.btnAddProd.TabIndex = 1;
-            this.btnAddProd.Text = "Add Product";
-            this.btnAddProd.UseVisualStyleBackColor = true;
-            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(228, 332);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Edit Product";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnAddSup
-            // 
-            this.btnAddSup.Location = new System.Drawing.Point(367, 332);
-            this.btnAddSup.Name = "btnAddSup";
-            this.btnAddSup.Size = new System.Drawing.Size(84, 23);
-            this.btnAddSup.TabIndex = 1;
-            this.btnAddSup.Text = "Add Supplier";
-            this.btnAddSup.UseVisualStyleBackColor = true;
-            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
-            // 
-            // btnEditSup
-            // 
-            this.btnEditSup.Location = new System.Drawing.Point(567, 332);
-            this.btnEditSup.Name = "btnEditSup";
-            this.btnEditSup.Size = new System.Drawing.Size(84, 23);
-            this.btnEditSup.TabIndex = 1;
-            this.btnEditSup.Text = "Edit Supplier";
-            this.btnEditSup.UseVisualStyleBackColor = true;
-            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
-            // 
-            // dgvSup
-            // 
-            this.dgvSup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSup.Location = new System.Drawing.Point(367, 191);
-            this.dgvSup.Name = "dgvSup";
-            this.dgvSup.Size = new System.Drawing.Size(284, 135);
-            this.dgvSup.TabIndex = 2;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 442);
+            this.ClientSize = new System.Drawing.Size(949, 544);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Travel Experts Services";
             this.tabControl1.ResumeLayout(false);
             this.tabMainPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPkgs)).EndInit();
             this.tabPackages.ResumeLayout(false);
             this.tabPackages.PerformLayout();
@@ -448,8 +491,6 @@
             this.tabProduct.PerformLayout();
             this.tabSuppliers.ResumeLayout(false);
             this.tabSuppliers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSup)).EndInit();
             this.ResumeLayout(false);
 
         }
