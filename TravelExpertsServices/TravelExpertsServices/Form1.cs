@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertsDB;
 
 namespace TravelExpertsServices
 {
     public partial class Form1 : Form
     {
+        List<Packages> PackagesList = PackagesDB.GetPackages();
         public Form1()
         {
             InitializeComponent();
@@ -24,11 +26,39 @@ namespace TravelExpertsServices
             btnAddEditPkg.Text = "Add Package";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEditPkg_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 1;
             btnAddEditPkg.Text = "Edit Package";
+            //int rw = packagesDataGridView.CurrentCell.RowIndex;
+            int rw = packagesDataGridView.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = packagesDataGridView.Rows[rw];
+            var Packages = from Pkg in PackagesList
+                           //where Pkg.PackageID == Convert.ToInt32(packagesDataGridView[0, rw].Value)
+                           where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
+                           select new
+                           {
+                               Pkg.PackageID,
+                               Pkg.PkgName,
+                               Pkg.PkgStartDate,
+                               Pkg.PkgEndDate,
+                               Pkg.PkgDesc,
+                               Pkg.PkgBasePrice,
+                               Pkg.PkgAgencyCommission
+                           };
+            //packagesDataGridView.Rows[0].Cells[0];
+            foreach (var item in Packages)
+            {
+                txtPackageName.Text = item.PkgName;
+                dtpPkgStartDate.Text = item.PkgStartDate.ToString();
+                dtpPkgEndDate.Text = item.PkgEndDate.ToString();
+                txtPkgDesc.Text = item.PkgDesc;
+                txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
+                txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString();
+                //cmbProdName=item.pr
+                //cmbSupName
+            }
         }
 
         private void btnAddProd_Click(object sender, EventArgs e)
@@ -38,7 +68,7 @@ namespace TravelExpertsServices
             btnAddEditProd.Text = "Add Product";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnEditProd_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
             tabControl1.SelectedIndex = 2;
@@ -68,7 +98,7 @@ namespace TravelExpertsServices
             }
             else if (btnAddEditPkg.Text=="Edit Package")
             {
-
+                                
             }
         }
 
@@ -116,7 +146,7 @@ namespace TravelExpertsServices
             this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-
+            packagesDataGridView.Columns[0].Visible = false;
         }
     }
 }
