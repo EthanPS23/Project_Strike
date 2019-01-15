@@ -97,5 +97,26 @@ namespace TravelExpertsServices
 
             }
         }
+
+        private void packagesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.packagesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.travelExpertsDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Suppliers' table. You can move, or remove it, as needed.
+            this.suppliersTableAdapter.Fill(this.travelExpertsDataSet.Suppliers);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+
+        }
     }
 }
