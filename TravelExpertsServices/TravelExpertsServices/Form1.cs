@@ -55,7 +55,7 @@ namespace TravelExpertsServices
                 dtpPkgEndDate.Text = item.PkgEndDate.ToString();
                 txtPkgDesc.Text = item.PkgDesc;
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
-                txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString();
+                txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString("c");
                 //cmbProdName=item.pr
                 //cmbSupName
             }

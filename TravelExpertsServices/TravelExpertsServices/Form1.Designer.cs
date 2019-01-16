@@ -34,9 +34,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMainPage = new System.Windows.Forms.TabPage();
             this.suppliersDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packagesDataGridView = new System.Windows.Forms.DataGridView();
             this.packagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -76,10 +80,6 @@
             this.tableAdapterManager = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.TableAdapterManager();
             this.productsTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
             this.suppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.SuppliersTableAdapter();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,6 +149,22 @@
             this.suppliersDataGridView.Size = new System.Drawing.Size(651, 167);
             this.suppliersDataGridView.TabIndex = 9;
             // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "SupName";
+            this.dataGridViewTextBoxColumn11.HeaderText = "SupName";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 99;
+            // 
+            // SupplierId
+            // 
+            this.SupplierId.DataPropertyName = "SupplierId";
+            this.SupplierId.HeaderText = "SupplierId";
+            this.SupplierId.Name = "SupplierId";
+            this.SupplierId.ReadOnly = true;
+            this.SupplierId.Visible = false;
+            // 
             // suppliersBindingSource
             // 
             this.suppliersBindingSource.DataMember = "Suppliers";
@@ -172,6 +188,22 @@
             this.productsDataGridView.RowTemplate.Height = 24;
             this.productsDataGridView.Size = new System.Drawing.Size(651, 166);
             this.productsDataGridView.TabIndex = 9;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn9.HeaderText = "ProdName";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 104;
+            // 
+            // ProductId
+            // 
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "ProductId";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.ReadOnly = true;
+            this.ProductId.Visible = false;
             // 
             // productsBindingSource
             // 
@@ -576,38 +608,6 @@
             // suppliersTableAdapter
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ProdName";
-            this.dataGridViewTextBoxColumn9.HeaderText = "ProdName";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 104;
-            // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.ReadOnly = true;
-            this.ProductId.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "SupName";
-            this.dataGridViewTextBoxColumn11.HeaderText = "SupName";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 99;
-            // 
-            // SupplierId
-            // 
-            this.SupplierId.DataPropertyName = "SupplierId";
-            this.SupplierId.HeaderText = "SupplierId";
-            this.SupplierId.Name = "SupplierId";
-            this.SupplierId.ReadOnly = true;
-            this.SupplierId.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 

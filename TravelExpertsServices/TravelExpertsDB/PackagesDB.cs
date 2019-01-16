@@ -46,14 +46,15 @@ namespace TravelExpertsDB
                     pkg.PkgDesc = reader["PkgDesc"].ToString();// getting Package name
                     pkg.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);// getting Package name
                     //pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                    if (reader["PkgAgencyCommission"] == DBNull.Value)
-                    {
-                        pkg.PkgAgencyCommission = null;
-                    }
-                    else
-                    {
-                        pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                    }
+                    pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+                //    if (reader["PkgAgencyCommission"] == DBNull.Value)
+                //    {
+                //        pkg.PkgAgencyCommission = null;
+                //    }
+                //    else
+                //    {
+                //        pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+                //    }
                     Packages.Add(pkg);
                 }
             }
