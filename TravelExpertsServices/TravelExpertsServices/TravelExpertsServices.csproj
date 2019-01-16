@@ -98,5 +98,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TravelExpertsDB\TravelExpertsDB.csproj">
+      <Project>{D8129998-4D66-4B2D-9B5E-7ED5DED54075}</Project>
+      <Name>TravelExpertsDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

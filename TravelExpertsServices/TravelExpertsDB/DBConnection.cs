@@ -11,13 +11,11 @@ namespace TravelExpertsDB
     {
         public static SqlConnection GetConnection(/*string ServerName, string DatabaseName*/)
         {
-            string ConnectionString = "Server = tcp:oosd.database.windows.net; Database = TravelExperts; User ID = ethan@oosd; Password = Travel2$19; Trusted_Connection = False; Encrypt = True";
+            string ConnectionString = @"Data Source=oosd.database.windows.net;Initial Catalog=TravelExperts;User ID=ethan;Password=Travel2$19";
 
             SqlConnection connection = new SqlConnection(ConnectionString);
 
             return connection;
         }
-
-        // @"Data Source=oosd.database.windows.net;Initial Catalog=TravelExperts;User ID=sheila;Password=Travel2$19";
     }
 }
