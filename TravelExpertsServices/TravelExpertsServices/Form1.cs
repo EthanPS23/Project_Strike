@@ -154,16 +154,27 @@ namespace TravelExpertsServices
 
         List<Products> Prod = null;
         List<Products> selectProducts;
-        List<Suppliers> Sup = new List<Suppliers>();
+        List<Suppliers> Sup = null;
+        List<Suppliers> selectSuppliers;
 
         private void GetProduct(int productID)
         {
             Prod = ProductDB.GetProducts();
             selectProducts = (from Pd in Prod
-                              where Pd.ProdId == productID
+                              where Pd.ProductId == productID
                     select Pd).ToList();
             //dataGridView1.DataSource = selectProducts;
             productsDataGridView1.DataSource = selectProducts;
+        }
+
+        private void GetSupplier(int supplierID)
+        {
+            Sup = SuppliersDB.GetSuppliers();
+            selectSuppliers = (from Sp in Sup
+                              where Sp.SupplierId == supplierID
+                              select Sp).ToList();
+            //dataGridView1.DataSource = selectProducts;
+            suppliersDataGridView2.DataSource = selectSuppliers;
         }
 
         private void productsDataGridView1_SelectionChanged_1(object sender, EventArgs e)
@@ -179,7 +190,7 @@ namespace TravelExpertsServices
                     
                 }
                
-                    Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
                 suppliersDataGridView1.DataSource = Sup;
 
                
@@ -189,11 +200,28 @@ namespace TravelExpertsServices
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-
-
-        private void suppliersDataGridView1_SelectionChanged(object sender, EventArgs e)
+    
+        private void suppliersDataGridView2_SelectionChanged(object sender, EventArgs e)
         {
+            Suppliers selectedSupplier = null;
+            try
+            {
+                foreach (DataGridViewRow row in suppliersDataGridView2.SelectedRows)
+                {
+                    selectedSupplier = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                   row.Cells[1].Value.ToString());
 
+                }
+
+                Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);
+                productsDataGridView2.DataSource = Prod;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
     }
 }

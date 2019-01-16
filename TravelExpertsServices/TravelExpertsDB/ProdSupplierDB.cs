@@ -12,23 +12,23 @@ namespace TravelExpertsDB
         public static ProdSuppliers GetProductSupplierById(int pId, int sId)
         {
             ProdSuppliers ps = new ProdSuppliers();
-            SqlConnection dbConn = DBConnection.GetConnection();
+            SqlConnection con = DBConnection.GetConnection();
             string sql =
                 "SELECT ProductSupplierId, ProductId, SupplierId " +
                 "FROM Products_Suppliers " +
                "WHERE ProductId = @pId and SupplierId =@sId";
-            SqlCommand cmdSelect = new SqlCommand(sql, dbConn);
+            SqlCommand cmdSelect = new SqlCommand(sql, con);
             cmdSelect.Parameters.AddWithValue("@pId", pId);
             cmdSelect.Parameters.AddWithValue("@sId", sId);
             try
             {
-                dbConn.Open();
-                SqlDataReader dbReader = cmdSelect.ExecuteReader();
-                while (dbReader.Read())
+                con.Open();
+                SqlDataReader Reader = cmdSelect.ExecuteReader();
+                while (Reader.Read())
                 {
-                    ps.ProductSupplierId = Convert.ToInt32(dbReader["ProductSupplierId"]);
-                    ps.ProdId = Convert.ToInt32(dbReader["ProductId"]);
-                    ps.SupplierId = Convert.ToInt32(dbReader["SupplierId"]);
+                    ps.ProductSupplierId = Convert.ToInt32(Reader["ProductSupplierId"]);
+                    ps.ProdId = Convert.ToInt32(Reader["ProductId"]);
+                    ps.SupplierId = Convert.ToInt32(Reader["SupplierId"]);
 
                 }
             }
@@ -38,7 +38,7 @@ namespace TravelExpertsDB
             }
             finally
             {
-                dbConn.Close();
+                con.Close();
             }
             return ps;
         }

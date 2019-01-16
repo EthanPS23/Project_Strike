@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMainPage = new System.Windows.Forms.TabPage();
             this.suppliersDataGridView = new System.Windows.Forms.DataGridView();
@@ -77,7 +77,11 @@
             this.txtPackageName = new System.Windows.Forms.TextBox();
             this.tabProduct = new System.Windows.Forms.TabPage();
             this.suppliersDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddEditProd = new System.Windows.Forms.Button();
             this.txtProdName = new System.Windows.Forms.TextBox();
             this.lblProdName2 = new System.Windows.Forms.Label();
@@ -89,11 +93,12 @@
             this.tableAdapterManager = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.TableAdapterManager();
             this.productsTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
             this.suppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.SuppliersTableAdapter();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.suppliersDataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsDataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabMainPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView)).BeginInit();
@@ -108,7 +113,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView1)).BeginInit();
             this.tabSuppliers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -291,9 +297,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle15.Format = "C2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -303,9 +309,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle16.Format = "C2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -547,7 +553,6 @@
             // 
             // tabProduct
             // 
-            this.tabProduct.Controls.Add(this.dataGridView1);
             this.tabProduct.Controls.Add(this.suppliersDataGridView1);
             this.tabProduct.Controls.Add(this.productsDataGridView1);
             this.tabProduct.Controls.Add(this.btnAddEditProd);
@@ -573,7 +578,18 @@
             this.suppliersDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.suppliersDataGridView1.Size = new System.Drawing.Size(300, 220);
             this.suppliersDataGridView1.TabIndex = 4;
-            this.suppliersDataGridView1.SelectionChanged += new System.EventHandler(this.suppliersDataGridView1_SelectionChanged);
+            // 
+            // supplierIdDataGridViewTextBoxColumn
+            // 
+            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            // 
+            // supNameDataGridViewTextBoxColumn
+            // 
+            this.supNameDataGridViewTextBoxColumn.DataPropertyName = "SupName";
+            this.supNameDataGridViewTextBoxColumn.HeaderText = "SupName";
+            this.supNameDataGridViewTextBoxColumn.Name = "supNameDataGridViewTextBoxColumn";
             // 
             // productsDataGridView1
             // 
@@ -589,6 +605,19 @@
             this.productsDataGridView1.Size = new System.Drawing.Size(266, 220);
             this.productsDataGridView1.TabIndex = 4;
             this.productsDataGridView1.SelectionChanged += new System.EventHandler(this.productsDataGridView1_SelectionChanged_1);
+            // 
+            // productIdDataGridViewTextBoxColumn
+            // 
+            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.HeaderText = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prodNameDataGridViewTextBoxColumn
+            // 
+            this.prodNameDataGridViewTextBoxColumn.DataPropertyName = "ProdName";
+            this.prodNameDataGridViewTextBoxColumn.HeaderText = "ProdName";
+            this.prodNameDataGridViewTextBoxColumn.Name = "prodNameDataGridViewTextBoxColumn";
             // 
             // btnAddEditProd
             // 
@@ -618,6 +647,8 @@
             // 
             // tabSuppliers
             // 
+            this.tabSuppliers.Controls.Add(this.productsDataGridView2);
+            this.tabSuppliers.Controls.Add(this.suppliersDataGridView2);
             this.tabSuppliers.Controls.Add(this.btnAddEditSup);
             this.tabSuppliers.Controls.Add(this.txtSupName);
             this.tabSuppliers.Controls.Add(this.lblSupName2);
@@ -691,38 +722,59 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
-            // productIdDataGridViewTextBoxColumn
+            // suppliersDataGridView2
             // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suppliersDataGridView2.AutoGenerateColumns = false;
+            this.suppliersDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.suppliersDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn10});
+            this.suppliersDataGridView2.DataSource = this.suppliersBindingSource;
+            this.suppliersDataGridView2.Location = new System.Drawing.Point(61, 103);
+            this.suppliersDataGridView2.Name = "suppliersDataGridView2";
+            this.suppliersDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.suppliersDataGridView2.Size = new System.Drawing.Size(300, 220);
+            this.suppliersDataGridView2.TabIndex = 6;
+            this.suppliersDataGridView2.SelectionChanged += new System.EventHandler(this.suppliersDataGridView2_SelectionChanged);
             // 
-            // prodNameDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn8
             // 
-            this.prodNameDataGridViewTextBoxColumn.DataPropertyName = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn.HeaderText = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn.Name = "prodNameDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "SupplierId";
+            this.dataGridViewTextBoxColumn8.HeaderText = "SupplierId";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // supplierIdDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn10
             // 
-            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "SupName";
+            this.dataGridViewTextBoxColumn10.HeaderText = "SupName";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
-            // supNameDataGridViewTextBoxColumn
+            // productsDataGridView2
             // 
-            this.supNameDataGridViewTextBoxColumn.DataPropertyName = "SupName";
-            this.supNameDataGridViewTextBoxColumn.HeaderText = "SupName";
-            this.supNameDataGridViewTextBoxColumn.Name = "supNameDataGridViewTextBoxColumn";
+            this.productsDataGridView2.AutoGenerateColumns = false;
+            this.productsDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.productsDataGridView2.DataSource = this.productsBindingSource;
+            this.productsDataGridView2.Location = new System.Drawing.Point(534, 103);
+            this.productsDataGridView2.Name = "productsDataGridView2";
+            this.productsDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsDataGridView2.Size = new System.Drawing.Size(300, 220);
+            this.productsDataGridView2.TabIndex = 6;
             // 
-            // dataGridView1
+            // dataGridViewTextBoxColumn12
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(657, 121);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 5;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "ProductId";
+            this.dataGridViewTextBoxColumn12.HeaderText = "ProductId";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn13.HeaderText = "ProdName";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
             // Form1
             // 
@@ -750,7 +802,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView1)).EndInit();
             this.tabSuppliers.ResumeLayout(false);
             this.tabSuppliers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -819,7 +872,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prodNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView productsDataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridView suppliersDataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }
 

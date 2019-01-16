@@ -25,7 +25,7 @@ namespace TravelExpertsDB
                 while (reader.Read())
                 {
                     Pd = new Products();
-                    Pd.ProdId = (int)reader["ProdId"];
+                    Pd.ProductId = (int)reader["ProductId"];
                     Pd.ProdName = (string)reader["ProdName"];
 
                     Prod.Add(Pd);
@@ -59,7 +59,7 @@ namespace TravelExpertsDB
                     "ON p.ProductId = ps.ProductId " +
                     "WHERE p.ProductId = @ProductId";
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@ProductId", p.ProdId);
+                cmd.Parameters.AddWithValue("@ProductId", p.ProductId);
                 try
                 {
                     con.Open();

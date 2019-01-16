@@ -8,18 +8,18 @@ namespace TravelExpertsDB
 {
     public class Products
     {
-        public int ProdId { get; set; }
+        public int ProductId { get; set; }
         public string ProdName { get; set; }
 
         public Products()
         {
-            ProdId = -1;
+            ProductId = -1;
             ProdName = null;
         }
 
         public Products(int id, string pn)
         {
-            ProdId = id;
+            ProductId = id;
             ProdName = pn;
         }
 
