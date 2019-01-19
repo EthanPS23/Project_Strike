@@ -83,5 +83,80 @@ namespace TravelExpertsDB
                 return suppliers;
             }
         }
+
+        public static void InsertProduct(Products np)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "INSERT Products (ProdName) " +
+                         "VALUES (@ProdName)";
+            SqlCommand cmdInsert = new SqlCommand(sql, con);
+            cmdInsert.Parameters.AddWithValue("@ProdName", np.ProdName);
+
+            try
+            {
+                con.Open();
+                cmdInsert.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void UpdateProduct(Products ep, Products op)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "UPDATE Products " +
+                          "SET ProdName = @nProdName " +
+                         "WHERE ProductId = @ProductId " +
+                         "AND ProdName = @OldProdName";
+            SqlCommand cmdUpdate = new SqlCommand(sql, con);
+            cmdUpdate.Parameters.AddWithValue("@nProdName", ep.ProdName);
+            cmdUpdate.Parameters.AddWithValue("@OldProdName", op.ProdName);
+            cmdUpdate.Parameters.AddWithValue("@ProductID", op.ProductId);
+            try
+            {
+                con.Open();
+                cmdUpdate.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void DeleteProduct(Products dp)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "DELETE FROM Products " +
+                "WHERE ProductId = @ProductID " +
+                "AND ProdName = @ProdName"; 
+            SqlCommand cmdDelete = new SqlCommand(sql, con);
+            cmdDelete.Parameters.AddWithValue("@ProductID", dp.ProductId);
+            cmdDelete.Parameters.AddWithValue("@ProdName", dp.ProdName);
+
+            try
+            {
+                con.Open();
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

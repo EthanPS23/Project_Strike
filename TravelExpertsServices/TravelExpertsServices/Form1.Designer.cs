@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMainPage = new System.Windows.Forms.TabPage();
             this.suppliersDataGridView = new System.Windows.Forms.DataGridView();
@@ -76,16 +76,22 @@
             this.txtPkgBasePrice = new System.Windows.Forms.TextBox();
             this.txtPackageName = new System.Windows.Forms.TextBox();
             this.tabProduct = new System.Windows.Forms.TabPage();
-            this.suppliersDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grSuppliers1 = new System.Windows.Forms.DataGridView();
             this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grProducts1 = new System.Windows.Forms.DataGridView();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddEditProd = new System.Windows.Forms.Button();
             this.txtProdName = new System.Windows.Forms.TextBox();
             this.lblProdName2 = new System.Windows.Forms.Label();
             this.tabSuppliers = new System.Windows.Forms.TabPage();
+            this.gvProducts2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvSuppliers2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddEditSup = new System.Windows.Forms.Button();
             this.txtSupName = new System.Windows.Forms.TextBox();
             this.lblSupName2 = new System.Windows.Forms.Label();
@@ -93,12 +99,6 @@
             this.tableAdapterManager = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.TableAdapterManager();
             this.productsTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
             this.suppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.SuppliersTableAdapter();
-            this.suppliersDataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsDataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabMainPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView)).BeginInit();
@@ -110,11 +110,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.packagesBindingSource)).BeginInit();
             this.tabPackages.SuspendLayout();
             this.tabProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grSuppliers1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grProducts1)).BeginInit();
             this.tabSuppliers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -297,9 +297,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -309,9 +309,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -553,8 +553,8 @@
             // 
             // tabProduct
             // 
-            this.tabProduct.Controls.Add(this.suppliersDataGridView1);
-            this.tabProduct.Controls.Add(this.productsDataGridView1);
+            this.tabProduct.Controls.Add(this.grSuppliers1);
+            this.tabProduct.Controls.Add(this.grProducts1);
             this.tabProduct.Controls.Add(this.btnAddEditProd);
             this.tabProduct.Controls.Add(this.txtProdName);
             this.tabProduct.Controls.Add(this.lblProdName2);
@@ -565,19 +565,19 @@
             this.tabProduct.Text = "Product";
             this.tabProduct.UseVisualStyleBackColor = true;
             // 
-            // suppliersDataGridView1
+            // grSuppliers1
             // 
-            this.suppliersDataGridView1.AutoGenerateColumns = false;
-            this.suppliersDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.suppliersDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grSuppliers1.AutoGenerateColumns = false;
+            this.grSuppliers1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grSuppliers1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.supplierIdDataGridViewTextBoxColumn,
             this.supNameDataGridViewTextBoxColumn});
-            this.suppliersDataGridView1.DataSource = this.suppliersBindingSource;
-            this.suppliersDataGridView1.Location = new System.Drawing.Point(320, 97);
-            this.suppliersDataGridView1.Name = "suppliersDataGridView1";
-            this.suppliersDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.suppliersDataGridView1.Size = new System.Drawing.Size(300, 220);
-            this.suppliersDataGridView1.TabIndex = 4;
+            this.grSuppliers1.DataSource = this.suppliersBindingSource;
+            this.grSuppliers1.Location = new System.Drawing.Point(320, 97);
+            this.grSuppliers1.Name = "grSuppliers1";
+            this.grSuppliers1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grSuppliers1.Size = new System.Drawing.Size(300, 220);
+            this.grSuppliers1.TabIndex = 4;
             // 
             // supplierIdDataGridViewTextBoxColumn
             // 
@@ -591,20 +591,20 @@
             this.supNameDataGridViewTextBoxColumn.HeaderText = "SupName";
             this.supNameDataGridViewTextBoxColumn.Name = "supNameDataGridViewTextBoxColumn";
             // 
-            // productsDataGridView1
+            // grProducts1
             // 
-            this.productsDataGridView1.AutoGenerateColumns = false;
-            this.productsDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grProducts1.AutoGenerateColumns = false;
+            this.grProducts1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grProducts1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productIdDataGridViewTextBoxColumn,
             this.prodNameDataGridViewTextBoxColumn});
-            this.productsDataGridView1.DataSource = this.productsBindingSource;
-            this.productsDataGridView1.Location = new System.Drawing.Point(30, 97);
-            this.productsDataGridView1.Name = "productsDataGridView1";
-            this.productsDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGridView1.Size = new System.Drawing.Size(266, 220);
-            this.productsDataGridView1.TabIndex = 4;
-            this.productsDataGridView1.SelectionChanged += new System.EventHandler(this.productsDataGridView1_SelectionChanged_1);
+            this.grProducts1.DataSource = this.productsBindingSource;
+            this.grProducts1.Location = new System.Drawing.Point(30, 97);
+            this.grProducts1.Name = "grProducts1";
+            this.grProducts1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grProducts1.Size = new System.Drawing.Size(266, 220);
+            this.grProducts1.TabIndex = 4;
+            this.grProducts1.SelectionChanged += new System.EventHandler(this.grProducts1_SelectionChanged);
             // 
             // productIdDataGridViewTextBoxColumn
             // 
@@ -647,8 +647,8 @@
             // 
             // tabSuppliers
             // 
-            this.tabSuppliers.Controls.Add(this.productsDataGridView2);
-            this.tabSuppliers.Controls.Add(this.suppliersDataGridView2);
+            this.tabSuppliers.Controls.Add(this.gvProducts2);
+            this.tabSuppliers.Controls.Add(this.gvSuppliers2);
             this.tabSuppliers.Controls.Add(this.btnAddEditSup);
             this.tabSuppliers.Controls.Add(this.txtSupName);
             this.tabSuppliers.Controls.Add(this.lblSupName2);
@@ -658,6 +658,60 @@
             this.tabSuppliers.TabIndex = 3;
             this.tabSuppliers.Text = "Suppliers";
             this.tabSuppliers.UseVisualStyleBackColor = true;
+            // 
+            // gvProducts2
+            // 
+            this.gvProducts2.AutoGenerateColumns = false;
+            this.gvProducts2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvProducts2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.gvProducts2.DataSource = this.productsBindingSource;
+            this.gvProducts2.Location = new System.Drawing.Point(534, 103);
+            this.gvProducts2.Name = "gvProducts2";
+            this.gvProducts2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvProducts2.Size = new System.Drawing.Size(300, 220);
+            this.gvProducts2.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "ProductId";
+            this.dataGridViewTextBoxColumn12.HeaderText = "ProductId";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn13.HeaderText = "ProdName";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // gvSuppliers2
+            // 
+            this.gvSuppliers2.AutoGenerateColumns = false;
+            this.gvSuppliers2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSuppliers2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn10});
+            this.gvSuppliers2.DataSource = this.suppliersBindingSource;
+            this.gvSuppliers2.Location = new System.Drawing.Point(61, 103);
+            this.gvSuppliers2.Name = "gvSuppliers2";
+            this.gvSuppliers2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvSuppliers2.Size = new System.Drawing.Size(300, 220);
+            this.gvSuppliers2.TabIndex = 6;
+            this.gvSuppliers2.SelectionChanged += new System.EventHandler(this.gvSuppliers2_SelectionChanged);
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "SupplierId";
+            this.dataGridViewTextBoxColumn8.HeaderText = "SupplierId";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "SupName";
+            this.dataGridViewTextBoxColumn10.HeaderText = "SupName";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // btnAddEditSup
             // 
@@ -722,60 +776,6 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
-            // suppliersDataGridView2
-            // 
-            this.suppliersDataGridView2.AutoGenerateColumns = false;
-            this.suppliersDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.suppliersDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn10});
-            this.suppliersDataGridView2.DataSource = this.suppliersBindingSource;
-            this.suppliersDataGridView2.Location = new System.Drawing.Point(61, 103);
-            this.suppliersDataGridView2.Name = "suppliersDataGridView2";
-            this.suppliersDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.suppliersDataGridView2.Size = new System.Drawing.Size(300, 220);
-            this.suppliersDataGridView2.TabIndex = 6;
-            this.suppliersDataGridView2.SelectionChanged += new System.EventHandler(this.suppliersDataGridView2_SelectionChanged);
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "SupplierId";
-            this.dataGridViewTextBoxColumn8.HeaderText = "SupplierId";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "SupName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "SupName";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // productsDataGridView2
-            // 
-            this.productsDataGridView2.AutoGenerateColumns = false;
-            this.productsDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
-            this.productsDataGridView2.DataSource = this.productsBindingSource;
-            this.productsDataGridView2.Location = new System.Drawing.Point(534, 103);
-            this.productsDataGridView2.Name = "productsDataGridView2";
-            this.productsDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGridView2.Size = new System.Drawing.Size(300, 220);
-            this.productsDataGridView2.TabIndex = 6;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ProductId";
-            this.dataGridViewTextBoxColumn12.HeaderText = "ProductId";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProdName";
-            this.dataGridViewTextBoxColumn13.HeaderText = "ProdName";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,12 +798,12 @@
             this.tabPackages.PerformLayout();
             this.tabProduct.ResumeLayout(false);
             this.tabProduct.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grSuppliers1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grProducts1)).EndInit();
             this.tabSuppliers.ResumeLayout(false);
             this.tabSuppliers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersDataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -866,16 +866,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridView suppliersDataGridView1;
-        private System.Windows.Forms.DataGridView productsDataGridView1;
+        private System.Windows.Forms.DataGridView grSuppliers1;
+        private System.Windows.Forms.DataGridView grProducts1;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prodNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView productsDataGridView2;
+        private System.Windows.Forms.DataGridView gvProducts2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridView suppliersDataGridView2;
+        private System.Windows.Forms.DataGridView gvSuppliers2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }

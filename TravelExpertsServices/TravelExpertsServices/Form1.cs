@@ -151,7 +151,7 @@ namespace TravelExpertsServices
         }
 
 
-
+        // display products & suppliers
         List<Products> Prod = null;
         List<Products> selectProducts;
         List<Suppliers> Sup = null;
@@ -163,8 +163,8 @@ namespace TravelExpertsServices
             selectProducts = (from Pd in Prod
                               where Pd.ProductId == productID
                     select Pd).ToList();
-            //dataGridView1.DataSource = selectProducts;
-            productsDataGridView1.DataSource = selectProducts;
+
+            grProducts1.DataSource = selectProducts;
         }
 
         private void GetSupplier(int supplierID)
@@ -173,17 +173,17 @@ namespace TravelExpertsServices
             selectSuppliers = (from Sp in Sup
                               where Sp.SupplierId == supplierID
                               select Sp).ToList();
-            //dataGridView1.DataSource = selectProducts;
-            suppliersDataGridView2.DataSource = selectSuppliers;
+
+            gvSuppliers2.DataSource = selectSuppliers;
         }
 
-        private void productsDataGridView1_SelectionChanged_1(object sender, EventArgs e)
+        private void grProducts1_SelectionChanged(object sender, EventArgs e)
         {
             
             Products selectedProduct = null;
             try
             {
-                foreach (DataGridViewRow row in productsDataGridView1.SelectedRows)
+                foreach (DataGridViewRow row in grProducts1.SelectedRows)
                 {
                     selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                    row.Cells[1].Value.ToString());
@@ -191,7 +191,7 @@ namespace TravelExpertsServices
                 }
                
                 Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                suppliersDataGridView1.DataSource = Sup;
+                grSuppliers1.DataSource = Sup;
 
                
             }
@@ -201,12 +201,12 @@ namespace TravelExpertsServices
             }
         }
     
-        private void suppliersDataGridView2_SelectionChanged(object sender, EventArgs e)
+        private void gvSuppliers2_SelectionChanged(object sender, EventArgs e)
         {
             Suppliers selectedSupplier = null;
             try
             {
-                foreach (DataGridViewRow row in suppliersDataGridView2.SelectedRows)
+                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
                 {
                     selectedSupplier = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                    row.Cells[1].Value.ToString());
@@ -214,7 +214,7 @@ namespace TravelExpertsServices
                 }
 
                 Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);
-                productsDataGridView2.DataSource = Prod;
+                gvProducts2.DataSource = Prod;
 
 
             }
@@ -223,5 +223,7 @@ namespace TravelExpertsServices
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
+
     }
 }
