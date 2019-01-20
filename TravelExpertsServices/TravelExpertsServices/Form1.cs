@@ -23,17 +23,23 @@ namespace TravelExpertsServices
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 1;
-            btnAddEditPkg.Text = "Add Package";
+            txtPackageName.Text = "";
+            dtpPkgStartDate.Text = "";
+            dtpPkgEndDate.Text = "";
+            txtPkgDesc.Text = "";
+            txtPkgBasePrice.Text = "";
+            txtPkgAgencyCommission.Text = "";
+            btnAddEditPkg.Text = "Save New Package";
         }
 
         private void btnEditPkg_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 1;
-            btnAddEditPkg.Text = "Edit Package";
+            btnAddEditPkg.Text = "Save Edited Package";
             //int rw = packagesDataGridView.CurrentCell.RowIndex;
-            int rw = packagesDataGridView.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = packagesDataGridView.Rows[rw];
+            int rw = gvPackages.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = gvPackages.Rows[rw];
             var Packages = from Pkg in PackagesList
                            //where Pkg.PackageID == Convert.ToInt32(packagesDataGridView[0, rw].Value)
                            where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
@@ -55,9 +61,13 @@ namespace TravelExpertsServices
                 dtpPkgEndDate.Text = item.PkgEndDate.ToString();
                 txtPkgDesc.Text = item.PkgDesc;
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
+
                 txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString();
+
+
                 //cmbProdName=item.pr
                 //cmbSupName
+
             }
         }
 
@@ -65,38 +75,40 @@ namespace TravelExpertsServices
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
             tabControl1.SelectedIndex = 2;
-            btnAddEditProd.Text = "Add Product";
+            txtProdName.Text = "";
+            btnAddEditProd.Text = "Save New Product";
         }
 
         private void btnEditProd_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
             tabControl1.SelectedIndex = 2;
-            btnAddEditProd.Text = "Edit Product";
+            btnAddEditProd.Text = "Save Edited Product";
         }
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the suppliers pages and changes to the suppliers page
             tabControl1.SelectedIndex = 3;
-            btnAddEditSup.Text = "Add Supplier";
+            txtSupName.Text = "";
+            btnAddEditSup.Text = "Save New Supplier";
         }
 
         private void btnEditSup_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 3;
-            btnAddEditSup.Text = "Edit Supplier";
+            btnAddEditSup.Text = "Save Edited Supplier";
         }
 
         private void btnAddEditPkg_Click(object sender, EventArgs e)
         {
             // Checks the text of the Add/edit package button in order to perform various logic
-            if (btnAddEditPkg.Text=="Add Package")
+            if (btnAddEditPkg.Text== "Save New Package")
             {
 
             }
-            else if (btnAddEditPkg.Text=="Edit Package")
+            else if (btnAddEditPkg.Text== "Save Edited Package")
             {
                                 
             }
@@ -105,11 +117,11 @@ namespace TravelExpertsServices
         private void btnAddEditProd_Click(object sender, EventArgs e)
         {
             // Checks the text of the Add/edit product button in order to perform various logic
-            if (btnAddEditProd.Text == "Add Product")
+            if (btnAddEditProd.Text == "Save New Product")
             {
 
             }
-            else if (btnAddEditProd.Text == "Edit Product")
+            else if (btnAddEditProd.Text == "Save Edited Product")
             {
 
             }
@@ -118,11 +130,11 @@ namespace TravelExpertsServices
         private void btnAddEditSup_Click(object sender, EventArgs e)
         {
             // Checks the text of the Add/edit supplier button in order to perform various logic
-            if (btnAddEditSup.Text == "Add Supplier")
+            if (btnAddEditSup.Text == "Save New Supplier")
             {
 
             }
-            else if (btnAddEditSup.Text == "Edit Supplier")
+            else if (btnAddEditSup.Text == "Save Edited Supplier")
             {
 
             }
@@ -147,8 +159,36 @@ namespace TravelExpertsServices
             this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            packagesDataGridView.Columns[0].Visible = false;
+            gvPackages.Columns[0].Visible = false;
+
         }
+
+        List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
+        private void gvPackages_SelectionChanged(object sender, EventArgs e)
+        {
+            Packages selectedPackage = null;
+            try
+            {
+                foreach (DataGridViewRow row in gvPackages.SelectedRows)
+                {
+                    selectedPackage = new Packages(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                      row.Cells[1].Value.ToString(),
+                                      (DateTime?)(row.Cells[2].Value),
+                                      (DateTime?)(row.Cells[3].Value),
+                                      row.Cells[4].Value.ToString(),
+                                      Convert.ToDecimal(row.Cells[5].Value.ToString()),
+                                      (decimal?)(row.Cells[6].Value));                    
+                }
+                ppss = PackageProductSuppliersDB.GetProductSuppliersByPackage(selectedPackage);
+                gvProducts.DataSource = ppss;
+                gvSuppliers.DataSource = ppss;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
 
 
         // display products & suppliers
@@ -165,6 +205,7 @@ namespace TravelExpertsServices
                     select Pd).ToList();
 
             grProducts1.DataSource = selectProducts;
+
         }
 
         private void GetSupplier(int supplierID)
@@ -210,7 +251,6 @@ namespace TravelExpertsServices
                 {
                     selectedSupplier = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                    row.Cells[1].Value.ToString());
-
                 }
 
                 Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);
