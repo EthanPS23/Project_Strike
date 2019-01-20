@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnection.cs" />
-    <Compile Include="PackageProductSupplier.cs" />
+    <Compile Include="PackageProductSuppliers.cs" />
+    <Compile Include="PackageProductSuppliersDB.cs" />
     <Compile Include="Packages.cs" />
     <Compile Include="PackagesDB.cs" />
     <Compile Include="ProdSupplierDB.cs" />

@@ -38,8 +38,8 @@ namespace TravelExpertsServices
             tabControl1.SelectedIndex = 1;
             btnAddEditPkg.Text = "Save Edited Package";
             //int rw = packagesDataGridView.CurrentCell.RowIndex;
-            int rw = packagesDataGridView.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = packagesDataGridView.Rows[rw];
+            int rw = gvPackages.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = gvPackages.Rows[rw];
             var Packages = from Pkg in PackagesList
                            //where Pkg.PackageID == Convert.ToInt32(packagesDataGridView[0, rw].Value)
                            where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
@@ -62,7 +62,7 @@ namespace TravelExpertsServices
                 txtPkgDesc.Text = item.PkgDesc;
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
 
-                txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString("c");
+                txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString();
 
 
                 //cmbProdName=item.pr
@@ -159,9 +159,36 @@ namespace TravelExpertsServices
             this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            packagesDataGridView.Columns[0].Visible = false;
+            gvPackages.Columns[0].Visible = false;
 
         }
+
+        List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
+        private void gvPackages_SelectionChanged(object sender, EventArgs e)
+        {
+            Packages selectedPackage = null;
+            try
+            {
+                foreach (DataGridViewRow row in gvPackages.SelectedRows)
+                {
+                    selectedPackage = new Packages(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                      row.Cells[1].Value.ToString(),
+                                      (DateTime?)(row.Cells[2].Value),
+                                      (DateTime?)(row.Cells[3].Value),
+                                      row.Cells[4].Value.ToString(),
+                                      Convert.ToDecimal(row.Cells[5].Value.ToString()),
+                                      (decimal?)(row.Cells[6].Value));                    
+                }
+                ppss = PackageProductSuppliersDB.GetProductSuppliersByPackage(selectedPackage);
+                gvProducts.DataSource = ppss;
+                gvSuppliers.DataSource = ppss;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
 
 
         // display products & suppliers
@@ -224,7 +251,6 @@ namespace TravelExpertsServices
                 {
                     selectedSupplier = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                    row.Cells[1].Value.ToString());
-
                 }
 
                 Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);

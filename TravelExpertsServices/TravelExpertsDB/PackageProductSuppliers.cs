@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsDB
 {
-    public class PackageProductSupplier
+    public class PackageProductSuppliers
     {
         public int PackageId { get; set; }
         public int ProductSupplierId { get; set; }
@@ -14,7 +14,7 @@ namespace TravelExpertsDB
         public string ProdName { get; set; }
         public string SupName { get; set; }
 
-        public PackageProductSupplier()
+        public PackageProductSuppliers()
         {
             PackageId = -1;
             ProductSupplierId = -1;
@@ -23,7 +23,7 @@ namespace TravelExpertsDB
             SupName = "";
         }
 
-        public PackageProductSupplier(int id, int psid, string pkn, string pdn, string spn)
+        public PackageProductSuppliers(int id, int psid, string pkn, string pdn, string spn)
         {
             PackageId = id;
             ProductSupplierId = psid;
@@ -33,7 +33,7 @@ namespace TravelExpertsDB
 
         }
 
-        public PackageProductSupplier(string pkn, string pdn, string spn)
+        public PackageProductSuppliers(string pkn, string pdn, string spn)
         {
             PkgName = pkn;
             ProdName = pdn;
