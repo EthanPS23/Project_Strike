@@ -43,9 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="PackageProductSupplier.cs" />
     <Compile Include="Packages.cs" />
     <Compile Include="PackagesDB.cs" />
+    <Compile Include="ProdSupplierDB.cs" />
+    <Compile Include="ProdSuppliers.cs" />
+    <Compile Include="ProductDB.cs" />
+    <Compile Include="Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Suppliers.cs" />
+    <Compile Include="SuppliersDB.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

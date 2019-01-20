@@ -55,7 +55,9 @@ namespace TravelExpertsServices
                 dtpPkgEndDate.Text = item.PkgEndDate.ToString();
                 txtPkgDesc.Text = item.PkgDesc;
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
+
                 txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString("c");
+
                 //cmbProdName=item.pr
                 //cmbSupName
             }
@@ -136,6 +138,7 @@ namespace TravelExpertsServices
 
         }
 
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Suppliers' table. You can move, or remove it, as needed.
@@ -147,6 +150,84 @@ namespace TravelExpertsServices
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             packagesDataGridView.Columns[0].Visible = false;
+
         }
+
+
+        // display products & suppliers
+        List<Products> Prod = null;
+        List<Products> selectProducts;
+        List<Suppliers> Sup = null;
+        List<Suppliers> selectSuppliers;
+
+        private void GetProduct(int productID)
+        {
+            Prod = ProductDB.GetProducts();
+            selectProducts = (from Pd in Prod
+                              where Pd.ProductId == productID
+                    select Pd).ToList();
+
+            grProducts1.DataSource = selectProducts;
+
+        }
+
+        private void GetSupplier(int supplierID)
+        {
+            Sup = SuppliersDB.GetSuppliers();
+            selectSuppliers = (from Sp in Sup
+                              where Sp.SupplierId == supplierID
+                              select Sp).ToList();
+
+            gvSuppliers2.DataSource = selectSuppliers;
+        }
+
+        private void grProducts1_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            Products selectedProduct = null;
+            try
+            {
+                foreach (DataGridViewRow row in grProducts1.SelectedRows)
+                {
+                    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                   row.Cells[1].Value.ToString());
+                    
+                }
+               
+                Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                grSuppliers1.DataSource = Sup;
+
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+    
+        private void gvSuppliers2_SelectionChanged(object sender, EventArgs e)
+        {
+            Suppliers selectedSupplier = null;
+            try
+            {
+                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                {
+                    selectedSupplier = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                   row.Cells[1].Value.ToString());
+
+                }
+
+                Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);
+                gvProducts2.DataSource = Prod;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+
     }
 }
