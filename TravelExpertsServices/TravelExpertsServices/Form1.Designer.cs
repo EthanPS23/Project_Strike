@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMainPage = new System.Windows.Forms.TabPage();
             this.gvSuppliers = new System.Windows.Forms.DataGridView();
@@ -58,6 +58,8 @@
             this.btnAddProd = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
             this.tabPackages = new System.Windows.Forms.TabPage();
+            this.lblPkgDescLength = new System.Windows.Forms.Label();
+            this.lblPkgNameLength = new System.Windows.Forms.Label();
             this.btnChangeProd = new System.Windows.Forms.Button();
             this.cmbSupName = new System.Windows.Forms.ComboBox();
             this.btnDelSup_pkg = new System.Windows.Forms.Button();
@@ -315,9 +317,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -327,9 +329,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -410,6 +412,8 @@
             // tabPackages
             // 
             this.tabPackages.AutoScroll = true;
+            this.tabPackages.Controls.Add(this.lblPkgDescLength);
+            this.tabPackages.Controls.Add(this.lblPkgNameLength);
             this.tabPackages.Controls.Add(this.btnChangeProd);
             this.tabPackages.Controls.Add(this.cmbSupName);
             this.tabPackages.Controls.Add(this.btnDelSup_pkg);
@@ -443,6 +447,22 @@
             this.tabPackages.TabIndex = 1;
             this.tabPackages.Text = "Packages";
             this.tabPackages.UseVisualStyleBackColor = true;
+            // 
+            // lblPkgDescLength
+            // 
+            this.lblPkgDescLength.AutoSize = true;
+            this.lblPkgDescLength.Location = new System.Drawing.Point(468, 110);
+            this.lblPkgDescLength.Name = "lblPkgDescLength";
+            this.lblPkgDescLength.Size = new System.Drawing.Size(0, 17);
+            this.lblPkgDescLength.TabIndex = 27;
+            // 
+            // lblPkgNameLength
+            // 
+            this.lblPkgNameLength.AutoSize = true;
+            this.lblPkgNameLength.Location = new System.Drawing.Point(468, 13);
+            this.lblPkgNameLength.Name = "lblPkgNameLength";
+            this.lblPkgNameLength.Size = new System.Drawing.Size(0, 17);
+            this.lblPkgNameLength.TabIndex = 26;
             // 
             // btnChangeProd
             // 
@@ -613,10 +633,12 @@
             // 
             this.txtPkgDesc.Location = new System.Drawing.Point(212, 110);
             this.txtPkgDesc.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPkgDesc.MaxLength = 50;
             this.txtPkgDesc.Multiline = true;
             this.txtPkgDesc.Name = "txtPkgDesc";
             this.txtPkgDesc.Size = new System.Drawing.Size(249, 88);
             this.txtPkgDesc.TabIndex = 3;
+            this.txtPkgDesc.TextChanged += new System.EventHandler(this.txtPkgDesc_TextChanged);
             // 
             // dtpPkgEndDate
             // 
@@ -625,6 +647,7 @@
             this.dtpPkgEndDate.Name = "dtpPkgEndDate";
             this.dtpPkgEndDate.Size = new System.Drawing.Size(249, 22);
             this.dtpPkgEndDate.TabIndex = 2;
+            this.dtpPkgEndDate.ValueChanged += new System.EventHandler(this.dtpPkgEndDate_ValueChanged);
             // 
             // dtpPkgStartDate
             // 
@@ -633,6 +656,7 @@
             this.dtpPkgStartDate.Name = "dtpPkgStartDate";
             this.dtpPkgStartDate.Size = new System.Drawing.Size(249, 22);
             this.dtpPkgStartDate.TabIndex = 2;
+            this.dtpPkgStartDate.ValueChanged += new System.EventHandler(this.dtpPkgStartDate_ValueChanged);
             // 
             // lblPkgEndDate
             // 
@@ -734,9 +758,11 @@
             // 
             this.txtPackageName.Location = new System.Drawing.Point(212, 10);
             this.txtPackageName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPackageName.MaxLength = 50;
             this.txtPackageName.Name = "txtPackageName";
             this.txtPackageName.Size = new System.Drawing.Size(249, 22);
             this.txtPackageName.TabIndex = 0;
+            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
             // 
             // tabProduct
             // 
@@ -1105,6 +1131,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.Button btnChangeProd;
+        private System.Windows.Forms.Label lblPkgNameLength;
+        private System.Windows.Forms.Label lblPkgDescLength;
     }
 }
 

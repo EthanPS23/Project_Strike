@@ -14,6 +14,11 @@ namespace TravelExpertsServices
     // Ethan Shipley
     public partial class Form1 : Form
     {
+        // create constants
+        const int PKG_NAME_LENGTH = 50;
+        const int PKG_DESC_LENGTH = 50;
+        // variables
+        int pkgid;
         // display products & suppliers
         List<Products> Prod = null;
         List<Products> selectProducts;
@@ -69,6 +74,7 @@ namespace TravelExpertsServices
             //packagesDataGridView.Rows[0].Cells[0];
             foreach (var item in Packages)
             {
+                pkgid = item.PackageID;
                 txtPackageName.Text = item.PkgName;
                 dtpPkgStartDate.Text = item.PkgStartDate.ToString();
                 dtpPkgEndDate.Text = item.PkgEndDate.ToString();
@@ -119,6 +125,7 @@ namespace TravelExpertsServices
         }
 
         // Ethan Shipley
+        // creates or edits a package based and verifies the correct input of data
         private void btnAddEditPkg_Click(object sender, EventArgs e)
         {
             // Checks the text of the Add/edit package button in order to perform various logic
@@ -128,14 +135,64 @@ namespace TravelExpertsServices
             }
             else if (btnAddEditPkg.Text == "Save Edited Package")
             {
+                // declare variables
                 Packages pack = new Packages();
-                pack.PkgName = txtPackageName.Text.ToString();
-                pack.PkgStartDate = Convert.ToDateTime(dtpPkgStartDate.ToString());
-                pack.PkgEndDate = Convert.ToDateTime(dtpPkgEndDate.ToString());
-                pack.PkgDesc = txtPkgDesc.Text.ToString();
-                pack.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString());
-                pack.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString());
+                DateTime strt = dtpPkgStartDate.Value;
+                DateTime end= dtpPkgEndDate.Value;
+                // verifies that the user entered a package name shorter then 50 characters
+                if (txtPackageName.Text.Length>50)
+                {
+                    MessageBox.Show("Please enter a package name shorter then 50 characters.");
+                    return;
+                }
+                else
+                {
+                    pack.PkgName = txtPackageName.Text.ToString();
+                }
 
+                // verifies that the user entered a package description shorter then 50 characters
+                if (txtPkgDesc.Text.Length>50)
+                {
+                    MessageBox.Show("Please enter a package description shorter then 50 characters.");
+                    return;
+                }
+                else
+                {
+                    pack.PkgDesc = txtPkgDesc.Text.ToString();
+                }
+                
+                // checks that the user inputted valid dates for the package
+                if (end < strt && !end.ToShortDateString().Equals(strt.ToShortDateString()))
+                {
+                    dtpPkgEndDate.Value = dtpPkgStartDate.Value;
+                    MessageBox.Show("Please enter an end date that is equal to or greater than the start date.");
+                    return;
+                }
+                else if (strt < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString())) 
+                {
+
+                    MessageBox.Show("Please enter a start date that is greater than todays date.");
+                    dtpPkgStartDate.Value = DateTime.Now;
+                    return;
+                }
+                else if (end < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString()))
+                {
+                    MessageBox.Show("Please enter an end date that is greater than todays date.");
+                    dtpPkgEndDate.Value = DateTime.Now;
+                    return;
+                }
+                else
+                {
+                    pack.PkgStartDate = strt;
+                    pack.PkgEndDate = end;
+                } 
+                // removes the unnecessary dollar sign and comma in the base price and commision
+                pack.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString().Replace("$","").Replace(",",""));
+                pack.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString().Replace("$", "").Replace(",", ""));
+
+                // updates the package and then refreshes the main page
+                PackagesDB.UpdatePackages(pack, pkgid);
+                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             }
         }
 
@@ -395,7 +452,7 @@ namespace TravelExpertsServices
         // Ethan Shipley
         // Get set the value of the combobox to match that of the supplier
         // this may be slowing the code
-        public void supplierComboBoxMatch()
+        private void supplierComboBoxMatch()
         {
             string c;
             int i;
@@ -416,7 +473,7 @@ namespace TravelExpertsServices
         // Ethan Shipley
         // Get set the value of the combobox to match that of the product
         // this may be slowing the code
-        public void productComboBoxMatch()
+        private void productComboBoxMatch()
         {
             string c;
             int i;
@@ -448,6 +505,45 @@ namespace TravelExpertsServices
         {
 
         }
-        
+
+        // Ethan Shipley
+        // Lets the user know how many cahracters they have left for the package name
+        private void txtPackageName_TextChanged(object sender, EventArgs e)
+        {
+            lblPkgNameLength.Text = "Remaining length " + Convert.ToString(PKG_NAME_LENGTH - txtPackageName.Text.Length);
+        }
+
+        // Ethan Shipley
+        // Lets the user know how many cahracters they have left for the package name
+        private void txtPkgDesc_TextChanged(object sender, EventArgs e)
+        {
+            lblPkgDescLength.Text = "Remaining length " + Convert.ToString(PKG_DESC_LENGTH - txtPkgDesc.Text.Length);
+        }
+
+        //Ethan Shipley
+        // Checks that the user enter in a date equivalent to today or greater then
+        private void dtpPkgStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime start = dtpPkgStartDate.Value;
+            DateTime now = DateTime.Now;
+            if (start<now && !DateTime.Now.ToShortDateString().Equals(dtpPkgStartDate.Value.ToShortDateString()))
+            {
+                MessageBox.Show("Please enter a date greater then todays date");
+                dtpPkgStartDate.Value = DateTime.Now;
+            }
+        }
+
+        //Ethan Shipley
+        // Checks that the user enter in a date equivalent to today or greater then
+        private void dtpPkgEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime end = dtpPkgEndDate.Value;
+            DateTime now = DateTime.Now;
+            if (end < now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString()))
+            {
+                MessageBox.Show("Please enter a date greater then todays date");
+                dtpPkgEndDate.Value = DateTime.Now;
+            }
+        }
     }
 }

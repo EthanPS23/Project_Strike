@@ -46,17 +46,8 @@ namespace TravelExpertsDB
                     }
                     pkg.PkgDesc = reader["PkgDesc"].ToString();// getting Package name
                     pkg.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);// getting Package name
-                    //pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
 
                     pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                //    if (reader["PkgAgencyCommission"] == DBNull.Value)
-                //    {
-                //        pkg.PkgAgencyCommission = null;
-                //    }
-                //    else
-                //    {
-                //        pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                //    }
 
                     if (reader["PkgAgencyCommission"] == DBNull.Value)
                     {
@@ -79,6 +70,42 @@ namespace TravelExpertsDB
                 Connection.Close();
             }
             return Packages; // returns the gathered packagaes information
+        }
+
+        public static void UpdatePackages(Packages packages, int pkgid)
+        {
+            //query to update the table
+            string query = "UPDATE Packages " +
+                           "SET PkgName = " + "'" + packages.PkgName + "', "  +
+                           "PkgBasePrice = " + "'" + packages.PkgBasePrice + "', " +
+                           "PkgDesc = " + "'" + packages.PkgDesc + "', " +
+                           "PkgEndDate = " + "'" + packages.PkgEndDate + "', " +
+                           "PkgStartDate = " + "'" + packages.PkgStartDate + "', " +
+                           "PkgAgencyCommission = " + "'" + packages.PkgAgencyCommission + "' " +
+                           "WHERE PackageId = " + pkgid;
+
+            //connection to the DB
+            SqlConnection connection = DBConnection.GetConnection();
+
+            //sending query and connection to DB
+            SqlCommand cmd = new SqlCommand(query, connection);
+            try
+            {
+                // open a connection
+                connection.Open();
+                //execute query
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Update successful");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                // close the connection
+                connection.Close();
+            }
         }
     }
 }
