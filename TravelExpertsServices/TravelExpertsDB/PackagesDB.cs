@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace TravelExpertsDB
 {
+
     public static class PackagesDB
     {
         public static List<Packages> GetPackages()
@@ -59,7 +60,7 @@ namespace TravelExpertsDB
 
                     if (reader["PkgAgencyCommission"] == DBNull.Value)
                     {
-                        pkg.PkgAgencyCommission = null;
+                        pkg.PkgAgencyCommission = 0;
                     }
                     else
                     {

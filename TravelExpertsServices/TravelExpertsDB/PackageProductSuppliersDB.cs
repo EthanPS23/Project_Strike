@@ -14,7 +14,7 @@ namespace TravelExpertsDB
             List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
             SqlConnection con = DBConnection.GetConnection();
             string sql =
-                "SELECT pk.PackageId, pk.PkgName, pps.ProductSupplierId, p.ProdName, s.SupName " +
+                "SELECT pk.PackageId, pk.PkgName, pps.ProductSupplierId, p.ProductId, p.ProdName, s.SupplierId, s.SupName " +
                 "FROM Packages pk " +
                 "inner join Packages_Products_Suppliers pps " +
                 "ON pps.PackageId = pk.PackageId " +
@@ -37,6 +37,8 @@ namespace TravelExpertsDB
                     PackageProductSuppliers pps = new PackageProductSuppliers();
                     pps.PackageId = Convert.ToInt32(Reader["PackageId"]);
                     pps.ProductSupplierId = Convert.ToInt32(Reader["ProductSupplierId"]);
+                    pps.ProductId = Convert.ToInt32(Reader["ProductId"]);
+                    pps.SupplierId = Convert.ToInt32(Reader["SupplierId"]);
                     pps.PkgName = Convert.ToString(Reader["PkgName"]);
                     pps.ProdName = Convert.ToString(Reader["ProdName"]);
                     pps.SupName = Convert.ToString(Reader["SupName"]);
