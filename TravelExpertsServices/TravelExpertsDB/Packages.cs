@@ -14,11 +14,10 @@ namespace TravelExpertsDB
         public DateTime? PkgEndDate { get; set; }
         public string PkgDesc { get; set; }
         public decimal PkgBasePrice { get; set; }
+        public decimal PkgAgencyCommission { get; set; }
 
-        public decimal? PkgAgencyCommission { get; set; }
 
-
-        public Packages(int id, string pn, DateTime? sd, DateTime? ed, string pd, decimal pb, decimal? pc)
+        public Packages(int id, string pn, DateTime? sd, DateTime? ed, string pd, decimal pb, decimal pc)
         {
             PackageID = id;
             PkgName = pn;
