@@ -107,5 +107,69 @@ namespace TravelExpertsDB
                 connection.Close();
             }
         }
+        public static void InsertPackages(Packages packages)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "INSERT Packages (" +
+                               "PkgName," +
+                               "PkgDesc," +
+                               "PkgBasePrice," +
+                               "PkgAgencyCommission," +
+                               "PkgStartDate," +
+                               "PkgEndDate)" +
+                        "VALUES (" +
+                               "@PkgName," +
+                               "@PkgDesc," +
+                               "@PkgBasePrice," +
+                               "@PkgAgencyCommission," +
+                               "@PkgStartDate," +
+                               "@PkgEndDate);";
+            SqlCommand cmdInsert = new SqlCommand(sql, con);
+            cmdInsert.Parameters.AddWithValue("@PkgName", packages.PkgName);
+            cmdInsert.Parameters.AddWithValue("@PkgDesc", packages.PkgDesc);
+            cmdInsert.Parameters.AddWithValue("@PkgBasePrice", packages.PkgBasePrice);
+            cmdInsert.Parameters.AddWithValue("@PkgAgencyCommission", packages.PkgAgencyCommission);
+            cmdInsert.Parameters.AddWithValue("@PkgStartDate", packages.PkgStartDate);
+            cmdInsert.Parameters.AddWithValue("@PkgEndDate", packages.PkgEndDate);
+            try
+            {
+                con.Open();
+                cmdInsert.ExecuteNonQuery();
+                MessageBox.Show("Add package successful");
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void DeletePackage(int PackageID)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "DELETE FROM Packages " +
+                "WHERE PackageID = @PackageID;";
+            SqlCommand cmdDelete = new SqlCommand(sql, con);
+            cmdDelete.Parameters.AddWithValue("@PackageID", PackageID);
+            try
+            {
+                con.Open();
+                cmdDelete.ExecuteNonQuery();
+                MessageBox.Show("Package Delete successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

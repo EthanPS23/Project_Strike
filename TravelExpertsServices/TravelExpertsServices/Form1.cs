@@ -84,7 +84,7 @@ namespace TravelExpertsServices
             }
             gvProducts_pkgs.DataSource = ppss;
             gvSuppliers_pkgs.DataSource = ppss;
-            getSelectedPoduct();
+            getSelectedProduct();
             supplierComboBoxMatch();
             cmbProdName.Enabled = false;
             cmbSupName.Enabled = false;
@@ -128,74 +128,93 @@ namespace TravelExpertsServices
         // creates or edits a package based and verifies the correct input of data
         private void btnAddEditPkg_Click(object sender, EventArgs e)
         {
+            // declare variables
+            Packages pack = new Packages();
+            DateTime strt = dtpPkgStartDate.Value;
+            DateTime end = dtpPkgEndDate.Value;
+            // verifies that the user entered a package name shorter then 50 characters
+            if (txtPackageName.Text.Length > 50)
+            {
+                MessageBox.Show("Please enter a package name shorter then 50 characters.");
+                return;
+            }
+            else
+            {
+                pack.PkgName = txtPackageName.Text.ToString();
+            }
+
+            // verifies that the user entered a package description shorter then 50 characters
+            if (txtPkgDesc.Text.Length > 50)
+            {
+                MessageBox.Show("Please enter a package description shorter then 50 characters.");
+                return;
+            }
+            else
+            {
+                pack.PkgDesc = txtPkgDesc.Text.ToString();
+            }
+
+            // checks that the user inputted valid dates for the package
+            if (end < strt && !end.ToShortDateString().Equals(strt.ToShortDateString()))
+            {
+                dtpPkgEndDate.Value = dtpPkgStartDate.Value;
+                MessageBox.Show("Please enter an end date that is equal to or greater than the start date.");
+                return;
+            }
+            else if (strt < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString()))
+            {
+
+                MessageBox.Show("Please enter a start date that is greater than todays date.");
+                dtpPkgStartDate.Value = DateTime.Now;
+                return;
+            }
+            else if (end < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString()))
+            {
+                MessageBox.Show("Please enter an end date that is greater than todays date.");
+                dtpPkgEndDate.Value = DateTime.Now;
+                return;
+            }
+            else
+            {
+                pack.PkgStartDate = Convert.ToDateTime(strt.ToShortDateString());
+                pack.PkgEndDate = Convert.ToDateTime(end.ToShortDateString());
+            }
+            // removes the unnecessary dollar sign and comma in the base price and commision
+            pack.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString().Replace("$", "").Replace(",", ""));
+            pack.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString().Replace("$", "").Replace(",", ""));
+
+
             // Checks the text of the Add/edit package button in order to perform various logic
             if (btnAddEditPkg.Text == "Save New Package")
             {
-
+                //Inserts the package into the database and then refreshes the mainpage
+                PackagesDB.InsertPackages(pack);
+                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             }
             else if (btnAddEditPkg.Text == "Save Edited Package")
             {
-                // declare variables
-                Packages pack = new Packages();
-                DateTime strt = dtpPkgStartDate.Value;
-                DateTime end= dtpPkgEndDate.Value;
-                // verifies that the user entered a package name shorter then 50 characters
-                if (txtPackageName.Text.Length>50)
-                {
-                    MessageBox.Show("Please enter a package name shorter then 50 characters.");
-                    return;
-                }
-                else
-                {
-                    pack.PkgName = txtPackageName.Text.ToString();
-                }
-
-                // verifies that the user entered a package description shorter then 50 characters
-                if (txtPkgDesc.Text.Length>50)
-                {
-                    MessageBox.Show("Please enter a package description shorter then 50 characters.");
-                    return;
-                }
-                else
-                {
-                    pack.PkgDesc = txtPkgDesc.Text.ToString();
-                }
-                
-                // checks that the user inputted valid dates for the package
-                if (end < strt && !end.ToShortDateString().Equals(strt.ToShortDateString()))
-                {
-                    dtpPkgEndDate.Value = dtpPkgStartDate.Value;
-                    MessageBox.Show("Please enter an end date that is equal to or greater than the start date.");
-                    return;
-                }
-                else if (strt < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString())) 
-                {
-
-                    MessageBox.Show("Please enter a start date that is greater than todays date.");
-                    dtpPkgStartDate.Value = DateTime.Now;
-                    return;
-                }
-                else if (end < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.Value.ToShortDateString()))
-                {
-                    MessageBox.Show("Please enter an end date that is greater than todays date.");
-                    dtpPkgEndDate.Value = DateTime.Now;
-                    return;
-                }
-                else
-                {
-                    pack.PkgStartDate = strt;
-                    pack.PkgEndDate = end;
-                } 
-                // removes the unnecessary dollar sign and comma in the base price and commision
-                pack.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString().Replace("$","").Replace(",",""));
-                pack.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString().Replace("$", "").Replace(",", ""));
-
                 // updates the package and then refreshes the main page
                 PackagesDB.UpdatePackages(pack, pkgid);
                 this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             }
         }
 
+        //Ethan Shipley
+        // Deletes a selected package
+        private void btnDeletepkg_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("Do you want to delete the package?", "Delete", MessageBoxButtons.YesNo);
+            if (confirm==DialogResult.Yes)
+            {
+                PackagesDB.DeletePackage(pkgid);
+                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            }
+            else
+            {
+                return;
+            }
+            
+        }
         // Ethan Shipley
         private void btnAddEditProd_Click(object sender, EventArgs e)
         {
@@ -248,11 +267,16 @@ namespace TravelExpertsServices
             this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+
+            //THIS TO BE UNCOMMENTED AFTER TESTING
+
             gvPackages.Columns[0].Visible = false;
             gvProducts.Columns[0].Visible = false;
             gvSuppliers.Columns[0].Visible = false;
             gvProducts_pkgs.Columns[0].Visible = false;
             gvSuppliers_pkgs.Columns[0].Visible = false;
+            btnSave_Prod_Sup_pkg.Enabled = false;
+            btnSave_Prod_Sup_pkg.Visible = false;
         }
 
         private void gvPackages_SelectionChanged(object sender, EventArgs e)
@@ -271,8 +295,13 @@ namespace TravelExpertsServices
                                       (decimal)(row.Cells[6].Value));
                 }
                 ppss = PackageProductSuppliersDB.GetProductSuppliersByPackage(selectedPackage);
+                pkgid = selectedPackage.PackageID;
                 gvProducts.DataSource = ppss;
                 gvSuppliers.DataSource = ppss;
+            }
+            catch (NullReferenceException)
+            {
+                return;
             }
             catch (Exception ex)
             {
@@ -380,12 +409,17 @@ namespace TravelExpertsServices
         {
             //getSelectedSupplier();
             cmbProdName.Enabled = true;
+            cmbSupName.Enabled = true;
+            btnSave_Prod_Sup_pkg.Enabled = true;
+            btnSave_Prod_Sup_pkg.Visible = true;
+
         }
 
 
         // Ethan Shipley
         // Gets the selected data to fill in the combo box
-        private void getSelectedPoduct()
+        // Gets the supplier from products data to fill in the supplier combo box
+        private void getSelectedProduct()
         {
             Products selectedProduct = null;
             try
@@ -407,6 +441,8 @@ namespace TravelExpertsServices
             }
         }
 
+        // Ethan Shipley
+        // Gets the product from suppliers data to fill in the product combo box
         private void getSelectedSupplier()
         {
             Suppliers selectedSupplier = null;
@@ -433,7 +469,7 @@ namespace TravelExpertsServices
         // this may be slowing the code
         private void gvSuppliers_pkgs_SelectionChanged(object sender, EventArgs e)
         {
-            getSelectedPoduct();
+            getSelectedProduct();
             //getSelectedSupplier();
             supplierComboBoxMatch();
             productComboBoxMatch();
@@ -443,7 +479,7 @@ namespace TravelExpertsServices
         // this may be slowing the code
         private void gvProducts_pkgs_SelectionChanged(object sender, EventArgs e)
         {
-            getSelectedPoduct();
+            getSelectedProduct();
             //getSelectedSupplier();
             supplierComboBoxMatch();
             productComboBoxMatch();
@@ -485,7 +521,6 @@ namespace TravelExpertsServices
             }
             catch (Exception)
             {
-
                 return;
             }
             
@@ -544,6 +579,44 @@ namespace TravelExpertsServices
                 MessageBox.Show("Please enter a date greater then todays date");
                 dtpPkgEndDate.Value = DateTime.Now;
             }
+        }
+        //Ethan Shipley
+        // determines what the prodcuctId and product supplierid in order to change the product for the package
+        private void btnSaveProdPkg_Click(object sender, EventArgs e)
+        {
+            //Declare the variables that will be used for updating the database
+            int selectedvalueprodid = Convert.ToInt32(cmbProdName.SelectedValue);
+            int selectedprodsupId = -9;
+            int selectedindex;
+
+            // this if statement is used to prevent updates to the database upon opening of the program and closing of program
+            if (selectedvalueprodid == 0)
+            {
+                return;
+            }
+            // goes through ppss to determine the productsupplier id that will be used to determine the coorect field is properly updated
+            foreach (var item in ppss)
+            {
+                // this if statement find matching packageID and productID in order to determine the selected products products supplierID
+                if ((pkgid == item.PackageId) && (Convert.ToInt32(gvProducts_pkgs[0, gvProducts_pkgs.CurrentCell.RowIndex].Value) == item.ProductId))
+                {
+                    selectedprodsupId = item.ProductSupplierId;
+                    break;
+                }
+            }
+            if (selectedvalueprodid == 0 || selectedprodsupId == -9)
+            {
+                return;
+            }
+            //MessageBox.Show(selectedvalueprodid + "   " + selectedprodsupId);
+            //Updated the data base and
+            ProdSupplierDB.UpdateProductIDByPackage(pkgid, selectedvalueprodid, selectedprodsupId);
+            //selectedindex = Convert.ToInt32(gvPackages[0, gvPackages.CurrentCell.RowIndex].Value);Rows(selectedindex).Cells(0);
+            selectedindex = gvPackages.CurrentCell.RowIndex;
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            gvPackages.CurrentCell = gvPackages[1, selectedindex];
+            gvProducts_pkgs.DataSource = ppss;
+            gvSuppliers_pkgs.DataSource = ppss;
         }
     }
 }

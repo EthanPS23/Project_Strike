@@ -1,6 +1,6 @@
 ﻿namespace TravelExpertsServices
 {
-    partial class Form1
+    partial class   Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMainPage = new System.Windows.Forms.TabPage();
+            this.btnDeletepkg = new System.Windows.Forms.Button();
             this.gvSuppliers = new System.Windows.Forms.DataGridView();
             this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +59,7 @@
             this.btnAddProd = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
             this.tabPackages = new System.Windows.Forms.TabPage();
+            this.btnSave_Prod_Sup_pkg = new System.Windows.Forms.Button();
             this.lblPkgDescLength = new System.Windows.Forms.Label();
             this.lblPkgNameLength = new System.Windows.Forms.Label();
             this.btnChangeProd = new System.Windows.Forms.Button();
@@ -115,6 +117,7 @@
             this.productsTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
             this.suppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.SuppliersTableAdapter();
             this.products_SuppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.Products_SuppliersTableAdapter();
+            this.btnSaveProdPkg = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabMainPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers)).BeginInit();
@@ -152,6 +155,7 @@
             // tabMainPage
             // 
             this.tabMainPage.AutoScroll = true;
+            this.tabMainPage.Controls.Add(this.btnDeletepkg);
             this.tabMainPage.Controls.Add(this.gvSuppliers);
             this.tabMainPage.Controls.Add(this.gvProducts);
             this.tabMainPage.Controls.Add(this.gvPackages);
@@ -169,6 +173,16 @@
             this.tabMainPage.TabIndex = 0;
             this.tabMainPage.Text = "Main Page";
             this.tabMainPage.UseVisualStyleBackColor = true;
+            // 
+            // btnDeletepkg
+            // 
+            this.btnDeletepkg.Location = new System.Drawing.Point(573, 199);
+            this.btnDeletepkg.Name = "btnDeletepkg";
+            this.btnDeletepkg.Size = new System.Drawing.Size(116, 28);
+            this.btnDeletepkg.TabIndex = 10;
+            this.btnDeletepkg.Text = "Delete Package";
+            this.btnDeletepkg.UseVisualStyleBackColor = true;
+            this.btnDeletepkg.Click += new System.EventHandler(this.btnDeletepkg_Click);
             // 
             // gvSuppliers
             // 
@@ -317,9 +331,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -329,9 +343,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -412,6 +426,8 @@
             // tabPackages
             // 
             this.tabPackages.AutoScroll = true;
+            this.tabPackages.Controls.Add(this.btnSaveProdPkg);
+            this.tabPackages.Controls.Add(this.btnSave_Prod_Sup_pkg);
             this.tabPackages.Controls.Add(this.lblPkgDescLength);
             this.tabPackages.Controls.Add(this.lblPkgNameLength);
             this.tabPackages.Controls.Add(this.btnChangeProd);
@@ -448,6 +464,17 @@
             this.tabPackages.Text = "Packages";
             this.tabPackages.UseVisualStyleBackColor = true;
             // 
+            // btnSave_Prod_Sup_pkg
+            // 
+            this.btnSave_Prod_Sup_pkg.Enabled = false;
+            this.btnSave_Prod_Sup_pkg.Location = new System.Drawing.Point(274, 372);
+            this.btnSave_Prod_Sup_pkg.Name = "btnSave_Prod_Sup_pkg";
+            this.btnSave_Prod_Sup_pkg.Size = new System.Drawing.Size(137, 44);
+            this.btnSave_Prod_Sup_pkg.TabIndex = 29;
+            this.btnSave_Prod_Sup_pkg.Text = "Save Product Suppliers";
+            this.btnSave_Prod_Sup_pkg.UseVisualStyleBackColor = true;
+            this.btnSave_Prod_Sup_pkg.Visible = false;
+            // 
             // lblPkgDescLength
             // 
             this.lblPkgDescLength.AutoSize = true;
@@ -480,7 +507,7 @@
             this.cmbSupName.DisplayMember = "SupName";
             this.cmbSupName.Enabled = false;
             this.cmbSupName.FormattingEnabled = true;
-            this.cmbSupName.Location = new System.Drawing.Point(212, 303);
+            this.cmbSupName.Location = new System.Drawing.Point(212, 342);
             this.cmbSupName.Name = "cmbSupName";
             this.cmbSupName.Size = new System.Drawing.Size(249, 24);
             this.cmbSupName.TabIndex = 24;
@@ -559,6 +586,7 @@
             this.dataGridViewTextBoxColumn14.DataPropertyName = "SupName";
             this.dataGridViewTextBoxColumn14.HeaderText = "Supplier Name";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn14.Width = 130;
             // 
@@ -603,12 +631,13 @@
             this.dataGridViewTextBoxColumn16.DataPropertyName = "ProdName";
             this.dataGridViewTextBoxColumn16.HeaderText = "Product Name";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn16.Width = 127;
             // 
             // btnAddEditPkg
             // 
-            this.btnAddEditPkg.Location = new System.Drawing.Point(173, 361);
+            this.btnAddEditPkg.Location = new System.Drawing.Point(285, 268);
             this.btnAddEditPkg.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEditPkg.Name = "btnAddEditPkg";
             this.btnAddEditPkg.Size = new System.Drawing.Size(107, 28);
@@ -621,8 +650,9 @@
             // 
             this.cmbProdName.DataSource = this.productsBindingSource;
             this.cmbProdName.DisplayMember = "ProdName";
+            this.cmbProdName.Enabled = false;
             this.cmbProdName.FormattingEnabled = true;
-            this.cmbProdName.Location = new System.Drawing.Point(212, 270);
+            this.cmbProdName.Location = new System.Drawing.Point(212, 309);
             this.cmbProdName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProdName.Name = "cmbProdName";
             this.cmbProdName.Size = new System.Drawing.Size(249, 24);
@@ -681,7 +711,7 @@
             // lblSupName
             // 
             this.lblSupName.AutoSize = true;
-            this.lblSupName.Location = new System.Drawing.Point(8, 306);
+            this.lblSupName.Location = new System.Drawing.Point(8, 345);
             this.lblSupName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSupName.Name = "lblSupName";
             this.lblSupName.Size = new System.Drawing.Size(105, 17);
@@ -701,7 +731,7 @@
             // lblProdName
             // 
             this.lblProdName.AutoSize = true;
-            this.lblProdName.Location = new System.Drawing.Point(8, 273);
+            this.lblProdName.Location = new System.Drawing.Point(8, 312);
             this.lblProdName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProdName.Name = "lblProdName";
             this.lblProdName.Size = new System.Drawing.Size(102, 17);
@@ -1010,6 +1040,16 @@
             // 
             this.products_SuppliersTableAdapter.ClearBeforeFill = true;
             // 
+            // btnSaveProdPkg
+            // 
+            this.btnSaveProdPkg.Location = new System.Drawing.Point(468, 306);
+            this.btnSaveProdPkg.Name = "btnSaveProdPkg";
+            this.btnSaveProdPkg.Size = new System.Drawing.Size(104, 28);
+            this.btnSaveProdPkg.TabIndex = 30;
+            this.btnSaveProdPkg.Text = "Save Product";
+            this.btnSaveProdPkg.UseVisualStyleBackColor = true;
+            this.btnSaveProdPkg.Click += new System.EventHandler(this.btnSaveProdPkg_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1126,13 +1166,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.Button btnChangeProd;
+        private System.Windows.Forms.Label lblPkgNameLength;
+        private System.Windows.Forms.Label lblPkgDescLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.Button btnChangeProd;
-        private System.Windows.Forms.Label lblPkgNameLength;
-        private System.Windows.Forms.Label lblPkgDescLength;
+        private System.Windows.Forms.Button btnDeletepkg;
+        private System.Windows.Forms.Button btnSave_Prod_Sup_pkg;
+        private System.Windows.Forms.Button btnSaveProdPkg;
     }
 }
 
