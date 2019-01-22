@@ -1,0 +1,9 @@
+create login sohail with password = 'Travel2$19'
+
+create user sohail for login sohail with default_schema = dbo
+
+
+exec sp_addrolemember 'db_owner', 'sohail'
+exec sp_addrolemember 'db_datareader', 'sohail'
+exec sp_addrolemember 'db_datawriter', 'sohail'
+exec sp_addrolemember 'db_ddladmin', 'sohail'
