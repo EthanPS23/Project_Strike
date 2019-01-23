@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -107,6 +107,8 @@
             this.btnAddPkg = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPackages = new System.Windows.Forms.TabPage();
+            this.gvProdSup_all_pkgs = new System.Windows.Forms.DataGridView();
+            this.btnNewPkgProdSup = new System.Windows.Forms.Button();
             this.gvProdSup_pkg = new System.Windows.Forms.DataGridView();
             this.lblPkgDescLength = new System.Windows.Forms.Label();
             this.lblPkgNameLength = new System.Windows.Forms.Label();
@@ -123,7 +125,8 @@
             this.lblPkgAgencyCommission = new System.Windows.Forms.Label();
             this.lblPkgBasePrice = new System.Windows.Forms.Label();
             this.lblPkgName = new System.Windows.Forms.Label();
-            this.btnUpdatePkgProdSup = new System.Windows.Forms.Button();
+            this.btnAddPkgProdSup = new System.Windows.Forms.Button();
+            this.btnDeletePkgProdSup_Click = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -145,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPackages.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_all_pkgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_pkg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -743,6 +747,7 @@
             this.gvPackages.DataSource = this.packagesBindingSource;
             this.gvPackages.Location = new System.Drawing.Point(5, 6);
             this.gvPackages.Margin = new System.Windows.Forms.Padding(2);
+            this.gvPackages.MultiSelect = false;
             this.gvPackages.Name = "gvPackages";
             this.gvPackages.ReadOnly = true;
             this.gvPackages.RowTemplate.Height = 24;
@@ -800,9 +805,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -812,9 +817,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -897,7 +902,10 @@
             // tabPackages
             // 
             this.tabPackages.AutoScroll = true;
-            this.tabPackages.Controls.Add(this.btnUpdatePkgProdSup);
+            this.tabPackages.Controls.Add(this.btnDeletePkgProdSup_Click);
+            this.tabPackages.Controls.Add(this.btnAddPkgProdSup);
+            this.tabPackages.Controls.Add(this.gvProdSup_all_pkgs);
+            this.tabPackages.Controls.Add(this.btnNewPkgProdSup);
             this.tabPackages.Controls.Add(this.gvProdSup_pkg);
             this.tabPackages.Controls.Add(this.lblPkgDescLength);
             this.tabPackages.Controls.Add(this.lblPkgNameLength);
@@ -922,11 +930,33 @@
             this.tabPackages.Text = "Packages";
             this.tabPackages.UseVisualStyleBackColor = true;
             // 
+            // gvProdSup_all_pkgs
+            // 
+            this.gvProdSup_all_pkgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvProdSup_all_pkgs.Location = new System.Drawing.Point(465, 196);
+            this.gvProdSup_all_pkgs.MultiSelect = false;
+            this.gvProdSup_all_pkgs.Name = "gvProdSup_all_pkgs";
+            this.gvProdSup_all_pkgs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvProdSup_all_pkgs.Size = new System.Drawing.Size(543, 150);
+            this.gvProdSup_all_pkgs.TabIndex = 34;
+            this.gvProdSup_all_pkgs.Visible = false;
+            // 
+            // btnNewPkgProdSup
+            // 
+            this.btnNewPkgProdSup.Location = new System.Drawing.Point(465, 167);
+            this.btnNewPkgProdSup.Name = "btnNewPkgProdSup";
+            this.btnNewPkgProdSup.Size = new System.Drawing.Size(91, 23);
+            this.btnNewPkgProdSup.TabIndex = 33;
+            this.btnNewPkgProdSup.Text = "New Product";
+            this.btnNewPkgProdSup.UseVisualStyleBackColor = true;
+            this.btnNewPkgProdSup.Click += new System.EventHandler(this.btnUpdatePkgProdSup_Click);
+            // 
             // gvProdSup_pkg
             // 
             this.gvProdSup_pkg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProdSup_pkg.Location = new System.Drawing.Point(465, 11);
             this.gvProdSup_pkg.Name = "gvProdSup_pkg";
+            this.gvProdSup_pkg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProdSup_pkg.Size = new System.Drawing.Size(543, 150);
             this.gvProdSup_pkg.TabIndex = 32;
             // 
@@ -1061,15 +1091,25 @@
             this.lblPkgName.TabIndex = 1;
             this.lblPkgName.Text = "Package Name:";
             // 
-            // btnUpdatePkgProdSup
+            // btnAddPkgProdSup
             // 
-            this.btnUpdatePkgProdSup.Location = new System.Drawing.Point(465, 170);
-            this.btnUpdatePkgProdSup.Name = "btnUpdatePkgProdSup";
-            this.btnUpdatePkgProdSup.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdatePkgProdSup.TabIndex = 33;
-            this.btnUpdatePkgProdSup.Text = "Update";
-            this.btnUpdatePkgProdSup.UseVisualStyleBackColor = true;
-            this.btnUpdatePkgProdSup.Click += new System.EventHandler(this.btnUpdatePkgProdSup_Click);
+            this.btnAddPkgProdSup.Location = new System.Drawing.Point(465, 365);
+            this.btnAddPkgProdSup.Name = "btnAddPkgProdSup";
+            this.btnAddPkgProdSup.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPkgProdSup.TabIndex = 35;
+            this.btnAddPkgProdSup.Text = "Add New";
+            this.btnAddPkgProdSup.UseVisualStyleBackColor = true;
+            this.btnAddPkgProdSup.Click += new System.EventHandler(this.btnAddPkgProdSup_Click);
+            // 
+            // btnDeletePkgProdSup_Click
+            // 
+            this.btnDeletePkgProdSup_Click.Location = new System.Drawing.Point(689, 167);
+            this.btnDeletePkgProdSup_Click.Name = "btnDeletePkgProdSup_Click";
+            this.btnDeletePkgProdSup_Click.Size = new System.Drawing.Size(91, 23);
+            this.btnDeletePkgProdSup_Click.TabIndex = 36;
+            this.btnDeletePkgProdSup_Click.Text = "Delete Product";
+            this.btnDeletePkgProdSup_Click.UseVisualStyleBackColor = true;
+            this.btnDeletePkgProdSup_Click.Click += new System.EventHandler(this.btnDeletePkgProdSup_Click_Click);
             // 
             // Form1
             // 
@@ -1105,6 +1145,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPackages.ResumeLayout(false);
             this.tabPackages.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_all_pkgs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_pkg)).EndInit();
             this.ResumeLayout(false);
 
@@ -1203,7 +1244,10 @@
         private System.Windows.Forms.Label lblPkgAgencyCommission;
         private System.Windows.Forms.Label lblPkgBasePrice;
         private System.Windows.Forms.Label lblPkgName;
-        private System.Windows.Forms.Button btnUpdatePkgProdSup;
+        private System.Windows.Forms.Button btnNewPkgProdSup;
+        private System.Windows.Forms.DataGridView gvProdSup_all_pkgs;
+        private System.Windows.Forms.Button btnAddPkgProdSup;
+        private System.Windows.Forms.Button btnDeletePkgProdSup_Click;
     }
 }
 

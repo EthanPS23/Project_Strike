@@ -25,7 +25,7 @@ namespace TravelExpertsServices
         List<Suppliers> Sup = null;
         List<Suppliers> selectSuppliers;
         List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
-        List<PackageProductSuppliers> ppss_all = new List<PackageProductSuppliers>();
+        List<ProdSuppliersNames> psn = new List<ProdSuppliersNames>();
         List<Packages> PackagesList = PackagesDB.GetPackages();
         public Form1()
         {
@@ -57,11 +57,12 @@ namespace TravelExpertsServices
             tabControl1.SelectedIndex = 1;
             btnAddEditPkg.Text = "Save Edited Package";
             //int rw = packagesDataGridView.CurrentCell.RowIndex;
-            int rw = gvPackages.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = gvPackages.Rows[rw];
+            //int rw = gvPackages.SelectedCells[0].RowIndex;
+            //DataGridViewRow selectedRow = gvPackages.Rows[rw];
             var Packages = from Pkg in PackagesList
                                //where Pkg.PackageID == Convert.ToInt32(packagesDataGridView[0, rw].Value)
-                           where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
+                           //where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
+                           where Pkg.PackageID == getSelectedCellValue(gvPackages, 0)
                            select new
                            {
                                Pkg.PackageID,
@@ -104,11 +105,11 @@ namespace TravelExpertsServices
         // Formats the ppackages prod and supplier details
         private static void PackagesListDetails(DataGridView dataGridView)
         {
-            dataGridView.Columns[0].Visible = false;
-            dataGridView.Columns[1].Visible = false;
-            dataGridView.Columns[2].Visible = false;
-            dataGridView.Columns[3].Visible = false;
-            dataGridView.Columns[4].Visible = false;
+            //dataGridView.Columns[0].Visible = false;
+            //dataGridView.Columns[1].Visible = false;
+            //dataGridView.Columns[2].Visible = false;
+            //dataGridView.Columns[3].Visible = false;
+            //dataGridView.Columns[4].Visible = false;
             //dataGridView.Columns[5].Visible = false;
             dataGridView.Columns[5].HeaderText = "Product Name";
             dataGridView.Columns[6].HeaderText = "Supplier Name";
@@ -687,9 +688,54 @@ namespace TravelExpertsServices
             UpdateBinding();
         }
 
+        //Ethan Shipley
+        // Dsiplays the list of available product suppliers
         private void btnUpdatePkgProdSup_Click(object sender, EventArgs e)
         {
-
+            psn = ProdSuppliersNamesDB.GetProdSupAll();
+            gvProdSup_all_pkgs.DataSource = psn;
+            //ProdSupListDetails(gvProdSup_all_pkgs);
+            gvProdSup_all_pkgs.Visible = true;
         }
+
+        //Ethan Shipley
+        // Formats the prod and supplier details
+        private static void ProdSupListDetails(DataGridView dataGridView)
+        {
+            dataGridView.Columns[0].Visible = false;
+            dataGridView.Columns[1].Visible = false;
+            dataGridView.Columns[2].Visible = false;
+            dataGridView.Columns[3].HeaderText = "Product Name";
+            dataGridView.Columns[4].HeaderText = "Supplier Name";
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        
+        private void btnAddPkgProdSup_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(getSelectedCellValue(gvProdSup_all_pkgs, 0).ToString());
+            PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_all_pkgs, 0));
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+        }
+
+        //Ethan Shipley
+        // Adds the products suppliers to the package
+        private void btnDeletePkgProdSup_Click_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(getSelectedCellValue(gvProdSup_pkg, 1).ToString());
+            PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_pkg, 1));
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+        }
+
+        //Ethan Shipley
+        // Gets the cells value from selected cell based on required column
+        private int getSelectedCellValue(DataGridView dataGridView, int column)
+        {
+            int rw = dataGridView.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView.Rows[rw];
+            return Convert.ToInt32(selectedRow.Cells[column].Value);
+        }
+
+        
     }
 }
