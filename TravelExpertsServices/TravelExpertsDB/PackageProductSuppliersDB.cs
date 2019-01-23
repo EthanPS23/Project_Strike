@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TravelExpertsDB
 {
@@ -55,6 +56,56 @@ namespace TravelExpertsDB
                 con.Close();
             }
             return ppss;
+        }
+        public static void InsertProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "Insert Packages_Products_Suppliers " +
+                    "(PackageId, ProductSupplierId)" +
+                "Values " +
+                    "(@PackageId, @ProductSupplierId); ";
+            SqlCommand cmdinsert = new SqlCommand(sql, con);
+            cmdinsert.Parameters.AddWithValue("@PackageId", PackageId);
+            cmdinsert.Parameters.AddWithValue("@ProductSupplierId", ProductSupplierId);
+            try
+            {
+                con.Open();
+                cmdinsert.ExecuteNonQuery();
+                MessageBox.Show("Package insert successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public static void DeleteProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "Delete From Packages_Products_Suppliers " +
+                "where PackageId=@PackageId AND ProductSupplierId=@ProductSupplierId";
+            SqlCommand cmddelete = new SqlCommand(sql, con);
+            cmddelete.Parameters.AddWithValue("@PackageId", PackageId);
+            cmddelete.Parameters.AddWithValue("@ProductSupplierId", ProductSupplierId);
+            try
+            {
+                con.Open();
+                cmddelete.ExecuteNonQuery();
+                MessageBox.Show("Package delete successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }
