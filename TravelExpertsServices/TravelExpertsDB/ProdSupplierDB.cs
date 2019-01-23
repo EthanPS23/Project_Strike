@@ -10,6 +10,7 @@ namespace TravelExpertsDB
 {
     public class ProdSupplierDB
     {
+        
         public static ProdSuppliers GetProductSupplierById(int pId, int sId)
         {
             ProdSuppliers ps = new ProdSuppliers();
@@ -43,9 +44,14 @@ namespace TravelExpertsDB
             }
             return ps;
         }
+
+        // Ethan Shipley
+        //Updates the productId associated with the product supplier Id by connecting to the database, creating an sql statement and then executing the sql command
         public static void UpdateProductIDByPackage(int pkgid, int prodid, int prodsupid)
         {
+            // create sql connection
             SqlConnection con = DBConnection.GetConnection();
+            //prepare the sql statement
             string sql = "UPDATE Products_Suppliers " +
                          "SET ProductId = @Productid " +
                          "FROM Packages pk " +
@@ -58,12 +64,53 @@ namespace TravelExpertsDB
                          "INNER JOIN Suppliers s " +
                          "ON s.SupplierId = ps.SupplierId " +
                          "WHERE pps.PackageId = @PackageId AND pps.ProductSupplierId = @ProductSupplierId";
-            
+            //sql command is created containing the sql statement and connection
             SqlCommand cmdupdate = new SqlCommand(sql, con);
             cmdupdate.Parameters.AddWithValue("@Productid", prodid);
             cmdupdate.Parameters.AddWithValue("@PackageId", pkgid);
             cmdupdate.Parameters.AddWithValue("@ProductSupplierId", prodsupid);
-            //MessageBox.Show(cmdupdate.CommandText);
+            //trys to open a connection with database, executes the query and then displays a message if update successful
+            try
+            {
+                con.Open();
+                cmdupdate.ExecuteNonQuery();
+                MessageBox.Show("Package product update successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        // Ethan Shipley
+        //Updates the supplierId associated with the product supplier Id by connecting to the database, creating an sql statement and then executing the sql command
+        public static void UpdateSupplierIDByPackage(int pkgid, int supid, int prodsupid)
+        {
+            // create sql connection
+            SqlConnection con = DBConnection.GetConnection();
+            //prepare the sql statement
+            string sql = "UPDATE Products_Suppliers " +
+                         "SET SupplierId = @SupplierId " +
+                         "FROM Packages pk " +
+                         "INNER JOIN Packages_Products_Suppliers pps " +
+                         "ON pps.PackageId = pk.PackageId " +
+                         "INNER JOIN Products_Suppliers ps " +
+                         "ON pps.ProductSupplierId = ps.ProductSupplierId " +
+                         "INNER JOIN Products P " +
+                         "ON p.ProductId = ps.ProductId " +
+                         "INNER JOIN Suppliers s " +
+                         "ON s.SupplierId = ps.SupplierId " +
+                         "WHERE pps.PackageId = @PackageId AND pps.ProductSupplierId = @ProductSupplierId";
+            //sql command is created containing the sql statement and connection
+            SqlCommand cmdupdate = new SqlCommand(sql, con);
+            cmdupdate.Parameters.AddWithValue("@SupplierId", supid);
+            cmdupdate.Parameters.AddWithValue("@PackageId", pkgid);
+            cmdupdate.Parameters.AddWithValue("@ProductSupplierId", prodsupid);
+            //trys to open a connection with database, executes the query and then displays a message if update successful
             try
             {
                 con.Open();
