@@ -14,6 +14,8 @@ using System.Data.SqlClient;
 namespace TravelExpertsServices
 {
     // Ethan Shipley
+    // Ethans test 
+    //of code added
     public partial class Form1 : Form
     {
         // create constants
