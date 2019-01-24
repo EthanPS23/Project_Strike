@@ -24,7 +24,7 @@ namespace TravelExpertsDB
                 "ON ps.SupplierId = s.SupplierId " +
                 "INNER JOIN Products p " +
                 "ON ps.ProductId = p.ProductId " +
-                "ORDER BY p.ProdName; ";
+                "ORDER BY p.ProdName, s.SupName; ";
             SqlCommand cmdselect = new SqlCommand(sql, con);
             try
             {

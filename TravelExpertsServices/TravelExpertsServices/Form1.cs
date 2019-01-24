@@ -20,7 +20,7 @@ namespace TravelExpertsServices
         const int PKG_DESC_LENGTH = 50;
         // variables
         int pkgid;
-        int slct_colmn;
+        int slct_colmn=-1;
         // display products & suppliers
         List<Products> Prod = null;
         List<Products> selectProducts;
@@ -49,6 +49,7 @@ namespace TravelExpertsServices
             gvProducts_pkgs.DataSource = "";
             cmbProdName.Enabled = false;
             cmbSupName.Enabled = false;
+            hideunhide(false);
             btnAddEditPkg.Text = "Save New Package";
         }
 
@@ -92,6 +93,7 @@ namespace TravelExpertsServices
             supplierComboBoxMatch();
             cmbProdName.Enabled = false;
             cmbSupName.Enabled = false;
+            hideunhide(false);
         }
 
         // Ethan Shipley
@@ -122,12 +124,11 @@ namespace TravelExpertsServices
         // Formats the ppackages prod and supplier details
         private static void PackagesListDetails(DataGridView dataGridView)
         {
-            //dataGridView.Columns[0].Visible = false;
-            //dataGridView.Columns[1].Visible = false;
-            //dataGridView.Columns[2].Visible = false;
-            //dataGridView.Columns[3].Visible = false;
-            //dataGridView.Columns[4].Visible = false;
-            //dataGridView.Columns[5].Visible = false;
+            dataGridView.Columns[0].Visible = false;
+            dataGridView.Columns[1].Visible = false;
+            dataGridView.Columns[2].Visible = false;
+            dataGridView.Columns[3].Visible = false;
+            dataGridView.Columns[4].Visible = false;
             dataGridView.Columns[5].HeaderText = "Product Name";
             dataGridView.Columns[6].HeaderText = "Supplier Name";
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -252,7 +253,8 @@ namespace TravelExpertsServices
                 return;
             }
             PackagesDB.DeletePackage(pkgid);
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);            
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            hideunhide(false);
         }
         // Ethan Shipley
         private void btnAddEditProd_Click(object sender, EventArgs e)
@@ -704,12 +706,32 @@ namespace TravelExpertsServices
         // Dsiplays the list of available product suppliers
         private void btnUpdatePkgProdSup_Click(object sender, EventArgs e)
         {
+            if (slct_colmn==-1)
+            {
+                MessageBox.Show("Cannot add new product. Please add a package or edit an existing package.");
+                return;
+            }
             psn = ProdSuppliersNamesDB.GetProdSupAll();
             gvProdSup_all_pkgs.DataSource = psn;
-            //ProdSupListDetails(gvProdSup_all_pkgs);
-            gvProdSup_all_pkgs.Visible = true;
+            ProdSupListDetails(gvProdSup_all_pkgs);
+            hideunhide(true);
         }
 
+        //Ethan Shipley
+        // Hides and unhides prod suppplier gridview and button
+        private void hideunhide(bool hd)
+        {
+            if (hd)
+            {
+                btnAddPkgProdSup.Visible = true;
+                gvProdSup_all_pkgs.Visible = true;
+            }
+            else
+            {
+                btnAddPkgProdSup.Visible = false;
+                gvProdSup_all_pkgs.Visible = false;
+            }
+        }
         //Ethan Shipley
         // Formats the prod and supplier details
         private static void ProdSupListDetails(DataGridView dataGridView)
@@ -737,6 +759,11 @@ namespace TravelExpertsServices
         private void btnDeletePkgProdSup_Click_Click(object sender, EventArgs e)
         {
             //string useranswer = Interaction.InputBox("My msg", "title", "default response");
+            if (slct_colmn == -1)
+            {
+                MessageBox.Show("Cannot add new product. Please add a package or edit an existing package.");
+                return;
+            }
             if (!deleteConfirm())
             {
                 return;
