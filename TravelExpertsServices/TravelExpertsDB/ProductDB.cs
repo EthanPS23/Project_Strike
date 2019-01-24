@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace TravelExpertsDB
 {
     public class ProductDB
@@ -27,7 +26,6 @@ namespace TravelExpertsDB
                     Pd = new Products();
                     Pd.ProductId = (int)reader["ProductId"];
                     Pd.ProdName = (string)reader["ProdName"];
-
                     Prod.Add(Pd);
                 }
             }
@@ -41,14 +39,13 @@ namespace TravelExpertsDB
             }
             return Prod;
         }
-
-        public static List<Suppliers> GetProductSuppliersByProduct(Products p)
+        public static List<Supplier> GetProductSuppliersByProduct(Products p)
         {
             if (p == null)
                 return null;
             else
             {
-                List<Suppliers> suppliers = new List<Suppliers>();
+                List<Supplier> suppliers = new List<Supplier>();
                 SqlConnection con = DBConnection.GetConnection();
                 string sql =
                     "SELECT s.SupplierId, s.SupName " +
@@ -66,7 +63,7 @@ namespace TravelExpertsDB
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        Suppliers supplier = new Suppliers();
+                        Supplier supplier = new Supplier();
                         supplier.SupplierId = Convert.ToInt32(reader["SupplierId"]);
                         supplier.SupName = Convert.ToString(reader["SupName"]);
                         suppliers.Add(supplier);
@@ -83,7 +80,6 @@ namespace TravelExpertsDB
                 return suppliers;
             }
         }
-
         public static void InsertProduct(Products np)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -91,7 +87,6 @@ namespace TravelExpertsDB
                          "VALUES (@ProdName)";
             SqlCommand cmdInsert = new SqlCommand(sql, con);
             cmdInsert.Parameters.AddWithValue("@ProdName", np.ProdName);
-
             try
             {
                 con.Open();
@@ -132,18 +127,16 @@ namespace TravelExpertsDB
                 con.Close();
             }
         }
-
         public static void DeleteProduct(Products dp)
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql =
                 "DELETE FROM Products " +
                 "WHERE ProductId = @ProductID " +
-                "AND ProdName = @ProdName"; 
+                "AND ProdName = @ProdName";
             SqlCommand cmdDelete = new SqlCommand(sql, con);
             cmdDelete.Parameters.AddWithValue("@ProductID", dp.ProductId);
             cmdDelete.Parameters.AddWithValue("@ProdName", dp.ProdName);
-
             try
             {
                 con.Open();
