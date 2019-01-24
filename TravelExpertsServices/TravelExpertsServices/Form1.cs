@@ -86,7 +86,7 @@ namespace TravelExpertsServices
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
                 txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString("c");
             }
-            UpdateBinding();
+            UpdateBinding(true);
             PackagesListDetails(gvProdSup_pkg);
             getSelectedProduct();
             supplierComboBoxMatch();
@@ -95,9 +95,23 @@ namespace TravelExpertsServices
         }
 
         // Ethan Shipley
-        // Updates the datasource for grid views
-        private void UpdateBinding()
+        // Updates the datasource for grid views. if input is true then there is already an existing selected row
+        // if false then new row is what is wanted to be selected
+        private void UpdateBinding(bool crnt_cell)
         {
+            //
+            if (crnt_cell)
+            {
+                slct_colmn = gvPackages.CurrentCell.RowIndex;
+                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                gvPackages.CurrentCell = gvPackages[3, slct_colmn];
+            }
+            else
+            {
+                int indx = gvPackages.Rows.Count - 1;
+                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                gvPackages.CurrentCell = gvPackages[3, indx];
+            }
             gvProducts_pkgs.DataSource = ppss;
             gvSuppliers_pkgs.DataSource = ppss;
             gvProdSup_pkg.DataSource = ppss;
@@ -219,13 +233,13 @@ namespace TravelExpertsServices
             {
                 //Inserts the package into the database and then refreshes the mainpage
                 PackagesDB.InsertPackages(pack);
-                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                UpdateBinding(false);
             }
             else if (btnAddEditPkg.Text == "Save Edited Package")
             {
                 // updates the package and then refreshes the main page
                 PackagesDB.UpdatePackages(pack, pkgid);
-                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                UpdateBinding(true);
             }
         }
 
@@ -637,7 +651,7 @@ namespace TravelExpertsServices
             selectedindex = gvPackages.CurrentCell.RowIndex;
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             gvPackages.CurrentCell = gvPackages[1, selectedindex];
-            UpdateBinding();
+            UpdateBinding(true);
         }
 
         //Ethan Shipley
@@ -683,7 +697,7 @@ namespace TravelExpertsServices
             selectedindex = gvPackages.CurrentCell.RowIndex;
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             gvPackages.CurrentCell = gvPackages[1, selectedindex];
-            UpdateBinding();
+            UpdateBinding(true);
         }
 
         //Ethan Shipley
@@ -713,12 +727,11 @@ namespace TravelExpertsServices
         private void btnAddPkgProdSup_Click(object sender, EventArgs e)
         {
             PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_all_pkgs, 0));
-            slct_colmn = gvPackages.CurrentCell.RowIndex; 
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            gvPackages.CurrentCell = gvPackages[3, slct_colmn];
-            UpdateBinding();
+            
+            UpdateBinding(true);
         }
 
+        
         //Ethan Shipley
         // Deletes the products suppliers to the package
         private void btnDeletePkgProdSup_Click_Click(object sender, EventArgs e)
@@ -733,7 +746,7 @@ namespace TravelExpertsServices
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             gvPackages.CurrentCell = gvPackages[3, slct_colmn];
 
-            UpdateBinding();
+            UpdateBinding(true);
         }
 
         //Ethan Shipley
