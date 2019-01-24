@@ -224,9 +224,57 @@ namespace TravelExpertsServices
                 pack.PkgStartDate = Convert.ToDateTime(strt.ToShortDateString());
                 pack.PkgEndDate = Convert.ToDateTime(end.ToShortDateString());
             }
+
             // removes the unnecessary dollar sign and comma in the base price and commision
-            pack.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString().Replace("$", "").Replace(",", ""));
-            pack.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString().Replace("$", "").Replace(",", ""));
+            decimal PkgBasePrice;
+            decimal PkgAgencyCommission;
+            try
+            {
+                PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString().Replace("$", "").Replace(",", ""));
+                if (PkgBasePrice<=0)
+                {
+                    MessageBox.Show("Please enter a number for base price greater than zero.");
+                    txtPkgBasePrice.Text = "";
+                    return;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a number for base price.");
+                txtPkgBasePrice.Text = "";
+                return;
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Please enter a number for base price below 7.9228 x 102^8.");
+                txtPkgBasePrice.Text = "";
+                return;
+            }
+            pack.PkgBasePrice = PkgBasePrice;
+            try
+            { 
+                PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString().Replace("$", "").Replace(",", ""));
+                if (PkgAgencyCommission <= 0)
+                {
+                    MessageBox.Show("Please enter a number for agency commision greater than zero.");
+                    txtPkgAgencyCommission.Text = "";
+                    return;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a number for agency commision.");
+                txtPkgAgencyCommission.Text = "";
+                return;
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Please enter a number for agency commision below 7.9228 x 102^8.");
+                txtPkgAgencyCommission.Text = "";
+                return;
+            }
+            pack.PkgAgencyCommission = PkgAgencyCommission;
+
 
 
             // Checks the text of the Add/edit package button in order to perform various logic
@@ -234,12 +282,14 @@ namespace TravelExpertsServices
             {
                 //Inserts the package into the database and then refreshes the mainpage
                 PackagesDB.InsertPackages(pack);
+                PackagesList = PackagesDB.GetPackages();
                 UpdateBinding(false);
             }
             else if (btnAddEditPkg.Text == "Save Edited Package")
             {
                 // updates the package and then refreshes the main page
                 PackagesDB.UpdatePackages(pack, pkgid);
+                PackagesList = PackagesDB.GetPackages();
                 UpdateBinding(true);
             }
         }
@@ -312,6 +362,9 @@ namespace TravelExpertsServices
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
 
             //THIS TO BE UNCOMMENTED AFTER TESTING
+
+            //dtpPkgStartDate.MinDate = DateTime.Now;
+            //dtpPkgEndDate.MinDate = DateTime.Now;
 
             gvPackages.Columns[0].Visible = false;
             gvProducts.Columns[0].Visible = false;
@@ -711,7 +764,7 @@ namespace TravelExpertsServices
                 MessageBox.Show("Cannot add new product. Please add a package or edit an existing package.");
                 return;
             }
-            psn = ProdSuppliersNamesDB.GetProdSupAll();
+            psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
             gvProdSup_all_pkgs.DataSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
             hideunhide(true);
@@ -751,6 +804,15 @@ namespace TravelExpertsServices
             PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_all_pkgs, 0));
             
             UpdateBinding(true);
+
+            //duplicate code
+            psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+            gvProdSup_all_pkgs.DataSource = psn;
+            ProdSupListDetails(gvProdSup_all_pkgs);
+            hideunhide(true);
+            gvProdSup_all_pkgs.DataSource = psn;
+            ProdSupListDetails(gvProdSup_all_pkgs);
+            hideunhide(true);
         }
 
         
@@ -774,6 +836,15 @@ namespace TravelExpertsServices
             gvPackages.CurrentCell = gvPackages[3, slct_colmn];
 
             UpdateBinding(true);
+
+            //duplicate code
+            psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+            gvProdSup_all_pkgs.DataSource = psn;
+            ProdSupListDetails(gvProdSup_all_pkgs);
+            hideunhide(true);
+            gvProdSup_all_pkgs.DataSource = psn;
+            ProdSupListDetails(gvProdSup_all_pkgs);
+            hideunhide(true);
         }
 
         //Ethan Shipley
