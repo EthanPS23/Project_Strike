@@ -27,6 +27,7 @@ namespace TravelExpertsDB
                     Sp = new Suppliers();
                     Sp.SupplierId = (int)reader["SupplierId"];
                     Sp.SupName = (string)reader["SupName"];
+                    Sup.Add(Sp);
                 }
             }
             catch (SqlException ex)
@@ -85,8 +86,10 @@ namespace TravelExpertsDB
         public static void InsertSupplier(Suppliers ns)
         {
             SqlConnection con = DBConnection.GetConnection();
-            string sql = "INSERT Suppliers (SupName) " +
-                         "VALUES (@SupName)";
+            string sql =
+                         "INSERT Suppliers (SupplierId, SupName) " +
+                         "VALUES ((select top 1 SupplierId from Suppliers order by SupplierId desc) +1" +
+                         " , @SupName)";
             SqlCommand cmdInsert = new SqlCommand(sql, con);
             cmdInsert.Parameters.AddWithValue("@SupName", ns.SupName);
 

@@ -359,15 +359,15 @@ namespace TravelExpertsServices
         }
 
         // Sheila Zhao
-        private void GetSupplier(int supplierID)
-        {
-            Sup = SupplierDB.GetSuppliers();
-            selectSuppliers = (from Sp in Sup
-                               where Sp.SupplierId == supplierID
-                               select Sp).ToList();
+        //private void GetSupplier(int supplierID)
+        //{
+        //    Sup = SupplierDB.GetSuppliers();
+        //    selectSuppliers = (from Sp in Sup
+        //                       where Sp.SupplierId == supplierID
+        //                       select Sp).ToList();
 
-            gvSuppliers2.DataSource = selectSuppliers;
-        }
+        //    gvSuppliers2.DataSource = selectSuppliers;
+        //}
 
         // Sheila Zhao
         private void grProducts1_SelectionChanged(object sender, EventArgs e)
@@ -937,19 +937,19 @@ namespace TravelExpertsServices
             //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
 
-            if (gvSuppliers2.Rows.Count > 0)
-            {
-                gvSuppliers2.ClearSelection();
+            //if (gvSuppliers2.Rows.Count > 0)
+            //{
+            //    gvSuppliers2.ClearSelection();
 
-                int RowIndex = gvSuppliers2.Rows.Count - 1;
-                //int nColumnIndex = 0;
+            //    int RowIndex = gvSuppliers2.Rows.Count - 1;
+            //    //int nColumnIndex = 0;
 
-                gvSuppliers2.Rows[RowIndex].Selected = true;
-                //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+            //    gvSuppliers2.Rows[RowIndex].Selected = true;
+            //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
 
-                //In case if you want to scroll down as well.
-                gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
-            }
+            //    //In case if you want to scroll down as well.
+            //    gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
+            //}
         }
 
         // Sheila Zhao

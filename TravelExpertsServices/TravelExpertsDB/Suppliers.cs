@@ -17,15 +17,15 @@ namespace TravelExpertsDB
             SupName = null;
         }
 
-        public Suppliers(int id, string pn)
+        public Suppliers(int id, string sn)
         {
             SupplierId = id;
-            SupName = pn;
+            SupName = sn;
         }
 
-        public Suppliers(string pn)
+        public Suppliers(string sn)
         {
-            SupName = pn;
+            SupName = sn;
         }
 
         public override string ToString()

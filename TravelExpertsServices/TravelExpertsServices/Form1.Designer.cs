@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -64,6 +64,10 @@
             this.lblSupName = new System.Windows.Forms.Label();
             this.lblProdName = new System.Windows.Forms.Label();
             this.tabSuppliers = new System.Windows.Forms.TabPage();
+            this.btnDelSup = new System.Windows.Forms.Button();
+            this.btnSaveS = new System.Windows.Forms.Button();
+            this.btnEditS = new System.Windows.Forms.Button();
+            this.btnNewS = new System.Windows.Forms.Button();
             this.gvProducts2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,10 +135,6 @@
             this.lblPkgAgencyCommission = new System.Windows.Forms.Label();
             this.lblPkgBasePrice = new System.Windows.Forms.Label();
             this.lblPkgName = new System.Windows.Forms.Label();
-            this.btnDelSup = new System.Windows.Forms.Button();
-            this.btnSaveS = new System.Windows.Forms.Button();
-            this.btnEditS = new System.Windows.Forms.Button();
-            this.btnNewS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -478,6 +478,46 @@
             this.tabSuppliers.Text = "Suppliers";
             this.tabSuppliers.UseVisualStyleBackColor = true;
             // 
+            // btnDelSup
+            // 
+            this.btnDelSup.Location = new System.Drawing.Point(176, 318);
+            this.btnDelSup.Name = "btnDelSup";
+            this.btnDelSup.Size = new System.Drawing.Size(107, 23);
+            this.btnDelSup.TabIndex = 12;
+            this.btnDelSup.Text = "&Delete Product";
+            this.btnDelSup.UseVisualStyleBackColor = true;
+            this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
+            // 
+            // btnSaveS
+            // 
+            this.btnSaveS.Location = new System.Drawing.Point(273, 290);
+            this.btnSaveS.Name = "btnSaveS";
+            this.btnSaveS.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveS.TabIndex = 11;
+            this.btnSaveS.Text = "&Save";
+            this.btnSaveS.UseVisualStyleBackColor = true;
+            this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
+            // 
+            // btnEditS
+            // 
+            this.btnEditS.Location = new System.Drawing.Point(176, 289);
+            this.btnEditS.Name = "btnEditS";
+            this.btnEditS.Size = new System.Drawing.Size(75, 23);
+            this.btnEditS.TabIndex = 10;
+            this.btnEditS.Text = "&Edit Supplier";
+            this.btnEditS.UseVisualStyleBackColor = true;
+            this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
+            // 
+            // btnNewS
+            // 
+            this.btnNewS.Location = new System.Drawing.Point(34, 290);
+            this.btnNewS.Name = "btnNewS";
+            this.btnNewS.Size = new System.Drawing.Size(105, 23);
+            this.btnNewS.TabIndex = 9;
+            this.btnNewS.Text = "&Add New Supplier";
+            this.btnNewS.UseVisualStyleBackColor = true;
+            this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
+            // 
             // gvProducts2
             // 
             this.gvProducts2.AutoGenerateColumns = false;
@@ -509,6 +549,7 @@
             // 
             // gvSuppliers2
             // 
+            this.gvSuppliers2.AllowUserToAddRows = false;
             this.gvSuppliers2.AutoGenerateColumns = false;
             this.gvSuppliers2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSuppliers2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -800,6 +841,7 @@
             // 
             // gvPackages
             // 
+            this.gvPackages.AllowUserToAddRows = false;
             this.gvPackages.AutoGenerateColumns = false;
             this.gvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPackages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -871,9 +913,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -883,9 +925,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -1176,46 +1218,6 @@
             this.lblPkgName.Size = new System.Drawing.Size(84, 13);
             this.lblPkgName.TabIndex = 1;
             this.lblPkgName.Text = "Package Name:";
-            // 
-            // btnDelSup
-            // 
-            this.btnDelSup.Location = new System.Drawing.Point(176, 318);
-            this.btnDelSup.Name = "btnDelSup";
-            this.btnDelSup.Size = new System.Drawing.Size(107, 23);
-            this.btnDelSup.TabIndex = 12;
-            this.btnDelSup.Text = "&Delete Product";
-            this.btnDelSup.UseVisualStyleBackColor = true;
-            this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
-            // 
-            // btnSaveS
-            // 
-            this.btnSaveS.Location = new System.Drawing.Point(273, 290);
-            this.btnSaveS.Name = "btnSaveS";
-            this.btnSaveS.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveS.TabIndex = 11;
-            this.btnSaveS.Text = "&Save";
-            this.btnSaveS.UseVisualStyleBackColor = true;
-            this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
-            // 
-            // btnEditS
-            // 
-            this.btnEditS.Location = new System.Drawing.Point(176, 289);
-            this.btnEditS.Name = "btnEditS";
-            this.btnEditS.Size = new System.Drawing.Size(75, 23);
-            this.btnEditS.TabIndex = 10;
-            this.btnEditS.Text = "&Edit Supplier";
-            this.btnEditS.UseVisualStyleBackColor = true;
-            this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
-            // 
-            // btnNewS
-            // 
-            this.btnNewS.Location = new System.Drawing.Point(34, 290);
-            this.btnNewS.Name = "btnNewS";
-            this.btnNewS.Size = new System.Drawing.Size(105, 23);
-            this.btnNewS.TabIndex = 9;
-            this.btnNewS.Text = "&Add New Supplier";
-            this.btnNewS.UseVisualStyleBackColor = true;
-            this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
             // 
             // Form1
             // 
