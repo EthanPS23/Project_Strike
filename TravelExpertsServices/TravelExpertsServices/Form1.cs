@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsDB;
+using Microsoft.VisualBasic;
 
 namespace TravelExpertsServices
 {
@@ -19,6 +20,7 @@ namespace TravelExpertsServices
         const int PKG_DESC_LENGTH = 50;
         // variables
         int pkgid;
+        int slct_colmn;
         // display products & suppliers
         List<Products> Prod = null;
         List<Products> selectProducts;
@@ -99,6 +101,7 @@ namespace TravelExpertsServices
             gvProducts_pkgs.DataSource = ppss;
             gvSuppliers_pkgs.DataSource = ppss;
             gvProdSup_pkg.DataSource = ppss;
+            gvProdSup_all_pkgs.DataSource = psn;
         }
 
         //Ethan Shipley
@@ -230,17 +233,12 @@ namespace TravelExpertsServices
         // Deletes a selected package
         private void btnDeletepkg_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Do you want to delete the package?", "Delete", MessageBoxButtons.YesNo);
-            if (confirm==DialogResult.Yes)
-            {
-                PackagesDB.DeletePackage(pkgid);
-                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            }
-            else
+            if (!deleteConfirm())
             {
                 return;
             }
-            
+            PackagesDB.DeletePackage(pkgid);
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);            
         }
         // Ethan Shipley
         private void btnAddEditProd_Click(object sender, EventArgs e)
@@ -710,21 +708,32 @@ namespace TravelExpertsServices
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        
+        //Ethan Shipley
+        // Adds the products suppliers to the package
         private void btnAddPkgProdSup_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(getSelectedCellValue(gvProdSup_all_pkgs, 0).ToString());
             PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_all_pkgs, 0));
+            slct_colmn = gvPackages.CurrentCell.RowIndex; 
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            gvPackages.CurrentCell = gvPackages[3, slct_colmn];
+            UpdateBinding();
         }
 
         //Ethan Shipley
-        // Adds the products suppliers to the package
+        // Deletes the products suppliers to the package
         private void btnDeletePkgProdSup_Click_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(getSelectedCellValue(gvProdSup_pkg, 1).ToString());
+            //string useranswer = Interaction.InputBox("My msg", "title", "default response");
+            if (!deleteConfirm())
+            {
+                return;
+            }
             PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_pkg, 1));
+            slct_colmn = gvPackages.CurrentCell.RowIndex;
             this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            gvPackages.CurrentCell = gvPackages[3, slct_colmn];
+
+            UpdateBinding();
         }
 
         //Ethan Shipley
@@ -736,6 +745,25 @@ namespace TravelExpertsServices
             return Convert.ToInt32(selectedRow.Cells[column].Value);
         }
 
-        
+        private bool deleteConfirm()
+        {
+            var confirm = MessageBox.Show("Do you want to delete the package?", "Delete", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                confirm = MessageBox.Show("Do you really want to delete the package?", "Delete", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -13,6 +13,5 @@ namespace TravelExpertsDB
         public int SupplierId { get; set; }
         public string ProdName { get; set; }
         public string SupName { get; set; }
-
     }
 }
