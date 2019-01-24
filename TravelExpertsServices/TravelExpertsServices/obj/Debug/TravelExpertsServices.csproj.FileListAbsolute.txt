@@ -1,0 +1,26 @@
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.exe.config
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.exe
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.pdb
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsDB.dll
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsDB.pdb
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csprojAssemblyReference.cache
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.Form1.resources
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.Properties.Resources.resources
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.GenerateResource.cache
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CoreCompileInputs.cache
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CopyComplete
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.exe
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.pdb
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.exe.config
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.exe
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.pdb
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsDB.dll
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsDB.pdb
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csprojAssemblyReference.cache
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.Form1.resources
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.Properties.Resources.resources
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.GenerateResource.cache
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CoreCompileInputs.cache
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CopyComplete
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.exe
+C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.pdb

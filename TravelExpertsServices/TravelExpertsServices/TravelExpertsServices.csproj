@@ -59,11 +59,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TravelExpertsDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TravelExpertsDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,17 +90,6 @@
     </None>
     <None Include="TravelExpertsDataSet.xss">
       <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TravelExpertsDataSet1.xsc">
-      <DependentUpon>TravelExpertsDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="TravelExpertsDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TravelExpertsDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TravelExpertsDataSet1.xss">
-      <DependentUpon>TravelExpertsDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

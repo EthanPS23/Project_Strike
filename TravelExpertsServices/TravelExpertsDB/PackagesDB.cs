@@ -152,8 +152,6 @@ namespace TravelExpertsDB
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql =
-                "DELETE FROM Packages_Products_Suppliers " +
-                "WHERE PackageID = @PackageID " +
                 "DELETE FROM Packages " +
                 "WHERE PackageID = @PackageID;";
             SqlCommand cmdDelete = new SqlCommand(sql, con);

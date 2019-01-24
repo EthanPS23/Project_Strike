@@ -57,10 +57,6 @@ namespace TravelExpertsDB
             }
             return ppss;
         }
-        // Ethan SHipley
-        // Inserts Product_SupplierID with the packageID based on inputs of packageID and ProductSupplierId to link them together
-        // Ethan SHipley
-        // Inserts Product_SupplierID with the packageID based on inputs of packageID and ProductSupplierId to link them together
         public static void InsertProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -87,8 +83,6 @@ namespace TravelExpertsDB
                 con.Close();
             }
         }
-        // Ethan SHipley
-        // Inserts Product_SupplierID with the packageID based on inputs of packageID and ProductSupplierId to link them together
         public static void DeleteProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -102,7 +96,7 @@ namespace TravelExpertsDB
             {
                 con.Open();
                 cmddelete.ExecuteNonQuery();
-                //MessageBox.Show("Package delete successful");
+                MessageBox.Show("Package delete successful");
             }
             catch (SqlException ex)
             {
