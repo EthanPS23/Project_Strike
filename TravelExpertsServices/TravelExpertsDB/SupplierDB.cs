@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsDB
 {
-    public class SuppliersDB
+    public class SupplierDB
     {
         public static List<Suppliers> GetSuppliers()
         {
@@ -81,5 +81,81 @@ namespace TravelExpertsDB
                 return products;
             }
         }
+
+        public static void InsertSupplier(Suppliers ns)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "INSERT Suppliers (SupName) " +
+                         "VALUES (@SupName)";
+            SqlCommand cmdInsert = new SqlCommand(sql, con);
+            cmdInsert.Parameters.AddWithValue("@SupName", ns.SupName);
+
+            try
+            {
+                con.Open();
+                cmdInsert.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void UpdateSupplier(Suppliers news, Suppliers olds)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "UPDATE Suppliers " +
+                          "SET SupName = @nSupName " +
+                         "WHERE SupplierId = @SupplierId " +
+                         "AND SupName = @OldSupName";
+            SqlCommand cmdUpdate = new SqlCommand(sql, con);
+            cmdUpdate.Parameters.AddWithValue("@nSupName", news.SupName);
+            cmdUpdate.Parameters.AddWithValue("@OldProdName", olds.SupName);
+            cmdUpdate.Parameters.AddWithValue("@SupplierId", olds.SupplierId);
+            try
+            {
+                con.Open();
+                cmdUpdate.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void DeleteSupplier(Suppliers ds)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "DELETE FROM Suppliers " +
+                "WHERE SupplierId = @SupplierId " +
+                "AND SupName = @SupName";
+            SqlCommand cmdDelete = new SqlCommand(sql, con);
+            cmdDelete.Parameters.AddWithValue("@SupplierId", ds.SupplierId);
+            cmdDelete.Parameters.AddWithValue("@SupName", ds.SupName);
+
+            try
+            {
+                con.Open();
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
     }
 }

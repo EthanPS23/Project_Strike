@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertsDB;
 using Microsoft.VisualBasic;
+using System.Data.SqlClient;
 
 namespace TravelExpertsServices
 {
@@ -104,7 +105,7 @@ namespace TravelExpertsServices
             gvProdSup_all_pkgs.DataSource = psn;
 
             gvProducts1.DataSource = Prod;
-            gvSuppliers1.DataSource = Sup;
+            gvSuppliers2.DataSource = Sup;
         }
 
         //Ethan Shipley
@@ -311,6 +312,7 @@ namespace TravelExpertsServices
             btnSave_Prod_Sup_pkg.Enabled = false;
             btnSave_Prod_Sup_pkg.Visible = false;
             btnSaveP.Visible = false;
+            btnSaveS.Visible = false;
         }
 
         // Sheila Zhao
@@ -359,7 +361,7 @@ namespace TravelExpertsServices
         // Sheila Zhao
         private void GetSupplier(int supplierID)
         {
-            Sup = SuppliersDB.GetSuppliers();
+            Sup = SupplierDB.GetSuppliers();
             selectSuppliers = (from Sp in Sup
                                where Sp.SupplierId == supplierID
                                select Sp).ToList();
@@ -404,7 +406,7 @@ namespace TravelExpertsServices
                                                    row.Cells[1].Value.ToString());
                 }
 
-                Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);
+                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                 gvProducts2.DataSource = Prod;
 
 
@@ -487,7 +489,7 @@ namespace TravelExpertsServices
                                                    row.Cells[1].Value.ToString());
                 }
 
-                Prod = SuppliersDB.GetProductsByProductSupplier(selectedSupplier);
+                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                 cmbProdName.DataSource = Prod;
 
 
@@ -782,7 +784,7 @@ namespace TravelExpertsServices
         {
             //np = Convert.ToString(txtProdName.Text);
             Products np = new Products();
-            int selectedindex;
+            //int selectedindex;
             btnSaveP.Visible = false;
 
             try
@@ -801,17 +803,23 @@ namespace TravelExpertsServices
             }
 
             txtProdName.Text = "";
-            selectedindex = gvProducts1.CurrentCell.RowIndex;
+            //selectedindex = gvProducts1.CurrentCell.RowIndex;
             //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
-            gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
-        }
+            //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
 
-        private void gvProducts1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
-        {
-            //int Index;
-            ////Index = gvProducts1.RowCount - 1;
-            //this.gvProducts1.Rows[e.RowIndex].Selected = true;
-            ////gvProducts1.Rows[Index].Selected = true;
+            if (gvProducts1.Rows.Count > 0)
+            {
+                gvProducts1.ClearSelection();
+
+                int nRowIndex = gvProducts1.Rows.Count - 1;
+                //int nColumnIndex = 0;
+
+                gvProducts1.Rows[nRowIndex].Selected = true;
+                //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                //In case if you want to scroll down as well.
+                gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
+            }
         }
 
         // Sheila Zhao
@@ -891,6 +899,139 @@ namespace TravelExpertsServices
                 txtProdName.Text = "";
                 Prod = ProductDB.GetProducts();
                 UpdateBinding();
+
+                int nRowIndex = gvProducts1.Rows.Count - 1;
+                gvProducts1.ClearSelection();
+                gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        // Sheila Zhao
+        private void btnNewS_Click(object sender, EventArgs e)
+        {
+            Suppliers ns = new Suppliers();
+            //int selectedindex;
+            btnSaveS.Visible = false;
+
+            try
+            {
+                if (ns != null)
+                {
+                    ns.SupName = txtSupName.Text;
+                    SupplierDB.InsertSupplier(ns);
+                    Sup = SupplierDB.GetSuppliers();
+                    UpdateBinding();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+            txtSupName.Text = "";
+            //selectedindex = gvProducts1.CurrentCell.RowIndex;
+            //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
+            //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
+
+            if (gvSuppliers2.Rows.Count > 0)
+            {
+                gvSuppliers2.ClearSelection();
+
+                int RowIndex = gvSuppliers2.Rows.Count - 1;
+                //int nColumnIndex = 0;
+
+                gvSuppliers2.Rows[RowIndex].Selected = true;
+                //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                //In case if you want to scroll down as well.
+                gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
+            }
+        }
+
+        // Sheila Zhao
+        private void btnEditS_Click(object sender, EventArgs e)
+        {
+            Suppliers olds = null;
+            btnSaveS.Visible = true;
+            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+            {
+                olds = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                    row.Cells[1].Value.ToString());
+            }
+            txtSupName.Text = olds.SupName;
+            txtSupName.Focus();
+        }
+        
+        // Sheila Zhao
+        private Suppliers GetEditSupplier(Suppliers olds)
+        {
+            Suppliers news = new Suppliers();
+            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+            {
+                olds = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                    row.Cells[1].Value.ToString());
+            }
+            news.SupName = olds.SupName;
+            news.SupplierId = olds.SupplierId;
+            return news;
+        }
+
+        // Sheila Zhao
+        private void btnSaveS_Click(object sender, EventArgs e)
+        {
+            Suppliers news = new Suppliers();
+            Suppliers olds = null;
+            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+            {
+                olds = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                    row.Cells[1].Value.ToString());
+            }
+            news = GetEditSupplier(olds);
+            try
+            {
+                news.SupName = txtSupName.Text;
+                SupplierDB.UpdateSupplier(news, olds);
+                Sup = SupplierDB.GetSuppliers();
+                UpdateBinding();
+                MessageBox.Show("Supplier Saved!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            btnSaveS.Visible = false;
+            txtSupName.Text = "";
+        }
+
+        // Sheila Zhao
+        private void btnDelSup_Click(object sender, EventArgs e)
+        {
+            btnSaveS.Visible = false;
+            try
+            {
+                Suppliers delSup = null;
+                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                {
+                    delSup = new Suppliers(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                        row.Cells[1].Value.ToString());
+                    txtSupName.Text = delSup.SupName;
+                }
+                if (!deleteConfirm())
+                {
+                    return;
+                }
+                SupplierDB.DeleteSupplier(delSup);
+                txtSupName.Text = "";
+                Sup = SupplierDB.GetSuppliers();
+                UpdateBinding();
+
+                int nRowIndex = gvSuppliers2.Rows.Count - 1;
+                gvSuppliers2.ClearSelection();
+                gvSuppliers2.FirstDisplayedScrollingRowIndex = nRowIndex;
             }
             catch (Exception ex)
             {
