@@ -365,8 +365,6 @@
             // 
             // gvSuppliers_pkgs
             // 
-            this.gvSuppliers_pkgs.AllowUserToAddRows = false;
-            this.gvSuppliers_pkgs.AllowUserToDeleteRows = false;
             this.gvSuppliers_pkgs.AutoGenerateColumns = false;
             this.gvSuppliers_pkgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSuppliers_pkgs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -375,7 +373,6 @@
             this.gvSuppliers_pkgs.DataSource = this.suppliersBindingSource;
             this.gvSuppliers_pkgs.Location = new System.Drawing.Point(725, 207);
             this.gvSuppliers_pkgs.Margin = new System.Windows.Forms.Padding(2);
-            this.gvSuppliers_pkgs.MultiSelect = false;
             this.gvSuppliers_pkgs.Name = "gvSuppliers_pkgs";
             this.gvSuppliers_pkgs.RowTemplate.Height = 24;
             this.gvSuppliers_pkgs.Size = new System.Drawing.Size(279, 135);
@@ -401,8 +398,6 @@
             // 
             // gvProducts_pkgs
             // 
-            this.gvProducts_pkgs.AllowUserToAddRows = false;
-            this.gvProducts_pkgs.AllowUserToDeleteRows = false;
             this.gvProducts_pkgs.AutoGenerateColumns = false;
             this.gvProducts_pkgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProducts_pkgs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -411,7 +406,6 @@
             this.gvProducts_pkgs.DataSource = this.productsBindingSource;
             this.gvProducts_pkgs.Location = new System.Drawing.Point(725, 31);
             this.gvProducts_pkgs.Margin = new System.Windows.Forms.Padding(2);
-            this.gvProducts_pkgs.MultiSelect = false;
             this.gvProducts_pkgs.Name = "gvProducts_pkgs";
             this.gvProducts_pkgs.RowTemplate.Height = 24;
             this.gvProducts_pkgs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -526,8 +520,6 @@
             // 
             // gvProducts2
             // 
-            this.gvProducts2.AllowUserToAddRows = false;
-            this.gvProducts2.AllowUserToDeleteRows = false;
             this.gvProducts2.AutoGenerateColumns = false;
             this.gvProducts2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProducts2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -535,7 +527,6 @@
             this.dataGridViewTextBoxColumn13});
             this.gvProducts2.DataSource = this.productsBindingSource;
             this.gvProducts2.Location = new System.Drawing.Point(535, 51);
-            this.gvProducts2.MultiSelect = false;
             this.gvProducts2.Name = "gvProducts2";
             this.gvProducts2.ReadOnly = true;
             this.gvProducts2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -559,7 +550,6 @@
             // gvSuppliers2
             // 
             this.gvSuppliers2.AllowUserToAddRows = false;
-            this.gvSuppliers2.AllowUserToDeleteRows = false;
             this.gvSuppliers2.AutoGenerateColumns = false;
             this.gvSuppliers2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSuppliers2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -567,7 +557,6 @@
             this.dataGridViewTextBoxColumn10});
             this.gvSuppliers2.DataSource = this.suppliersBindingSource;
             this.gvSuppliers2.Location = new System.Drawing.Point(34, 51);
-            this.gvSuppliers2.MultiSelect = false;
             this.gvSuppliers2.Name = "gvSuppliers2";
             this.gvSuppliers2.ReadOnly = true;
             this.gvSuppliers2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -675,8 +664,6 @@
             // 
             // gvSuppliers1
             // 
-            this.gvSuppliers1.AllowUserToAddRows = false;
-            this.gvSuppliers1.AllowUserToDeleteRows = false;
             this.gvSuppliers1.AutoGenerateColumns = false;
             this.gvSuppliers1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSuppliers1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -684,7 +671,6 @@
             this.supNameDataGridViewTextBoxColumn});
             this.gvSuppliers1.DataSource = this.suppliersBindingSource;
             this.gvSuppliers1.Location = new System.Drawing.Point(471, 78);
-            this.gvSuppliers1.MultiSelect = false;
             this.gvSuppliers1.Name = "gvSuppliers1";
             this.gvSuppliers1.ReadOnly = true;
             this.gvSuppliers1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -707,8 +693,6 @@
             // 
             // gvProducts1
             // 
-            this.gvProducts1.AllowUserToAddRows = false;
-            this.gvProducts1.AllowUserToDeleteRows = false;
             this.gvProducts1.AutoGenerateColumns = false;
             this.gvProducts1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProducts1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -716,7 +700,6 @@
             this.prodNameDataGridViewTextBoxColumn});
             this.gvProducts1.DataSource = this.productsBindingSource;
             this.gvProducts1.Location = new System.Drawing.Point(30, 78);
-            this.gvProducts1.MultiSelect = false;
             this.gvProducts1.Name = "gvProducts1";
             this.gvProducts1.ReadOnly = true;
             this.gvProducts1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -798,8 +781,6 @@
             // 
             // gvSuppliers
             // 
-            this.gvSuppliers.AllowUserToAddRows = false;
-            this.gvSuppliers.AllowUserToDeleteRows = false;
             this.gvSuppliers.AutoGenerateColumns = false;
             this.gvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSuppliers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -808,7 +789,6 @@
             this.gvSuppliers.DataSource = this.suppliersBindingSource;
             this.gvSuppliers.Location = new System.Drawing.Point(393, 191);
             this.gvSuppliers.Margin = new System.Windows.Forms.Padding(2);
-            this.gvSuppliers.MultiSelect = false;
             this.gvSuppliers.Name = "gvSuppliers";
             this.gvSuppliers.RowTemplate.Height = 24;
             this.gvSuppliers.Size = new System.Drawing.Size(238, 136);
@@ -831,8 +811,6 @@
             // 
             // gvProducts
             // 
-            this.gvProducts.AllowUserToAddRows = false;
-            this.gvProducts.AllowUserToDeleteRows = false;
             this.gvProducts.AutoGenerateColumns = false;
             this.gvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -841,7 +819,6 @@
             this.gvProducts.DataSource = this.productsBindingSource;
             this.gvProducts.Location = new System.Drawing.Point(6, 191);
             this.gvProducts.Margin = new System.Windows.Forms.Padding(2);
-            this.gvProducts.MultiSelect = false;
             this.gvProducts.Name = "gvProducts";
             this.gvProducts.RowTemplate.Height = 24;
             this.gvProducts.Size = new System.Drawing.Size(327, 135);
@@ -865,7 +842,6 @@
             // gvPackages
             // 
             this.gvPackages.AllowUserToAddRows = false;
-            this.gvPackages.AllowUserToDeleteRows = false;
             this.gvPackages.AutoGenerateColumns = false;
             this.gvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPackages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1084,8 +1060,6 @@
             // 
             // gvProdSup_all_pkgs
             // 
-            this.gvProdSup_all_pkgs.AllowUserToAddRows = false;
-            this.gvProdSup_all_pkgs.AllowUserToDeleteRows = false;
             this.gvProdSup_all_pkgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProdSup_all_pkgs.Location = new System.Drawing.Point(465, 196);
             this.gvProdSup_all_pkgs.MultiSelect = false;
@@ -1107,11 +1081,8 @@
             // 
             // gvProdSup_pkg
             // 
-            this.gvProdSup_pkg.AllowUserToAddRows = false;
-            this.gvProdSup_pkg.AllowUserToDeleteRows = false;
             this.gvProdSup_pkg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProdSup_pkg.Location = new System.Drawing.Point(465, 11);
-            this.gvProdSup_pkg.MultiSelect = false;
             this.gvProdSup_pkg.Name = "gvProdSup_pkg";
             this.gvProdSup_pkg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProdSup_pkg.Size = new System.Drawing.Size(543, 150);

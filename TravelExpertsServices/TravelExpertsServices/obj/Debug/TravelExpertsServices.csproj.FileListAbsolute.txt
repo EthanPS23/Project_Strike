@@ -24,16 +24,3 @@ C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServ
 C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CopyComplete
 C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.exe
 C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.pdb
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csprojAssemblyReference.cache
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.Form1.resources
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.Properties.Resources.resources
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.GenerateResource.cache
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CoreCompileInputs.cache
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.exe
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.pdb
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.exe.config
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.exe
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsServices.pdb
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsDB.dll
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\bin\Debug\TravelExpertsDB.pdb
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsServices\obj\Debug\TravelExpertsServices.csproj.CopyComplete

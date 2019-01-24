@@ -9,10 +9,10 @@ namespace TravelExpertsDB
 {
     public class SupplierDB
     {
-        public static List<Supplier> GetSuppliers()
+        public static List<Suppliers> GetSuppliers()
         {
-            List<Supplier> Sup = new List<Supplier>();
-            Supplier Sp;
+            List<Suppliers> Sup = new List<Suppliers>();
+            Suppliers Sp;
             SqlConnection con = DBConnection.GetConnection();
             string query = "SELECT SupplierId, SupName " +
                              "FROM Suppliers " +
@@ -24,7 +24,7 @@ namespace TravelExpertsDB
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Sp = new Supplier();
+                    Sp = new Suppliers();
                     Sp.SupplierId = (int)reader["SupplierId"];
                     Sp.SupName = (string)reader["SupName"];
                     Sup.Add(Sp);
@@ -40,7 +40,8 @@ namespace TravelExpertsDB
             }
             return Sup;
         }
-        public static List<Products> GetProductsByProductSupplier(Supplier s)
+
+        public static List<Products> GetProductsByProductSupplier(Suppliers s)
         {
             if (s == null)
                 return null;
@@ -82,7 +83,7 @@ namespace TravelExpertsDB
             }
         }
 
-        public static void InsertSupplier(Supplier ns)
+        public static void InsertSupplier(Suppliers ns)
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql =
@@ -107,7 +108,7 @@ namespace TravelExpertsDB
             }
         }
 
-        public static void UpdateSupplier(Supplier news, Supplier olds)
+        public static void UpdateSupplier(Suppliers news, Suppliers olds)
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql = "UPDATE Suppliers " +
@@ -133,7 +134,7 @@ namespace TravelExpertsDB
             }
         }
 
-        public static void DeleteSupplier(Supplier ds)
+        public static void DeleteSupplier(Suppliers ds)
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql =

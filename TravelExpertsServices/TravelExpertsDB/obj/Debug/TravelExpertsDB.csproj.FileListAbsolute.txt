@@ -10,9 +10,3 @@ C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsDB\o
 C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
 C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
 C:\xampp1\htdocs\test\mmm\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csprojAssemblyReference.cache
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
-C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb

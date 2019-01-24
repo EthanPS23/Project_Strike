@@ -5,14 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace TravelExpertsDB
 {
+
     public static class PackagesDB
     {
         public static List<Packages> GetPackages()
         {
             List<Packages> Packages = new List<Packages>();
             Packages pkg;
+
             string query = "SELECT * FROM Packages";
             SqlConnection Connection = DBConnection.GetConnection(/*ServerName, DatabaseName*/);
             SqlCommand cmd = new SqlCommand(query, Connection);
@@ -43,7 +46,9 @@ namespace TravelExpertsDB
                     }
                     pkg.PkgDesc = reader["PkgDesc"].ToString();// getting Package name
                     pkg.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);// getting Package name
+
                     pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+
                     if (reader["PkgAgencyCommission"] == DBNull.Value)
                     {
                         pkg.PkgAgencyCommission = 0;
@@ -52,12 +57,13 @@ namespace TravelExpertsDB
                     {
                         pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
                     }
+
                     Packages.Add(pkg);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+                MessageBox.Show("The error is " +  ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -65,19 +71,22 @@ namespace TravelExpertsDB
             }
             return Packages; // returns the gathered packagaes information
         }
+
         public static void UpdatePackages(Packages packages, int pkgid)
         {
             //query to update the table
             string query = "UPDATE Packages " +
-                           "SET PkgName = " + "'" + packages.PkgName + "', " +
+                           "SET PkgName = " + "'" + packages.PkgName + "', "  +
                            "PkgBasePrice = " + "'" + packages.PkgBasePrice + "', " +
                            "PkgDesc = " + "'" + packages.PkgDesc + "', " +
                            "PkgEndDate = " + "'" + packages.PkgEndDate + "', " +
                            "PkgStartDate = " + "'" + packages.PkgStartDate + "', " +
                            "PkgAgencyCommission = " + "'" + packages.PkgAgencyCommission + "' " +
                            "WHERE PackageId = " + pkgid;
+
             //connection to the DB
             SqlConnection connection = DBConnection.GetConnection();
+
             //sending query and connection to DB
             SqlCommand cmd = new SqlCommand(query, connection);
             try
@@ -130,6 +139,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
+
                 MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
@@ -137,12 +147,11 @@ namespace TravelExpertsDB
                 con.Close();
             }
         }
+
         public static void DeletePackage(int PackageID)
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql =
-                "DELETE FROM Packages_Products_Suppliers " +
-                "WHERE PackageID = @PackageID " +
                 "DELETE FROM Packages " +
                 "WHERE PackageID = @PackageID;";
             SqlCommand cmdDelete = new SqlCommand(sql, con);
