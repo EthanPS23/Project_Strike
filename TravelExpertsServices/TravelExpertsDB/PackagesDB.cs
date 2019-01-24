@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace TravelExpertsDB
 {
+
     public static class PackagesDB
     {
         public static List<Packages> GetPackages()
@@ -45,21 +46,12 @@ namespace TravelExpertsDB
                     }
                     pkg.PkgDesc = reader["PkgDesc"].ToString();// getting Package name
                     pkg.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);// getting Package name
-                    //pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
 
                     pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                //    if (reader["PkgAgencyCommission"] == DBNull.Value)
-                //    {
-                //        pkg.PkgAgencyCommission = null;
-                //    }
-                //    else
-                //    {
-                //        pkg.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                //    }
 
                     if (reader["PkgAgencyCommission"] == DBNull.Value)
                     {
-                        pkg.PkgAgencyCommission = null;
+                        pkg.PkgAgencyCommission = 0;
                     }
                     else
                     {
@@ -78,6 +70,106 @@ namespace TravelExpertsDB
                 Connection.Close();
             }
             return Packages; // returns the gathered packagaes information
+        }
+
+        public static void UpdatePackages(Packages packages, int pkgid)
+        {
+            //query to update the table
+            string query = "UPDATE Packages " +
+                           "SET PkgName = " + "'" + packages.PkgName + "', "  +
+                           "PkgBasePrice = " + "'" + packages.PkgBasePrice + "', " +
+                           "PkgDesc = " + "'" + packages.PkgDesc + "', " +
+                           "PkgEndDate = " + "'" + packages.PkgEndDate + "', " +
+                           "PkgStartDate = " + "'" + packages.PkgStartDate + "', " +
+                           "PkgAgencyCommission = " + "'" + packages.PkgAgencyCommission + "' " +
+                           "WHERE PackageId = " + pkgid;
+
+            //connection to the DB
+            SqlConnection connection = DBConnection.GetConnection();
+
+            //sending query and connection to DB
+            SqlCommand cmd = new SqlCommand(query, connection);
+            try
+            {
+                // open a connection
+                connection.Open();
+                //execute query
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Update successful");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                // close the connection
+                connection.Close();
+            }
+        }
+        public static void InsertPackages(Packages packages)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "INSERT Packages (" +
+                               "PkgName," +
+                               "PkgDesc," +
+                               "PkgBasePrice," +
+                               "PkgAgencyCommission," +
+                               "PkgStartDate," +
+                               "PkgEndDate)" +
+                        "VALUES (" +
+                               "@PkgName," +
+                               "@PkgDesc," +
+                               "@PkgBasePrice," +
+                               "@PkgAgencyCommission," +
+                               "@PkgStartDate," +
+                               "@PkgEndDate);";
+            SqlCommand cmdInsert = new SqlCommand(sql, con);
+            cmdInsert.Parameters.AddWithValue("@PkgName", packages.PkgName);
+            cmdInsert.Parameters.AddWithValue("@PkgDesc", packages.PkgDesc);
+            cmdInsert.Parameters.AddWithValue("@PkgBasePrice", packages.PkgBasePrice);
+            cmdInsert.Parameters.AddWithValue("@PkgAgencyCommission", packages.PkgAgencyCommission);
+            cmdInsert.Parameters.AddWithValue("@PkgStartDate", packages.PkgStartDate);
+            cmdInsert.Parameters.AddWithValue("@PkgEndDate", packages.PkgEndDate);
+            try
+            {
+                con.Open();
+                cmdInsert.ExecuteNonQuery();
+                MessageBox.Show("Add package successful");
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void DeletePackage(int PackageID)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "DELETE FROM Packages " +
+                "WHERE PackageID = @PackageID;";
+            SqlCommand cmdDelete = new SqlCommand(sql, con);
+            cmdDelete.Parameters.AddWithValue("@PackageID", PackageID);
+            try
+            {
+                con.Open();
+                cmdDelete.ExecuteNonQuery();
+                MessageBox.Show("Package Delete successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

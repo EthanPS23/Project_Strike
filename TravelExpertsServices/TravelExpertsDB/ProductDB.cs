@@ -107,7 +107,7 @@ namespace TravelExpertsDB
             }
         }
 
-        public static void UpdateProduct(Products ep, Products op)
+        public static void UpdateProduct(Products newp, Products oldp)
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql = "UPDATE Products " +
@@ -115,9 +115,9 @@ namespace TravelExpertsDB
                          "WHERE ProductId = @ProductId " +
                          "AND ProdName = @OldProdName";
             SqlCommand cmdUpdate = new SqlCommand(sql, con);
-            cmdUpdate.Parameters.AddWithValue("@nProdName", ep.ProdName);
-            cmdUpdate.Parameters.AddWithValue("@OldProdName", op.ProdName);
-            cmdUpdate.Parameters.AddWithValue("@ProductID", op.ProductId);
+            cmdUpdate.Parameters.AddWithValue("@nProdName", newp.ProdName);
+            cmdUpdate.Parameters.AddWithValue("@OldProdName", oldp.ProdName);
+            cmdUpdate.Parameters.AddWithValue("@ProductID", oldp.ProductId);
             try
             {
                 con.Open();

@@ -1,0 +1,6 @@
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csprojAssemblyReference.cache
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
+C:\Users\Sijia\Documents\Visual Studio 2017\Adocument\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb

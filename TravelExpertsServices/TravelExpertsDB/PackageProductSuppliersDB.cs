@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TravelExpertsDB
 {
@@ -14,7 +15,7 @@ namespace TravelExpertsDB
             List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
             SqlConnection con = DBConnection.GetConnection();
             string sql =
-                "SELECT pk.PackageId, pk.PkgName, pps.ProductSupplierId, p.ProdName, s.SupName " +
+                "SELECT pk.PackageId, pk.PkgName, pps.ProductSupplierId, p.ProductId, p.ProdName, s.SupplierId, s.SupName " +
                 "FROM Packages pk " +
                 "inner join Packages_Products_Suppliers pps " +
                 "ON pps.PackageId = pk.PackageId " +
@@ -37,6 +38,8 @@ namespace TravelExpertsDB
                     PackageProductSuppliers pps = new PackageProductSuppliers();
                     pps.PackageId = Convert.ToInt32(Reader["PackageId"]);
                     pps.ProductSupplierId = Convert.ToInt32(Reader["ProductSupplierId"]);
+                    pps.ProductId = Convert.ToInt32(Reader["ProductId"]);
+                    pps.SupplierId = Convert.ToInt32(Reader["SupplierId"]);
                     pps.PkgName = Convert.ToString(Reader["PkgName"]);
                     pps.ProdName = Convert.ToString(Reader["ProdName"]);
                     pps.SupName = Convert.ToString(Reader["SupName"]);
@@ -54,6 +57,55 @@ namespace TravelExpertsDB
             }
             return ppss;
         }
+        public static void InsertProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "Insert Packages_Products_Suppliers " +
+                    "(PackageId, ProductSupplierId)" +
+                "Values " +
+                    "(@PackageId, @ProductSupplierId); ";
+            SqlCommand cmdinsert = new SqlCommand(sql, con);
+            cmdinsert.Parameters.AddWithValue("@PackageId", PackageId);
+            cmdinsert.Parameters.AddWithValue("@ProductSupplierId", ProductSupplierId);
+            try
+            {
+                con.Open();
+                cmdinsert.ExecuteNonQuery();
+                MessageBox.Show("Package insert successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public static void DeleteProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+            string sql =
+                "Delete From Packages_Products_Suppliers " +
+                "where PackageId=@PackageId AND ProductSupplierId=@ProductSupplierId";
+            SqlCommand cmddelete = new SqlCommand(sql, con);
+            cmddelete.Parameters.AddWithValue("@PackageId", PackageId);
+            cmddelete.Parameters.AddWithValue("@ProductSupplierId", ProductSupplierId);
+            try
+            {
+                con.Open();
+                cmddelete.ExecuteNonQuery();
+                MessageBox.Show("Package delete successful");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
-    
 }
