@@ -28,7 +28,7 @@ namespace TravelExpertsServices
         List<Products> Prod = null;
         List<Products> selectProducts;
         List<Supplier> Sup = null;
-        //List<Supplier> selectSuppliers;
+        List<Supplier> selectSuppliers;
         List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
         List<ProdSuppliersNames> psn = new List<ProdSuppliersNames>();
         List<Packages> PackagesList = PackagesDB.GetPackages();
@@ -386,6 +386,9 @@ namespace TravelExpertsServices
             btnSave_Prod_Sup_pkg.Visible = false;
             btnSaveP.Visible = false;
             btnSaveS.Visible = false;
+
+            gvProdBySup.Visible = false;
+            gvSupByProd.Visible = false;
         }
 
         // Sheila Zhao
@@ -453,18 +456,22 @@ namespace TravelExpertsServices
                 {
                     selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                    row.Cells[1].Value.ToString());
-
                 }
 
                 Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
                 gvSuppliers1.DataSource = Sup;
-
+                if (selectedProduct != null)
+                {
+                    Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                    gvSupByProd.DataSource = Sup;
+                }              
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+            }          
+
         }
 
         // Sheila Zhao
@@ -482,7 +489,11 @@ namespace TravelExpertsServices
                 Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                 gvProducts2.DataSource = Prod;
 
-
+                if (selectedSupplier != null)
+                {
+                    Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                    gvProdBySup.DataSource = Prod;
+                }
             }
             catch (Exception ex)
             {
@@ -1067,8 +1078,8 @@ namespace TravelExpertsServices
 
             }
         }
-            // Sheila Zhao
-            private void btnEditS_Click(object sender, EventArgs e)
+        // Sheila Zhao
+        private void btnEditS_Click(object sender, EventArgs e)
         {
             Supplier olds = null;
             btnSaveS.Visible = true;
@@ -1153,5 +1164,74 @@ namespace TravelExpertsServices
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
+        // Sheila Zhao
+        private void btnShowPS_Click(object sender, EventArgs e)
+        {
+            if (btnShowPS.Text == "Show")
+            {
+                gvSupByProd.Visible = true;
+                btnShowPS.Text = "Hide";
+            }
+            else if (btnShowPS.Text == "Hide")
+            {
+                gvSupByProd.Visible = false;
+                btnShowPS.Text = "Show";
+            }
+        }
+
+        // Sheila Zhao
+        private void btnShowSP_Click(object sender, EventArgs e)
+        {
+            if (btnShowSP.Text == "Show")
+            {
+                gvProdBySup.Visible = true;
+                btnShowSP.Text = "Hide";
+            }
+            else if (btnShowSP.Text == "Hide")
+            {
+                gvProdBySup.Visible = false;
+                btnShowSP.Text = "Show";
+            }
+        }
+
+
+        private void btnAddPS_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                foreach (DataGridViewRow row in gvSuppliers1.SelectedRows)
+                {                    
+                    //ProdSupplierDB.InsertProdSupplier("");
+                }
+
+                if (gvSuppliers1.Rows.Count > 0)
+                {
+                    gvSuppliers1.ClearSelection();
+
+                    int RowIndex = gvSuppliers1.Rows.Count - 1;
+                    //    //int nColumnIndex = 0;
+
+                    gvSuppliers1.Rows[RowIndex].Selected = true;
+                    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                    //    //In case if you want to scroll down as well.
+                    gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnDelSP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

@@ -151,5 +151,45 @@ namespace TravelExpertsDB
                 con.Close();
             }
         }
+
+        public static List<Products> GetSupProdNotInList(Supplier s)
+        {
+            List<Products> prooo = new List<Products>();
+            SqlConnection con = DBConnection.GetConnection();
+            string sql = "SELECT p.ProductId, p.ProdName " +
+                        "FROM Products p " +
+                         "WHERE p.ProductId NOT IN " +
+                        "(SELECT p.ProductId " +
+                        "FROM Products " +
+                        "INNER JOIN Products_Suppliers ps " +
+                        "ON p.ProductId = ps.ProductId " +
+                        "INNER JOIN Suppliers s " +
+                        "ON s.SupplierId = ps.SupplierId " +
+                        "WHERE s.SupplierId = @SupplierId)";
+            SqlCommand cmdselect = new SqlCommand(sql, con);
+            cmdselect.Parameters.AddWithValue("@SupplierId", s.SupplierId);
+            try
+            {
+                con.Open();
+                SqlDataReader reader = cmdselect.ExecuteReader();
+                while (reader.Read())
+                {
+                    Products proo = new Products();
+                    proo.ProductId = Convert.ToInt32(reader["ProductId"]);
+                    proo.ProdName = Convert.ToString(reader["ProdName"]);
+
+                    prooo.Add(proo);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return prooo;
+        }
     }
 }

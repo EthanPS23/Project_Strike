@@ -16,3 +16,9 @@ C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpe
 C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
 C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
 C:\Users\538003\Documents\GitHub\Project_Strike\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb
+C:\Users\Sijia\Desktop\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
+C:\Users\Sijia\Desktop\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb
+C:\Users\Sijia\Desktop\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csprojAssemblyReference.cache
+C:\Users\Sijia\Desktop\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
+C:\Users\Sijia\Desktop\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
+C:\Users\Sijia\Desktop\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb

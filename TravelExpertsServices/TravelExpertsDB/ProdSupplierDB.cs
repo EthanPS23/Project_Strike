@@ -45,6 +45,30 @@ namespace TravelExpertsDB
             return ps;
         }
 
+        public static void InsertProdSupplier(ProdSuppliers newps)
+        {
+            SqlConnection con = DBConnection.GetConnection();
+
+            string sql = "INSERT Products_Suppliers (ProductId,SupplierId) " +
+                        "VALUES (@npsPid, @npsSid)";
+            SqlCommand cmdInsert = new SqlCommand(sql, con);//get connection
+            cmdInsert.Parameters.AddWithValue("@npsPid", newps.ProdId);//assign value with parameter
+            cmdInsert.Parameters.AddWithValue("@npsSid", newps.SupplierId);//assign value with parameter
+            try
+            {
+                con.Open();//connection open
+                cmdInsert.ExecuteNonQuery();//execute query
+            }
+            catch (SqlException ex)
+            {
+                throw ex;//throw exception
+            }
+            finally
+            {
+                con.Close();//close connection
+            }
+        }
+
         // Ethan Shipley
         //Updates the productId associated with the product supplier Id by connecting to the database, creating an sql statement and then executing the sql command
         public static void UpdateProductIDByPackage(int pkgid, int prodid, int prodsupid)
