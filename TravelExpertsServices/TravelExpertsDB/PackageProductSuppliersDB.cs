@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace TravelExpertsDB
 {
     public class PackageProductSuppliersDB
@@ -43,7 +42,6 @@ namespace TravelExpertsDB
                     pps.PkgName = Convert.ToString(Reader["PkgName"]);
                     pps.ProdName = Convert.ToString(Reader["ProdName"]);
                     pps.SupName = Convert.ToString(Reader["SupName"]);
-
                     ppss.Add(pps);
                 }
             }
@@ -57,6 +55,8 @@ namespace TravelExpertsDB
             }
             return ppss;
         }
+        // Ethan SHipley
+        // Inserts Product_SupplierID with the packageID based on inputs of packageID and ProductSupplierId to link them together
         public static void InsertProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -83,6 +83,8 @@ namespace TravelExpertsDB
                 con.Close();
             }
         }
+        // Ethan SHipley
+        // Deletes Product_SupplierID with the packageID based on inputs of packageID and ProductSupplierId
         public static void DeleteProductSupplierIdPpkg(int PackageId, int ProductSupplierId)
         {
             SqlConnection con = DBConnection.GetConnection();
