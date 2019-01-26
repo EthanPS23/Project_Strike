@@ -41,17 +41,13 @@ namespace TravelExpertsServices
         private void btnAddPkg_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
-            tabControl1.SelectedIndex = 1;
+            ProductsV2.SelectedIndex = 1;
             txtPackageName.Text = "";
             dtpPkgStartDate.Text = "";
             dtpPkgEndDate.Text = "";
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgencyCommission.Text = "";
-            gvSuppliers_pkgs.DataSource = "";
-            gvProducts_pkgs.DataSource = "";
-            cmbProdName.Enabled = false;
-            cmbSupName.Enabled = false;
             hideunhide(false);
             btnAddEditPkg.Text = "Save New Package";
         }
@@ -60,7 +56,7 @@ namespace TravelExpertsServices
         private void btnEditPkg_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
-            tabControl1.SelectedIndex = 1;
+            ProductsV2.SelectedIndex = 1;
             btnAddEditPkg.Text = "Save Edited Package";
             //int rw = packagesDataGridView.CurrentCell.RowIndex;
             //int rw = gvPackages.SelectedCells[0].RowIndex;
@@ -93,10 +89,7 @@ namespace TravelExpertsServices
             }
             UpdateBinding(true);
             PackagesListDetails(gvProdSup_pkg);
-            getSelectedProduct();
-            supplierComboBoxMatch();
-            cmbProdName.Enabled = false;
-            cmbSupName.Enabled = false;
+            //getSelectedProduct();
             hideunhide(false);
         }
 
@@ -118,8 +111,6 @@ namespace TravelExpertsServices
                 this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
                 gvPackages.CurrentCell = gvPackages[3, indx];
             }
-            gvProducts_pkgs.DataSource = ppss;
-            gvSuppliers_pkgs.DataSource = ppss;
             gvProdSup_pkg.DataSource = ppss;
             gvProdSup_all_pkgs.DataSource = psn;
 
@@ -146,7 +137,7 @@ namespace TravelExpertsServices
         private void btnAddProd_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
-            tabControl1.SelectedIndex = 2;
+            ProductsV2.SelectedIndex = 2;
             txtProdName.Text = "";
             btnAddEditProd.Text = "Save New Product";
         }
@@ -155,7 +146,7 @@ namespace TravelExpertsServices
         private void btnEditProd_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
-            tabControl1.SelectedIndex = 2;
+            ProductsV2.SelectedIndex = 2;
             btnAddEditProd.Text = "Save Edited Product";
         }
 
@@ -163,7 +154,7 @@ namespace TravelExpertsServices
         private void btnAddSup_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the suppliers pages and changes to the suppliers page
-            tabControl1.SelectedIndex = 3;
+            ProductsV2.SelectedIndex = 3;
             txtSupName.Text = "";
             btnAddEditSup.Text = "Save New Supplier";
         }
@@ -172,7 +163,7 @@ namespace TravelExpertsServices
         private void btnEditSup_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
-            tabControl1.SelectedIndex = 3;
+            ProductsV2.SelectedIndex = 3;
             btnAddEditSup.Text = "Save Edited Supplier";
         }
 
@@ -379,11 +370,6 @@ namespace TravelExpertsServices
             gvPackages.Columns[0].Visible = false;
             gvProducts.Columns[0].Visible = false;
             gvSuppliers.Columns[0].Visible = false;
-            gvProducts_pkgs.Columns[0].Visible = false;
-            gvSuppliers_pkgs.Columns[0].Visible = false;
-            
-            btnSave_Prod_Sup_pkg.Enabled = false;
-            btnSave_Prod_Sup_pkg.Visible = false;
             btnSaveP.Visible = false;
             btnSaveS.Visible = false;
 
@@ -423,16 +409,16 @@ namespace TravelExpertsServices
         }
 
         // Sheila Zhao
-        private void GetProduct(int productID)
-        {
-            Prod = ProductDB.GetProducts();
-            selectProducts = (from Pd in Prod
-                              where Pd.ProductId == productID
-                              select Pd).ToList();
+        //private void GetProduct(int productID)
+        //{
+        //    Prod = ProductDB.GetProducts();
+        //    selectProducts = (from Pd in Prod
+        //                      where Pd.ProductId == productID
+        //                      select Pd).ToList();
 
-            gvProducts1.DataSource = selectProducts;
+        //    gvProducts1.DataSource = selectProducts;
 
-        }
+        //}
 
         // Sheila Zhao
         //private void GetSupplier(int supplierID)
@@ -448,8 +434,8 @@ namespace TravelExpertsServices
         // Sheila Zhao
         private void grProducts1_SelectionChanged(object sender, EventArgs e)
         {
-
             Products selectedProduct = null;
+
             try
             {
                 foreach (DataGridViewRow row in gvProducts1.SelectedRows)
@@ -464,13 +450,13 @@ namespace TravelExpertsServices
                 {
                     Sup = SupplierDB.GetProSupNotInList(selectedProduct);
                     gvSupByProd.DataSource = Sup;
-                }              
+                }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }          
+            }
 
         }
 
@@ -517,133 +503,30 @@ namespace TravelExpertsServices
             return;
         }
 
-        //Ethan Shipley
-        private void btnAddProd_pkg_Click(object sender, EventArgs e)
-        {
-            var index = gvProducts_pkgs.Rows.Add();
-        }
-
-        
-        private void btnChangeProd_Click(object sender, EventArgs e)
-        {
-            //getSelectedSupplier();
-            cmbProdName.Enabled = true;
-            cmbSupName.Enabled = true;
-            btnSave_Prod_Sup_pkg.Enabled = true;
-            btnSave_Prod_Sup_pkg.Visible = true;
-
-        }
-
-
         // Ethan Shipley
         // Gets the selected data to fill in the combo box
         // Gets the supplier from products data to fill in the supplier combo box
-        private void getSelectedProduct()
-        {
-            Products selectedProduct = null;
-            try
-            {
-                foreach (DataGridViewRow row in gvProducts_pkgs.SelectedRows)
-                {
-                    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                                                   row.Cells[1].Value.ToString());
+        //private void getSelectedProduct()
+        //{
+        //    Products selectedProduct = null;
+        //    try
+        //    {
+        //        foreach (DataGridViewRow row in gvProducts_pkgs.SelectedRows)
+        //        {
+        //            selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+        //                                           row.Cells[1].Value.ToString());
 
-                }
+        //        }
 
-                Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                cmbSupName.DataSource = Sup;
-                supplierComboBoxMatch();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        // Ethan Shipley
-        // Gets the product from suppliers data to fill in the product combo box
-        private void getSelectedSupplier()
-        {
-            Supplier selectedSupplier = null;
-            try
-            {
-                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
-                {
-                    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                                                   row.Cells[1].Value.ToString());
-                }
-
-                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-                cmbProdName.DataSource = Prod;
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        // Ethan Shipley
-        // this may be slowing the code
-        private void gvSuppliers_pkgs_SelectionChanged(object sender, EventArgs e)
-        {
-            getSelectedProduct();
-            //getSelectedSupplier();
-            supplierComboBoxMatch();
-            productComboBoxMatch();
-        }
-        // Ethan Shipley
-        // Get set the value of the combobox to match that of the supplier
-        // this may be slowing the code
-        private void gvProducts_pkgs_SelectionChanged(object sender, EventArgs e)
-        {
-            getSelectedProduct();
-            //getSelectedSupplier();
-            supplierComboBoxMatch();
-            productComboBoxMatch();
-        }
-
-        // Ethan Shipley
-        // Get set the value of the combobox to match that of the supplier
-        // this may be slowing the code
-        private void supplierComboBoxMatch()
-        {
-            string c;
-            int i;
-            try
-            {
-                i = gvSuppliers_pkgs.CurrentCell.RowIndex;
-                c = gvSuppliers_pkgs[1, i].Value.ToString();
-                cmbSupName.SelectedIndex = cmbSupName.FindString(c);
-            }
-            catch (Exception)
-            {
-
-                return;
-            }   
-            
-        }
-
-        // Ethan Shipley
-        // Get set the value of the combobox to match that of the product
-        // this may be slowing the code
-        private void productComboBoxMatch()
-        {
-            string c;
-            int i;
-            try
-            {
-                i = gvProducts_pkgs.CurrentCell.RowIndex;
-                c = gvProducts_pkgs[1, i].Value.ToString();
-                cmbProdName.SelectedIndex = cmbProdName.FindString(c);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-            
-        }
+        //        Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+        //        cmbSupName.DataSource = Sup;
+        //        supplierComboBoxMatch();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, ex.GetType().ToString());
+        //    }
+        //}
 
         private void btnDelProd_pkg_Click(object sender, EventArgs e)
         {
@@ -699,90 +582,6 @@ namespace TravelExpertsServices
                 dtpPkgEndDate.Value = DateTime.Now;
             }
         }
-        //Ethan Shipley
-        // determines the prodcuctId and product supplierid in order to change the product for the package
-        private void btnSaveProdPkg_Click(object sender, EventArgs e)
-        {
-            //Declare the variables that will be used for updating the database
-            int selectedvalueprodid = Convert.ToInt32(cmbProdName.SelectedValue);
-            int selectedprodsupId = -9;
-            int selectedindex;
-
-            // this if statement is used to prevent updates to the database upon opening of the program and closing of program
-            if (selectedvalueprodid == 0)
-            {
-                return;
-            }
-            // goes through ppss to determine the productsupplier id that will be used to determine the coorect field is properly updated
-            foreach (var item in ppss)
-            {
-                // this if statement find matching packageID and productID in order to determine the selected products products supplierID
-                if ((pkgid == item.PackageId) && (Convert.ToInt32(gvProducts_pkgs[0, gvProducts_pkgs.CurrentCell.RowIndex].Value) == item.ProductId))
-                {
-                    selectedprodsupId = item.ProductSupplierId;
-                    break;
-                }
-            }
-            if (selectedvalueprodid == 0 || selectedprodsupId == -9)
-            {
-                return;
-            }
-            //MessageBox.Show(selectedvalueprodid + "   " + selectedprodsupId);
-            //Updated the data base and
-            ProdSupplierDB.UpdateProductIDByPackage(pkgid, selectedvalueprodid, selectedprodsupId);
-            //selectedindex = Convert.ToInt32(gvPackages[0, gvPackages.CurrentCell.RowIndex].Value);Rows(selectedindex).Cells(0);
-            selectedindex = gvPackages.CurrentCell.RowIndex;
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            gvPackages.CurrentCell = gvPackages[1, selectedindex];
-            UpdateBinding(true);
-        }
-
-        //Ethan Shipley
-        // on click of the change supplier it enables the supplier combo box and gets the required dat for the drop down list
-        private void btnChangeSup_Click(object sender, EventArgs e)
-        {
-            //getSelectedPoduct();
-            cmbSupName.Enabled = true;
-        }
-
-        //Ethan Shipley
-        // determines the supplierId and product supplierid in order to change the supplier for the package
-        private void btnSaveSupPkg_Click(object sender, EventArgs e)
-        {
-            //Declare the variables that will be used for updating the database
-            int selectedvaluesupid = Convert.ToInt32(cmbSupName.SelectedValue);
-            int selectedprodsupId = -9;
-            int selectedindex;
-
-            // this if statement is used to prevent updates to the database upon opening of the program and closing of program
-            if (selectedvaluesupid == 0)
-            {
-                return;
-            }
-            // goes through ppss to determine the productsupplier id that will be used to determine the coorect field is properly updated
-            foreach (var item in ppss)
-            {
-                // this if statement find matching packageID and productID in order to determine the selected products products supplierID
-                if ((pkgid == item.PackageId) && (Convert.ToInt32(gvSuppliers_pkgs[0, gvSuppliers_pkgs.CurrentCell.RowIndex].Value) == item.SupplierId))
-                {
-                    selectedprodsupId = item.ProductSupplierId;
-                    break;
-                }
-            }
-            if (selectedvaluesupid == 0 || selectedprodsupId == -9)
-            {
-                return;
-            }
-            //MessageBox.Show(selectedvalueprodid + "   " + selectedprodsupId);
-            //Updated the data base and
-            ProdSupplierDB.UpdateSupplierIDByPackage(pkgid, selectedvaluesupid, selectedprodsupId);
-            //selectedindex = Convert.ToInt32(gvPackages[0, gvPackages.CurrentCell.RowIndex].Value);Rows(selectedindex).Cells(0);
-            selectedindex = gvPackages.CurrentCell.RowIndex;
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            gvPackages.CurrentCell = gvPackages[1, selectedindex];
-            UpdateBinding(true);
-        }
-
         //Ethan Shipley
         // Dsiplays the list of available product suppliers
         private void btnUpdatePkgProdSup_Click(object sender, EventArgs e)
@@ -1198,40 +997,307 @@ namespace TravelExpertsServices
 
         private void btnAddPS_Click(object sender, EventArgs e)
         {
-            try
-            {                
-                foreach (DataGridViewRow row in gvSuppliers1.SelectedRows)
-                {                    
-                    //ProdSupplierDB.InsertProdSupplier("");
-                }
+            int ProdSupID, SupID, ProdID;
+            int Success = 0;
+            Products selectedProduct = null;
 
-                if (gvSuppliers1.Rows.Count > 0)
-                {
-                    gvSuppliers1.ClearSelection();
-
-                    int RowIndex = gvSuppliers1.Rows.Count - 1;
-                    //    //int nColumnIndex = 0;
-
-                    gvSuppliers1.Rows[RowIndex].Selected = true;
-                    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                    //    //In case if you want to scroll down as well.
-                    gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
-
-                }
-
-            }
-            catch (Exception ex)
+            if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
+                && gvSuppliers1.SelectedCells.Count > 0)
             {
-                throw ex;
+                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers addNew = new ProdSuppliers();
+
+                    addNew.ProdId = ProdID;
+                    addNew.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.InsertProdSupplier(addNew);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+                            {
+                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                            gvSuppliers1.DataSource = Sup;
+                            if (selectedProduct != null)
+                            {
+                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                                gvSupByProd.DataSource = Sup;
+                            }
+                            MessageBox.Show("Supplier Added Successfully!");
+
+                            if (gvSuppliers1.Rows.Count > 0)
+                            {
+                                gvSuppliers1.ClearSelection();
+
+                                int RowIndex = gvSuppliers1.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvSuppliers1.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+
+        private void btnDelPS_Click(object sender, EventArgs e)
+        {
+            int ProdSupID, SupID, ProdID;
+            int Success = 0;
+            Products selectedProduct = null;
+
+            if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
+                && gvSuppliers1.SelectedCells.Count > 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
+
+                try
+                {
+                   
+                    ProdSuppliers del = new ProdSuppliers();
+
+                    del.ProdId = ProdID;
+                    del.SupplierId = ProdSupID;
+                    //del.ProductSupplierId = ProdSupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.DeleteProdSupplier(del);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+                            {
+                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                            gvSuppliers1.DataSource = Sup;
+                            if (selectedProduct != null)
+                            {
+                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                                gvSupByProd.DataSource = Sup;
+                            }
+                            MessageBox.Show("Supplier Deleted Successfully!");
+
+                            if (gvSupByProd.Rows.Count > 0)
+                            {
+                                gvSupByProd.ClearSelection();
+
+                                int RowIndex = gvSupByProd.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvSupByProd.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvSupByProd.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+
+        private void btnAddSP_Click(object sender, EventArgs e)
+        {
+            int ProdSupID, SupID, ProdID;
+            int Success = 0;
+            Supplier selectedSupplier = null;
+
+            if (gvProducts2.SelectedCells.Count > 0 && gvProdBySup.SelectedCells.Count > 0
+                && gvSuppliers2.SelectedCells.Count > 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts2.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSuppliers2.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers addNew = new ProdSuppliers();
+
+                    addNew.ProdId = ProdSupID;
+                    addNew.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.InsertSupProduct(addNew);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                            {
+                                selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+                            gvProducts2.DataSource = Prod;
+                            if (selectedSupplier != null)
+                            {
+                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                                gvProdBySup.DataSource = Prod;
+                            }
+                            MessageBox.Show("Product Added Successfully!");
+
+                            if (gvProducts2.Rows.Count > 0)
+                            {
+                                gvProducts2.ClearSelection();
+
+                                int RowIndex = gvProducts2.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvProducts2.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvProducts2.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
 
         private void btnDelSP_Click(object sender, EventArgs e)
         {
+            int ProdSupID, SupID, ProdID;
+            int Success = 0;
+            Supplier selectedSupplier = null;
 
+            if (gvProducts2.SelectedCells.Count > 0 && gvProdBySup.SelectedCells.Count > 0
+                && gvSuppliers2.SelectedCells.Count > 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts2.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSuppliers2.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers del = new ProdSuppliers();
+
+                    del.ProdId = ProdID;
+                    del.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.DeleteSupProduct(del);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                            {
+                                selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+                            gvProducts2.DataSource = Prod;
+                            if (selectedSupplier != null)
+                            {
+                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                                gvProdBySup.DataSource = Prod;
+                            }
+                            MessageBox.Show("Product Deleted Successfully!");
+
+                            if (gvProdBySup.Rows.Count > 0)
+                            {
+                                gvProdBySup.ClearSelection();
+
+                                int RowIndex = gvProdBySup.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvProdBySup.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvProdBySup.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Product deleted Failed, Go Home");
+                }
+            }
         }
 
+
+        // =======================================================================================//
 
     }
 }

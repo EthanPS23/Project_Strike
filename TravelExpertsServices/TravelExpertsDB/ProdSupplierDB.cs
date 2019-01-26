@@ -9,8 +9,8 @@ using System.Windows.Forms;
 namespace TravelExpertsDB
 {
     public class ProdSupplierDB
-    {
-        
+    {      
+
         public static ProdSuppliers GetProductSupplierById(int pId, int sId)
         {
             ProdSuppliers ps = new ProdSuppliers();
@@ -43,10 +43,12 @@ namespace TravelExpertsDB
                 con.Close();
             }
             return ps;
-        }
+        }        
 
-        public static void InsertProdSupplier(ProdSuppliers newps)
+        public static int InsertProdSupplier(ProdSuppliers newps)
         {
+            int InsertPS = 0;
+
             SqlConnection con = DBConnection.GetConnection();
 
             string sql = "INSERT Products_Suppliers (ProductId,SupplierId) " +
@@ -57,7 +59,7 @@ namespace TravelExpertsDB
             try
             {
                 con.Open();//connection open
-                cmdInsert.ExecuteNonQuery();//execute query
+                InsertPS = cmdInsert.ExecuteNonQuery();//execute query
             }
             catch (SqlException ex)
             {
@@ -67,6 +69,91 @@ namespace TravelExpertsDB
             {
                 con.Close();//close connection
             }
+            return InsertPS;
+        }
+
+        public static int DeleteProdSupplier(ProdSuppliers delps)
+        {
+            int DeletePS = 0;
+
+            SqlConnection con = DBConnection.GetConnection();
+
+            string sql = "DELETE FROM Products_Suppliers " +
+                        "WHERE ProductId = @delPId " +
+                        "AND SupplierId = @delSId";
+            SqlCommand cmdDelete = new SqlCommand(sql, con);//get connection
+            cmdDelete.Parameters.AddWithValue("@delPId", delps.ProdId);//assign value with parameter
+            cmdDelete.Parameters.AddWithValue("@delSId", delps.SupplierId);//assign value with parameter
+            try
+            {
+                con.Open();//connection open
+                DeletePS = cmdDelete.ExecuteNonQuery();//execute query
+            }
+            catch (SqlException ex)
+            {
+                throw ex;//throw exception
+            }
+            finally
+            {
+                con.Close();//close connection
+            }
+            return DeletePS;
+        }
+
+        public static int InsertSupProduct(ProdSuppliers newsp)
+        {
+            int InsertSP = 0;
+
+            SqlConnection con = DBConnection.GetConnection();
+
+            string sql = "INSERT Products_Suppliers (SupplierId, ProductId) " +
+                        "VALUES (@nspSid, @nspPid)";
+            SqlCommand cmdInsert = new SqlCommand(sql, con);//get connection
+            cmdInsert.Parameters.AddWithValue("@nspSid", newsp.SupplierId);//assign value with parameter
+            cmdInsert.Parameters.AddWithValue("@nspPid", newsp.ProdId);//assign value with parameter
+            
+            try
+            {
+                con.Open();//connection open
+                InsertSP = cmdInsert.ExecuteNonQuery();//execute query
+            }
+            catch (SqlException ex)
+            {
+                throw ex;//throw exception
+            }
+            finally
+            {
+                con.Close();//close connection
+            }
+            return InsertSP;
+        }
+
+        public static int DeleteSupProduct(ProdSuppliers delsp)
+        {
+            int DeleteSP = 0;
+
+            SqlConnection con = DBConnection.GetConnection();
+
+            string sql = "DELETE FROM Products_Suppliers " +
+                        "WHERE ProductId = @delPId " +
+                        "AND SupplierId = @delSId";
+            SqlCommand cmdDelete = new SqlCommand(sql, con);//get connection
+            cmdDelete.Parameters.AddWithValue("@delPId", delsp.ProdId);//assign value with parameter
+            cmdDelete.Parameters.AddWithValue("@delSId", delsp.SupplierId);//assign value with parameter
+            try
+            {
+                con.Open();//connection open
+                DeleteSP = cmdDelete.ExecuteNonQuery();//execute query
+            }
+            catch (SqlException ex)
+            {
+                throw ex;//throw exception
+            }
+            finally
+            {
+                con.Close();//close connection
+            }
+            return DeleteSP;
         }
 
         // Ethan Shipley
