@@ -50,6 +50,8 @@ namespace TravelExpertsServices
             txtPkgAgencyCommission.Text = "";
             gvSuppliers_pkgs.DataSource = "";
             gvProducts_pkgs.DataSource = "";
+            gvProdSup_pkg.DataSource = "";
+            gvProdSup_all_pkgs.DataSource = "";
             cmbProdName.Enabled = false;
             cmbSupName.Enabled = false;
             hideunhide(false);
