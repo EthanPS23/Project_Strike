@@ -36,7 +36,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -63,7 +63,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;//throw exception
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -91,7 +91,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;//throw exception
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());//throw exception
             }
             finally
             {
@@ -119,7 +119,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;//throw exception
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());//throw exception
             }
             finally
             {
@@ -147,7 +147,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;//throw exception
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());//throw exception
             }
             finally
             {

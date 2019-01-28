@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace TravelExpertsDB
 {
     public class ProductDB
@@ -31,7 +33,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -94,7 +96,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -120,7 +122,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -144,7 +146,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -183,7 +185,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {

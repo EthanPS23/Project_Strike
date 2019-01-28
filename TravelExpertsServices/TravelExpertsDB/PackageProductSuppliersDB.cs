@@ -47,7 +47,7 @@ namespace TravelExpertsDB
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
             }
             finally
             {
@@ -72,7 +72,6 @@ namespace TravelExpertsDB
             {
                 con.Open();
                 cmdinsert.ExecuteNonQuery();
-                MessageBox.Show("Package insert successful");
             }
             catch (SqlException ex)
             {
@@ -98,7 +97,6 @@ namespace TravelExpertsDB
             {
                 con.Open();
                 cmddelete.ExecuteNonQuery();
-                MessageBox.Show("Package delete successful");
             }
             catch (SqlException ex)
             {
