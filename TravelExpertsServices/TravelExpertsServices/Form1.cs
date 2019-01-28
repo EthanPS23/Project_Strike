@@ -72,8 +72,34 @@ namespace TravelExpertsServices
             btnDelSP.Visible = false;
             btnAddPS.Visible = false;
             btnDelPS.Visible = false;
-        }
 
+            DataGridViewSettings();
+        }
+        
+
+        // Mike added this on Jan 28 2019
+        private void DataGridViewSettings()
+        {
+            //AutoFill(gvPackages);
+            //AutoFill(gvProducts);
+            //AutoFill(gvSuppliers);
+
+            //gvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //gvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //gvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //gvPackages.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+
+
+            List<string> list = new List<string>();
+
+            list.Add("First");
+            list.Add("Second");
+            list.Add("Thrid");
+
+            DGVtest.DataSource = list;
+            DGVtest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DGVtest.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+        }
 
         // Ethan Shipley
         private void btnAddPkg_Click(object sender, EventArgs e)
@@ -333,6 +359,7 @@ namespace TravelExpertsServices
                 //Inserts the package into the database and then refreshes the mainpage
                 PackagesDB.InsertPackages(pack);
                 UpdateBinding(false);
+                btnAddEditPkg.Text = "Save Edited Package";
             }
             else if (btnAddEditPkg.Text == "Save Edited Package")
             {

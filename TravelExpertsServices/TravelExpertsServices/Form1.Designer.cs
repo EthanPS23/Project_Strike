@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -123,13 +126,14 @@
             this.btnAddProd = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGVtest = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -153,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).BeginInit();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVtest)).BeginInit();
             this.SuspendLayout();
             // 
             // suppliersBindingSource
@@ -722,7 +727,7 @@
             this.btnDeletePkgProdSup_Click.Location = new System.Drawing.Point(689, 167);
             this.btnDeletePkgProdSup_Click.Name = "btnDeletePkgProdSup_Click";
             this.btnDeletePkgProdSup_Click.Size = new System.Drawing.Size(91, 23);
-            this.btnDeletePkgProdSup_Click.TabIndex = 36;
+            this.btnDeletePkgProdSup_Click.TabIndex = 8;
             this.btnDeletePkgProdSup_Click.Text = "Delete Product";
             this.btnDeletePkgProdSup_Click.UseVisualStyleBackColor = true;
             this.btnDeletePkgProdSup_Click.Click += new System.EventHandler(this.btnDeletePkgProdSup_Click_Click);
@@ -732,7 +737,7 @@
             this.btnAddPkgProdSup.Location = new System.Drawing.Point(465, 365);
             this.btnAddPkgProdSup.Name = "btnAddPkgProdSup";
             this.btnAddPkgProdSup.Size = new System.Drawing.Size(75, 23);
-            this.btnAddPkgProdSup.TabIndex = 35;
+            this.btnAddPkgProdSup.TabIndex = 9;
             this.btnAddPkgProdSup.Text = "Add New";
             this.btnAddPkgProdSup.UseVisualStyleBackColor = true;
             this.btnAddPkgProdSup.Visible = false;
@@ -756,7 +761,7 @@
             this.btnNewPkgProdSup.Location = new System.Drawing.Point(465, 167);
             this.btnNewPkgProdSup.Name = "btnNewPkgProdSup";
             this.btnNewPkgProdSup.Size = new System.Drawing.Size(91, 23);
-            this.btnNewPkgProdSup.TabIndex = 33;
+            this.btnNewPkgProdSup.TabIndex = 7;
             this.btnNewPkgProdSup.Text = "New Product";
             this.btnNewPkgProdSup.UseVisualStyleBackColor = true;
             this.btnNewPkgProdSup.Click += new System.EventHandler(this.btnUpdatePkgProdSup_Click);
@@ -765,6 +770,14 @@
             // 
             this.gvProdSup_pkg.AllowUserToAddRows = false;
             this.gvProdSup_pkg.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvProdSup_pkg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gvProdSup_pkg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProdSup_pkg.Location = new System.Drawing.Point(465, 11);
             this.gvProdSup_pkg.MultiSelect = false;
@@ -796,7 +809,7 @@
             this.btnAddEditPkg.Location = new System.Drawing.Point(214, 218);
             this.btnAddEditPkg.Name = "btnAddEditPkg";
             this.btnAddEditPkg.Size = new System.Drawing.Size(80, 23);
-            this.btnAddEditPkg.TabIndex = 5;
+            this.btnAddEditPkg.TabIndex = 6;
             this.btnAddEditPkg.Text = "Save New Package";
             this.btnAddEditPkg.UseVisualStyleBackColor = true;
             this.btnAddEditPkg.Click += new System.EventHandler(this.btnAddEditPkg_Click);
@@ -816,14 +829,14 @@
             this.txtPkgAgencyCommission.Location = new System.Drawing.Point(159, 193);
             this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
             this.txtPkgAgencyCommission.Size = new System.Drawing.Size(188, 20);
-            this.txtPkgAgencyCommission.TabIndex = 0;
+            this.txtPkgAgencyCommission.TabIndex = 5;
             // 
             // txtPkgBasePrice
             // 
             this.txtPkgBasePrice.Location = new System.Drawing.Point(159, 167);
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
             this.txtPkgBasePrice.Size = new System.Drawing.Size(188, 20);
-            this.txtPkgBasePrice.TabIndex = 0;
+            this.txtPkgBasePrice.TabIndex = 4;
             // 
             // txtPackageName
             // 
@@ -847,7 +860,7 @@
             this.dtpPkgStartDate.Location = new System.Drawing.Point(159, 34);
             this.dtpPkgStartDate.Name = "dtpPkgStartDate";
             this.dtpPkgStartDate.Size = new System.Drawing.Size(188, 20);
-            this.dtpPkgStartDate.TabIndex = 2;
+            this.dtpPkgStartDate.TabIndex = 1;
             this.dtpPkgStartDate.ValueChanged += new System.EventHandler(this.dtpPkgStartDate_ValueChanged);
             // 
             // lblPkgEndDate
@@ -907,6 +920,8 @@
             // tabMainPage
             // 
             this.tabMainPage.AutoScroll = true;
+            this.tabMainPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.tabMainPage.Controls.Add(this.DGVtest);
             this.tabMainPage.Controls.Add(this.btnDeletepkg);
             this.tabMainPage.Controls.Add(this.gvSuppliers);
             this.tabMainPage.Controls.Add(this.gvProducts);
@@ -923,17 +938,17 @@
             this.tabMainPage.Size = new System.Drawing.Size(1014, 400);
             this.tabMainPage.TabIndex = 0;
             this.tabMainPage.Text = "Main Page";
-            this.tabMainPage.UseVisualStyleBackColor = true;
             // 
             // btnDeletepkg
             // 
+            this.btnDeletepkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDeletepkg.Location = new System.Drawing.Point(430, 162);
             this.btnDeletepkg.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeletepkg.Name = "btnDeletepkg";
             this.btnDeletepkg.Size = new System.Drawing.Size(87, 23);
             this.btnDeletepkg.TabIndex = 10;
             this.btnDeletepkg.Text = "Delete Package";
-            this.btnDeletepkg.UseVisualStyleBackColor = true;
+            this.btnDeletepkg.UseVisualStyleBackColor = false;
             this.btnDeletepkg.Click += new System.EventHandler(this.btnDeletepkg_Click);
             // 
             // gvSuppliers
@@ -946,6 +961,7 @@
             this.SupplierId,
             this.dataGridViewTextBoxColumn11});
             this.gvSuppliers.DataSource = this.suppliersBindingSource;
+            this.gvSuppliers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
             this.gvSuppliers.Location = new System.Drawing.Point(393, 191);
             this.gvSuppliers.Margin = new System.Windows.Forms.Padding(2);
             this.gvSuppliers.MultiSelect = false;
@@ -979,6 +995,7 @@
             this.ProductId,
             this.dataGridViewTextBoxColumn9});
             this.gvProducts.DataSource = this.productsBindingSource;
+            this.gvProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
             this.gvProducts.Location = new System.Drawing.Point(6, 191);
             this.gvProducts.Margin = new System.Windows.Forms.Padding(2);
             this.gvProducts.MultiSelect = false;
@@ -1007,6 +1024,15 @@
             this.gvPackages.AllowUserToAddRows = false;
             this.gvPackages.AllowUserToDeleteRows = false;
             this.gvPackages.AutoGenerateColumns = false;
+            this.gvPackages.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvPackages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPackages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1017,6 +1043,15 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.gvPackages.DataSource = this.packagesBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvPackages.DefaultCellStyle = dataGridViewCellStyle5;
+            this.gvPackages.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
             this.gvPackages.Location = new System.Drawing.Point(5, 6);
             this.gvPackages.Margin = new System.Windows.Forms.Padding(2);
             this.gvPackages.MultiSelect = false;
@@ -1054,18 +1089,19 @@
             this.btnAddSup.Name = "btnAddSup";
             this.btnAddSup.Size = new System.Drawing.Size(84, 23);
             this.btnAddSup.TabIndex = 1;
-            this.btnAddSup.Text = "Add Supplier";
+            this.btnAddSup.Text = "New Supplier";
             this.btnAddSup.UseVisualStyleBackColor = true;
             this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
             // btnEditPkg
             // 
+            this.btnEditPkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnEditPkg.Location = new System.Drawing.Point(926, 162);
             this.btnEditPkg.Name = "btnEditPkg";
             this.btnEditPkg.Size = new System.Drawing.Size(84, 23);
             this.btnEditPkg.TabIndex = 1;
             this.btnEditPkg.Text = "Edit Package";
-            this.btnEditPkg.UseVisualStyleBackColor = true;
+            this.btnEditPkg.UseVisualStyleBackColor = false;
             this.btnEditPkg.Click += new System.EventHandler(this.btnEditPkg_Click);
             // 
             // btnAddProd
@@ -1074,18 +1110,19 @@
             this.btnAddProd.Name = "btnAddProd";
             this.btnAddProd.Size = new System.Drawing.Size(84, 23);
             this.btnAddProd.TabIndex = 1;
-            this.btnAddProd.Text = "Add Product";
+            this.btnAddProd.Text = "New Product";
             this.btnAddProd.UseVisualStyleBackColor = true;
             this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
             // 
             // btnAddPkg
             // 
+            this.btnAddPkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddPkg.Location = new System.Drawing.Point(6, 162);
             this.btnAddPkg.Name = "btnAddPkg";
             this.btnAddPkg.Size = new System.Drawing.Size(84, 23);
             this.btnAddPkg.TabIndex = 1;
             this.btnAddPkg.Text = "Add Package";
-            this.btnAddPkg.UseVisualStyleBackColor = true;
+            this.btnAddPkg.UseVisualStyleBackColor = false;
             this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
             // 
             // tabControl1
@@ -1100,45 +1137,40 @@
             this.tabControl1.Size = new System.Drawing.Size(1022, 426);
             this.tabControl1.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // DGVtest
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Package Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 87;
+            this.DGVtest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVtest.Location = new System.Drawing.Point(637, 205);
+            this.DGVtest.Name = "DGVtest";
+            this.DGVtest.Size = new System.Drawing.Size(371, 150);
+            this.DGVtest.TabIndex = 11;
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PkgName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Package Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn2.Width = 78;
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn7.Width = 96;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "PkgStartDate";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Package Start Date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn3.Width = 76;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "PkgEndDate";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Package End Date";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn4.Width = 73;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn6.Width = 77;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1150,39 +1182,54 @@
             this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn5.Width = 101;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn6.Width = 77;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "PkgEndDate";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Package End Date";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.Width = 73;
             // 
-            // dataGridViewTextBoxColumn7
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn7.Width = 96;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "PkgStartDate";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Package Start Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn3.Width = 76;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PkgName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Package Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn2.Width = 78;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Package Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn1.Width = 87;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
             this.ClientSize = new System.Drawing.Size(1044, 453);
             this.Controls.Add(this.tabControl1);
+            this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Name = "Form1";
             this.Text = "Travel Experts Services";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1212,6 +1259,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGVtest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1311,6 +1359,7 @@
         private System.Windows.Forms.Button btnAddPkg;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnClearS;
+        private System.Windows.Forms.DataGridView DGVtest;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
