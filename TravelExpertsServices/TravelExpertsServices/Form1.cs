@@ -79,13 +79,19 @@ namespace TravelExpertsServices
         private void btnAddPkg_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
-            ProductsV2.SelectedIndex = 1;
+            tabControl1.SelectedIndex = 1;
             txtPackageName.Text = "";
             dtpPkgStartDate.Text = "";
             dtpPkgEndDate.Text = "";
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgencyCommission.Text = "";
+            //gvSuppliers_pkgs.DataSource = "";
+            //gvProducts_pkgs.DataSource = "";
+            gvProdSup_pkg.DataSource = "";
+            gvProdSup_all_pkgs.DataSource = "";
+            //cmbProdName.Enabled = false;
+            //cmbSupName.Enabled = false;
             hideunhide(false);
             btnAddEditPkg.Text = "Save New Package";
         }
@@ -94,14 +100,14 @@ namespace TravelExpertsServices
         private void btnEditPkg_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
-            ProductsV2.SelectedIndex = 1;
+            tabControl1.SelectedIndex = 1;
             btnAddEditPkg.Text = "Save Edited Package";
             //int rw = packagesDataGridView.CurrentCell.RowIndex;
             //int rw = gvPackages.SelectedCells[0].RowIndex;
             //DataGridViewRow selectedRow = gvPackages.Rows[rw];
             var Packages = from Pkg in PackagesList
                                //where Pkg.PackageID == Convert.ToInt32(packagesDataGridView[0, rw].Value)
-                           //where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
+                               //where Pkg.PackageID == Convert.ToInt32(selectedRow.Cells[0].Value)
                            where Pkg.PackageID == getSelectedCellValue(gvPackages, 0)
                            select new
                            {
@@ -128,6 +134,9 @@ namespace TravelExpertsServices
             UpdateBinding(true);
             PackagesListDetails(gvProdSup_pkg);
             //getSelectedProduct();
+            //supplierComboBoxMatch();
+            //cmbProdName.Enabled = false;
+            //cmbSupName.Enabled = false;
             hideunhide(false);
         }
 
@@ -153,7 +162,7 @@ namespace TravelExpertsServices
             gvProdSup_all_pkgs.DataSource = psn;
 
             gvProducts1.DataSource = Prod;
-            gvSuppliers2.DataSource = SupplierDB.GetSuppliers();
+            gvSuppliers2.DataSource = Sup;
         }
 
         //Ethan Shipley
@@ -175,7 +184,7 @@ namespace TravelExpertsServices
         private void btnAddProd_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
-            ProductsV2.SelectedIndex = 2;
+            tabControl1.SelectedIndex = 2;
             txtProdName.Text = "";
             btnAddEditProd.Text = "Save New Product";
         }
@@ -184,7 +193,7 @@ namespace TravelExpertsServices
         private void btnEditProd_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the products pages and changes to the products page
-            ProductsV2.SelectedIndex = 2;
+            tabControl1.SelectedIndex = 2;
             btnAddEditProd.Text = "Save Edited Product";
         }
 
@@ -192,7 +201,7 @@ namespace TravelExpertsServices
         private void btnAddSup_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the suppliers pages and changes to the suppliers page
-            ProductsV2.SelectedIndex = 3;
+            tabControl1.SelectedIndex = 3;
             txtSupName.Text = "";
             btnAddEditSup.Text = "Save New Supplier";
         }
@@ -201,7 +210,7 @@ namespace TravelExpertsServices
         private void btnEditSup_Click(object sender, EventArgs e)
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
-            ProductsV2.SelectedIndex = 3;
+            tabControl1.SelectedIndex = 3;
             btnAddEditSup.Text = "Save Edited Supplier";
         }
 

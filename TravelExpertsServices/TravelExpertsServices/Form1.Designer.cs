@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -45,6 +45,7 @@
             this.packages_Products_SuppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.Packages_Products_SuppliersTableAdapter();
             this.travelExpertsDataSet1 = new TravelExpertsServices.TravelExpertsDataSet();
             this.tabSuppliers = new System.Windows.Forms.TabPage();
+            this.btnClearS = new System.Windows.Forms.Button();
             this.btnDelSP = new System.Windows.Forms.Button();
             this.btnAddSP = new System.Windows.Forms.Button();
             this.btnShowSP = new System.Windows.Forms.Button();
@@ -128,8 +129,7 @@
             this.btnEditPkg = new System.Windows.Forms.Button();
             this.btnAddProd = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
-            this.ProductsV2 = new System.Windows.Forms.TabControl();
-            this.btnClearS = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -152,7 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).BeginInit();
-            this.ProductsV2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // suppliersBindingSource
@@ -257,6 +257,16 @@
             this.tabSuppliers.TabIndex = 3;
             this.tabSuppliers.Text = "Suppliers";
             this.tabSuppliers.UseVisualStyleBackColor = true;
+            // 
+            // btnClearS
+            // 
+            this.btnClearS.Location = new System.Drawing.Point(215, 5);
+            this.btnClearS.Name = "btnClearS";
+            this.btnClearS.Size = new System.Drawing.Size(75, 23);
+            this.btnClearS.TabIndex = 18;
+            this.btnClearS.Text = "&Clear";
+            this.btnClearS.UseVisualStyleBackColor = true;
+            this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
             // 
             // btnDelSP
             // 
@@ -1066,9 +1076,9 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -1078,9 +1088,9 @@
             // 
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -1147,34 +1157,24 @@
             this.btnAddPkg.UseVisualStyleBackColor = true;
             this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
             // 
-            // ProductsV2
+            // tabControl1
             // 
-            this.ProductsV2.Controls.Add(this.tabMainPage);
-            this.ProductsV2.Controls.Add(this.tabPackages);
-            this.ProductsV2.Controls.Add(this.tabProduct);
-            this.ProductsV2.Controls.Add(this.tabSuppliers);
-            this.ProductsV2.Location = new System.Drawing.Point(12, 23);
-            this.ProductsV2.Name = "ProductsV2";
-            this.ProductsV2.SelectedIndex = 0;
-            this.ProductsV2.Size = new System.Drawing.Size(1022, 426);
-            this.ProductsV2.TabIndex = 0;
-            // 
-            // btnClearS
-            // 
-            this.btnClearS.Location = new System.Drawing.Point(215, 5);
-            this.btnClearS.Name = "btnClearS";
-            this.btnClearS.Size = new System.Drawing.Size(75, 23);
-            this.btnClearS.TabIndex = 18;
-            this.btnClearS.Text = "&Clear";
-            this.btnClearS.UseVisualStyleBackColor = true;
-            this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
+            this.tabControl1.Controls.Add(this.tabMainPage);
+            this.tabControl1.Controls.Add(this.tabPackages);
+            this.tabControl1.Controls.Add(this.tabProduct);
+            this.tabControl1.Controls.Add(this.tabSuppliers);
+            this.tabControl1.Location = new System.Drawing.Point(12, 23);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1022, 426);
+            this.tabControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 453);
-            this.Controls.Add(this.ProductsV2);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Travel Experts Services";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1203,7 +1203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).EndInit();
-            this.ProductsV2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1308,7 +1308,7 @@
         private System.Windows.Forms.Button btnEditPkg;
         private System.Windows.Forms.Button btnAddProd;
         private System.Windows.Forms.Button btnAddPkg;
-        private System.Windows.Forms.TabControl ProductsV2;
+        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnClearS;
     }
 }
