@@ -37,6 +37,44 @@ namespace TravelExpertsServices
             InitializeComponent();
         }
 
+        //Ethan Shipley
+        // On form load performs these actions
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages_Products_Suppliers' table. You can move, or remove it, as needed.
+            this.packages_Products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Packages_Products_Suppliers);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products_Suppliers' table. You can move, or remove it, as needed.
+            this.products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Products_Suppliers);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Suppliers' table. You can move, or remove it, as needed.
+            this.suppliersTableAdapter.Fill(this.travelExpertsDataSet.Suppliers);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
+            // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
+            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+
+            //THIS TO BE UNCOMMENTED AFTER TESTING
+
+            //dtpPkgStartDate.MinDate = DateTime.Now;
+            //dtpPkgEndDate.MinDate = DateTime.Now;
+
+            gvPackages.Columns[0].Visible = false;
+            gvProducts.Columns[0].Visible = false;
+            gvSuppliers.Columns[0].Visible = false;
+            btnSaveP.Visible = false;
+            btnSaveS.Visible = false;
+
+            gvProdBySup.Visible = false;
+            gvSupByProd.Visible = false;
+
+            btnAddSP.Visible = false;
+            btnDelSP.Visible = false;
+            btnAddPS.Visible = false;
+            btnDelPS.Visible = false;
+        }
+
+
         // Ethan Shipley
         private void btnAddPkg_Click(object sender, EventArgs e)
         {
@@ -345,37 +383,6 @@ namespace TravelExpertsServices
 
         }
 
-        //Ethan Shipley
-        // On form load performs these actions
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages_Products_Suppliers' table. You can move, or remove it, as needed.
-            this.packages_Products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Packages_Products_Suppliers);
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products_Suppliers' table. You can move, or remove it, as needed.
-            this.products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Products_Suppliers);
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Suppliers' table. You can move, or remove it, as needed.
-            this.suppliersTableAdapter.Fill(this.travelExpertsDataSet.Suppliers);
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
-            this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
-            this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-
-            //THIS TO BE UNCOMMENTED AFTER TESTING
-
-            //dtpPkgStartDate.MinDate = DateTime.Now;
-            //dtpPkgEndDate.MinDate = DateTime.Now;
-
-            gvPackages.Columns[0].Visible = false;
-            gvProducts.Columns[0].Visible = false;
-            gvSuppliers.Columns[0].Visible = false;
-            btnSaveP.Visible = false;
-            btnSaveS.Visible = false;
-
-            gvProdBySup.Visible = false;
-            gvSupByProd.Visible = false;
-        }
 
         // Sheila Zhao
         private void gvPackages_SelectionChanged(object sender, EventArgs e)
@@ -408,84 +415,7 @@ namespace TravelExpertsServices
             }
         }
 
-        // Sheila Zhao
-        //private void GetProduct(int productID)
-        //{
-        //    Prod = ProductDB.GetProducts();
-        //    selectProducts = (from Pd in Prod
-        //                      where Pd.ProductId == productID
-        //                      select Pd).ToList();
 
-        //    gvProducts1.DataSource = selectProducts;
-
-        //}
-
-        // Sheila Zhao
-        //private void GetSupplier(int supplierID)
-        //{
-        //    Sup = SupplierDB.GetSuppliers();
-        //    selectSuppliers = (from Sp in Sup
-        //                       where Sp.SupplierId == supplierID
-        //                       select Sp).ToList();
-
-        //    gvSuppliers2.DataSource = selectSuppliers;
-        //}
-
-        // Sheila Zhao
-        private void grProducts1_SelectionChanged(object sender, EventArgs e)
-        {
-            Products selectedProduct = null;
-
-            try
-            {
-                foreach (DataGridViewRow row in gvProducts1.SelectedRows)
-                {
-                    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                                                   row.Cells[1].Value.ToString());
-                }
-
-                Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                gvSuppliers1.DataSource = Sup;
-                if (selectedProduct != null)
-                {
-                    Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                    gvSupByProd.DataSource = Sup;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-
-        }
-
-        // Sheila Zhao
-        private void gvSuppliers2_SelectionChanged(object sender, EventArgs e)
-        {
-            Supplier selectedSupplier = null;
-            try
-            {
-                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
-                {
-                    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                                                   row.Cells[1].Value.ToString());
-                }
-
-                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-                gvProducts2.DataSource = Prod;
-
-                if (selectedSupplier != null)
-                {
-                    Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
-                    gvProdBySup.DataSource = Prod;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
 
         //Ethan Shipley
         //Removes an error that occurs on application close
@@ -704,6 +634,54 @@ namespace TravelExpertsServices
             }
         }
 
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+        /*===================================================PRODUCT=============================================================*/
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+
+
+        // Sheila Zhao
+        //private void GetProduct(int productID)
+        //{
+        //    Prod = ProductDB.GetProducts();
+        //    selectProducts = (from Pd in Prod
+        //                      where Pd.ProductId == productID
+        //                      select Pd).ToList();
+
+        //    gvProducts1.DataSource = selectProducts;
+
+        //}
+
+        // Sheila Zhao
+        private void grProducts1_SelectionChanged(object sender, EventArgs e)
+        {
+            Products selectedProduct = null;
+
+            try
+            {
+                foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+                {
+                    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                   row.Cells[1].Value.ToString());
+                }
+
+                Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                gvSuppliers1.DataSource = Sup;
+                if (selectedProduct != null)
+                {
+                    Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                    gvSupByProd.DataSource = Sup;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
+
         // Sheila Zhao
         private void btnAddNewProd_Click(object sender, EventArgs e)
         {
@@ -714,7 +692,7 @@ namespace TravelExpertsServices
 
             try
             {
-                if(np != null)
+                if (np != null)
                 {
                     np.ProdName = txtProdName.Text;
                     ProductDB.InsertProduct(np);
@@ -722,7 +700,7 @@ namespace TravelExpertsServices
                     UpdateBinding(true);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
@@ -752,14 +730,14 @@ namespace TravelExpertsServices
         {
             Products oldp = null;
             btnSaveP.Visible = true;
-            foreach(DataGridViewRow row in gvProducts1.SelectedRows)
+            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
             {
                 oldp = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                     row.Cells[1].Value.ToString());
-            }            
+            }
             txtProdName.Text = oldp.ProdName;
             txtProdName.Focus();
-            
+
         }
 
         // Sheila Zhao
@@ -793,9 +771,9 @@ namespace TravelExpertsServices
                 ProductDB.UpdateProduct(newp, oldp);
                 Prod = ProductDB.GetProducts();
                 UpdateBinding(true);
-                MessageBox.Show("Product Saved!");                
+                MessageBox.Show("Product Saved!");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
@@ -834,6 +812,237 @@ namespace TravelExpertsServices
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
+        // Sheila Zhao
+        private void btnShowPS_Click(object sender, EventArgs e)
+        {
+            if (btnShowPS.Text == "Show")
+            {
+                gvSupByProd.Visible = true;
+                btnDelPS.Visible = true;
+                btnAddPS.Visible = true;
+
+                btnShowPS.Text = "Hide";
+            }
+            else if (btnShowPS.Text == "Hide")
+            {
+                gvSupByProd.Visible = false;
+                btnDelPS.Visible = false;
+                btnAddPS.Visible = false;
+                btnShowPS.Text = "Show";
+            }
+        }
+        private void btnClearP_Click(object sender, EventArgs e)
+        {
+            txtProdName.Text = "";
+            btnDelSP.Visible = false;
+            btnAddSP.Visible = false;
+            btnSaveP.Visible = false;
+            gvSupByProd.Visible = false;
+            btnShowPS.Text = "Show";
+            UpdateBinding(true);
+        }
+
+        private void btnAddPS_Click(object sender, EventArgs e)
+        {
+            int ProdSupID, SupID, ProdID;
+            int Success = 0;
+            Products selectedProduct = null;
+
+            if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
+                && gvSuppliers1.SelectedCells.Count > 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers addNew = new ProdSuppliers();
+
+                    addNew.ProdId = ProdID;
+                    addNew.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.InsertProdSupplier(addNew);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+                            {
+                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                            gvSuppliers1.DataSource = Sup;
+                            if (selectedProduct != null)
+                            {
+                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                                gvSupByProd.DataSource = Sup;
+                            }
+                            MessageBox.Show("Supplier Added Successfully!");
+
+                            if (gvSuppliers1.Rows.Count > 0)
+                            {
+                                gvSuppliers1.ClearSelection();
+
+                                int RowIndex = gvSuppliers1.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvSuppliers1.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+
+        private void btnDelPS_Click(object sender, EventArgs e)
+        {
+            int ProdSupID, SupID, ProdID;
+            int Success = 0;
+            Products selectedProduct = null;
+
+            if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
+                && gvSuppliers1.SelectedCells.Count > 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
+
+                try
+                {
+
+                    ProdSuppliers del = new ProdSuppliers();
+
+                    del.ProdId = ProdID;
+                    del.SupplierId = ProdSupID;
+                    //del.ProductSupplierId = ProdSupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.DeleteProdSupplier(del);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+                            {
+                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                            gvSuppliers1.DataSource = Sup;
+                            if (selectedProduct != null)
+                            {
+                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                                gvSupByProd.DataSource = Sup;
+                            }
+                            MessageBox.Show("Supplier Deleted Successfully!");
+
+                            if (gvSupByProd.Rows.Count > 0)
+                            {
+                                gvSupByProd.ClearSelection();
+
+                                int RowIndex = gvSupByProd.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvSupByProd.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvSupByProd.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+        /*===================================================SUPPLIER=============================================================*/
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+
+
+
+        // Sheila Zhao
+        //private void GetSupplier(int supplierID)
+        //{
+        //    Sup = SupplierDB.GetSuppliers();
+        //    selectSuppliers = (from Sp in Sup
+        //                       where Sp.SupplierId == supplierID
+        //                       select Sp).ToList();
+
+        //    gvSuppliers2.DataSource = selectSuppliers;
+        //}
+
+
+
+        // Sheila Zhao
+        private void gvSuppliers2_SelectionChanged(object sender, EventArgs e)
+        {
+            Supplier selectedSupplier = null;
+            try
+            {
+                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                {
+                    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                   row.Cells[1].Value.ToString());
+                }
+
+                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+                gvProducts2.DataSource = Prod;
+
+                if (selectedSupplier != null)
+                {
+                    Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                    gvProdBySup.DataSource = Prod;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        
 
         // Sheila Zhao
         private void btnNewS_Click(object sender, EventArgs e)
@@ -964,187 +1173,28 @@ namespace TravelExpertsServices
             }
         }
 
-        // Sheila Zhao
-        private void btnShowPS_Click(object sender, EventArgs e)
-        {
-            if (btnShowPS.Text == "Show")
-            {
-                gvSupByProd.Visible = true;
-                btnShowPS.Text = "Hide";
-            }
-            else if (btnShowPS.Text == "Hide")
-            {
-                gvSupByProd.Visible = false;
-                btnShowPS.Text = "Show";
-            }
-        }
-
+       
         // Sheila Zhao
         private void btnShowSP_Click(object sender, EventArgs e)
         {
             if (btnShowSP.Text == "Show")
             {
                 gvProdBySup.Visible = true;
+                btnDelSP.Visible = true;
+                btnAddSP.Visible = true;
                 btnShowSP.Text = "Hide";
             }
             else if (btnShowSP.Text == "Hide")
             {
                 gvProdBySup.Visible = false;
+                btnDelSP.Visible = true;
+                btnAddSP.Visible = true;
                 btnShowSP.Text = "Show";
             }
         }
 
 
-        private void btnAddPS_Click(object sender, EventArgs e)
-        {
-            int ProdSupID, SupID, ProdID;
-            int Success = 0;
-            Products selectedProduct = null;
-
-            if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
-                && gvSuppliers1.SelectedCells.Count > 0)
-            {
-                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
-                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
-                ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
-
-                try
-                {
-                    // Make new object
-                    ProdSuppliers addNew = new ProdSuppliers();
-
-                    addNew.ProdId = ProdID;
-                    addNew.SupplierId = SupID;
-
-                    // Now sql query to add
-
-                    Success = ProdSupplierDB.InsertProdSupplier(addNew);
-
-                    if (Success == 1)
-                    {
-
-                        // Refresh gridview
-                        try
-                        {
-                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
-                            {
-                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                                                               row.Cells[1].Value.ToString());
-                            }
-
-                            // Fix me
-                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                            gvSuppliers1.DataSource = Sup;
-                            if (selectedProduct != null)
-                            {
-                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                                gvSupByProd.DataSource = Sup;
-                            }
-                            MessageBox.Show("Supplier Added Successfully!");
-
-                            if (gvSuppliers1.Rows.Count > 0)
-                            {
-                                gvSuppliers1.ClearSelection();
-
-                                int RowIndex = gvSuppliers1.Rows.Count - 1;
-                                //    //int nColumnIndex = 0;
-
-                                gvSuppliers1.Rows[RowIndex].Selected = true;
-                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                                //    //In case if you want to scroll down as well.
-                                gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, ex.GetType().ToString());
-                        }
-
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-            }
-        }
-
-        private void btnDelPS_Click(object sender, EventArgs e)
-        {
-            int ProdSupID, SupID, ProdID;
-            int Success = 0;
-            Products selectedProduct = null;
-
-            if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
-                && gvSuppliers1.SelectedCells.Count > 0)
-            {
-                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
-                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
-                ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
-
-                try
-                {
-                   
-                    ProdSuppliers del = new ProdSuppliers();
-
-                    del.ProdId = ProdID;
-                    del.SupplierId = ProdSupID;
-                    //del.ProductSupplierId = ProdSupID;
-
-                    // Now sql query to add
-
-                    Success = ProdSupplierDB.DeleteProdSupplier(del);
-
-                    if (Success == 1)
-                    {
-
-                        // Refresh gridview
-                        try
-                        {
-                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
-                            {
-                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                                                               row.Cells[1].Value.ToString());
-                            }
-
-                            // Fix me
-                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                            gvSuppliers1.DataSource = Sup;
-                            if (selectedProduct != null)
-                            {
-                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                                gvSupByProd.DataSource = Sup;
-                            }
-                            MessageBox.Show("Supplier Deleted Successfully!");
-
-                            if (gvSupByProd.Rows.Count > 0)
-                            {
-                                gvSupByProd.ClearSelection();
-
-                                int RowIndex = gvSupByProd.Rows.Count - 1;
-                                //    //int nColumnIndex = 0;
-
-                                gvSupByProd.Rows[RowIndex].Selected = true;
-                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                                //    //In case if you want to scroll down as well.
-                                gvSupByProd.FirstDisplayedScrollingRowIndex = RowIndex;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, ex.GetType().ToString());
-                        }
-
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-            }
-        }
+        
 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
@@ -1294,6 +1344,17 @@ namespace TravelExpertsServices
                     MessageBox.Show("Product deleted Failed, Go Home");
                 }
             }
+        }
+       
+        private void btnClearS_Click(object sender, EventArgs e)
+        {
+            txtSupName.Text = "";
+            btnDelPS.Visible = false;
+            btnAddPS.Visible = false;
+            gvProdBySup.Visible = false;
+            btnSaveS.Visible = false;
+            btnShowSP.Text = "Show";
+            UpdateBinding(true);
         }
 
 

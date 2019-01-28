@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -45,90 +45,91 @@
             this.packages_Products_SuppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.Packages_Products_SuppliersTableAdapter();
             this.travelExpertsDataSet1 = new TravelExpertsServices.TravelExpertsDataSet();
             this.tabSuppliers = new System.Windows.Forms.TabPage();
-            this.lblSupName2 = new System.Windows.Forms.Label();
-            this.txtSupName = new System.Windows.Forms.TextBox();
-            this.btnAddEditSup = new System.Windows.Forms.Button();
-            this.gvSuppliers2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvProducts2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewS = new System.Windows.Forms.Button();
-            this.btnEditS = new System.Windows.Forms.Button();
-            this.btnSaveS = new System.Windows.Forms.Button();
-            this.btnDelSup = new System.Windows.Forms.Button();
-            this.gvProdBySup = new System.Windows.Forms.DataGridView();
-            this.prodNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnShowSP = new System.Windows.Forms.Button();
-            this.btnAddSP = new System.Windows.Forms.Button();
             this.btnDelSP = new System.Windows.Forms.Button();
+            this.btnAddSP = new System.Windows.Forms.Button();
+            this.btnShowSP = new System.Windows.Forms.Button();
+            this.gvProdBySup = new System.Windows.Forms.DataGridView();
+            this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDelSup = new System.Windows.Forms.Button();
+            this.btnSaveS = new System.Windows.Forms.Button();
+            this.btnEditS = new System.Windows.Forms.Button();
+            this.btnNewS = new System.Windows.Forms.Button();
+            this.gvProducts2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvSuppliers2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddEditSup = new System.Windows.Forms.Button();
+            this.txtSupName = new System.Windows.Forms.TextBox();
+            this.lblSupName2 = new System.Windows.Forms.Label();
             this.tabProduct = new System.Windows.Forms.TabPage();
-            this.lblProdName2 = new System.Windows.Forms.Label();
-            this.txtProdName = new System.Windows.Forms.TextBox();
-            this.btnAddEditProd = new System.Windows.Forms.Button();
-            this.gvProducts1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvSuppliers1 = new System.Windows.Forms.DataGridView();
-            this.supNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddNewProd = new System.Windows.Forms.Button();
-            this.btnEditP = new System.Windows.Forms.Button();
-            this.btnSaveP = new System.Windows.Forms.Button();
-            this.btnDelProd = new System.Windows.Forms.Button();
-            this.gvSupByProd = new System.Windows.Forms.DataGridView();
-            this.supNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnShowPS = new System.Windows.Forms.Button();
-            this.btnAddPS = new System.Windows.Forms.Button();
-            this.btnDelPS = new System.Windows.Forms.Button();
             this.btnClearP = new System.Windows.Forms.Button();
+            this.btnDelPS = new System.Windows.Forms.Button();
+            this.btnAddPS = new System.Windows.Forms.Button();
+            this.btnShowPS = new System.Windows.Forms.Button();
+            this.gvSupByProd = new System.Windows.Forms.DataGridView();
+            this.supplierIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDelProd = new System.Windows.Forms.Button();
+            this.btnSaveP = new System.Windows.Forms.Button();
+            this.btnEditP = new System.Windows.Forms.Button();
+            this.btnAddNewProd = new System.Windows.Forms.Button();
+            this.gvSuppliers1 = new System.Windows.Forms.DataGridView();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvProducts1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddEditProd = new System.Windows.Forms.Button();
+            this.txtProdName = new System.Windows.Forms.TextBox();
+            this.lblProdName2 = new System.Windows.Forms.Label();
             this.tabPackages = new System.Windows.Forms.TabPage();
-            this.lblPkgName = new System.Windows.Forms.Label();
-            this.lblPkgBasePrice = new System.Windows.Forms.Label();
-            this.lblPkgAgencyCommission = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblPkgStartDate = new System.Windows.Forms.Label();
-            this.lblPkgEndDate = new System.Windows.Forms.Label();
-            this.dtpPkgStartDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpPkgEndDate = new System.Windows.Forms.DateTimePicker();
-            this.txtPackageName = new System.Windows.Forms.TextBox();
-            this.txtPkgBasePrice = new System.Windows.Forms.TextBox();
-            this.txtPkgAgencyCommission = new System.Windows.Forms.TextBox();
-            this.txtPkgDesc = new System.Windows.Forms.TextBox();
-            this.btnAddEditPkg = new System.Windows.Forms.Button();
-            this.lblPkgNameLength = new System.Windows.Forms.Label();
-            this.lblPkgDescLength = new System.Windows.Forms.Label();
-            this.gvProdSup_pkg = new System.Windows.Forms.DataGridView();
-            this.btnNewPkgProdSup = new System.Windows.Forms.Button();
-            this.gvProdSup_all_pkgs = new System.Windows.Forms.DataGridView();
-            this.btnAddPkgProdSup = new System.Windows.Forms.Button();
             this.btnDeletePkgProdSup_Click = new System.Windows.Forms.Button();
+            this.btnAddPkgProdSup = new System.Windows.Forms.Button();
+            this.gvProdSup_all_pkgs = new System.Windows.Forms.DataGridView();
+            this.btnNewPkgProdSup = new System.Windows.Forms.Button();
+            this.gvProdSup_pkg = new System.Windows.Forms.DataGridView();
+            this.lblPkgDescLength = new System.Windows.Forms.Label();
+            this.lblPkgNameLength = new System.Windows.Forms.Label();
+            this.btnAddEditPkg = new System.Windows.Forms.Button();
+            this.txtPkgDesc = new System.Windows.Forms.TextBox();
+            this.txtPkgAgencyCommission = new System.Windows.Forms.TextBox();
+            this.txtPkgBasePrice = new System.Windows.Forms.TextBox();
+            this.txtPackageName = new System.Windows.Forms.TextBox();
+            this.dtpPkgEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpPkgStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblPkgEndDate = new System.Windows.Forms.Label();
+            this.lblPkgStartDate = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPkgAgencyCommission = new System.Windows.Forms.Label();
+            this.lblPkgBasePrice = new System.Windows.Forms.Label();
+            this.lblPkgName = new System.Windows.Forms.Label();
             this.tabMainPage = new System.Windows.Forms.TabPage();
-            this.btnAddPkg = new System.Windows.Forms.Button();
-            this.btnAddProd = new System.Windows.Forms.Button();
-            this.btnEditPkg = new System.Windows.Forms.Button();
-            this.btnAddSup = new System.Windows.Forms.Button();
-            this.btnEditProd = new System.Windows.Forms.Button();
-            this.btnEditSup = new System.Windows.Forms.Button();
-            this.gvPackages = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvProducts = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gvSuppliers = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeletepkg = new System.Windows.Forms.Button();
+            this.gvSuppliers = new System.Windows.Forms.DataGridView();
+            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvProducts = new System.Windows.Forms.DataGridView();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvPackages = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditSup = new System.Windows.Forms.Button();
+            this.btnEditProd = new System.Windows.Forms.Button();
+            this.btnAddSup = new System.Windows.Forms.Button();
+            this.btnEditPkg = new System.Windows.Forms.Button();
+            this.btnAddProd = new System.Windows.Forms.Button();
+            this.btnAddPkg = new System.Windows.Forms.Button();
             this.ProductsV2 = new System.Windows.Forms.TabControl();
+            this.btnClearS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -137,20 +138,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet1)).BeginInit();
             this.tabSuppliers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProducts2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProdBySup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers2)).BeginInit();
             this.tabProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProducts1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupByProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts1)).BeginInit();
             this.tabPackages.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_pkg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_all_pkgs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_pkg)).BeginInit();
             this.tabMainPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).BeginInit();
             this.ProductsV2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,6 +237,7 @@
             // 
             // tabSuppliers
             // 
+            this.tabSuppliers.Controls.Add(this.btnClearS);
             this.tabSuppliers.Controls.Add(this.btnDelSP);
             this.tabSuppliers.Controls.Add(this.btnAddSP);
             this.tabSuppliers.Controls.Add(this.btnShowSP);
@@ -256,31 +258,138 @@
             this.tabSuppliers.Text = "Suppliers";
             this.tabSuppliers.UseVisualStyleBackColor = true;
             // 
-            // lblSupName2
+            // btnDelSP
             // 
-            this.lblSupName2.AutoSize = true;
-            this.lblSupName2.Location = new System.Drawing.Point(3, 10);
-            this.lblSupName2.Name = "lblSupName2";
-            this.lblSupName2.Size = new System.Drawing.Size(79, 13);
-            this.lblSupName2.TabIndex = 4;
-            this.lblSupName2.Text = "Supplier Name:";
+            this.btnDelSP.Location = new System.Drawing.Point(679, 110);
+            this.btnDelSP.Name = "btnDelSP";
+            this.btnDelSP.Size = new System.Drawing.Size(34, 23);
+            this.btnDelSP.TabIndex = 17;
+            this.btnDelSP.Text = ">>";
+            this.btnDelSP.UseVisualStyleBackColor = true;
+            this.btnDelSP.Click += new System.EventHandler(this.btnDelSP_Click);
             // 
-            // txtSupName
+            // btnAddSP
             // 
-            this.txtSupName.Location = new System.Drawing.Point(87, 7);
-            this.txtSupName.Name = "txtSupName";
-            this.txtSupName.Size = new System.Drawing.Size(100, 20);
-            this.txtSupName.TabIndex = 5;
+            this.btnAddSP.Location = new System.Drawing.Point(679, 177);
+            this.btnAddSP.Name = "btnAddSP";
+            this.btnAddSP.Size = new System.Drawing.Size(34, 23);
+            this.btnAddSP.TabIndex = 16;
+            this.btnAddSP.Text = "<<";
+            this.btnAddSP.UseVisualStyleBackColor = true;
+            this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
             // 
-            // btnAddEditSup
+            // btnShowSP
             // 
-            this.btnAddEditSup.Location = new System.Drawing.Point(34, 343);
-            this.btnAddEditSup.Name = "btnAddEditSup";
-            this.btnAddEditSup.Size = new System.Drawing.Size(75, 23);
-            this.btnAddEditSup.TabIndex = 6;
-            this.btnAddEditSup.Text = "Add Supplier";
-            this.btnAddEditSup.UseVisualStyleBackColor = true;
-            this.btnAddEditSup.Click += new System.EventHandler(this.btnAddEditSup_Click);
+            this.btnShowSP.Location = new System.Drawing.Point(394, 290);
+            this.btnShowSP.Name = "btnShowSP";
+            this.btnShowSP.Size = new System.Drawing.Size(75, 23);
+            this.btnShowSP.TabIndex = 14;
+            this.btnShowSP.Text = "Show";
+            this.btnShowSP.UseVisualStyleBackColor = true;
+            this.btnShowSP.Click += new System.EventHandler(this.btnShowSP_Click);
+            // 
+            // gvProdBySup
+            // 
+            this.gvProdBySup.AllowUserToAddRows = false;
+            this.gvProdBySup.AllowUserToDeleteRows = false;
+            this.gvProdBySup.AutoGenerateColumns = false;
+            this.gvProdBySup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvProdBySup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIdDataGridViewTextBoxColumn1,
+            this.prodNameDataGridViewTextBoxColumn1});
+            this.gvProdBySup.DataSource = this.productsBindingSource;
+            this.gvProdBySup.Location = new System.Drawing.Point(726, 51);
+            this.gvProdBySup.Name = "gvProdBySup";
+            this.gvProdBySup.ReadOnly = true;
+            this.gvProdBySup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvProdBySup.Size = new System.Drawing.Size(254, 220);
+            this.gvProdBySup.TabIndex = 13;
+            // 
+            // productIdDataGridViewTextBoxColumn1
+            // 
+            this.productIdDataGridViewTextBoxColumn1.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn1.HeaderText = "ProductId";
+            this.productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
+            this.productIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // prodNameDataGridViewTextBoxColumn1
+            // 
+            this.prodNameDataGridViewTextBoxColumn1.DataPropertyName = "ProdName";
+            this.prodNameDataGridViewTextBoxColumn1.HeaderText = "ProdName";
+            this.prodNameDataGridViewTextBoxColumn1.Name = "prodNameDataGridViewTextBoxColumn1";
+            this.prodNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // btnDelSup
+            // 
+            this.btnDelSup.Location = new System.Drawing.Point(144, 318);
+            this.btnDelSup.Name = "btnDelSup";
+            this.btnDelSup.Size = new System.Drawing.Size(107, 23);
+            this.btnDelSup.TabIndex = 12;
+            this.btnDelSup.Text = "&Delete Product";
+            this.btnDelSup.UseVisualStyleBackColor = true;
+            this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
+            // 
+            // btnSaveS
+            // 
+            this.btnSaveS.Location = new System.Drawing.Point(257, 289);
+            this.btnSaveS.Name = "btnSaveS";
+            this.btnSaveS.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveS.TabIndex = 11;
+            this.btnSaveS.Text = "&Save";
+            this.btnSaveS.UseVisualStyleBackColor = true;
+            this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
+            // 
+            // btnEditS
+            // 
+            this.btnEditS.Location = new System.Drawing.Point(163, 289);
+            this.btnEditS.Name = "btnEditS";
+            this.btnEditS.Size = new System.Drawing.Size(75, 23);
+            this.btnEditS.TabIndex = 10;
+            this.btnEditS.Text = "&Edit Supplier";
+            this.btnEditS.UseVisualStyleBackColor = true;
+            this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
+            // 
+            // btnNewS
+            // 
+            this.btnNewS.Location = new System.Drawing.Point(34, 290);
+            this.btnNewS.Name = "btnNewS";
+            this.btnNewS.Size = new System.Drawing.Size(105, 23);
+            this.btnNewS.TabIndex = 9;
+            this.btnNewS.Text = "&Add New Supplier";
+            this.btnNewS.UseVisualStyleBackColor = true;
+            this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
+            // 
+            // gvProducts2
+            // 
+            this.gvProducts2.AllowUserToAddRows = false;
+            this.gvProducts2.AllowUserToDeleteRows = false;
+            this.gvProducts2.AutoGenerateColumns = false;
+            this.gvProducts2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvProducts2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.gvProducts2.DataSource = this.productsBindingSource;
+            this.gvProducts2.Location = new System.Drawing.Point(372, 51);
+            this.gvProducts2.MultiSelect = false;
+            this.gvProducts2.Name = "gvProducts2";
+            this.gvProducts2.ReadOnly = true;
+            this.gvProducts2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvProducts2.Size = new System.Drawing.Size(300, 220);
+            this.gvProducts2.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "ProductId";
+            this.dataGridViewTextBoxColumn12.HeaderText = "ProductId";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn13.HeaderText = "ProdName";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // gvSuppliers2
             // 
@@ -301,13 +410,6 @@
             this.gvSuppliers2.TabIndex = 6;
             this.gvSuppliers2.SelectionChanged += new System.EventHandler(this.gvSuppliers2_SelectionChanged);
             // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "SupName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "SupName";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "SupplierId";
@@ -315,138 +417,38 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
-            // gvProducts2
+            // dataGridViewTextBoxColumn10
             // 
-            this.gvProducts2.AllowUserToAddRows = false;
-            this.gvProducts2.AllowUserToDeleteRows = false;
-            this.gvProducts2.AutoGenerateColumns = false;
-            this.gvProducts2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvProducts2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
-            this.gvProducts2.DataSource = this.productsBindingSource;
-            this.gvProducts2.Location = new System.Drawing.Point(372, 51);
-            this.gvProducts2.MultiSelect = false;
-            this.gvProducts2.Name = "gvProducts2";
-            this.gvProducts2.ReadOnly = true;
-            this.gvProducts2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvProducts2.Size = new System.Drawing.Size(300, 220);
-            this.gvProducts2.TabIndex = 6;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "SupName";
+            this.dataGridViewTextBoxColumn10.HeaderText = "SupName";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn13
+            // btnAddEditSup
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProdName";
-            this.dataGridViewTextBoxColumn13.HeaderText = "ProdName";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.btnAddEditSup.Location = new System.Drawing.Point(34, 343);
+            this.btnAddEditSup.Name = "btnAddEditSup";
+            this.btnAddEditSup.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEditSup.TabIndex = 6;
+            this.btnAddEditSup.Text = "Add Supplier";
+            this.btnAddEditSup.UseVisualStyleBackColor = true;
+            this.btnAddEditSup.Click += new System.EventHandler(this.btnAddEditSup_Click);
             // 
-            // dataGridViewTextBoxColumn12
+            // txtSupName
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ProductId";
-            this.dataGridViewTextBoxColumn12.HeaderText = "ProductId";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.txtSupName.Location = new System.Drawing.Point(87, 7);
+            this.txtSupName.Name = "txtSupName";
+            this.txtSupName.Size = new System.Drawing.Size(100, 20);
+            this.txtSupName.TabIndex = 5;
             // 
-            // btnNewS
+            // lblSupName2
             // 
-            this.btnNewS.Location = new System.Drawing.Point(34, 290);
-            this.btnNewS.Name = "btnNewS";
-            this.btnNewS.Size = new System.Drawing.Size(105, 23);
-            this.btnNewS.TabIndex = 9;
-            this.btnNewS.Text = "&Add New Supplier";
-            this.btnNewS.UseVisualStyleBackColor = true;
-            this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
-            // 
-            // btnEditS
-            // 
-            this.btnEditS.Location = new System.Drawing.Point(163, 289);
-            this.btnEditS.Name = "btnEditS";
-            this.btnEditS.Size = new System.Drawing.Size(75, 23);
-            this.btnEditS.TabIndex = 10;
-            this.btnEditS.Text = "&Edit Supplier";
-            this.btnEditS.UseVisualStyleBackColor = true;
-            this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
-            // 
-            // btnSaveS
-            // 
-            this.btnSaveS.Location = new System.Drawing.Point(257, 289);
-            this.btnSaveS.Name = "btnSaveS";
-            this.btnSaveS.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveS.TabIndex = 11;
-            this.btnSaveS.Text = "&Save";
-            this.btnSaveS.UseVisualStyleBackColor = true;
-            this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
-            // 
-            // btnDelSup
-            // 
-            this.btnDelSup.Location = new System.Drawing.Point(144, 318);
-            this.btnDelSup.Name = "btnDelSup";
-            this.btnDelSup.Size = new System.Drawing.Size(107, 23);
-            this.btnDelSup.TabIndex = 12;
-            this.btnDelSup.Text = "&Delete Product";
-            this.btnDelSup.UseVisualStyleBackColor = true;
-            this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
-            // 
-            // gvProdBySup
-            // 
-            this.gvProdBySup.AllowUserToAddRows = false;
-            this.gvProdBySup.AllowUserToDeleteRows = false;
-            this.gvProdBySup.AutoGenerateColumns = false;
-            this.gvProdBySup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvProdBySup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIdDataGridViewTextBoxColumn1,
-            this.prodNameDataGridViewTextBoxColumn1});
-            this.gvProdBySup.DataSource = this.productsBindingSource;
-            this.gvProdBySup.Location = new System.Drawing.Point(726, 51);
-            this.gvProdBySup.Name = "gvProdBySup";
-            this.gvProdBySup.ReadOnly = true;
-            this.gvProdBySup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvProdBySup.Size = new System.Drawing.Size(254, 220);
-            this.gvProdBySup.TabIndex = 13;
-            // 
-            // prodNameDataGridViewTextBoxColumn1
-            // 
-            this.prodNameDataGridViewTextBoxColumn1.DataPropertyName = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn1.HeaderText = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn1.Name = "prodNameDataGridViewTextBoxColumn1";
-            this.prodNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // productIdDataGridViewTextBoxColumn1
-            // 
-            this.productIdDataGridViewTextBoxColumn1.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn1.HeaderText = "ProductId";
-            this.productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
-            this.productIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // btnShowSP
-            // 
-            this.btnShowSP.Location = new System.Drawing.Point(394, 290);
-            this.btnShowSP.Name = "btnShowSP";
-            this.btnShowSP.Size = new System.Drawing.Size(75, 23);
-            this.btnShowSP.TabIndex = 14;
-            this.btnShowSP.Text = "Show";
-            this.btnShowSP.UseVisualStyleBackColor = true;
-            this.btnShowSP.Click += new System.EventHandler(this.btnShowSP_Click);
-            // 
-            // btnAddSP
-            // 
-            this.btnAddSP.Location = new System.Drawing.Point(679, 177);
-            this.btnAddSP.Name = "btnAddSP";
-            this.btnAddSP.Size = new System.Drawing.Size(34, 23);
-            this.btnAddSP.TabIndex = 16;
-            this.btnAddSP.Text = "<<";
-            this.btnAddSP.UseVisualStyleBackColor = true;
-            this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
-            // 
-            // btnDelSP
-            // 
-            this.btnDelSP.Location = new System.Drawing.Point(679, 110);
-            this.btnDelSP.Name = "btnDelSP";
-            this.btnDelSP.Size = new System.Drawing.Size(34, 23);
-            this.btnDelSP.TabIndex = 17;
-            this.btnDelSP.Text = ">>";
-            this.btnDelSP.UseVisualStyleBackColor = true;
-            this.btnDelSP.Click += new System.EventHandler(this.btnDelSP_Click);
+            this.lblSupName2.AutoSize = true;
+            this.lblSupName2.Location = new System.Drawing.Point(3, 10);
+            this.lblSupName2.Name = "lblSupName2";
+            this.lblSupName2.Size = new System.Drawing.Size(79, 13);
+            this.lblSupName2.TabIndex = 4;
+            this.lblSupName2.Text = "Supplier Name:";
             // 
             // tabProduct
             // 
@@ -471,31 +473,149 @@
             this.tabProduct.Text = "Product";
             this.tabProduct.UseVisualStyleBackColor = true;
             // 
-            // lblProdName2
+            // btnClearP
             // 
-            this.lblProdName2.AutoSize = true;
-            this.lblProdName2.Location = new System.Drawing.Point(27, 34);
-            this.lblProdName2.Name = "lblProdName2";
-            this.lblProdName2.Size = new System.Drawing.Size(78, 13);
-            this.lblProdName2.TabIndex = 2;
-            this.lblProdName2.Text = "Product Name:";
+            this.btnClearP.Location = new System.Drawing.Point(257, 31);
+            this.btnClearP.Name = "btnClearP";
+            this.btnClearP.Size = new System.Drawing.Size(75, 23);
+            this.btnClearP.TabIndex = 14;
+            this.btnClearP.Text = "&Clear";
+            this.btnClearP.UseVisualStyleBackColor = true;
+            this.btnClearP.Click += new System.EventHandler(this.btnClearP_Click);
             // 
-            // txtProdName
+            // btnDelPS
             // 
-            this.txtProdName.Location = new System.Drawing.Point(111, 31);
-            this.txtProdName.Name = "txtProdName";
-            this.txtProdName.Size = new System.Drawing.Size(100, 20);
-            this.txtProdName.TabIndex = 3;
+            this.btnDelPS.Location = new System.Drawing.Point(669, 123);
+            this.btnDelPS.Name = "btnDelPS";
+            this.btnDelPS.Size = new System.Drawing.Size(34, 23);
+            this.btnDelPS.TabIndex = 13;
+            this.btnDelPS.Text = ">>";
+            this.btnDelPS.UseVisualStyleBackColor = true;
+            this.btnDelPS.Click += new System.EventHandler(this.btnDelPS_Click);
             // 
-            // btnAddEditProd
+            // btnAddPS
             // 
-            this.btnAddEditProd.Location = new System.Drawing.Point(30, 331);
-            this.btnAddEditProd.Name = "btnAddEditProd";
-            this.btnAddEditProd.Size = new System.Drawing.Size(75, 23);
-            this.btnAddEditProd.TabIndex = 4;
-            this.btnAddEditProd.Text = "Add Product";
-            this.btnAddEditProd.UseVisualStyleBackColor = true;
-            this.btnAddEditProd.Click += new System.EventHandler(this.btnAddEditProd_Click);
+            this.btnAddPS.Location = new System.Drawing.Point(669, 205);
+            this.btnAddPS.Name = "btnAddPS";
+            this.btnAddPS.Size = new System.Drawing.Size(33, 23);
+            this.btnAddPS.TabIndex = 12;
+            this.btnAddPS.Text = "<<";
+            this.btnAddPS.UseVisualStyleBackColor = true;
+            this.btnAddPS.Click += new System.EventHandler(this.btnAddPS_Click);
+            // 
+            // btnShowPS
+            // 
+            this.btnShowPS.Location = new System.Drawing.Point(368, 278);
+            this.btnShowPS.Name = "btnShowPS";
+            this.btnShowPS.Size = new System.Drawing.Size(75, 23);
+            this.btnShowPS.TabIndex = 10;
+            this.btnShowPS.Text = "Show";
+            this.btnShowPS.UseVisualStyleBackColor = true;
+            this.btnShowPS.Click += new System.EventHandler(this.btnShowPS_Click);
+            // 
+            // gvSupByProd
+            // 
+            this.gvSupByProd.AllowUserToAddRows = false;
+            this.gvSupByProd.AllowUserToDeleteRows = false;
+            this.gvSupByProd.AutoGenerateColumns = false;
+            this.gvSupByProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSupByProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.supplierIdDataGridViewTextBoxColumn1,
+            this.supNameDataGridViewTextBoxColumn1});
+            this.gvSupByProd.DataSource = this.suppliersBindingSource;
+            this.gvSupByProd.Location = new System.Drawing.Point(710, 78);
+            this.gvSupByProd.MultiSelect = false;
+            this.gvSupByProd.Name = "gvSupByProd";
+            this.gvSupByProd.ReadOnly = true;
+            this.gvSupByProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvSupByProd.Size = new System.Drawing.Size(270, 183);
+            this.gvSupByProd.TabIndex = 9;
+            // 
+            // supplierIdDataGridViewTextBoxColumn1
+            // 
+            this.supplierIdDataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn1.HeaderText = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn1.Name = "supplierIdDataGridViewTextBoxColumn1";
+            this.supplierIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // supNameDataGridViewTextBoxColumn1
+            // 
+            this.supNameDataGridViewTextBoxColumn1.DataPropertyName = "SupName";
+            this.supNameDataGridViewTextBoxColumn1.HeaderText = "SupName";
+            this.supNameDataGridViewTextBoxColumn1.Name = "supNameDataGridViewTextBoxColumn1";
+            this.supNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // btnDelProd
+            // 
+            this.btnDelProd.Location = new System.Drawing.Point(143, 307);
+            this.btnDelProd.Name = "btnDelProd";
+            this.btnDelProd.Size = new System.Drawing.Size(109, 23);
+            this.btnDelProd.TabIndex = 8;
+            this.btnDelProd.Text = "&Delete Product";
+            this.btnDelProd.UseVisualStyleBackColor = true;
+            this.btnDelProd.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSaveP
+            // 
+            this.btnSaveP.Location = new System.Drawing.Point(257, 278);
+            this.btnSaveP.Name = "btnSaveP";
+            this.btnSaveP.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveP.TabIndex = 7;
+            this.btnSaveP.Text = "Save";
+            this.btnSaveP.UseVisualStyleBackColor = true;
+            this.btnSaveP.Click += new System.EventHandler(this.btnSaveP_Click);
+            // 
+            // btnEditP
+            // 
+            this.btnEditP.Location = new System.Drawing.Point(157, 278);
+            this.btnEditP.Name = "btnEditP";
+            this.btnEditP.Size = new System.Drawing.Size(75, 23);
+            this.btnEditP.TabIndex = 6;
+            this.btnEditP.Text = "&Edit Product";
+            this.btnEditP.UseVisualStyleBackColor = true;
+            this.btnEditP.Click += new System.EventHandler(this.btnEditP_Click);
+            // 
+            // btnAddNewProd
+            // 
+            this.btnAddNewProd.Location = new System.Drawing.Point(30, 279);
+            this.btnAddNewProd.Name = "btnAddNewProd";
+            this.btnAddNewProd.Size = new System.Drawing.Size(105, 23);
+            this.btnAddNewProd.TabIndex = 5;
+            this.btnAddNewProd.Text = "&Add New Product";
+            this.btnAddNewProd.UseVisualStyleBackColor = true;
+            this.btnAddNewProd.Click += new System.EventHandler(this.btnAddNewProd_Click);
+            // 
+            // gvSuppliers1
+            // 
+            this.gvSuppliers1.AllowUserToAddRows = false;
+            this.gvSuppliers1.AllowUserToDeleteRows = false;
+            this.gvSuppliers1.AutoGenerateColumns = false;
+            this.gvSuppliers1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSuppliers1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.supplierIdDataGridViewTextBoxColumn,
+            this.supNameDataGridViewTextBoxColumn});
+            this.gvSuppliers1.DataSource = this.suppliersBindingSource;
+            this.gvSuppliers1.Location = new System.Drawing.Point(346, 78);
+            this.gvSuppliers1.MultiSelect = false;
+            this.gvSuppliers1.Name = "gvSuppliers1";
+            this.gvSuppliers1.ReadOnly = true;
+            this.gvSuppliers1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvSuppliers1.Size = new System.Drawing.Size(300, 183);
+            this.gvSuppliers1.TabIndex = 4;
+            // 
+            // supplierIdDataGridViewTextBoxColumn
+            // 
+            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // supNameDataGridViewTextBoxColumn
+            // 
+            this.supNameDataGridViewTextBoxColumn.DataPropertyName = "SupName";
+            this.supNameDataGridViewTextBoxColumn.HeaderText = "SupName";
+            this.supNameDataGridViewTextBoxColumn.Name = "supNameDataGridViewTextBoxColumn";
+            this.supNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gvProducts1
             // 
@@ -516,13 +636,6 @@
             this.gvProducts1.TabIndex = 4;
             this.gvProducts1.SelectionChanged += new System.EventHandler(this.grProducts1_SelectionChanged);
             // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "ProdName";
-            this.dataGridViewTextBoxColumn15.HeaderText = "ProdName";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "ProductId";
@@ -530,148 +643,38 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
-            // gvSuppliers1
+            // dataGridViewTextBoxColumn15
             // 
-            this.gvSuppliers1.AllowUserToAddRows = false;
-            this.gvSuppliers1.AllowUserToDeleteRows = false;
-            this.gvSuppliers1.AutoGenerateColumns = false;
-            this.gvSuppliers1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvSuppliers1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.supplierIdDataGridViewTextBoxColumn,
-            this.supNameDataGridViewTextBoxColumn});
-            this.gvSuppliers1.DataSource = this.suppliersBindingSource;
-            this.gvSuppliers1.Location = new System.Drawing.Point(346, 78);
-            this.gvSuppliers1.MultiSelect = false;
-            this.gvSuppliers1.Name = "gvSuppliers1";
-            this.gvSuppliers1.ReadOnly = true;
-            this.gvSuppliers1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvSuppliers1.Size = new System.Drawing.Size(300, 183);
-            this.gvSuppliers1.TabIndex = 4;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn15.HeaderText = "ProdName";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
-            // supNameDataGridViewTextBoxColumn
+            // btnAddEditProd
             // 
-            this.supNameDataGridViewTextBoxColumn.DataPropertyName = "SupName";
-            this.supNameDataGridViewTextBoxColumn.HeaderText = "SupName";
-            this.supNameDataGridViewTextBoxColumn.Name = "supNameDataGridViewTextBoxColumn";
-            this.supNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.btnAddEditProd.Location = new System.Drawing.Point(30, 331);
+            this.btnAddEditProd.Name = "btnAddEditProd";
+            this.btnAddEditProd.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEditProd.TabIndex = 4;
+            this.btnAddEditProd.Text = "Add Product";
+            this.btnAddEditProd.UseVisualStyleBackColor = true;
+            this.btnAddEditProd.Click += new System.EventHandler(this.btnAddEditProd_Click);
             // 
-            // supplierIdDataGridViewTextBoxColumn
+            // txtProdName
             // 
-            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
-            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.txtProdName.Location = new System.Drawing.Point(111, 31);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(100, 20);
+            this.txtProdName.TabIndex = 3;
             // 
-            // btnAddNewProd
+            // lblProdName2
             // 
-            this.btnAddNewProd.Location = new System.Drawing.Point(30, 279);
-            this.btnAddNewProd.Name = "btnAddNewProd";
-            this.btnAddNewProd.Size = new System.Drawing.Size(105, 23);
-            this.btnAddNewProd.TabIndex = 5;
-            this.btnAddNewProd.Text = "&Add New Product";
-            this.btnAddNewProd.UseVisualStyleBackColor = true;
-            this.btnAddNewProd.Click += new System.EventHandler(this.btnAddNewProd_Click);
-            // 
-            // btnEditP
-            // 
-            this.btnEditP.Location = new System.Drawing.Point(157, 278);
-            this.btnEditP.Name = "btnEditP";
-            this.btnEditP.Size = new System.Drawing.Size(75, 23);
-            this.btnEditP.TabIndex = 6;
-            this.btnEditP.Text = "&Edit Product";
-            this.btnEditP.UseVisualStyleBackColor = true;
-            this.btnEditP.Click += new System.EventHandler(this.btnEditP_Click);
-            // 
-            // btnSaveP
-            // 
-            this.btnSaveP.Location = new System.Drawing.Point(257, 278);
-            this.btnSaveP.Name = "btnSaveP";
-            this.btnSaveP.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveP.TabIndex = 7;
-            this.btnSaveP.Text = "Save";
-            this.btnSaveP.UseVisualStyleBackColor = true;
-            this.btnSaveP.Click += new System.EventHandler(this.btnSaveP_Click);
-            // 
-            // btnDelProd
-            // 
-            this.btnDelProd.Location = new System.Drawing.Point(143, 307);
-            this.btnDelProd.Name = "btnDelProd";
-            this.btnDelProd.Size = new System.Drawing.Size(109, 23);
-            this.btnDelProd.TabIndex = 8;
-            this.btnDelProd.Text = "&Delete Product";
-            this.btnDelProd.UseVisualStyleBackColor = true;
-            this.btnDelProd.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // gvSupByProd
-            // 
-            this.gvSupByProd.AllowUserToAddRows = false;
-            this.gvSupByProd.AllowUserToDeleteRows = false;
-            this.gvSupByProd.AutoGenerateColumns = false;
-            this.gvSupByProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvSupByProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.supplierIdDataGridViewTextBoxColumn1,
-            this.supNameDataGridViewTextBoxColumn1});
-            this.gvSupByProd.DataSource = this.suppliersBindingSource;
-            this.gvSupByProd.Location = new System.Drawing.Point(710, 78);
-            this.gvSupByProd.MultiSelect = false;
-            this.gvSupByProd.Name = "gvSupByProd";
-            this.gvSupByProd.ReadOnly = true;
-            this.gvSupByProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvSupByProd.Size = new System.Drawing.Size(270, 183);
-            this.gvSupByProd.TabIndex = 9;
-            // 
-            // supNameDataGridViewTextBoxColumn1
-            // 
-            this.supNameDataGridViewTextBoxColumn1.DataPropertyName = "SupName";
-            this.supNameDataGridViewTextBoxColumn1.HeaderText = "SupName";
-            this.supNameDataGridViewTextBoxColumn1.Name = "supNameDataGridViewTextBoxColumn1";
-            this.supNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // supplierIdDataGridViewTextBoxColumn1
-            // 
-            this.supplierIdDataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn1.HeaderText = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn1.Name = "supplierIdDataGridViewTextBoxColumn1";
-            this.supplierIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // btnShowPS
-            // 
-            this.btnShowPS.Location = new System.Drawing.Point(368, 278);
-            this.btnShowPS.Name = "btnShowPS";
-            this.btnShowPS.Size = new System.Drawing.Size(75, 23);
-            this.btnShowPS.TabIndex = 10;
-            this.btnShowPS.Text = "Show";
-            this.btnShowPS.UseVisualStyleBackColor = true;
-            this.btnShowPS.Click += new System.EventHandler(this.btnShowPS_Click);
-            // 
-            // btnAddPS
-            // 
-            this.btnAddPS.Location = new System.Drawing.Point(669, 205);
-            this.btnAddPS.Name = "btnAddPS";
-            this.btnAddPS.Size = new System.Drawing.Size(33, 23);
-            this.btnAddPS.TabIndex = 12;
-            this.btnAddPS.Text = "<<";
-            this.btnAddPS.UseVisualStyleBackColor = true;
-            this.btnAddPS.Click += new System.EventHandler(this.btnAddPS_Click);
-            // 
-            // btnDelPS
-            // 
-            this.btnDelPS.Location = new System.Drawing.Point(669, 123);
-            this.btnDelPS.Name = "btnDelPS";
-            this.btnDelPS.Size = new System.Drawing.Size(34, 23);
-            this.btnDelPS.TabIndex = 13;
-            this.btnDelPS.Text = ">>";
-            this.btnDelPS.UseVisualStyleBackColor = true;
-            this.btnDelPS.Click += new System.EventHandler(this.btnDelPS_Click);
-            // 
-            // btnClearP
-            // 
-            this.btnClearP.Location = new System.Drawing.Point(257, 31);
-            this.btnClearP.Name = "btnClearP";
-            this.btnClearP.Size = new System.Drawing.Size(75, 23);
-            this.btnClearP.TabIndex = 14;
-            this.btnClearP.Text = "&Clear";
-            this.btnClearP.UseVisualStyleBackColor = true;
+            this.lblProdName2.AutoSize = true;
+            this.lblProdName2.Location = new System.Drawing.Point(27, 34);
+            this.lblProdName2.Name = "lblProdName2";
+            this.lblProdName2.Size = new System.Drawing.Size(78, 13);
+            this.lblProdName2.TabIndex = 2;
+            this.lblProdName2.Text = "Product Name:";
             // 
             // tabPackages
             // 
@@ -704,158 +707,25 @@
             this.tabPackages.Text = "Packages";
             this.tabPackages.UseVisualStyleBackColor = true;
             // 
-            // lblPkgName
+            // btnDeletePkgProdSup_Click
             // 
-            this.lblPkgName.AutoSize = true;
-            this.lblPkgName.Location = new System.Drawing.Point(6, 11);
-            this.lblPkgName.Name = "lblPkgName";
-            this.lblPkgName.Size = new System.Drawing.Size(84, 13);
-            this.lblPkgName.TabIndex = 1;
-            this.lblPkgName.Text = "Package Name:";
+            this.btnDeletePkgProdSup_Click.Location = new System.Drawing.Point(689, 167);
+            this.btnDeletePkgProdSup_Click.Name = "btnDeletePkgProdSup_Click";
+            this.btnDeletePkgProdSup_Click.Size = new System.Drawing.Size(91, 23);
+            this.btnDeletePkgProdSup_Click.TabIndex = 36;
+            this.btnDeletePkgProdSup_Click.Text = "Delete Product";
+            this.btnDeletePkgProdSup_Click.UseVisualStyleBackColor = true;
+            this.btnDeletePkgProdSup_Click.Click += new System.EventHandler(this.btnDeletePkgProdSup_Click_Click);
             // 
-            // lblPkgBasePrice
+            // btnAddPkgProdSup
             // 
-            this.lblPkgBasePrice.AutoSize = true;
-            this.lblPkgBasePrice.Location = new System.Drawing.Point(6, 170);
-            this.lblPkgBasePrice.Name = "lblPkgBasePrice";
-            this.lblPkgBasePrice.Size = new System.Drawing.Size(107, 13);
-            this.lblPkgBasePrice.TabIndex = 1;
-            this.lblPkgBasePrice.Text = "Package Base Price:";
-            // 
-            // lblPkgAgencyCommission
-            // 
-            this.lblPkgAgencyCommission.AutoSize = true;
-            this.lblPkgAgencyCommission.Location = new System.Drawing.Point(6, 196);
-            this.lblPkgAgencyCommission.Name = "lblPkgAgencyCommission";
-            this.lblPkgAgencyCommission.Size = new System.Drawing.Size(145, 13);
-            this.lblPkgAgencyCommission.TabIndex = 1;
-            this.lblPkgAgencyCommission.Text = "Package Agency Commision:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Package Description:";
-            // 
-            // lblPkgStartDate
-            // 
-            this.lblPkgStartDate.AutoSize = true;
-            this.lblPkgStartDate.Location = new System.Drawing.Point(6, 40);
-            this.lblPkgStartDate.Name = "lblPkgStartDate";
-            this.lblPkgStartDate.Size = new System.Drawing.Size(104, 13);
-            this.lblPkgStartDate.TabIndex = 1;
-            this.lblPkgStartDate.Text = "Package Start Date:";
-            // 
-            // lblPkgEndDate
-            // 
-            this.lblPkgEndDate.AutoSize = true;
-            this.lblPkgEndDate.Location = new System.Drawing.Point(6, 66);
-            this.lblPkgEndDate.Name = "lblPkgEndDate";
-            this.lblPkgEndDate.Size = new System.Drawing.Size(101, 13);
-            this.lblPkgEndDate.TabIndex = 1;
-            this.lblPkgEndDate.Text = "Package End Date:";
-            // 
-            // dtpPkgStartDate
-            // 
-            this.dtpPkgStartDate.Location = new System.Drawing.Point(159, 34);
-            this.dtpPkgStartDate.Name = "dtpPkgStartDate";
-            this.dtpPkgStartDate.Size = new System.Drawing.Size(188, 20);
-            this.dtpPkgStartDate.TabIndex = 2;
-            this.dtpPkgStartDate.ValueChanged += new System.EventHandler(this.dtpPkgStartDate_ValueChanged);
-            // 
-            // dtpPkgEndDate
-            // 
-            this.dtpPkgEndDate.Location = new System.Drawing.Point(159, 60);
-            this.dtpPkgEndDate.Name = "dtpPkgEndDate";
-            this.dtpPkgEndDate.Size = new System.Drawing.Size(188, 20);
-            this.dtpPkgEndDate.TabIndex = 2;
-            this.dtpPkgEndDate.ValueChanged += new System.EventHandler(this.dtpPkgEndDate_ValueChanged);
-            // 
-            // txtPackageName
-            // 
-            this.txtPackageName.Location = new System.Drawing.Point(159, 8);
-            this.txtPackageName.MaxLength = 50;
-            this.txtPackageName.Name = "txtPackageName";
-            this.txtPackageName.Size = new System.Drawing.Size(188, 20);
-            this.txtPackageName.TabIndex = 0;
-            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
-            // 
-            // txtPkgBasePrice
-            // 
-            this.txtPkgBasePrice.Location = new System.Drawing.Point(159, 167);
-            this.txtPkgBasePrice.Name = "txtPkgBasePrice";
-            this.txtPkgBasePrice.Size = new System.Drawing.Size(188, 20);
-            this.txtPkgBasePrice.TabIndex = 0;
-            // 
-            // txtPkgAgencyCommission
-            // 
-            this.txtPkgAgencyCommission.Location = new System.Drawing.Point(159, 193);
-            this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
-            this.txtPkgAgencyCommission.Size = new System.Drawing.Size(188, 20);
-            this.txtPkgAgencyCommission.TabIndex = 0;
-            // 
-            // txtPkgDesc
-            // 
-            this.txtPkgDesc.Location = new System.Drawing.Point(159, 89);
-            this.txtPkgDesc.MaxLength = 50;
-            this.txtPkgDesc.Multiline = true;
-            this.txtPkgDesc.Name = "txtPkgDesc";
-            this.txtPkgDesc.Size = new System.Drawing.Size(188, 72);
-            this.txtPkgDesc.TabIndex = 3;
-            this.txtPkgDesc.TextChanged += new System.EventHandler(this.txtPkgDesc_TextChanged);
-            // 
-            // btnAddEditPkg
-            // 
-            this.btnAddEditPkg.Location = new System.Drawing.Point(214, 218);
-            this.btnAddEditPkg.Name = "btnAddEditPkg";
-            this.btnAddEditPkg.Size = new System.Drawing.Size(80, 23);
-            this.btnAddEditPkg.TabIndex = 5;
-            this.btnAddEditPkg.Text = "Add Package";
-            this.btnAddEditPkg.UseVisualStyleBackColor = true;
-            this.btnAddEditPkg.Click += new System.EventHandler(this.btnAddEditPkg_Click);
-            // 
-            // lblPkgNameLength
-            // 
-            this.lblPkgNameLength.AutoSize = true;
-            this.lblPkgNameLength.Location = new System.Drawing.Point(351, 11);
-            this.lblPkgNameLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPkgNameLength.Name = "lblPkgNameLength";
-            this.lblPkgNameLength.Size = new System.Drawing.Size(0, 13);
-            this.lblPkgNameLength.TabIndex = 26;
-            // 
-            // lblPkgDescLength
-            // 
-            this.lblPkgDescLength.AutoSize = true;
-            this.lblPkgDescLength.Location = new System.Drawing.Point(351, 89);
-            this.lblPkgDescLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPkgDescLength.Name = "lblPkgDescLength";
-            this.lblPkgDescLength.Size = new System.Drawing.Size(0, 13);
-            this.lblPkgDescLength.TabIndex = 27;
-            // 
-            // gvProdSup_pkg
-            // 
-            this.gvProdSup_pkg.AllowUserToAddRows = false;
-            this.gvProdSup_pkg.AllowUserToDeleteRows = false;
-            this.gvProdSup_pkg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvProdSup_pkg.Location = new System.Drawing.Point(465, 11);
-            this.gvProdSup_pkg.MultiSelect = false;
-            this.gvProdSup_pkg.Name = "gvProdSup_pkg";
-            this.gvProdSup_pkg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvProdSup_pkg.Size = new System.Drawing.Size(543, 150);
-            this.gvProdSup_pkg.TabIndex = 32;
-            // 
-            // btnNewPkgProdSup
-            // 
-            this.btnNewPkgProdSup.Location = new System.Drawing.Point(465, 167);
-            this.btnNewPkgProdSup.Name = "btnNewPkgProdSup";
-            this.btnNewPkgProdSup.Size = new System.Drawing.Size(91, 23);
-            this.btnNewPkgProdSup.TabIndex = 33;
-            this.btnNewPkgProdSup.Text = "New Product";
-            this.btnNewPkgProdSup.UseVisualStyleBackColor = true;
-            this.btnNewPkgProdSup.Click += new System.EventHandler(this.btnUpdatePkgProdSup_Click);
+            this.btnAddPkgProdSup.Location = new System.Drawing.Point(465, 365);
+            this.btnAddPkgProdSup.Name = "btnAddPkgProdSup";
+            this.btnAddPkgProdSup.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPkgProdSup.TabIndex = 35;
+            this.btnAddPkgProdSup.Text = "Add New";
+            this.btnAddPkgProdSup.UseVisualStyleBackColor = true;
+            this.btnAddPkgProdSup.Click += new System.EventHandler(this.btnAddPkgProdSup_Click);
             // 
             // gvProdSup_all_pkgs
             // 
@@ -870,25 +740,158 @@
             this.gvProdSup_all_pkgs.TabIndex = 34;
             this.gvProdSup_all_pkgs.Visible = false;
             // 
-            // btnAddPkgProdSup
+            // btnNewPkgProdSup
             // 
-            this.btnAddPkgProdSup.Location = new System.Drawing.Point(465, 365);
-            this.btnAddPkgProdSup.Name = "btnAddPkgProdSup";
-            this.btnAddPkgProdSup.Size = new System.Drawing.Size(75, 23);
-            this.btnAddPkgProdSup.TabIndex = 35;
-            this.btnAddPkgProdSup.Text = "Add New";
-            this.btnAddPkgProdSup.UseVisualStyleBackColor = true;
-            this.btnAddPkgProdSup.Click += new System.EventHandler(this.btnAddPkgProdSup_Click);
+            this.btnNewPkgProdSup.Location = new System.Drawing.Point(465, 167);
+            this.btnNewPkgProdSup.Name = "btnNewPkgProdSup";
+            this.btnNewPkgProdSup.Size = new System.Drawing.Size(91, 23);
+            this.btnNewPkgProdSup.TabIndex = 33;
+            this.btnNewPkgProdSup.Text = "New Product";
+            this.btnNewPkgProdSup.UseVisualStyleBackColor = true;
+            this.btnNewPkgProdSup.Click += new System.EventHandler(this.btnUpdatePkgProdSup_Click);
             // 
-            // btnDeletePkgProdSup_Click
+            // gvProdSup_pkg
             // 
-            this.btnDeletePkgProdSup_Click.Location = new System.Drawing.Point(689, 167);
-            this.btnDeletePkgProdSup_Click.Name = "btnDeletePkgProdSup_Click";
-            this.btnDeletePkgProdSup_Click.Size = new System.Drawing.Size(91, 23);
-            this.btnDeletePkgProdSup_Click.TabIndex = 36;
-            this.btnDeletePkgProdSup_Click.Text = "Delete Product";
-            this.btnDeletePkgProdSup_Click.UseVisualStyleBackColor = true;
-            this.btnDeletePkgProdSup_Click.Click += new System.EventHandler(this.btnDeletePkgProdSup_Click_Click);
+            this.gvProdSup_pkg.AllowUserToAddRows = false;
+            this.gvProdSup_pkg.AllowUserToDeleteRows = false;
+            this.gvProdSup_pkg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvProdSup_pkg.Location = new System.Drawing.Point(465, 11);
+            this.gvProdSup_pkg.MultiSelect = false;
+            this.gvProdSup_pkg.Name = "gvProdSup_pkg";
+            this.gvProdSup_pkg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvProdSup_pkg.Size = new System.Drawing.Size(543, 150);
+            this.gvProdSup_pkg.TabIndex = 32;
+            // 
+            // lblPkgDescLength
+            // 
+            this.lblPkgDescLength.AutoSize = true;
+            this.lblPkgDescLength.Location = new System.Drawing.Point(351, 89);
+            this.lblPkgDescLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPkgDescLength.Name = "lblPkgDescLength";
+            this.lblPkgDescLength.Size = new System.Drawing.Size(0, 13);
+            this.lblPkgDescLength.TabIndex = 27;
+            // 
+            // lblPkgNameLength
+            // 
+            this.lblPkgNameLength.AutoSize = true;
+            this.lblPkgNameLength.Location = new System.Drawing.Point(351, 11);
+            this.lblPkgNameLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPkgNameLength.Name = "lblPkgNameLength";
+            this.lblPkgNameLength.Size = new System.Drawing.Size(0, 13);
+            this.lblPkgNameLength.TabIndex = 26;
+            // 
+            // btnAddEditPkg
+            // 
+            this.btnAddEditPkg.Location = new System.Drawing.Point(214, 218);
+            this.btnAddEditPkg.Name = "btnAddEditPkg";
+            this.btnAddEditPkg.Size = new System.Drawing.Size(80, 23);
+            this.btnAddEditPkg.TabIndex = 5;
+            this.btnAddEditPkg.Text = "Add Package";
+            this.btnAddEditPkg.UseVisualStyleBackColor = true;
+            this.btnAddEditPkg.Click += new System.EventHandler(this.btnAddEditPkg_Click);
+            // 
+            // txtPkgDesc
+            // 
+            this.txtPkgDesc.Location = new System.Drawing.Point(159, 89);
+            this.txtPkgDesc.MaxLength = 50;
+            this.txtPkgDesc.Multiline = true;
+            this.txtPkgDesc.Name = "txtPkgDesc";
+            this.txtPkgDesc.Size = new System.Drawing.Size(188, 72);
+            this.txtPkgDesc.TabIndex = 3;
+            this.txtPkgDesc.TextChanged += new System.EventHandler(this.txtPkgDesc_TextChanged);
+            // 
+            // txtPkgAgencyCommission
+            // 
+            this.txtPkgAgencyCommission.Location = new System.Drawing.Point(159, 193);
+            this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
+            this.txtPkgAgencyCommission.Size = new System.Drawing.Size(188, 20);
+            this.txtPkgAgencyCommission.TabIndex = 0;
+            // 
+            // txtPkgBasePrice
+            // 
+            this.txtPkgBasePrice.Location = new System.Drawing.Point(159, 167);
+            this.txtPkgBasePrice.Name = "txtPkgBasePrice";
+            this.txtPkgBasePrice.Size = new System.Drawing.Size(188, 20);
+            this.txtPkgBasePrice.TabIndex = 0;
+            // 
+            // txtPackageName
+            // 
+            this.txtPackageName.Location = new System.Drawing.Point(159, 8);
+            this.txtPackageName.MaxLength = 50;
+            this.txtPackageName.Name = "txtPackageName";
+            this.txtPackageName.Size = new System.Drawing.Size(188, 20);
+            this.txtPackageName.TabIndex = 0;
+            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
+            // 
+            // dtpPkgEndDate
+            // 
+            this.dtpPkgEndDate.Location = new System.Drawing.Point(159, 60);
+            this.dtpPkgEndDate.Name = "dtpPkgEndDate";
+            this.dtpPkgEndDate.Size = new System.Drawing.Size(188, 20);
+            this.dtpPkgEndDate.TabIndex = 2;
+            this.dtpPkgEndDate.ValueChanged += new System.EventHandler(this.dtpPkgEndDate_ValueChanged);
+            // 
+            // dtpPkgStartDate
+            // 
+            this.dtpPkgStartDate.Location = new System.Drawing.Point(159, 34);
+            this.dtpPkgStartDate.Name = "dtpPkgStartDate";
+            this.dtpPkgStartDate.Size = new System.Drawing.Size(188, 20);
+            this.dtpPkgStartDate.TabIndex = 2;
+            this.dtpPkgStartDate.ValueChanged += new System.EventHandler(this.dtpPkgStartDate_ValueChanged);
+            // 
+            // lblPkgEndDate
+            // 
+            this.lblPkgEndDate.AutoSize = true;
+            this.lblPkgEndDate.Location = new System.Drawing.Point(6, 66);
+            this.lblPkgEndDate.Name = "lblPkgEndDate";
+            this.lblPkgEndDate.Size = new System.Drawing.Size(101, 13);
+            this.lblPkgEndDate.TabIndex = 1;
+            this.lblPkgEndDate.Text = "Package End Date:";
+            // 
+            // lblPkgStartDate
+            // 
+            this.lblPkgStartDate.AutoSize = true;
+            this.lblPkgStartDate.Location = new System.Drawing.Point(6, 40);
+            this.lblPkgStartDate.Name = "lblPkgStartDate";
+            this.lblPkgStartDate.Size = new System.Drawing.Size(104, 13);
+            this.lblPkgStartDate.TabIndex = 1;
+            this.lblPkgStartDate.Text = "Package Start Date:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 92);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Package Description:";
+            // 
+            // lblPkgAgencyCommission
+            // 
+            this.lblPkgAgencyCommission.AutoSize = true;
+            this.lblPkgAgencyCommission.Location = new System.Drawing.Point(6, 196);
+            this.lblPkgAgencyCommission.Name = "lblPkgAgencyCommission";
+            this.lblPkgAgencyCommission.Size = new System.Drawing.Size(145, 13);
+            this.lblPkgAgencyCommission.TabIndex = 1;
+            this.lblPkgAgencyCommission.Text = "Package Agency Commision:";
+            // 
+            // lblPkgBasePrice
+            // 
+            this.lblPkgBasePrice.AutoSize = true;
+            this.lblPkgBasePrice.Location = new System.Drawing.Point(6, 170);
+            this.lblPkgBasePrice.Name = "lblPkgBasePrice";
+            this.lblPkgBasePrice.Size = new System.Drawing.Size(107, 13);
+            this.lblPkgBasePrice.TabIndex = 1;
+            this.lblPkgBasePrice.Text = "Package Base Price:";
+            // 
+            // lblPkgName
+            // 
+            this.lblPkgName.AutoSize = true;
+            this.lblPkgName.Location = new System.Drawing.Point(6, 11);
+            this.lblPkgName.Name = "lblPkgName";
+            this.lblPkgName.Size = new System.Drawing.Size(84, 13);
+            this.lblPkgName.TabIndex = 1;
+            this.lblPkgName.Text = "Package Name:";
             // 
             // tabMainPage
             // 
@@ -911,65 +914,82 @@
             this.tabMainPage.Text = "Main Page";
             this.tabMainPage.UseVisualStyleBackColor = true;
             // 
-            // btnAddPkg
+            // btnDeletepkg
             // 
-            this.btnAddPkg.Location = new System.Drawing.Point(6, 162);
-            this.btnAddPkg.Name = "btnAddPkg";
-            this.btnAddPkg.Size = new System.Drawing.Size(84, 23);
-            this.btnAddPkg.TabIndex = 1;
-            this.btnAddPkg.Text = "Add Package";
-            this.btnAddPkg.UseVisualStyleBackColor = true;
-            this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
+            this.btnDeletepkg.Location = new System.Drawing.Point(430, 162);
+            this.btnDeletepkg.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeletepkg.Name = "btnDeletepkg";
+            this.btnDeletepkg.Size = new System.Drawing.Size(87, 23);
+            this.btnDeletepkg.TabIndex = 10;
+            this.btnDeletepkg.Text = "Delete Package";
+            this.btnDeletepkg.UseVisualStyleBackColor = true;
+            this.btnDeletepkg.Click += new System.EventHandler(this.btnDeletepkg_Click);
             // 
-            // btnAddProd
+            // gvSuppliers
             // 
-            this.btnAddProd.Location = new System.Drawing.Point(6, 332);
-            this.btnAddProd.Name = "btnAddProd";
-            this.btnAddProd.Size = new System.Drawing.Size(84, 23);
-            this.btnAddProd.TabIndex = 1;
-            this.btnAddProd.Text = "Add Product";
-            this.btnAddProd.UseVisualStyleBackColor = true;
-            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
+            this.gvSuppliers.AllowUserToAddRows = false;
+            this.gvSuppliers.AllowUserToDeleteRows = false;
+            this.gvSuppliers.AutoGenerateColumns = false;
+            this.gvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSuppliers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SupplierId,
+            this.dataGridViewTextBoxColumn11});
+            this.gvSuppliers.DataSource = this.suppliersBindingSource;
+            this.gvSuppliers.Location = new System.Drawing.Point(393, 191);
+            this.gvSuppliers.Margin = new System.Windows.Forms.Padding(2);
+            this.gvSuppliers.MultiSelect = false;
+            this.gvSuppliers.Name = "gvSuppliers";
+            this.gvSuppliers.RowTemplate.Height = 24;
+            this.gvSuppliers.Size = new System.Drawing.Size(238, 136);
+            this.gvSuppliers.TabIndex = 9;
             // 
-            // btnEditPkg
+            // SupplierId
             // 
-            this.btnEditPkg.Location = new System.Drawing.Point(926, 162);
-            this.btnEditPkg.Name = "btnEditPkg";
-            this.btnEditPkg.Size = new System.Drawing.Size(84, 23);
-            this.btnEditPkg.TabIndex = 1;
-            this.btnEditPkg.Text = "Edit Package";
-            this.btnEditPkg.UseVisualStyleBackColor = true;
-            this.btnEditPkg.Click += new System.EventHandler(this.btnEditPkg_Click);
+            this.SupplierId.DataPropertyName = "SupplierId";
+            this.SupplierId.HeaderText = "SupplierId";
+            this.SupplierId.Name = "SupplierId";
+            this.SupplierId.ReadOnly = true;
             // 
-            // btnAddSup
+            // dataGridViewTextBoxColumn11
             // 
-            this.btnAddSup.Location = new System.Drawing.Point(393, 332);
-            this.btnAddSup.Name = "btnAddSup";
-            this.btnAddSup.Size = new System.Drawing.Size(84, 23);
-            this.btnAddSup.TabIndex = 1;
-            this.btnAddSup.Text = "Add Supplier";
-            this.btnAddSup.UseVisualStyleBackColor = true;
-            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "SupName";
+            this.dataGridViewTextBoxColumn11.HeaderText = "SupName";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 79;
             // 
-            // btnEditProd
+            // gvProducts
             // 
-            this.btnEditProd.Location = new System.Drawing.Point(249, 331);
-            this.btnEditProd.Name = "btnEditProd";
-            this.btnEditProd.Size = new System.Drawing.Size(84, 23);
-            this.btnEditProd.TabIndex = 1;
-            this.btnEditProd.Text = "Edit Product";
-            this.btnEditProd.UseVisualStyleBackColor = true;
-            this.btnEditProd.Click += new System.EventHandler(this.btnEditProd_Click);
+            this.gvProducts.AllowUserToAddRows = false;
+            this.gvProducts.AllowUserToDeleteRows = false;
+            this.gvProducts.AutoGenerateColumns = false;
+            this.gvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductId,
+            this.dataGridViewTextBoxColumn9});
+            this.gvProducts.DataSource = this.productsBindingSource;
+            this.gvProducts.Location = new System.Drawing.Point(6, 191);
+            this.gvProducts.Margin = new System.Windows.Forms.Padding(2);
+            this.gvProducts.MultiSelect = false;
+            this.gvProducts.Name = "gvProducts";
+            this.gvProducts.RowTemplate.Height = 24;
+            this.gvProducts.Size = new System.Drawing.Size(327, 135);
+            this.gvProducts.TabIndex = 9;
             // 
-            // btnEditSup
+            // ProductId
             // 
-            this.btnEditSup.Location = new System.Drawing.Point(547, 332);
-            this.btnEditSup.Name = "btnEditSup";
-            this.btnEditSup.Size = new System.Drawing.Size(84, 23);
-            this.btnEditSup.TabIndex = 1;
-            this.btnEditSup.Text = "Edit Supplier";
-            this.btnEditSup.UseVisualStyleBackColor = true;
-            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "ProductId";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn9.HeaderText = "ProdName";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 82;
             // 
             // gvPackages
             // 
@@ -997,57 +1017,14 @@
             this.gvPackages.TabIndex = 8;
             this.gvPackages.SelectionChanged += new System.EventHandler(this.gvPackages_SelectionChanged);
             // 
-            // dataGridViewTextBoxColumn7
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.Width = 115;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 96;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "PkgDesc";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Package Description";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "PkgEndDate";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Package End Date";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 92;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "PkgStartDate";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Package Start Date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 95;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Package Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1058,91 +1035,117 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 97;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Package Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "PkgStartDate";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Package Start Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 95;
             // 
-            // gvProducts
+            // dataGridViewTextBoxColumn4
             // 
-            this.gvProducts.AllowUserToAddRows = false;
-            this.gvProducts.AllowUserToDeleteRows = false;
-            this.gvProducts.AutoGenerateColumns = false;
-            this.gvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductId,
-            this.dataGridViewTextBoxColumn9});
-            this.gvProducts.DataSource = this.productsBindingSource;
-            this.gvProducts.Location = new System.Drawing.Point(6, 191);
-            this.gvProducts.Margin = new System.Windows.Forms.Padding(2);
-            this.gvProducts.MultiSelect = false;
-            this.gvProducts.Name = "gvProducts";
-            this.gvProducts.RowTemplate.Height = 24;
-            this.gvProducts.Size = new System.Drawing.Size(327, 135);
-            this.gvProducts.TabIndex = 9;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "PkgEndDate";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Package End Date";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 92;
             // 
-            // dataGridViewTextBoxColumn9
+            // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ProdName";
-            this.dataGridViewTextBoxColumn9.HeaderText = "ProdName";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 82;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "PkgDesc";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Package Description";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 120;
             // 
-            // ProductId
+            // dataGridViewTextBoxColumn6
             // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "PkgBasePrice";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Package Base Price";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 96;
             // 
-            // gvSuppliers
+            // dataGridViewTextBoxColumn7
             // 
-            this.gvSuppliers.AllowUserToAddRows = false;
-            this.gvSuppliers.AllowUserToDeleteRows = false;
-            this.gvSuppliers.AutoGenerateColumns = false;
-            this.gvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvSuppliers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SupplierId,
-            this.dataGridViewTextBoxColumn11});
-            this.gvSuppliers.DataSource = this.suppliersBindingSource;
-            this.gvSuppliers.Location = new System.Drawing.Point(393, 191);
-            this.gvSuppliers.Margin = new System.Windows.Forms.Padding(2);
-            this.gvSuppliers.MultiSelect = false;
-            this.gvSuppliers.Name = "gvSuppliers";
-            this.gvSuppliers.RowTemplate.Height = 24;
-            this.gvSuppliers.Size = new System.Drawing.Size(238, 136);
-            this.gvSuppliers.TabIndex = 9;
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "PkgAgencyCommission";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Agency Commission";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.Width = 115;
             // 
-            // dataGridViewTextBoxColumn11
+            // btnEditSup
             // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "SupName";
-            this.dataGridViewTextBoxColumn11.HeaderText = "SupName";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 79;
+            this.btnEditSup.Location = new System.Drawing.Point(547, 332);
+            this.btnEditSup.Name = "btnEditSup";
+            this.btnEditSup.Size = new System.Drawing.Size(84, 23);
+            this.btnEditSup.TabIndex = 1;
+            this.btnEditSup.Text = "Edit Supplier";
+            this.btnEditSup.UseVisualStyleBackColor = true;
+            this.btnEditSup.Click += new System.EventHandler(this.btnEditSup_Click);
             // 
-            // SupplierId
+            // btnEditProd
             // 
-            this.SupplierId.DataPropertyName = "SupplierId";
-            this.SupplierId.HeaderText = "SupplierId";
-            this.SupplierId.Name = "SupplierId";
-            this.SupplierId.ReadOnly = true;
+            this.btnEditProd.Location = new System.Drawing.Point(249, 331);
+            this.btnEditProd.Name = "btnEditProd";
+            this.btnEditProd.Size = new System.Drawing.Size(84, 23);
+            this.btnEditProd.TabIndex = 1;
+            this.btnEditProd.Text = "Edit Product";
+            this.btnEditProd.UseVisualStyleBackColor = true;
+            this.btnEditProd.Click += new System.EventHandler(this.btnEditProd_Click);
             // 
-            // btnDeletepkg
+            // btnAddSup
             // 
-            this.btnDeletepkg.Location = new System.Drawing.Point(430, 162);
-            this.btnDeletepkg.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeletepkg.Name = "btnDeletepkg";
-            this.btnDeletepkg.Size = new System.Drawing.Size(87, 23);
-            this.btnDeletepkg.TabIndex = 10;
-            this.btnDeletepkg.Text = "Delete Package";
-            this.btnDeletepkg.UseVisualStyleBackColor = true;
-            this.btnDeletepkg.Click += new System.EventHandler(this.btnDeletepkg_Click);
+            this.btnAddSup.Location = new System.Drawing.Point(393, 332);
+            this.btnAddSup.Name = "btnAddSup";
+            this.btnAddSup.Size = new System.Drawing.Size(84, 23);
+            this.btnAddSup.TabIndex = 1;
+            this.btnAddSup.Text = "Add Supplier";
+            this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
+            // 
+            // btnEditPkg
+            // 
+            this.btnEditPkg.Location = new System.Drawing.Point(926, 162);
+            this.btnEditPkg.Name = "btnEditPkg";
+            this.btnEditPkg.Size = new System.Drawing.Size(84, 23);
+            this.btnEditPkg.TabIndex = 1;
+            this.btnEditPkg.Text = "Edit Package";
+            this.btnEditPkg.UseVisualStyleBackColor = true;
+            this.btnEditPkg.Click += new System.EventHandler(this.btnEditPkg_Click);
+            // 
+            // btnAddProd
+            // 
+            this.btnAddProd.Location = new System.Drawing.Point(6, 332);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(84, 23);
+            this.btnAddProd.TabIndex = 1;
+            this.btnAddProd.Text = "Add Product";
+            this.btnAddProd.UseVisualStyleBackColor = true;
+            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
+            // 
+            // btnAddPkg
+            // 
+            this.btnAddPkg.Location = new System.Drawing.Point(6, 162);
+            this.btnAddPkg.Name = "btnAddPkg";
+            this.btnAddPkg.Size = new System.Drawing.Size(84, 23);
+            this.btnAddPkg.TabIndex = 1;
+            this.btnAddPkg.Text = "Add Package";
+            this.btnAddPkg.UseVisualStyleBackColor = true;
+            this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
             // 
             // ProductsV2
             // 
@@ -1155,6 +1158,16 @@
             this.ProductsV2.SelectedIndex = 0;
             this.ProductsV2.Size = new System.Drawing.Size(1022, 426);
             this.ProductsV2.TabIndex = 0;
+            // 
+            // btnClearS
+            // 
+            this.btnClearS.Location = new System.Drawing.Point(215, 5);
+            this.btnClearS.Name = "btnClearS";
+            this.btnClearS.Size = new System.Drawing.Size(75, 23);
+            this.btnClearS.TabIndex = 18;
+            this.btnClearS.Text = "&Clear";
+            this.btnClearS.UseVisualStyleBackColor = true;
+            this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
             // 
             // Form1
             // 
@@ -1174,22 +1187,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet1)).EndInit();
             this.tabSuppliers.ResumeLayout(false);
             this.tabSuppliers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProducts2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProdBySup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers2)).EndInit();
             this.tabProduct.ResumeLayout(false);
             this.tabProduct.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProducts1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupByProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts1)).EndInit();
             this.tabPackages.ResumeLayout(false);
             this.tabPackages.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_pkg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_all_pkgs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProdSup_pkg)).EndInit();
             this.tabMainPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSuppliers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).EndInit();
             this.ProductsV2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1296,6 +1309,7 @@
         private System.Windows.Forms.Button btnAddProd;
         private System.Windows.Forms.Button btnAddPkg;
         private System.Windows.Forms.TabControl ProductsV2;
+        private System.Windows.Forms.Button btnClearS;
     }
 }
 
