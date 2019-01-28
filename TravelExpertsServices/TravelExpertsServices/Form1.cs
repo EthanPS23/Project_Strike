@@ -21,6 +21,7 @@ namespace TravelExpertsServices
         // create constants
         const int PKG_NAME_LENGTH = 50;
         const int PKG_DESC_LENGTH = 50;
+        const double PRICE_MAX = 922337203685477.5807;
         // variables
         int pkgid;
         int slct_colmn = -1;
@@ -31,7 +32,7 @@ namespace TravelExpertsServices
         List<Supplier> selectSuppliers;
         List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
         List<ProdSuppliersNames> psn = new List<ProdSuppliersNames>();
-        List<Packages> PackagesList = PackagesDB.GetPackages();
+        List<Packages> PackagesList;
         public Form1()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace TravelExpertsServices
         // On form load performs these actions
         private void Form1_Load(object sender, EventArgs e)
         {
+            PackagesGrid();
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages_Products_Suppliers' table. You can move, or remove it, as needed.
             this.packages_Products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Packages_Products_Suppliers);
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Products_Suppliers' table. You can move, or remove it, as needed.
@@ -52,14 +54,14 @@ namespace TravelExpertsServices
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages' table. You can move, or remove it, as needed.
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
 
             //THIS TO BE UNCOMMENTED AFTER TESTING
 
             //dtpPkgStartDate.MinDate = DateTime.Now;
             //dtpPkgEndDate.MinDate = DateTime.Now;
 
-            gvPackages.Columns[0].Visible = false;
+            
             gvProducts.Columns[0].Visible = false;
             gvSuppliers.Columns[0].Visible = false;
             btnSaveP.Visible = false;
@@ -73,33 +75,53 @@ namespace TravelExpertsServices
             btnAddPS.Visible = false;
             btnDelPS.Visible = false;
 
-            DataGridViewSettings();
+            //DataGridViewSettings();
         }
         
+        //Ethan Shipley January 28 2019
+        //
+        private void PackagesGrid()
+        {
+            PackagesList = PackagesDB.GetPackages();
+            gvPackages.DataSource = PackagesList;
+            gvPackages.Columns[0].Visible = false;
+            gvPackages.Columns[1].HeaderText = "Package Name";
+            gvPackages.Columns[2].HeaderText = "Package Start Date";
+            gvPackages.Columns[3].HeaderText = "Package End Date";
+            gvPackages.Columns[4].HeaderText = "Package Description";
+            gvPackages.Columns[5].HeaderText = "Package Base Price";
+            gvPackages.Columns[5].DefaultCellStyle.Format = "C";
+            gvPackages.Columns[6].HeaderText = "Package Agency Commision";
+            gvPackages.Columns[6].DefaultCellStyle.Format = "C";
+            gvPackages.AutoSizeColumnsMode= DataGridViewAutoSizeColumnsMode.Fill;
+            gvPackages.Rows[0].Selected = true;
+            gvPackages.CurrentCell = gvPackages[1, 0];
+
+        }
 
         // Mike added this on Jan 28 2019
-        private void DataGridViewSettings()
-        {
-            //AutoFill(gvPackages);
-            //AutoFill(gvProducts);
-            //AutoFill(gvSuppliers);
+        //private void DataGridViewSettings()
+        //{
+        //    //AutoFill(gvPackages);
+        //    //AutoFill(gvProducts);
+        //    //AutoFill(gvSuppliers);
 
-            //gvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //gvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //gvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //gvPackages.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+        //    //gvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    //gvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    //gvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    //gvPackages.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
 
 
-            List<string> list = new List<string>();
+        //    List<string> list = new List<string>();
 
-            list.Add("First");
-            list.Add("Second");
-            list.Add("Thrid");
+        //    list.Add("First");
+        //    list.Add("Second");
+        //    list.Add("Thrid");
 
-            DGVtest.DataSource = list;
-            DGVtest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DGVtest.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
-        }
+        //    DGVtest.DataSource = list;
+        //    DGVtest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    DGVtest.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+        //}
 
         // Ethan Shipley
         private void btnAddPkg_Click(object sender, EventArgs e)
@@ -112,13 +134,9 @@ namespace TravelExpertsServices
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgencyCommission.Text = "";
-
-            //gvSuppliers_pkgs.DataSource = "";
-            //gvProducts_pkgs.DataSource = "";
+            
             gvProdSup_pkg.DataSource = "";
             gvProdSup_all_pkgs.DataSource = "";
-            //cmbProdName.Enabled = false;
-            //cmbSupName.Enabled = false;
 
             hideunhide(false);
             btnAddEditPkg.Text = "Save New Package";
@@ -178,16 +196,17 @@ namespace TravelExpertsServices
             if (crnt_cell)
             {
                 slct_colmn = gvPackages.CurrentCell.RowIndex;
-                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                PackagesGrid();
                 gvPackages.CurrentCell = gvPackages[3, slct_colmn];
             }
             else
             {
                 int indx = gvPackages.Rows.Count + 0;
-                this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+                PackagesGrid();
                 gvPackages.Rows[indx].Selected = true;
                 gvPackages.CurrentCell = gvPackages[1, indx];
-                MessageBox.Show(gvPackages.CurrentCell.Value.ToString());
+                //MessageBox.Show(gvPackages.CurrentCell.Value.ToString());
             }
             gvProdSup_pkg.DataSource = ppss;
             gvProdSup_all_pkgs.DataSource = psn;
@@ -314,6 +333,12 @@ namespace TravelExpertsServices
                     txtPkgBasePrice.Text = "";
                     return;
                 }
+                if ((double)PkgBasePrice>PRICE_MAX)
+                {
+                    MessageBox.Show("Please enter a number for base price less than 922,337,203,685,477.5807.");
+                    txtPkgBasePrice.Text = "";
+                    return;
+                }
             }
             catch (FormatException)
             {
@@ -334,6 +359,12 @@ namespace TravelExpertsServices
                 if (PkgAgencyCommission <= 0)
                 {
                     MessageBox.Show("Please enter a number for agency commision greater than zero.");
+                    txtPkgAgencyCommission.Text = "";
+                    return;
+                }
+                if ((double)PkgAgencyCommission > PRICE_MAX)
+                {
+                    MessageBox.Show("Please enter a number for agency commision less than 922,337,203,685,477.5807.");
                     txtPkgAgencyCommission.Text = "";
                     return;
                 }
@@ -378,9 +409,11 @@ namespace TravelExpertsServices
                 return;
             }
             PackagesDB.DeletePackage(pkgid);
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            hideunhide(false);
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);            
+            PackagesGrid();
+            //PackagesDB.DeletePackage(pkgid);
+            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
+            //hideunhide(false);
+            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);            
         }
         // Ethan Shipley
         private void btnAddEditProd_Click(object sender, EventArgs e)
