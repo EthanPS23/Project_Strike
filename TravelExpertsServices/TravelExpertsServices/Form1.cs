@@ -682,14 +682,6 @@ namespace TravelExpertsServices
             gvProducts1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void ProductList()
-        {
-            gvProducts1.DataSource = Prodd;
-            gvProducts1.Columns[0].HeaderText = "ID";
-            gvProducts1.Columns[1].HeaderText = "Product Name";
-            gvProducts1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
         // Sheila Zhao
         private void GetProduct(int productID)
         {
@@ -746,7 +738,7 @@ namespace TravelExpertsServices
                     np.ProdName = txtProdName.Text;
                     ProductDB.InsertProduct(np);
                     Prodd = ProductDB.GetProducts();
-                    UpdateBinding2();
+                    UpdateBinding(true);
                 }
             }
             catch (Exception ex)
@@ -819,7 +811,7 @@ namespace TravelExpertsServices
                 newp.ProdName = txtProdName.Text;
                 ProductDB.UpdateProduct(newp, oldp);
                 Prod = ProductDB.GetProducts();
-                UpdateBinding2();
+                UpdateBinding(true);
                 MessageBox.Show("Product Saved!");
             }
             catch (Exception ex)
@@ -850,7 +842,7 @@ namespace TravelExpertsServices
                 ProductDB.DeleteProduct(delProd);
                 txtProdName.Text = "";
                 Prod = ProductDB.GetProducts();
-                UpdateBinding2();
+                UpdateBinding(true);
 
                 int nRowIndex = gvProducts1.Rows.Count - 1;
                 gvProducts1.ClearSelection();
@@ -889,7 +881,7 @@ namespace TravelExpertsServices
             btnSaveP.Visible = false;
             gvSupByProd.Visible = false;
             btnShowPS.Text = "Show";
-            UpdateBinding2();
+            UpdateBinding(true);
         }
 
         private void btnAddPS_Click(object sender, EventArgs e)
@@ -938,7 +930,7 @@ namespace TravelExpertsServices
                                 gvSupByProd.DataSource = Sup;
                             }
                             MessageBox.Show("Supplier Added Successfully!");
-                            UpdateBinding2();
+                            UpdateBinding(true);
 
                             if (gvSuppliers1.Rows.Count > 0)
                             {
@@ -1006,7 +998,7 @@ namespace TravelExpertsServices
                                 gvSupByProd.DataSource = Sup;
                             }
                             MessageBox.Show("Supplier Added Successfully!");
-                            UpdateBinding2();
+                            UpdateBinding(true);
 
                             if (gvSuppliers1.Rows.Count > 0)
                             {
@@ -1149,7 +1141,7 @@ namespace TravelExpertsServices
                                 gvSupByProd.DataSource = Sup;
                             }
                             MessageBox.Show("Supplier Deleted Successfully!");
-                            UpdateBinding2();
+                            //UpdateBinding2();
 
                             if (gvSupByProd.Rows.Count > 0)
                             {

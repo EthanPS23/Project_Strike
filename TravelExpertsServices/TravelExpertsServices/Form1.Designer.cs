@@ -251,7 +251,7 @@
             this.btnClearS.TabIndex = 18;
             this.btnClearS.Text = "&Clear";
             this.btnClearS.UseVisualStyleBackColor = false;
-            this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
+            //this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
             //
             // btnDelSP
             //
@@ -263,7 +263,7 @@
             this.btnDelSP.TabIndex = 17;
             this.btnDelSP.Text = ">>";
             this.btnDelSP.UseVisualStyleBackColor = false;
-            this.btnDelSP.Click += new System.EventHandler(this.btnDelSP_Click);
+            //this.btnDelSP.Click += new System.EventHandler(this.btnDelSP_Click);
             //
             // btnAddSP
             //
@@ -275,7 +275,7 @@
             this.btnAddSP.TabIndex = 16;
             this.btnAddSP.Text = "<<";
             this.btnAddSP.UseVisualStyleBackColor = false;
-            this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
+            //this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
             //
             // btnShowSP
             //
@@ -287,7 +287,7 @@
             this.btnShowSP.TabIndex = 14;
             this.btnShowSP.Text = "Show";
             this.btnShowSP.UseVisualStyleBackColor = false;
-            this.btnShowSP.Click += new System.EventHandler(this.btnShowSP_Click);
+            //this.btnShowSP.Click += new System.EventHandler(this.btnShowSP_Click);
             //
             // gvProdBySup
             //
@@ -322,7 +322,7 @@
             this.btnDelSup.TabIndex = 12;
             this.btnDelSup.Text = "&Delete Product";
             this.btnDelSup.UseVisualStyleBackColor = false;
-            this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
+            //this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
             //
             // btnSaveS
             //
@@ -334,7 +334,7 @@
             this.btnSaveS.TabIndex = 11;
             this.btnSaveS.Text = "&Save";
             this.btnSaveS.UseVisualStyleBackColor = false;
-            this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
+            //this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
             //
             // btnEditS
             //
@@ -346,7 +346,7 @@
             this.btnEditS.TabIndex = 10;
             this.btnEditS.Text = "&Edit Supplier";
             this.btnEditS.UseVisualStyleBackColor = false;
-            this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
+            //this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
             //
             // btnNewS
             //
@@ -358,7 +358,7 @@
             this.btnNewS.TabIndex = 9;
             this.btnNewS.Text = "&Add New Supplier";
             this.btnNewS.UseVisualStyleBackColor = false;
-            this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
+            //this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
             //
             // gvProducts2
             //
@@ -409,7 +409,7 @@
             this.gvSuppliers2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvSuppliers2.Size = new System.Drawing.Size(300, 220);
             this.gvSuppliers2.TabIndex = 6;
-            this.gvSuppliers2.SelectionChanged += new System.EventHandler(this.gvSuppliers2_SelectionChanged);
+            //this.gvSuppliers2.SelectionChanged += new System.EventHandler(this.gvSuppliers2_SelectionChanged);
             //
             // txtSupName
             //
