@@ -1,6 +1,6 @@
 ﻿namespace TravelExpertsServices
 {
-    partial class   Form1
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,7 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExpertsServices.TravelExpertsDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -138,38 +136,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvPackages)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // suppliersBindingSource
-            //
+            // 
             this.suppliersBindingSource.DataMember = "Suppliers";
             this.suppliersBindingSource.DataSource = this.travelExpertsDataSet;
-            //
+            // 
             // travelExpertsDataSet
-            //
+            // 
             this.travelExpertsDataSet.DataSetName = "TravelExpertsDataSet";
             this.travelExpertsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            //
+            // 
             // productsBindingSource
-            //
+            // 
             this.productsBindingSource.DataMember = "Products";
             this.productsBindingSource.DataSource = this.travelExpertsDataSet;
-            //
+            // 
             // packagesBindingSource
-            //
+            // 
             this.packagesBindingSource.DataMember = "Packages";
             this.packagesBindingSource.DataSource = this.travelExpertsDataSet;
-            //
+            // 
             // products_SuppliersBindingSource
-            //
+            // 
             this.products_SuppliersBindingSource.DataMember = "Products_Suppliers";
             this.products_SuppliersBindingSource.DataSource = this.travelExpertsDataSet;
-            //
+            // 
             // packagesTableAdapter
-            //
+            // 
             this.packagesTableAdapter.ClearBeforeFill = true;
-            //
+            // 
             // tableAdapterManager
-            //
+            // 
             this.tableAdapterManager.AffiliationsTableAdapter = null;
             this.tableAdapterManager.AgenciesTableAdapter = null;
             this.tableAdapterManager.AgentsTableAdapter = null;
@@ -192,35 +190,35 @@
             this.tableAdapterManager.SuppliersTableAdapter = this.suppliersTableAdapter;
             this.tableAdapterManager.TripTypesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = TravelExpertsServices.TravelExpertsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            //
+            // 
             // productsTableAdapter
-            //
+            // 
             this.productsTableAdapter.ClearBeforeFill = true;
-            //
+            // 
             // suppliersTableAdapter
-            //
+            // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
-            //
+            // 
             // products_SuppliersTableAdapter
-            //
+            // 
             this.products_SuppliersTableAdapter.ClearBeforeFill = true;
-            //
+            // 
             // packagesProductsSuppliersBindingSource
-            //
+            // 
             this.packagesProductsSuppliersBindingSource.DataMember = "Packages_Products_Suppliers";
             this.packagesProductsSuppliersBindingSource.DataSource = this.travelExpertsDataSet;
-            //
+            // 
             // packages_Products_SuppliersTableAdapter
-            //
+            // 
             this.packages_Products_SuppliersTableAdapter.ClearBeforeFill = true;
-            //
+            // 
             // travelExpertsDataSet1
-            //
+            // 
             this.travelExpertsDataSet1.DataSetName = "TravelExpertsDataSet";
             this.travelExpertsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            //
+            // 
             // tabSuppliers
-            //
+            // 
             this.tabSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
             this.tabSuppliers.Controls.Add(this.btnClearS);
             this.tabSuppliers.Controls.Add(this.btnDelSP);
@@ -240,9 +238,9 @@
             this.tabSuppliers.Size = new System.Drawing.Size(1036, 427);
             this.tabSuppliers.TabIndex = 3;
             this.tabSuppliers.Text = "Suppliers";
-            //
+            // 
             // btnClearS
-            //
+            // 
             this.btnClearS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnClearS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearS.Location = new System.Drawing.Point(252, 15);
@@ -251,10 +249,10 @@
             this.btnClearS.TabIndex = 18;
             this.btnClearS.Text = "&Clear";
             this.btnClearS.UseVisualStyleBackColor = false;
-            //this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
-            //
+            this.btnClearS.Click += new System.EventHandler(this.btnClearS_Click);
+            // 
             // btnDelSP
-            //
+            // 
             this.btnDelSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDelSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelSP.Location = new System.Drawing.Point(679, 110);
@@ -263,10 +261,10 @@
             this.btnDelSP.TabIndex = 17;
             this.btnDelSP.Text = ">>";
             this.btnDelSP.UseVisualStyleBackColor = false;
-            //this.btnDelSP.Click += new System.EventHandler(this.btnDelSP_Click);
-            //
+            this.btnDelSP.Click += new System.EventHandler(this.btnDelSP_Click);
+            // 
             // btnAddSP
-            //
+            // 
             this.btnAddSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSP.Location = new System.Drawing.Point(679, 177);
@@ -275,10 +273,10 @@
             this.btnAddSP.TabIndex = 16;
             this.btnAddSP.Text = "<<";
             this.btnAddSP.UseVisualStyleBackColor = false;
-            //this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
-            //
+            this.btnAddSP.Click += new System.EventHandler(this.btnAddSP_Click);
+            // 
             // btnShowSP
-            //
+            // 
             this.btnShowSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnShowSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowSP.Location = new System.Drawing.Point(491, 277);
@@ -287,10 +285,10 @@
             this.btnShowSP.TabIndex = 14;
             this.btnShowSP.Text = "Show";
             this.btnShowSP.UseVisualStyleBackColor = false;
-            //this.btnShowSP.Click += new System.EventHandler(this.btnShowSP_Click);
-            //
+            this.btnShowSP.Click += new System.EventHandler(this.btnShowSP_Click);
+            // 
             // gvProdBySup
-            //
+            // 
             this.gvProdBySup.AllowUserToAddRows = false;
             this.gvProdBySup.AllowUserToDeleteRows = false;
             this.gvProdBySup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -304,16 +302,15 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gvProdBySup.DefaultCellStyle = dataGridViewCellStyle1;
-
             this.gvProdBySup.Location = new System.Drawing.Point(726, 51);
             this.gvProdBySup.Name = "gvProdBySup";
             this.gvProdBySup.ReadOnly = true;
             this.gvProdBySup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProdBySup.Size = new System.Drawing.Size(254, 220);
             this.gvProdBySup.TabIndex = 13;
-            //
+            // 
             // btnDelSup
-            //
+            // 
             this.btnDelSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDelSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelSup.Location = new System.Drawing.Point(239, 279);
@@ -322,10 +319,10 @@
             this.btnDelSup.TabIndex = 12;
             this.btnDelSup.Text = "&Delete Product";
             this.btnDelSup.UseVisualStyleBackColor = false;
-            //this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
-            //
+            this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
+            // 
             // btnSaveS
-            //
+            // 
             this.btnSaveS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnSaveS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveS.Location = new System.Drawing.Point(141, 327);
@@ -334,10 +331,10 @@
             this.btnSaveS.TabIndex = 11;
             this.btnSaveS.Text = "&Save";
             this.btnSaveS.UseVisualStyleBackColor = false;
-            //this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
-            //
+            this.btnSaveS.Click += new System.EventHandler(this.btnSaveS_Click);
+            // 
             // btnEditS
-            //
+            // 
             this.btnEditS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnEditS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditS.Location = new System.Drawing.Point(141, 279);
@@ -346,10 +343,10 @@
             this.btnEditS.TabIndex = 10;
             this.btnEditS.Text = "&Edit Supplier";
             this.btnEditS.UseVisualStyleBackColor = false;
-            //this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
-            //
+            this.btnEditS.Click += new System.EventHandler(this.btnEditS_Click);
+            // 
             // btnNewS
-            //
+            // 
             this.btnNewS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnNewS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewS.Location = new System.Drawing.Point(13, 279);
@@ -358,10 +355,10 @@
             this.btnNewS.TabIndex = 9;
             this.btnNewS.Text = "&Add New Supplier";
             this.btnNewS.UseVisualStyleBackColor = false;
-            //this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
-            //
+            this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
+            // 
             // gvProducts2
-            //
+            // 
             this.gvProducts2.AllowUserToAddRows = false;
             this.gvProducts2.AllowUserToDeleteRows = false;
             this.gvProducts2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -374,9 +371,7 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-
-            this.gvProducts2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
+            this.gvProducts2.DefaultCellStyle = dataGridViewCellStyle2;
             this.gvProducts2.Location = new System.Drawing.Point(372, 51);
             this.gvProducts2.MultiSelect = false;
             this.gvProducts2.Name = "gvProducts2";
@@ -384,9 +379,9 @@
             this.gvProducts2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProducts2.Size = new System.Drawing.Size(300, 220);
             this.gvProducts2.TabIndex = 6;
-            //
+            // 
             // gvSuppliers2
-            //
+            // 
             this.gvSuppliers2.AllowUserToAddRows = false;
             this.gvSuppliers2.AllowUserToDeleteRows = false;
             this.gvSuppliers2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -399,9 +394,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-
-            this.gvSuppliers2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
+            this.gvSuppliers2.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvSuppliers2.Location = new System.Drawing.Point(34, 51);
             this.gvSuppliers2.MultiSelect = false;
             this.gvSuppliers2.Name = "gvSuppliers2";
@@ -409,10 +402,10 @@
             this.gvSuppliers2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvSuppliers2.Size = new System.Drawing.Size(300, 220);
             this.gvSuppliers2.TabIndex = 6;
-            //this.gvSuppliers2.SelectionChanged += new System.EventHandler(this.gvSuppliers2_SelectionChanged);
-            //
+            this.gvSuppliers2.SelectionChanged += new System.EventHandler(this.gvSuppliers2_SelectionChanged);
+            // 
             // txtSupName
-            //
+            // 
             this.txtSupName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.txtSupName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSupName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
@@ -420,18 +413,18 @@
             this.txtSupName.Name = "txtSupName";
             this.txtSupName.Size = new System.Drawing.Size(100, 13);
             this.txtSupName.TabIndex = 5;
-            //
+            // 
             // lblSupName2
-            //
+            // 
             this.lblSupName2.AutoSize = true;
             this.lblSupName2.Location = new System.Drawing.Point(40, 20);
             this.lblSupName2.Name = "lblSupName2";
             this.lblSupName2.Size = new System.Drawing.Size(79, 13);
             this.lblSupName2.TabIndex = 4;
             this.lblSupName2.Text = "Supplier Name:";
-            //
+            // 
             // tabProduct
-            //
+            // 
             this.tabProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
             this.tabProduct.Controls.Add(this.btnClearP);
             this.tabProduct.Controls.Add(this.btnDelPS);
@@ -451,9 +444,9 @@
             this.tabProduct.Size = new System.Drawing.Size(1036, 427);
             this.tabProduct.TabIndex = 2;
             this.tabProduct.Text = "Product";
-            //
+            // 
             // btnClearP
-            //
+            // 
             this.btnClearP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnClearP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearP.Location = new System.Drawing.Point(252, 15);
@@ -463,9 +456,9 @@
             this.btnClearP.Text = "&Clear";
             this.btnClearP.UseVisualStyleBackColor = false;
             this.btnClearP.Click += new System.EventHandler(this.btnClearP_Click);
-            //
+            // 
             // btnDelPS
-            //
+            // 
             this.btnDelPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDelPS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelPS.Location = new System.Drawing.Point(679, 110);
@@ -475,9 +468,9 @@
             this.btnDelPS.Text = ">>";
             this.btnDelPS.UseVisualStyleBackColor = false;
             this.btnDelPS.Click += new System.EventHandler(this.btnDelPS_Click);
-            //
+            // 
             // btnAddPS
-            //
+            // 
             this.btnAddPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddPS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPS.Location = new System.Drawing.Point(679, 177);
@@ -487,9 +480,9 @@
             this.btnAddPS.Text = "<<";
             this.btnAddPS.UseVisualStyleBackColor = false;
             this.btnAddPS.Click += new System.EventHandler(this.btnAddPS_Click);
-            //
+            // 
             // btnShowPS
-            //
+            // 
             this.btnShowPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnShowPS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowPS.Location = new System.Drawing.Point(491, 277);
@@ -499,9 +492,9 @@
             this.btnShowPS.Text = "Show";
             this.btnShowPS.UseVisualStyleBackColor = false;
             this.btnShowPS.Click += new System.EventHandler(this.btnShowPS_Click);
-            //
+            // 
             // gvSupByProd
-            //
+            // 
             this.gvSupByProd.AllowUserToAddRows = false;
             this.gvSupByProd.AllowUserToDeleteRows = false;
             this.gvSupByProd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -522,9 +515,9 @@
             this.gvSupByProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvSupByProd.Size = new System.Drawing.Size(254, 220);
             this.gvSupByProd.TabIndex = 9;
-            //
+            // 
             // btnDelProd
-            //
+            // 
             this.btnDelProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDelProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelProd.Location = new System.Drawing.Point(239, 279);
@@ -534,9 +527,9 @@
             this.btnDelProd.Text = "&Delete Product";
             this.btnDelProd.UseVisualStyleBackColor = false;
             this.btnDelProd.Click += new System.EventHandler(this.btnDelete_Click);
-            //
+            // 
             // btnSaveP
-            //
+            // 
             this.btnSaveP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnSaveP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveP.Location = new System.Drawing.Point(141, 327);
@@ -546,9 +539,9 @@
             this.btnSaveP.Text = "Save";
             this.btnSaveP.UseVisualStyleBackColor = false;
             this.btnSaveP.Click += new System.EventHandler(this.btnSaveP_Click);
-            //
+            // 
             // btnEditP
-            //
+            // 
             this.btnEditP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnEditP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditP.Location = new System.Drawing.Point(141, 279);
@@ -558,9 +551,9 @@
             this.btnEditP.Text = "&Edit Product";
             this.btnEditP.UseVisualStyleBackColor = false;
             this.btnEditP.Click += new System.EventHandler(this.btnEditP_Click);
-            //
+            // 
             // btnAddNewProd
-            //
+            // 
             this.btnAddNewProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddNewProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewProd.Location = new System.Drawing.Point(13, 279);
@@ -570,9 +563,9 @@
             this.btnAddNewProd.Text = "&Add New Product";
             this.btnAddNewProd.UseVisualStyleBackColor = false;
             this.btnAddNewProd.Click += new System.EventHandler(this.btnAddNewProd_Click);
-            //
+            // 
             // gvSuppliers1
-            //
+            // 
             this.gvSuppliers1.AllowUserToAddRows = false;
             this.gvSuppliers1.AllowUserToDeleteRows = false;
             this.gvSuppliers1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -593,9 +586,9 @@
             this.gvSuppliers1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvSuppliers1.Size = new System.Drawing.Size(300, 220);
             this.gvSuppliers1.TabIndex = 4;
-            //
+            // 
             // gvProducts1
-            //
+            // 
             this.gvProducts1.AllowUserToAddRows = false;
             this.gvProducts1.AllowUserToDeleteRows = false;
             this.gvProducts1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -617,9 +610,9 @@
             this.gvProducts1.Size = new System.Drawing.Size(300, 220);
             this.gvProducts1.TabIndex = 4;
             this.gvProducts1.SelectionChanged += new System.EventHandler(this.grProducts1_SelectionChanged);
-            //
+            // 
             // txtProdName
-            //
+            // 
             this.txtProdName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.txtProdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProdName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
@@ -627,18 +620,18 @@
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(100, 13);
             this.txtProdName.TabIndex = 3;
-            //
+            // 
             // lblProdName2
-            //
+            // 
             this.lblProdName2.AutoSize = true;
             this.lblProdName2.Location = new System.Drawing.Point(40, 20);
             this.lblProdName2.Name = "lblProdName2";
             this.lblProdName2.Size = new System.Drawing.Size(78, 13);
             this.lblProdName2.TabIndex = 2;
             this.lblProdName2.Text = "Product Name:";
-            //
+            // 
             // tabPackages
-            //
+            // 
             this.tabPackages.AutoScroll = true;
             this.tabPackages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
             this.tabPackages.Controls.Add(this.btnDeletePkgProdSup_Click);
@@ -667,9 +660,9 @@
             this.tabPackages.Size = new System.Drawing.Size(1036, 427);
             this.tabPackages.TabIndex = 1;
             this.tabPackages.Text = "Packages";
-            //
+            // 
             // btnDeletePkgProdSup_Click
-            //
+            // 
             this.btnDeletePkgProdSup_Click.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDeletePkgProdSup_Click.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletePkgProdSup_Click.Location = new System.Drawing.Point(689, 167);
@@ -679,9 +672,9 @@
             this.btnDeletePkgProdSup_Click.Text = "Delete Product";
             this.btnDeletePkgProdSup_Click.UseVisualStyleBackColor = false;
             this.btnDeletePkgProdSup_Click.Click += new System.EventHandler(this.btnDeletePkgProdSup_Click_Click);
-            //
+            // 
             // btnAddPkgProdSup
-            //
+            // 
             this.btnAddPkgProdSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddPkgProdSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPkgProdSup.Location = new System.Drawing.Point(465, 365);
@@ -692,9 +685,9 @@
             this.btnAddPkgProdSup.UseVisualStyleBackColor = false;
             this.btnAddPkgProdSup.Visible = false;
             this.btnAddPkgProdSup.Click += new System.EventHandler(this.btnAddPkgProdSup_Click);
-            //
+            // 
             // gvProdSup_all_pkgs
-            //
+            // 
             this.gvProdSup_all_pkgs.AllowUserToAddRows = false;
             this.gvProdSup_all_pkgs.AllowUserToDeleteRows = false;
             this.gvProdSup_all_pkgs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -715,9 +708,9 @@
             this.gvProdSup_all_pkgs.Size = new System.Drawing.Size(543, 150);
             this.gvProdSup_all_pkgs.TabIndex = 34;
             this.gvProdSup_all_pkgs.Visible = false;
-            //
+            // 
             // btnNewPkgProdSup
-            //
+            // 
             this.btnNewPkgProdSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnNewPkgProdSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewPkgProdSup.Location = new System.Drawing.Point(465, 167);
@@ -727,9 +720,9 @@
             this.btnNewPkgProdSup.Text = "New Product";
             this.btnNewPkgProdSup.UseVisualStyleBackColor = false;
             this.btnNewPkgProdSup.Click += new System.EventHandler(this.btnUpdatePkgProdSup_Click);
-            //
+            // 
             // gvProdSup_pkg
-            //
+            // 
             this.gvProdSup_pkg.AllowUserToAddRows = false;
             this.gvProdSup_pkg.AllowUserToDeleteRows = false;
             this.gvProdSup_pkg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -757,27 +750,27 @@
             this.gvProdSup_pkg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProdSup_pkg.Size = new System.Drawing.Size(543, 150);
             this.gvProdSup_pkg.TabIndex = 32;
-            //
+            // 
             // lblPkgDescLength
-            //
+            // 
             this.lblPkgDescLength.AutoSize = true;
             this.lblPkgDescLength.Location = new System.Drawing.Point(351, 89);
             this.lblPkgDescLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPkgDescLength.Name = "lblPkgDescLength";
             this.lblPkgDescLength.Size = new System.Drawing.Size(0, 13);
             this.lblPkgDescLength.TabIndex = 27;
-            //
+            // 
             // lblPkgNameLength
-            //
+            // 
             this.lblPkgNameLength.AutoSize = true;
             this.lblPkgNameLength.Location = new System.Drawing.Point(351, 11);
             this.lblPkgNameLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPkgNameLength.Name = "lblPkgNameLength";
             this.lblPkgNameLength.Size = new System.Drawing.Size(0, 13);
             this.lblPkgNameLength.TabIndex = 26;
-            //
+            // 
             // btnAddEditPkg
-            //
+            // 
             this.btnAddEditPkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddEditPkg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEditPkg.Location = new System.Drawing.Point(214, 218);
@@ -787,9 +780,9 @@
             this.btnAddEditPkg.Text = "Save New Package";
             this.btnAddEditPkg.UseVisualStyleBackColor = false;
             this.btnAddEditPkg.Click += new System.EventHandler(this.btnAddEditPkg_Click);
-            //
+            // 
             // txtPkgDesc
-            //
+            // 
             this.txtPkgDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.txtPkgDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPkgDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
@@ -800,9 +793,9 @@
             this.txtPkgDesc.Size = new System.Drawing.Size(188, 72);
             this.txtPkgDesc.TabIndex = 3;
             this.txtPkgDesc.TextChanged += new System.EventHandler(this.txtPkgDesc_TextChanged);
-            //
+            // 
             // txtPkgAgencyCommission
-            //
+            // 
             this.txtPkgAgencyCommission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.txtPkgAgencyCommission.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPkgAgencyCommission.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
@@ -810,9 +803,9 @@
             this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
             this.txtPkgAgencyCommission.Size = new System.Drawing.Size(188, 13);
             this.txtPkgAgencyCommission.TabIndex = 5;
-            //
+            // 
             // txtPkgBasePrice
-            //
+            // 
             this.txtPkgBasePrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.txtPkgBasePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPkgBasePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
@@ -820,9 +813,9 @@
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
             this.txtPkgBasePrice.Size = new System.Drawing.Size(188, 13);
             this.txtPkgBasePrice.TabIndex = 4;
-            //
+            // 
             // txtPackageName
-            //
+            // 
             this.txtPackageName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.txtPackageName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPackageName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(137)))), ((int)(((byte)(252)))));
@@ -832,9 +825,9 @@
             this.txtPackageName.Size = new System.Drawing.Size(188, 13);
             this.txtPackageName.TabIndex = 0;
             this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
-            //
+            // 
             // dtpPkgEndDate
-            //
+            // 
             this.dtpPkgEndDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
             this.dtpPkgEndDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.dtpPkgEndDate.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -844,9 +837,9 @@
             this.dtpPkgEndDate.Size = new System.Drawing.Size(188, 20);
             this.dtpPkgEndDate.TabIndex = 2;
             this.dtpPkgEndDate.ValueChanged += new System.EventHandler(this.dtpPkgEndDate_ValueChanged);
-            //
+            // 
             // dtpPkgStartDate
-            //
+            // 
             this.dtpPkgStartDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
             this.dtpPkgStartDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.dtpPkgStartDate.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -856,63 +849,63 @@
             this.dtpPkgStartDate.Size = new System.Drawing.Size(188, 20);
             this.dtpPkgStartDate.TabIndex = 1;
             this.dtpPkgStartDate.ValueChanged += new System.EventHandler(this.dtpPkgStartDate_ValueChanged);
-            //
+            // 
             // lblPkgEndDate
-            //
+            // 
             this.lblPkgEndDate.AutoSize = true;
             this.lblPkgEndDate.Location = new System.Drawing.Point(6, 66);
             this.lblPkgEndDate.Name = "lblPkgEndDate";
             this.lblPkgEndDate.Size = new System.Drawing.Size(101, 13);
             this.lblPkgEndDate.TabIndex = 1;
             this.lblPkgEndDate.Text = "Package End Date:";
-            //
+            // 
             // lblPkgStartDate
-            //
+            // 
             this.lblPkgStartDate.AutoSize = true;
             this.lblPkgStartDate.Location = new System.Drawing.Point(6, 40);
             this.lblPkgStartDate.Name = "lblPkgStartDate";
             this.lblPkgStartDate.Size = new System.Drawing.Size(104, 13);
             this.lblPkgStartDate.TabIndex = 1;
             this.lblPkgStartDate.Text = "Package Start Date:";
-            //
+            // 
             // label1
-            //
+            // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Package Description:";
-            //
+            // 
             // lblPkgAgencyCommission
-            //
+            // 
             this.lblPkgAgencyCommission.AutoSize = true;
             this.lblPkgAgencyCommission.Location = new System.Drawing.Point(6, 196);
             this.lblPkgAgencyCommission.Name = "lblPkgAgencyCommission";
             this.lblPkgAgencyCommission.Size = new System.Drawing.Size(145, 13);
             this.lblPkgAgencyCommission.TabIndex = 1;
             this.lblPkgAgencyCommission.Text = "Package Agency Commision:";
-            //
+            // 
             // lblPkgBasePrice
-            //
+            // 
             this.lblPkgBasePrice.AutoSize = true;
             this.lblPkgBasePrice.Location = new System.Drawing.Point(6, 170);
             this.lblPkgBasePrice.Name = "lblPkgBasePrice";
             this.lblPkgBasePrice.Size = new System.Drawing.Size(107, 13);
             this.lblPkgBasePrice.TabIndex = 1;
             this.lblPkgBasePrice.Text = "Package Base Price:";
-            //
+            // 
             // lblPkgName
-            //
+            // 
             this.lblPkgName.AutoSize = true;
             this.lblPkgName.Location = new System.Drawing.Point(6, 11);
             this.lblPkgName.Name = "lblPkgName";
             this.lblPkgName.Size = new System.Drawing.Size(84, 13);
             this.lblPkgName.TabIndex = 1;
             this.lblPkgName.Text = "Package Name:";
-            //
+            // 
             // tabMainPage
-            //
+            // 
             this.tabMainPage.AutoScroll = true;
             this.tabMainPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
             this.tabMainPage.Controls.Add(this.btnDeletepkg);
@@ -928,9 +921,9 @@
             this.tabMainPage.Size = new System.Drawing.Size(1036, 427);
             this.tabMainPage.TabIndex = 0;
             this.tabMainPage.Text = "Main Page";
-            //
+            // 
             // btnDeletepkg
-            //
+            // 
             this.btnDeletepkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnDeletepkg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletepkg.Location = new System.Drawing.Point(475, 162);
@@ -941,9 +934,9 @@
             this.btnDeletepkg.Text = "Delete Package";
             this.btnDeletepkg.UseVisualStyleBackColor = false;
             this.btnDeletepkg.Click += new System.EventHandler(this.btnDeletepkg_Click);
-            //
+            // 
             // gvSuppliers
-            //
+            // 
             this.gvSuppliers.AllowUserToAddRows = false;
             this.gvSuppliers.AllowUserToDeleteRows = false;
             this.gvSuppliers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -966,9 +959,9 @@
             this.gvSuppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvSuppliers.Size = new System.Drawing.Size(327, 135);
             this.gvSuppliers.TabIndex = 9;
-            //
+            // 
             // gvProducts
-            //
+            // 
             this.gvProducts.AllowUserToAddRows = false;
             this.gvProducts.AllowUserToDeleteRows = false;
             this.gvProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -991,9 +984,9 @@
             this.gvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProducts.Size = new System.Drawing.Size(327, 135);
             this.gvProducts.TabIndex = 9;
-            //
+            // 
             // gvPackages
-            //
+            // 
             this.gvPackages.AllowUserToAddRows = false;
             this.gvPackages.AllowUserToDeleteRows = false;
             this.gvPackages.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
@@ -1026,9 +1019,9 @@
             this.gvPackages.Size = new System.Drawing.Size(1006, 150);
             this.gvPackages.TabIndex = 8;
             this.gvPackages.SelectionChanged += new System.EventHandler(this.gvPackages_SelectionChanged);
-            //
+            // 
             // btnEditPkg
-            //
+            // 
             this.btnEditPkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnEditPkg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditPkg.Location = new System.Drawing.Point(927, 162);
@@ -1038,9 +1031,9 @@
             this.btnEditPkg.Text = "Edit Package";
             this.btnEditPkg.UseVisualStyleBackColor = false;
             this.btnEditPkg.Click += new System.EventHandler(this.btnEditPkg_Click);
-            //
+            // 
             // btnAddPkg
-            //
+            // 
             this.btnAddPkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(81)))), ((int)(((byte)(78)))));
             this.btnAddPkg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPkg.Location = new System.Drawing.Point(6, 162);
@@ -1050,9 +1043,9 @@
             this.btnAddPkg.Text = "Add Package";
             this.btnAddPkg.UseVisualStyleBackColor = false;
             this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
-            //
+            // 
             // tabControl1
-            //
+            // 
             this.tabControl1.Controls.Add(this.tabMainPage);
             this.tabControl1.Controls.Add(this.tabPackages);
             this.tabControl1.Controls.Add(this.tabProduct);
@@ -1065,9 +1058,9 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1044, 453);
             this.tabControl1.TabIndex = 0;
-            //
+            // 
             // Form1
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
@@ -1182,3 +1175,4 @@
         private System.Windows.Forms.Button btnClearS;
     }
 }
+
