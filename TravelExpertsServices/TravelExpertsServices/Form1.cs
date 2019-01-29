@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 namespace TravelExpertsServices
 {
     // Ethan Shipley
-    // Ethans test 
+    // Ethans test
     //of code added
     public partial class Form1 : Form
     {
@@ -35,10 +35,8 @@ namespace TravelExpertsServices
 
         List<Packages> PackagesList;
 
-
         List<Products> Prodd = ProductDB.GetProducts();
         List<Supplier> Supp = SupplierDB.GetSuppliers();
-
         public Form1()
         {
             InitializeComponent();
@@ -49,8 +47,10 @@ namespace TravelExpertsServices
         private void Form1_Load(object sender, EventArgs e)
         {
             PackagesGrid();
-            // TODO: This line of code loads data into the 'travelExpertsDataSet.Packages_Products_Suppliers' table. You can move, or remove it, as needed.
-            this.packages_Products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Packages_Products_Suppliers);
+            ProductList();
+            SupplierList();
+            //// TODO: This line of code loads data into the 'travelExpertsDataSet.Packages_Products_Suppliers' table. You can move, or remove it, as needed.
+            //this.packages_Products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Packages_Products_Suppliers);
             //// TODO: This line of code loads data into the 'travelExpertsDataSet.Products_Suppliers' table. You can move, or remove it, as needed.
             //this.products_SuppliersTableAdapter.Fill(this.travelExpertsDataSet.Products_Suppliers);
             //// TODO: This line of code loads data into the 'travelExpertsDataSet.Suppliers' table. You can move, or remove it, as needed.
@@ -67,7 +67,7 @@ namespace TravelExpertsServices
             //dtpPkgStartDate.MinDate = DateTime.Now;
             //dtpPkgEndDate.MinDate = DateTime.Now;
 
-            
+
             gvProducts.Columns[0].Visible = false;
             gvSuppliers.Columns[0].Visible = false;
             btnSaveP.Visible = false;
@@ -84,9 +84,9 @@ namespace TravelExpertsServices
 
             //DataGridViewSettings();
         }
-        
+
         //Ethan Shipley January 28 2019
-        //
+        //Sets the data source and formatting for the packages datagridview
         private void PackagesGrid()
         {
             PackagesList = PackagesDB.GetPackages();
@@ -108,6 +108,36 @@ namespace TravelExpertsServices
             ProductList();
             SupplierList();
 
+        }
+
+        //Ethan SHipley January 28 2019
+        //sets the datasource and formatting for the products datagridview
+        private void ProductsGrid()
+        {
+            gvProducts.DataSource = ppss;
+            gvProducts.Columns[0].Visible = false;
+            gvProducts.Columns[1].Visible = false;
+            gvProducts.Columns[2].HeaderText = "Product ID";
+            gvProducts.Columns[3].Visible = false;
+            gvProducts.Columns[4].Visible = false;
+            gvProducts.Columns[5].HeaderText = "Product Name";
+            gvProducts.Columns[6].Visible = false;
+            gvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        //Ethan SHipley January 28 2019
+        //sets the datasource and formatting for the products datagridview
+        private void SuppliersGrid()
+        {
+            gvSuppliers.DataSource = ppss;
+            gvSuppliers.Columns[0].Visible = false;
+            gvSuppliers.Columns[1].Visible = false;
+            gvSuppliers.Columns[2].Visible = false;
+            gvSuppliers.Columns[3].HeaderText = "Supplier ID";
+            gvSuppliers.Columns[4].Visible = false;
+            gvSuppliers.Columns[5].Visible = false;
+            gvSuppliers.Columns[6].HeaderText = "Supplier Name";
+            gvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         // Mike added this on Jan 28 2019
@@ -145,7 +175,7 @@ namespace TravelExpertsServices
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgencyCommission.Text = "";
-            
+
             gvProdSup_pkg.DataSource = "";
             gvProdSup_all_pkgs.DataSource = "";
 
@@ -221,12 +251,8 @@ namespace TravelExpertsServices
             }
             gvProdSup_pkg.DataSource = ppss;
             gvProdSup_all_pkgs.DataSource = psn;
-         
-            PackagesListDetails(gvProdSup_pkg);
-        }
 
-        private void UpdateBinding2()
-        {
+            PackagesListDetails(gvProdSup_pkg);
             gvProducts1.DataSource = Prodd;
             gvSuppliers2.DataSource = Supp;
 
@@ -245,40 +271,6 @@ namespace TravelExpertsServices
             dataGridView.Columns[6].HeaderText = "Supplier Name";
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-        }
-
-        // Ethan Shipley
-        private void btnAddProd_Click(object sender, EventArgs e)
-        {
-            // changes the text for the add/edit button on the products pages and changes to the products page
-            tabControl1.SelectedIndex = 2;
-            txtProdName.Text = "";
-            btnAddEditProd.Text = "Save New Product";
-        }
-
-        // Ethan Shipley
-        private void btnEditProd_Click(object sender, EventArgs e)
-        {
-            // changes the text for the add/edit button on the products pages and changes to the products page
-            tabControl1.SelectedIndex = 2;
-            btnAddEditProd.Text = "Save Edited Product";
-        }
-
-        // Ethan Shipley
-        private void btnAddSup_Click(object sender, EventArgs e)
-        {
-            // changes the text for the add/edit button on the suppliers pages and changes to the suppliers page
-            tabControl1.SelectedIndex = 3;
-            txtSupName.Text = "";
-            btnAddEditSup.Text = "Save New Supplier";
-        }
-
-        // Ethan Shipley
-        private void btnEditSup_Click(object sender, EventArgs e)
-        {
-            // changes the text for the add/edit button on the packages pages and changes to the packages page
-            tabControl1.SelectedIndex = 3;
-            btnAddEditSup.Text = "Save Edited Supplier";
         }
 
         // Ethan Shipley
@@ -428,36 +420,7 @@ namespace TravelExpertsServices
             //PackagesDB.DeletePackage(pkgid);
             //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             //hideunhide(false);
-            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);            
-        }
-        // Ethan Shipley
-        private void btnAddEditProd_Click(object sender, EventArgs e)
-        {
-            // Checks the text of the Add/edit product button in order to perform various logic
-            if (btnAddEditProd.Text == "Save New Product")
-            {
-
-            }
-            else if (btnAddEditProd.Text == "Save Edited Product")
-            {
-
-            }
-        }
-
-
-
-        // Ethan Shipley
-        private void btnAddEditSup_Click(object sender, EventArgs e)
-        {
-            // Checks the text of the Add/edit supplier button in order to perform various logic
-            if (btnAddEditSup.Text == "Save New Supplier")
-            {
-
-            }
-            else if (btnAddEditSup.Text == "Save Edited Supplier")
-            {
-
-            }
+            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
         }
 
         //Ethan Shipley
@@ -489,8 +452,10 @@ namespace TravelExpertsServices
                 }
                 ppss = PackageProductSuppliersDB.GetProductSuppliersByPackage(selectedPackage);
                 pkgid = selectedPackage.PackageID;
-                gvProducts.DataSource = ppss;
-                gvSuppliers.DataSource = ppss;
+                ProductsGrid();
+                SuppliersGrid();
+                //gvProducts.DataSource = ppss;
+                //gvSuppliers.DataSource = ppss;
             }
             catch (NullReferenceException)
             {
@@ -544,21 +509,6 @@ namespace TravelExpertsServices
         //        MessageBox.Show(ex.Message, ex.GetType().ToString());
         //    }
         //}
-
-        private void btnDelProd_pkg_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddSup_pkg_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelSup_pkg_Click(object sender, EventArgs e)
-        {
-
-        }
 
         // Ethan Shipley
         // Lets the user know how many cahracters they have left for the package name
@@ -654,7 +604,7 @@ namespace TravelExpertsServices
             gvProdSup_all_pkgs.DataSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
             hideunhide(true);
-            //slct_colmn = gvPackages.CurrentCell.RowIndex; 
+            //slct_colmn = gvPackages.CurrentCell.RowIndex;
             //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             //gvPackages.CurrentCell = gvPackages[3, slct_colmn];
             //UpdateBinding(true);
@@ -723,6 +673,14 @@ namespace TravelExpertsServices
         /*===================================================PRODUCT=============================================================*/
         /*=======================================================================================================================*/
         /*=======================================================================================================================*/
+
+        private void ProductList()
+        {
+            gvProducts1.DataSource = Prodd;
+            gvProducts1.Columns[0].HeaderText = "ID";
+            gvProducts1.Columns[1].HeaderText = "Product Name";
+            gvProducts1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
 
         private void ProductList()
         {
@@ -1076,8 +1034,73 @@ namespace TravelExpertsServices
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
             }
-        }    
-           
+            else if (gvSuppliers1.SelectedCells.Count == 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
+                //ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers addNew = new ProdSuppliers();
+
+                    addNew.ProdId = ProdID;
+                    addNew.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.InsertProdSupplier(addNew);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvProducts1.SelectedRows)
+                            {
+                                selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+                            gvSuppliers1.DataSource = Sup;
+                            if (selectedProduct != null)
+                            {
+                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                                gvSupByProd.DataSource = Sup;
+                            }
+                            MessageBox.Show("Supplier Added Successfully!");
+
+                            if (gvSuppliers1.Rows.Count > 0)
+                            {
+                                gvSuppliers1.ClearSelection();
+
+                                int RowIndex = gvSuppliers1.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvSuppliers1.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
 
         private void btnDelPS_Click(object sender, EventArgs e)
         {
@@ -1155,12 +1178,12 @@ namespace TravelExpertsServices
                 }
             }
 
-           
+
         }
 
         /*=======================================================================================================================*/
         /*=======================================================================================================================*/
-        /*===================================================SUPPLIER=============================================================*/
+        /*===================================================SUPPLIER============================================================*/
         /*=======================================================================================================================*/
         /*=======================================================================================================================*/
 
@@ -1180,10 +1203,24 @@ namespace TravelExpertsServices
                                where Sp.SupplierId == supplierID
                                select Sp).ToList();
 
+        // Sheila Zhao
+        private void GetSupplier(int supplierID)
+        {
+            Sup = SupplierDB.GetSuppliers();
+            selectSuppliers = (from Sp in Sup
+                               where Sp.SupplierId == supplierID
+                               select Sp).ToList();
+
             gvSuppliers2.DataSource = selectSuppliers;
         }
 
-
+        private void SupplierList()
+        {
+            gvSuppliers2.DataSource = Supp;
+            gvSuppliers2.Columns[0].HeaderText = "ID";
+            gvSuppliers2.Columns[1].HeaderText = "Supplier Name";
+            gvSuppliers2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
 
         // Sheila Zhao
         private void gvSuppliers2_SelectionChanged(object sender, EventArgs e)
@@ -1212,7 +1249,7 @@ namespace TravelExpertsServices
             }
         }
 
-        
+
 
         // Sheila Zhao
         private void btnNewS_Click(object sender, EventArgs e)
@@ -1269,7 +1306,7 @@ namespace TravelExpertsServices
             txtSupName.Text = olds.SupName;
             txtSupName.Focus();
         }
-        
+
         // Sheila Zhao
         private Supplier GetEditSupplier(Supplier olds)
         {
@@ -1343,7 +1380,7 @@ namespace TravelExpertsServices
             }
         }
 
-       
+
         // Sheila Zhao
         private void btnShowSP_Click(object sender, EventArgs e)
         {
@@ -1361,7 +1398,7 @@ namespace TravelExpertsServices
                 btnAddSP.Visible = false;
                 btnShowSP.Text = "Show";
             }
-        }                       
+        }
 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
@@ -1503,6 +1540,72 @@ namespace TravelExpertsServices
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
             }
+            else if (gvProducts2.SelectedCells.Count == 0)
+            {
+                //ProdID = Convert.ToInt32(gvProducts2.SelectedCells[0].Value);
+                SupID = Convert.ToInt32(gvSuppliers2.SelectedCells[0].Value);
+                ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers addNew = new ProdSuppliers();
+
+                    addNew.ProdId = ProdSupID;
+                    addNew.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.InsertSupProduct(addNew);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                            {
+                                selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                                               row.Cells[1].Value.ToString());
+                            }
+
+                            // Fix me
+                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+                            gvProducts2.DataSource = Prod;
+                            if (selectedSupplier != null)
+                            {
+                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                                gvProdBySup.DataSource = Prod;
+                            }
+                            MessageBox.Show("Product Added Successfully!");
+
+                            if (gvProducts2.Rows.Count > 0)
+                            {
+                                gvProducts2.ClearSelection();
+
+                                int RowIndex = gvProducts2.Rows.Count - 1;
+                                //    //int nColumnIndex = 0;
+
+                                gvProducts2.Rows[RowIndex].Selected = true;
+                                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                                //    //In case if you want to scroll down as well.
+                                gvProducts2.FirstDisplayedScrollingRowIndex = RowIndex;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
 
         private void btnDelSP_Click(object sender, EventArgs e)
@@ -1580,7 +1683,7 @@ namespace TravelExpertsServices
                 }
             }
         }
-       
+
         private void btnClearS_Click(object sender, EventArgs e)
         {
             txtSupName.Text = "";
