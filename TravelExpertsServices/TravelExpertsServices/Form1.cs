@@ -32,6 +32,10 @@ namespace TravelExpertsServices
         List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
         List<ProdSuppliersNames> psn = new List<ProdSuppliersNames>();
         List<Packages> PackagesList = PackagesDB.GetPackages();
+
+        List<Products> product = new List<Products>();
+        List<Supplier> supplier = new List<Supplier>();
+
         public Form1()
         {
             InitializeComponent();
@@ -59,6 +63,7 @@ namespace TravelExpertsServices
             //dtpPkgStartDate.MinDate = DateTime.Now;
             //dtpPkgEndDate.MinDate = DateTime.Now;
 
+            
             gvPackages.Columns[0].Visible = false;
             gvProducts.Columns[0].Visible = false;
             gvSuppliers.Columns[0].Visible = false;
@@ -72,6 +77,13 @@ namespace TravelExpertsServices
             btnDelSP.Visible = false;
             btnAddPS.Visible = false;
             btnDelPS.Visible = false;
+
+            product = ProductDB.GetProducts();
+            supplier = SupplierDB.GetSuppliers();
+            gvProducts1.DataSource = product;
+            gvSuppliers1.DataSource = supplier;
+            gvProducts1(ProductList);
+
         }
 
 
@@ -651,16 +663,16 @@ namespace TravelExpertsServices
 
 
         // Sheila Zhao
-        //private void GetProduct(int productID)
-        //{
-        //    Prod = ProductDB.GetProducts();
-        //    selectProducts = (from Pd in Prod
-        //                      where Pd.ProductId == productID
-        //                      select Pd).ToList();
+        private void GetProduct(int productID)
+        {
+            Prod = ProductDB.GetProducts();
+            selectProducts = (from Pd in Prod
+                              where Pd.ProductId == productID
+                              select Pd).ToList();
 
-        //    gvProducts1.DataSource = selectProducts;
+            gvProducts1.DataSource = selectProducts;
 
-        //}
+        }
 
         // Sheila Zhao
         private void grProducts1_SelectionChanged(object sender, EventArgs e)
@@ -844,8 +856,8 @@ namespace TravelExpertsServices
         private void btnClearP_Click(object sender, EventArgs e)
         {
             txtProdName.Text = "";
-            btnDelSP.Visible = false;
-            btnAddSP.Visible = false;
+            btnDelPS.Visible = false;
+            btnAddPS.Visible = false;
             btnSaveP.Visible = false;
             gvSupByProd.Visible = false;
             btnShowPS.Text = "Show";
@@ -1011,16 +1023,16 @@ namespace TravelExpertsServices
 
 
 
-        // Sheila Zhao
-        //private void GetSupplier(int supplierID)
-        //{
-        //    Sup = SupplierDB.GetSuppliers();
-        //    selectSuppliers = (from Sp in Sup
-        //                       where Sp.SupplierId == supplierID
-        //                       select Sp).ToList();
+        //Sheila Zhao
+        private void GetSupplier(int supplierID)
+        {
+            Sup = SupplierDB.GetSuppliers();
+            selectSuppliers = (from Sp in Sup
+                               where Sp.SupplierId == supplierID
+                               select Sp).ToList();
 
-        //    gvSuppliers2.DataSource = selectSuppliers;
-        //}
+            gvSuppliers2.DataSource = selectSuppliers;
+        }
 
 
 
@@ -1196,14 +1208,11 @@ namespace TravelExpertsServices
             else if (btnShowSP.Text == "Hide")
             {
                 gvProdBySup.Visible = false;
-                btnDelSP.Visible = true;
-                btnAddSP.Visible = true;
+                btnDelSP.Visible = false;
+                btnAddSP.Visible = false;
                 btnShowSP.Text = "Show";
             }
-        }
-
-
-        
+        }                       
 
         private void btnAddSP_Click(object sender, EventArgs e)
         {
@@ -1358,14 +1367,13 @@ namespace TravelExpertsServices
         private void btnClearS_Click(object sender, EventArgs e)
         {
             txtSupName.Text = "";
-            btnDelPS.Visible = false;
-            btnAddPS.Visible = false;
+            btnDelSP.Visible = false;
+            btnAddSP.Visible = false;
             gvProdBySup.Visible = false;
             btnSaveS.Visible = false;
             btnShowSP.Text = "Show";
             UpdateBinding(true);
         }
-
 
         // =======================================================================================//
 
