@@ -261,3 +261,6 @@ __pycache__/
 *.pyc
 TravelExpertsServices/.vs/TravelExpertsServices/v15/.suo
 TravelExpertsServices/.vs/TravelExpertsServices/v15/Server/sqlite3/storage.ide-wal
+TravelExpertsServices/.vs/TravelExpertsServices/v15/Server/sqlite3/storage.ide
+TravelExpertsServices/.vs/TravelExpertsServices/v15/Server/sqlite3/storage.ide-shm
+TravelExpertsServices/.vs/TravelExpertsServices/v15/Server/sqlite3/storage.ide-wal
