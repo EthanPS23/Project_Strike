@@ -56,7 +56,8 @@ namespace TravelExpertsDB
                     "ON p.ProductId = ps.ProductId " +
                     "inner join Suppliers s " +
                     "ON s.SupplierId = ps.SupplierId " +
-                    "WHERE s.SupplierId = @SupplierId ";
+                    "WHERE s.SupplierId = @SupplierId " + 
+                    "ORDER By ProductId";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@SupplierId", s.SupplierId);
                 try
@@ -173,7 +174,8 @@ namespace TravelExpertsDB
                         "ON s.SupplierId = ps.SupplierId " +
                         "INNER JOIN Products p " +
                         "ON p.ProductId = ps.ProductId " +
-                        "WHERE p.ProductId = @ProductId)";
+                        "WHERE p.ProductId = @ProductId) " +
+                        "ORDER BY SupplierId";
             SqlCommand cmdselect = new SqlCommand(sql, con);
             cmdselect.Parameters.AddWithValue("@ProductId", p.ProductId);
             try

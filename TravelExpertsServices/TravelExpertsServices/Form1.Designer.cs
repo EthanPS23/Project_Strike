@@ -56,6 +56,7 @@
             this.packages_Products_SuppliersTableAdapter = new TravelExpertsServices.TravelExpertsDataSetTableAdapters.Packages_Products_SuppliersTableAdapter();
             this.travelExpertsDataSet1 = new TravelExpertsServices.TravelExpertsDataSet();
             this.tabSuppliers = new System.Windows.Forms.TabPage();
+            this.lblPNL = new System.Windows.Forms.Label();
             this.btnClearS = new System.Windows.Forms.Button();
             this.btnDelSP = new System.Windows.Forms.Button();
             this.btnAddSP = new System.Windows.Forms.Button();
@@ -112,6 +113,9 @@
             this.btnEditPkg = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.lblPL = new System.Windows.Forms.Label();
+            this.lblSL = new System.Windows.Forms.Label();
+            this.lblSNL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -220,6 +224,8 @@
             // tabSuppliers
             // 
             this.tabSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.tabSuppliers.Controls.Add(this.lblPL);
+            this.tabSuppliers.Controls.Add(this.lblPNL);
             this.tabSuppliers.Controls.Add(this.btnClearS);
             this.tabSuppliers.Controls.Add(this.btnDelSP);
             this.tabSuppliers.Controls.Add(this.btnAddSP);
@@ -238,6 +244,15 @@
             this.tabSuppliers.Size = new System.Drawing.Size(1036, 427);
             this.tabSuppliers.TabIndex = 3;
             this.tabSuppliers.Text = "Suppliers";
+            // 
+            // lblPNL
+            // 
+            this.lblPNL.AutoSize = true;
+            this.lblPNL.Location = new System.Drawing.Point(723, 25);
+            this.lblPNL.Name = "lblPNL";
+            this.lblPNL.Size = new System.Drawing.Size(108, 13);
+            this.lblPNL.TabIndex = 19;
+            this.lblPNL.Text = "Products Not On List:";
             // 
             // btnClearS
             // 
@@ -317,7 +332,7 @@
             this.btnDelSup.Name = "btnDelSup";
             this.btnDelSup.Size = new System.Drawing.Size(107, 23);
             this.btnDelSup.TabIndex = 12;
-            this.btnDelSup.Text = "&Delete Product";
+            this.btnDelSup.Text = "&Delete Supplier";
             this.btnDelSup.UseVisualStyleBackColor = false;
             this.btnDelSup.Click += new System.EventHandler(this.btnDelSup_Click);
             // 
@@ -339,7 +354,7 @@
             this.btnEditS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditS.Location = new System.Drawing.Point(141, 279);
             this.btnEditS.Name = "btnEditS";
-            this.btnEditS.Size = new System.Drawing.Size(75, 23);
+            this.btnEditS.Size = new System.Drawing.Size(84, 23);
             this.btnEditS.TabIndex = 10;
             this.btnEditS.Text = "&Edit Supplier";
             this.btnEditS.UseVisualStyleBackColor = false;
@@ -353,7 +368,7 @@
             this.btnNewS.Name = "btnNewS";
             this.btnNewS.Size = new System.Drawing.Size(105, 23);
             this.btnNewS.TabIndex = 9;
-            this.btnNewS.Text = "&Add New Supplier";
+            this.btnNewS.Text = "Add New Supplier";
             this.btnNewS.UseVisualStyleBackColor = false;
             this.btnNewS.Click += new System.EventHandler(this.btnNewS_Click);
             // 
@@ -426,6 +441,8 @@
             // tabProduct
             // 
             this.tabProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.tabProduct.Controls.Add(this.lblSNL);
+            this.tabProduct.Controls.Add(this.lblSL);
             this.tabProduct.Controls.Add(this.btnClearP);
             this.tabProduct.Controls.Add(this.btnDelPS);
             this.tabProduct.Controls.Add(this.btnAddPS);
@@ -560,7 +577,7 @@
             this.btnAddNewProd.Name = "btnAddNewProd";
             this.btnAddNewProd.Size = new System.Drawing.Size(105, 23);
             this.btnAddNewProd.TabIndex = 5;
-            this.btnAddNewProd.Text = "&Add New Product";
+            this.btnAddNewProd.Text = "Add New Product";
             this.btnAddNewProd.UseVisualStyleBackColor = false;
             this.btnAddNewProd.Click += new System.EventHandler(this.btnAddNewProd_Click);
             // 
@@ -1059,6 +1076,33 @@
             this.tabControl1.Size = new System.Drawing.Size(1044, 453);
             this.tabControl1.TabIndex = 0;
             // 
+            // lblPL
+            // 
+            this.lblPL.AutoSize = true;
+            this.lblPL.Location = new System.Drawing.Point(369, 25);
+            this.lblPL.Name = "lblPL";
+            this.lblPL.Size = new System.Drawing.Size(88, 13);
+            this.lblPL.TabIndex = 20;
+            this.lblPL.Text = "Products On List:";
+            // 
+            // lblSL
+            // 
+            this.lblSL.AutoSize = true;
+            this.lblSL.Location = new System.Drawing.Point(369, 20);
+            this.lblSL.Name = "lblSL";
+            this.lblSL.Size = new System.Drawing.Size(89, 13);
+            this.lblSL.TabIndex = 15;
+            this.lblSL.Text = "Suppliers On List:";
+            // 
+            // lblSNL
+            // 
+            this.lblSNL.AutoSize = true;
+            this.lblSNL.Location = new System.Drawing.Point(723, 25);
+            this.lblSNL.Name = "lblSNL";
+            this.lblSNL.Size = new System.Drawing.Size(109, 13);
+            this.lblSNL.TabIndex = 16;
+            this.lblSNL.Text = "Suppliers Not On List:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1173,6 +1217,10 @@
         private System.Windows.Forms.Button btnAddPkg;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnClearS;
+        private System.Windows.Forms.Label lblPNL;
+        private System.Windows.Forms.Label lblPL;
+        private System.Windows.Forms.Label lblSNL;
+        private System.Windows.Forms.Label lblSL;
     }
 }
 

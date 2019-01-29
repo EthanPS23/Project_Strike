@@ -28,3 +28,9 @@ C:\Users\760980\Downloads\Project_Strike-Supplier\TravelExpertsServices\TravelEx
 C:\Users\760980\Downloads\Project_Strike-Supplier\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
 C:\Users\760980\Downloads\Project_Strike-Supplier\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
 C:\Users\760980\Downloads\Project_Strike-Supplier\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
+C:\Users\760980\Downloads\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
+C:\Users\760980\Downloads\TravelExpertsServices\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb
+C:\Users\760980\Downloads\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csprojAssemblyReference.cache
+C:\Users\760980\Downloads\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
+C:\Users\760980\Downloads\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
+C:\Users\760980\Downloads\TravelExpertsServices\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
