@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 namespace TravelExpertsServices
 {
     // Ethan Shipley
-    // Ethans test 
+    // Ethans test
     //of code added
     public partial class Form1 : Form
     {
@@ -79,6 +79,8 @@ namespace TravelExpertsServices
             btnDelSP.Visible = false;
             btnAddPS.Visible = false;
             btnDelPS.Visible = false;
+            lblSNL.Visible = false;
+            lblPNL.Visible = false;
 
             //DataGridViewSettings();
         }
@@ -246,10 +248,13 @@ namespace TravelExpertsServices
             gvProdSup_pkg.DataSource = ppss;
             gvProdSup_all_pkgs.DataSource = psn;
 
+            PackagesListDetails(gvProdSup_pkg);
+        }
+
+        private void UpdateBindingProdSup()
+        {
             gvProducts1.DataSource = Prodd;
             gvSuppliers2.DataSource = Supp;
-
-            PackagesListDetails(gvProdSup_pkg);
         }
 
         //Ethan Shipley
@@ -414,7 +419,7 @@ namespace TravelExpertsServices
             //PackagesDB.DeletePackage(pkgid);
             //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             //hideunhide(false);
-            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);            
+            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
         }
 
         //Ethan Shipley
@@ -598,7 +603,7 @@ namespace TravelExpertsServices
             gvProdSup_all_pkgs.DataSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
             hideunhide(true);
-            //slct_colmn = gvPackages.CurrentCell.RowIndex; 
+            //slct_colmn = gvPackages.CurrentCell.RowIndex;
             //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             //gvPackages.CurrentCell = gvPackages[3, slct_colmn];
             //UpdateBinding(true);
@@ -642,10 +647,10 @@ namespace TravelExpertsServices
 
         private bool deleteConfirm()
         {
-            var confirm = MessageBox.Show("Do you want to delete the package?", "Delete", MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show("Do you want to delete the item?", "Delete", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
             {
-                confirm = MessageBox.Show("Do you really want to delete the package?", "Delete", MessageBoxButtons.YesNo);
+                confirm = MessageBox.Show("Do you really want to delete the item?", "Delete", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                 {
                     return true;
@@ -729,10 +734,31 @@ namespace TravelExpertsServices
             {
                 if (np != null)
                 {
-                    np.ProdName = txtProdName.Text;
-                    ProductDB.InsertProduct(np);
-                    Prodd = ProductDB.GetProducts();
-                    UpdateBinding(true);
+                    if(txtProdName.Text == "")
+                    {
+                        MessageBox.Show("Name can not be empty!");
+                    }
+                    else
+                    {
+                         np.ProdName = txtProdName.Text;
+                         ProductDB.InsertProduct(np);
+                         Prodd = ProductDB.GetProducts();
+                         UpdateBindingProdSup();
+
+                        if (gvProducts1.Rows.Count > 0)
+                        {
+                            gvProducts1.ClearSelection();
+
+                            int nRowIndex = gvProducts1.Rows.Count - 1;
+                            //int nColumnIndex = 0;
+
+                            gvProducts1.Rows[nRowIndex].Selected = true;
+                            //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                            //In case if you want to scroll down as well.
+                            gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -744,20 +770,6 @@ namespace TravelExpertsServices
             //selectedindex = gvProducts1.CurrentCell.RowIndex;
             //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
-
-            if (gvProducts1.Rows.Count > 0)
-            {
-                gvProducts1.ClearSelection();
-
-                int nRowIndex = gvProducts1.Rows.Count - 1;
-                //int nColumnIndex = 0;
-
-                gvProducts1.Rows[nRowIndex].Selected = true;
-                //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                //In case if you want to scroll down as well.
-                gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
-            }
         }
 
         // Sheila Zhao
@@ -772,7 +784,6 @@ namespace TravelExpertsServices
             }
             txtProdName.Text = oldp.ProdName;
             txtProdName.Focus();
-
         }
 
         // Sheila Zhao
@@ -799,21 +810,29 @@ namespace TravelExpertsServices
                 oldp = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                     row.Cells[1].Value.ToString());
             }
-            newp = GetEditProduct(oldp);
-            try
+            if (txtProdName.Text == "")
             {
-                newp.ProdName = txtProdName.Text;
-                ProductDB.UpdateProduct(newp, oldp);
-                Prod = ProductDB.GetProducts();
-                UpdateBinding(true);
-                MessageBox.Show("Product Saved!");
+                MessageBox.Show("Name can not be empty!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                newp = GetEditProduct(oldp);
+                try
+                {
+                    newp.ProdName = txtProdName.Text;
+                    ProductDB.UpdateProduct(newp, oldp);
+                    Prodd = ProductDB.GetProducts();
+                    UpdateBindingProdSup();
+                    MessageBox.Show("Product Saved!");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                btnSaveP.Visible = false;
+                txtProdName.Text = "";
             }
-            btnSaveP.Visible = false;
-            txtProdName.Text = "";
         }
 
         // Sheila Zhao
@@ -835,8 +854,8 @@ namespace TravelExpertsServices
                 }
                 ProductDB.DeleteProduct(delProd);
                 txtProdName.Text = "";
-                Prod = ProductDB.GetProducts();
-                UpdateBinding(true);
+                Prodd = ProductDB.GetProducts();
+                UpdateBindingProdSup();
 
                 int nRowIndex = gvProducts1.Rows.Count - 1;
                 gvProducts1.ClearSelection();
@@ -856,6 +875,7 @@ namespace TravelExpertsServices
                 gvSupByProd.Visible = true;
                 btnDelPS.Visible = true;
                 btnAddPS.Visible = true;
+                lblSNL.Visible = true;
 
                 btnShowPS.Text = "Hide";
             }
@@ -864,6 +884,7 @@ namespace TravelExpertsServices
                 gvSupByProd.Visible = false;
                 btnDelPS.Visible = false;
                 btnAddPS.Visible = false;
+                lblSNL.Visible = false;
                 btnShowPS.Text = "Show";
             }
         }
@@ -874,8 +895,9 @@ namespace TravelExpertsServices
             btnAddSP.Visible = false;
             btnSaveP.Visible = false;
             gvSupByProd.Visible = false;
+            lblSNL.Visible = false;
             btnShowPS.Text = "Show";
-            UpdateBinding(true);
+            UpdateBindingProdSup();
         }
 
         private void btnAddPS_Click(object sender, EventArgs e)
@@ -1162,10 +1184,34 @@ namespace TravelExpertsServices
             {
                 if (ns != null)
                 {
-                    ns.SupName = txtSupName.Text;
-                    SupplierDB.InsertSupplier(ns);
-                    Supp = SupplierDB.GetSuppliers();
-                    UpdateBinding(true);
+                    if (txtSupName.Text == "")
+                    {
+                        MessageBox.Show("Name can not be empty!");
+                    }
+                    else
+                    {
+                        ns.SupName = txtSupName.Text;
+                        SupplierDB.InsertSupplier(ns);
+                        Supp = SupplierDB.GetSuppliers();
+                        UpdateBindingProdSup();
+
+
+                        if (gvSuppliers2.Rows.Count > 0)
+                        {
+                            gvSuppliers2.ClearSelection();
+
+                            int RowIndex = gvSuppliers2.Rows.Count - 1;
+                            //    //int nColumnIndex = 0;
+
+                            gvSuppliers2.Rows[RowIndex].Selected = true;
+                            //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                            //    //In case if you want to scroll down as well.
+                            gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
+
+                        }
+                    }
+
                 }
             }
             catch (SqlException ex)
@@ -1178,20 +1224,6 @@ namespace TravelExpertsServices
             //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
             //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
 
-            if (gvSuppliers2.Rows.Count > 0)
-            {
-                gvSuppliers2.ClearSelection();
-
-                int RowIndex = gvSuppliers2.Rows.Count - 1;
-                //    //int nColumnIndex = 0;
-
-                gvSuppliers2.Rows[RowIndex].Selected = true;
-                //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                //    //In case if you want to scroll down as well.
-                gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
-
-            }
         }
         // Sheila Zhao
         private void btnEditS_Click(object sender, EventArgs e)
@@ -1231,21 +1263,29 @@ namespace TravelExpertsServices
                 olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
                                                     row.Cells[1].Value.ToString());
             }
-            news = GetEditSupplier(olds);
-            try
+            if(txtSupName.Text == "")
             {
-                news.SupName = txtSupName.Text;
-                SupplierDB.UpdateSupplier(news, olds);
-                Sup = SupplierDB.GetSuppliers();
-                UpdateBinding(true);
-                MessageBox.Show("Supplier Saved!");
+                MessageBox.Show("Name can not be empty!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                news = GetEditSupplier(olds);
+                try
+                {
+                    news.SupName = txtSupName.Text;
+                    SupplierDB.UpdateSupplier(news, olds);
+                    Supp = SupplierDB.GetSuppliers();
+                    UpdateBindingProdSup();
+                    MessageBox.Show("Supplier Saved!");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                btnSaveS.Visible = false;
+                txtSupName.Text = "";
             }
-            btnSaveS.Visible = false;
-            txtSupName.Text = "";
         }
 
         // Sheila Zhao
@@ -1267,8 +1307,8 @@ namespace TravelExpertsServices
                 }
                 SupplierDB.DeleteSupplier(delSup);
                 txtSupName.Text = "";
-                Sup = SupplierDB.GetSuppliers();
-                UpdateBinding(true);
+                Supp = SupplierDB.GetSuppliers();
+                UpdateBindingProdSup();
 
                 int nRowIndex = gvSuppliers2.Rows.Count - 1;
                 gvSuppliers2.ClearSelection();
@@ -1289,13 +1329,15 @@ namespace TravelExpertsServices
                 gvProdBySup.Visible = true;
                 btnDelSP.Visible = true;
                 btnAddSP.Visible = true;
+                lblPNL.Visible = true;
                 btnShowSP.Text = "Hide";
             }
             else if (btnShowSP.Text == "Hide")
             {
                 gvProdBySup.Visible = false;
-                btnDelSP.Visible = true;
-                btnAddSP.Visible = true;
+                btnDelSP.Visible = false;
+                btnAddSP.Visible = false;
+                lblPNL.Visible = false;
                 btnShowSP.Text = "Show";
             }
         }
@@ -1526,9 +1568,12 @@ namespace TravelExpertsServices
             btnAddPS.Visible = false;
             gvProdBySup.Visible = false;
             btnSaveS.Visible = false;
+            lblPNL.Visible = false;
             btnShowSP.Text = "Show";
-            UpdateBinding(true);
+            UpdateBindingProdSup();
         }
+
+
 
         // =======================================================================================//
 
