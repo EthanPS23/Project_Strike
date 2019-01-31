@@ -1,0 +1,15 @@
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\bin\Debug\WPFlogin.exe.config
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\bin\Debug\WPFlogin.exe
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\bin\Debug\WPFlogin.pdb
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.csprojAssemblyReference.cache
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\MainWindow.g.cs
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\App.g.cs
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin_MarkupCompile.cache
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin_MarkupCompile.lref
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\MainWindow.baml
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.g.resources
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.Properties.Resources.resources
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.csproj.GenerateResource.cache
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.csproj.CoreCompileInputs.cache
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.exe
+C:\Users\760980\source\repos\WPFlogin\WPFlogin\obj\Debug\WPFlogin.pdb
