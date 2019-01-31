@@ -620,7 +620,6 @@ namespace TravelExpertsServices
             }
             PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_pkg, 1));
             slct_colmn = gvPackages.CurrentCell.RowIndex;
-            this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             gvPackages.CurrentCell = gvPackages[1, slct_colmn];
 
             UpdateBinding(true);
@@ -732,7 +731,7 @@ namespace TravelExpertsServices
                 {
                     np.ProdName = txtProdName.Text;
                     ProductDB.InsertProduct(np);
-                    Prod = ProductDB.GetProducts();
+                    Prodd = ProductDB.GetProducts();
                     UpdateBinding(true);
                 }
             }
@@ -1165,7 +1164,7 @@ namespace TravelExpertsServices
                 {
                     ns.SupName = txtSupName.Text;
                     SupplierDB.InsertSupplier(ns);
-                    Sup = SupplierDB.GetSuppliers();
+                    Supp = SupplierDB.GetSuppliers();
                     UpdateBinding(true);
                 }
             }
@@ -1530,7 +1529,6 @@ namespace TravelExpertsServices
             btnShowSP.Text = "Show";
             UpdateBinding(true);
         }
-
 
         // =======================================================================================//
 
