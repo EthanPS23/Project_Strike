@@ -813,6 +813,7 @@ namespace TravelExpertsServices
             if (txtProdName.Text == "")
             {
                 MessageBox.Show("Name can not be empty!");
+                return;
             }
             else
             {
