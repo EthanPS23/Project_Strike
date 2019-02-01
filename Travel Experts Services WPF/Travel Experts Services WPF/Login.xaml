@@ -1,0 +1,107 @@
+﻿<Window x:Class="Travel_Experts_Services_WPF.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Travel_Experts_Services_WPF"
+        mc:Ignorable="d"
+        Title="Login" Height="477.128" Width="716.954" ResizeMode="NoResize" WindowStyle="None">
+    <Window.Resources>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Background" Value="#2f4858"/>
+        </Style>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="#2f4858"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="BorderBrush" Value="#FF40514E"/>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="#FF40514E"/>
+            <Setter Property="BorderBrush" Value="#FF2F89FC"/>
+        </Style>
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="Background" Value="#FF2F4858"/>
+            <Setter Property="BorderBrush" Value="#FF2F4858"/>
+        </Style>
+        <Style TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Text" Value="" />
+            <Setter Property="Background" Value="#40514E" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="188" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#40514e"/>
+            <Setter Property="BorderBrush" Value="#30e3ca"/>
+            <Setter Property="Foreground" Value="#30e3ca"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="#30e3ca" />
+        </Style>
+        <Style x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}" TargetType="ScrollViewer"/>
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="#FF40514E"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="AutoGenerateColumns" Value="True"/>
+            <Setter Property="ColumnWidth" Value="*"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+            <Setter Property="Background" Value="#FF40514E"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#FF2F89FC"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#FF2F89FC"/>
+            <Setter Property="BorderBrush" Value="#FF2F89FC"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+        <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+            <Setter Property="Background" Value="#FF40514E"/>
+            <Setter Property="Foreground" Value="#30e3ca"/>
+            <Setter Property="BorderBrush" Value="#FF40514E"/>
+        </Style>
+        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background" Value="#FF40514E"/>
+            <Setter Property="Foreground" Value="#30e3ca"/>
+            <Setter Property="BorderBrush" Value="#FF2F89FC"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type TabPanel}">
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0,0" Background="#FF2F4858">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="33" Margin="329,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontSize="20" RenderTransformOrigin="0.5,0.5" AutomationProperties.IsRequiredForForm="True">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.043"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="332,211,0,0" VerticalAlignment="Top" Width="164" Height="37" RenderTransformOrigin="0.358,0.478"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="203,330,0,0" VerticalAlignment="Top" Width="309" Height="42" FontSize="20" Click="btnLogin_Click"/>
+
+        <CheckBox x:Name="ckbRem" Content="Remember me&#xD;&#xA;" HorizontalAlignment="Left" Margin="203,276,0,0" VerticalAlignment="Top" FontSize="18" Height="26" Width="167"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="433,276,0,0" VerticalAlignment="Top" Width="63" FontSize="16" Click="btnReset_Click" Height="26" RenderTransformOrigin="4.173,0.577"/>
+        <TextBlock x:Name="txtbUsername" HorizontalAlignment="Left" Height="28" Margin="203,147,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="99" Foreground="#FF30E3CA" FontSize="20"/>
+        <TextBlock x:Name="txtbPassword" HorizontalAlignment="Left" Height="28" Margin="203,211,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="99" Foreground="#FF30E3CA" FontSize="20"/>
+        <TextBlock x:Name="txtbtitle" HorizontalAlignment="Left" Height="48" Margin="182,54,0,0" TextWrapping="Wrap" Text="Travel Agency Login" VerticalAlignment="Top" Width="346" Foreground="#FF30E3CA" FontSize="36"/>
+
+        <Grid Margin="0,0,580,0" >
+            <Grid Grid.Row=" 0" x:Name="TitleBar" Height="Auto" MouseMove="TitleBar_MouseMove" Background="#FF2F4858" Margin="0,-1,-581,425" RenderTransformOrigin="0.5,0.5">
+                <Button x:Name="btnExit" Content="X" HorizontalAlignment="Left" Margin="659,3,0,0" VerticalAlignment="Top" Width="41" Height="32" FontSize="20" Click="btnExit_Click" IsCancel="True"/>
+                <Button x:Name="btnMin" Content="一" HorizontalAlignment="Left" Margin="602,3,0,0" VerticalAlignment="Top" Width="41" Height="32" FontSize="20" Click="btnMin_Click" IsCancel="True"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
