@@ -96,16 +96,16 @@ namespace Travel_Experts_Services_WPF
             //}
             PackagesList = PackagesDB.GetPackages();
             gvPackages.ItemsSource = PackagesList;
-            gvPackages.Columns[0].Visibility = Visibility.Hidden;
-            //gvPackages.Columns[1].Header = "Package Name";
-            //gvPackages.Columns[2].Header = "Package Start Date";
-            //gvPackages.Columns[3].Header = "Package End Date";
-            //gvPackages.Columns[4].Header = "Package Description";
-            //gvPackages.Columns[5].Header = "Package Base Price";
-            //gvPackages.Columns[5].DefaultCellStyle.Format = "C";
-            gvPackages.Columns[6].Header = "Package Agency Commision";
-            //gvPackages.Columns[6].DefaultCellStyle.Format = "C";
-            gvPackages.CurrentItem = gvPackages.Items[0];
+            //gvPackages.Columns[0].Visibility = Visibility.Hidden;
+            ////gvPackages.Columns[1].Header = "Package Name";
+            ////gvPackages.Columns[2].Header = "Package Start Date";
+            ////gvPackages.Columns[3].Header = "Package End Date";
+            ////gvPackages.Columns[4].Header = "Package Description";
+            ////gvPackages.Columns[5].Header = "Package Base Price";
+            ////gvPackages.Columns[5].DefaultCellStyle.Format = "C";
+            //gvPackages.Columns[6].Header = "Package Agency Commision";
+            ////gvPackages.Columns[6].DefaultCellStyle.Format = "C";
+            //gvPackages.CurrentItem = gvPackages.Items[0];
             //gvPackages.SelectedIndex = 1;
             gvPackages.Focus();
             //gvPackages.CurrentCell = gvPackages[1, 0];
@@ -117,13 +117,13 @@ namespace Travel_Experts_Services_WPF
         private void ProductsGrid()
         {
             gvProducts.ItemsSource = ppss;
-            gvProducts.Columns[0].Visibility = Visibility.Hidden;
-            gvProducts.Columns[1].Visibility = Visibility.Hidden;
-            gvProducts.Columns[2].Header = "Product ID";
-            gvProducts.Columns[3].Visibility = Visibility.Hidden;
-            gvProducts.Columns[4].Visibility = Visibility.Hidden;
-            gvProducts.Columns[5].Header = "Product Name";
-            gvProducts.Columns[6].Visibility = Visibility.Hidden;
+            //gvProducts.Columns[0].Visibility = Visibility.Hidden;
+            //gvProducts.Columns[1].Visibility = Visibility.Hidden;
+            //gvProducts.Columns[2].Header = "Product ID";
+            //gvProducts.Columns[3].Visibility = Visibility.Hidden;
+            //gvProducts.Columns[4].Visibility = Visibility.Hidden;
+            //gvProducts.Columns[5].Header = "Product Name";
+            //gvProducts.Columns[6].Visibility = Visibility.Hidden;
         }
 
         //Ethan SHipley January 28 2019
@@ -131,13 +131,13 @@ namespace Travel_Experts_Services_WPF
         private void SuppliersGrid()
         {
             gvSuppliers.ItemsSource = ppss;
-            gvSuppliers.Columns[0].Visibility = Visibility.Hidden;
-            gvSuppliers.Columns[1].Visibility = Visibility.Hidden;
-            gvSuppliers.Columns[2].Visibility = Visibility.Hidden;
-            gvSuppliers.Columns[3].Header = "Supplier ID";
-            gvSuppliers.Columns[4].Visibility = Visibility.Hidden;
-            gvSuppliers.Columns[5].Visibility = Visibility.Hidden;
-            gvSuppliers.Columns[6].Header = "Supplier Name";
+            //gvSuppliers.Columns[0].Visibility = Visibility.Hidden;
+            //gvSuppliers.Columns[1].Visibility = Visibility.Hidden;
+            //gvSuppliers.Columns[2].Visibility = Visibility.Hidden;
+            //gvSuppliers.Columns[3].Header = "Supplier ID";
+            //gvSuppliers.Columns[4].Visibility = Visibility.Hidden;
+            //gvSuppliers.Columns[5].Visibility = Visibility.Hidden;
+            //gvSuppliers.Columns[6].Header = "Supplier Name";
         }
 
 
@@ -263,6 +263,8 @@ namespace Travel_Experts_Services_WPF
                 //gvPackages.CurrentCell = gvPackages[1, indx];
                 gvPackages.SelectedIndex = indx;
                 gvPackages.Focus();
+                slct_colmn = indx;
+                //MessageBox.Show(Convert.ToString(gvPackages.SelectedIndex));
                 //MessageBox.Show(gvPackages.CurrentCell.Value.ToString());
             }
 
@@ -273,22 +275,23 @@ namespace Travel_Experts_Services_WPF
             gvSuppliers2.ItemsSource = Supp;
 
             PackagesListDetails(gvProdSup_pkg);
+            
         }
 
         //Ethan Shipley
         // Formats the ppackages prod and supplier details
         private void PackagesListDetails(DataGrid dataGridView)
         {
-            //if (dataGridView.Columns.Count > 0)
-            //{
-            dataGridView.Columns[0].Visibility = Visibility.Hidden;
-            dataGridView.Columns[1].Visibility = Visibility.Hidden;
-            dataGridView.Columns[2].Visibility = Visibility.Hidden;
-            dataGridView.Columns[3].Visibility = Visibility.Hidden;
-            dataGridView.Columns[4].Visibility = Visibility.Hidden;
-            dataGridView.Columns[5].Header = "Product Name";
-            dataGridView.Columns[6].Header = "Supplier Name";
-            //}
+            ////if (dataGridView.Columns.Count > 0)
+            ////{
+            //dataGridView.Columns[0].Visibility = Visibility.Hidden;
+            //dataGridView.Columns[1].Visibility = Visibility.Hidden;
+            //dataGridView.Columns[2].Visibility = Visibility.Hidden;
+            //dataGridView.Columns[3].Visibility = Visibility.Hidden;
+            //dataGridView.Columns[4].Visibility = Visibility.Hidden;
+            //dataGridView.Columns[5].Header = "Product Name";
+            //dataGridView.Columns[6].Header = "Supplier Name";
+            ////}
         }
 
         //Ethan Shipley
@@ -542,6 +545,7 @@ namespace Travel_Experts_Services_WPF
         // Adds the products suppliers to the package
         private void BtnAddPkgProdSup_Click(object sender, RoutedEventArgs e)
         {
+            //if (gvProdSup_all_pkgs.SelectedIndex==-1 || slct_colmn==-1)
             if (gvProdSup_all_pkgs.SelectedIndex==-1 || slct_colmn==-1)
             {
                 MessageBox.Show("Cannot add product. Please add a package or edit an existing package.");
@@ -592,6 +596,20 @@ namespace Travel_Experts_Services_WPF
             gvProdSup_all_pkgs.ItemsSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
             hideunhide(false);
+        }
+
+        // Ethan Shipley
+        // Lets the user know how many cahracters they have left for the package name
+        private void TxtPackageName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lblPkgNameLength.Text = "Remaining length " + Convert.ToString(PKG_NAME_LENGTH - txtPackageName.Text.Length);
+        }
+
+        // Ethan Shipley
+        // Lets the user know how many cahracters they have left for the package name
+        private void TxtPkgDesc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lblPkgDescLength.Text = "Remaining length " + Convert.ToString(PKG_DESC_LENGTH - txtPkgDesc.Text.Length);
         }
 
         //Ethan Shipley
