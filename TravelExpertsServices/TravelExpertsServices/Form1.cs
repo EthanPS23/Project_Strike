@@ -853,6 +853,7 @@ namespace TravelExpertsServices
                 {
                     return;
                 }
+                MessageBox.Show("Item deleted");
                 ProductDB.DeleteProduct(delProd);
                 txtProdName.Text = "";
                 Prodd = ProductDB.GetProducts();
@@ -860,6 +861,7 @@ namespace TravelExpertsServices
 
                 int nRowIndex = gvProducts1.Rows.Count - 1;
                 gvProducts1.ClearSelection();
+                gvProducts1.Rows[nRowIndex].Selected = true;
                 gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
             }
             catch (Exception ex)
@@ -1306,6 +1308,7 @@ namespace TravelExpertsServices
                 {
                     return;
                 }
+                MessageBox.Show("Item deleted");
                 SupplierDB.DeleteSupplier(delSup);
                 txtSupName.Text = "";
                 Supp = SupplierDB.GetSuppliers();
@@ -1314,6 +1317,7 @@ namespace TravelExpertsServices
                 int nRowIndex = gvSuppliers2.Rows.Count - 1;
                 gvSuppliers2.ClearSelection();
                 gvSuppliers2.FirstDisplayedScrollingRowIndex = nRowIndex;
+                gvSuppliers2.Rows[nRowIndex].Selected = true;
             }
             catch (Exception ex)
             {

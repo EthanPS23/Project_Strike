@@ -134,9 +134,11 @@ namespace TravelExpertsDB
         {
             SqlConnection con = DBConnection.GetConnection();
             string sql =
+                "DELETE FROM Products_Suppliers " +
+                "WHERE ProductId = @ProductID " +
                 "DELETE FROM Products " +
                 "WHERE ProductId = @ProductID " +
-                "AND ProdName = @ProdName";
+                "AND ProdName = @ProdName";                ;
             SqlCommand cmdDelete = new SqlCommand(sql, con);
             cmdDelete.Parameters.AddWithValue("@ProductID", dp.ProductId);
             cmdDelete.Parameters.AddWithValue("@ProdName", dp.ProdName);
