@@ -637,9 +637,9 @@ namespace Travel_Experts_Services_WPF
             //gvSuppliers2.Columns[1].Header = "Supplier Name";
         }
 
-        // Sheila Zhao
-        //
-        private void gvSuppliers2_SelectionChanged(object sender, EventArgs e)
+        //Sheila Zhao
+        //Gets the selected supplier and displays the corresponding product when supplier selection changes
+        private void GvSuppliers2_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             Supplier selectedSupplier = null;
             try
@@ -650,7 +650,7 @@ namespace Travel_Experts_Services_WPF
                 //                                   row.Cells[1].Value.ToString());
                 //}
 
-                selectedSupplier = (Supplier)GetSelected(gvSuppliers2,"Supplier");
+                selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
 
                 Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                 gvProducts2.ItemsSource = Prod;
@@ -667,23 +667,422 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
-        ////Ethan SHipley January 30 2019
-        //// Gets the properties of the selected suppliers
-        //private Supplier SelectedSup(DataGrid dg)
-        //{
-        //    object row = dg.SelectedItem;
-        //    if (row == null)
-        //    {
-        //        dg.SelectedIndex = (dg.Items.Count) - 1;
-        //        row = dg.SelectedItem;
-        //    }
-        //    Supplier p = new Supplier(Convert.ToInt32(row.GetType().GetProperty("SupplierId").GetValue(row, null)),
-        //                        Convert.ToString(row.GetType().GetProperty("SupName").GetValue(row, null)));
-        //    return p;
-        //}
+        // Sheila Zhao, with edit by Ethan Shipley
+        // upon button click of the add new supplier button, the new supplier is saved
+        private void BtnNewS_Click(object sender, RoutedEventArgs e)
+        {
+            Supplier ns = new Supplier();
+            //int selectedindex;
+            btnSaveS.Visibility = Visibility.Hidden;
 
-        //Ethan SHipley January 30 2019
-        // Gets the properties of the selected suppliers
+            try
+            {
+                if (ns != null)
+                {
+                    if (txtSupName.Text == "")
+                    {
+                        MessageBox.Show("Name can not be empty!");
+                    }
+                    else
+                    {
+                        ns.SupName = txtSupName.Text;
+                        SupplierDB.InsertSupplier(ns);
+                        Supp = SupplierDB.GetSuppliers();
+                        UpdateBindingProdSup();
+
+                        ScrollDown(gvSuppliers2);
+
+                        //if (gvSuppliers2.Items.Count > 0)
+                        //{
+                        //    //gvSuppliers2.ClearSelection();
+                        //    gvSuppliers2.UnselectAll();
+
+                        //    int RowIndex = gvSuppliers2.Items.Count - 1;
+                        //    //    //int nColumnIndex = 0;
+
+                        //    gvSuppliers2.Rows[RowIndex].Selected = true;
+                        //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                        //    //    //In case if you want to scroll down as well.
+                        //    gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
+
+                        //}
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+            txtSupName.Text = "";
+            //selectedindex = gvProducts1.CurrentCell.RowIndex;
+            //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
+            //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
+        }
+
+        // Sheila Zhao, with edits by Ethan SHipley February 1, 2019
+        // upon button click for the edit button it gets the selected product and then fills the information into the suppliername textbox
+        private void BtnEditS_Click(object sender, RoutedEventArgs e)
+        {
+            Supplier olds = null;
+            btnSaveS.Visibility = Visibility.Visible;
+            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
+            //{
+            //    olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+            //                                        row.Cells[1].Value.ToString());
+            //}
+            olds = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+            txtSupName.Text = olds.SupName;
+            txtSupName.Focus();
+        }
+
+        // Sheila Zhao, with edits by Ethan Shipley February 1, 2019
+        //Gets the edited supplier for the save function
+        private Supplier GetEditSupplier(Supplier olds)
+        {
+            Supplier news = new Supplier();
+            news = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
+            //{
+            //    olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+            //                                        row.Cells[1].Value.ToString());
+            //}
+            news.SupName = olds.SupName;
+            news.SupplierId = olds.SupplierId;
+            return news;
+        }
+
+        // Sheila Zhao, with edits by Ethan Shipley February 1, 2019
+        // Saves the edited supplier name overwriting the name that was existing
+        private void BtnSaveS_Click(object sender, RoutedEventArgs e)
+        {
+            Supplier news = new Supplier();
+            Supplier olds = null;
+            olds = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
+            //{
+            //    olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+            //                                        row.Cells[1].Value.ToString());
+            //}
+            if (txtSupName.Text == "")
+            {
+                MessageBox.Show("Name can not be empty!");
+            }
+            else
+            {
+                news = GetEditSupplier(olds);
+                try
+                {
+                    news.SupName = txtSupName.Text;
+                    SupplierDB.UpdateSupplier(news, olds);
+                    Supp = SupplierDB.GetSuppliers();
+                    UpdateBindingProdSup();
+                    MessageBox.Show("Supplier Saved!");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                btnSaveS.Visibility = Visibility.Hidden;
+                txtSupName.Text = "";
+            }
+        }
+
+        // Sheila Zhao, with edits by Ethan Shipley February 1 2019
+        // Upon button click, the selected supplier is deleted
+        private void BtnDelSup_Click(object sender, RoutedEventArgs e)
+        {
+            btnSaveS.Visibility = Visibility.Hidden;
+            try
+            {
+                Supplier delSup = null;
+                delSup = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+                //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
+                //{
+                //    delSup = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                //                                        row.Cells[1].Value.ToString());
+                //    txtSupName.Text = delSup.SupName;
+                //}
+                if (!deleteConfirm())
+                {
+                    return;
+                }
+                SupplierDB.DeleteSupplier(delSup);
+                txtSupName.Text = "";
+                Supp = SupplierDB.GetSuppliers();
+                UpdateBindingProdSup();
+                ScrollDown(gvSuppliers2);
+                //int nRowIndex = gvSuppliers2.Rows.Count - 1;
+                //gvSuppliers2.ClearSelection();
+                //gvSuppliers2.FirstDisplayedScrollingRowIndex = nRowIndex;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        // Sheila Zhao, with edits by Ethan Shipley February 1 2019
+        // Displays the list of products that are not connected to the supplier as well as some buttons
+        private void BtnShowSP_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToString(btnShowSP.Content) == "Show")
+            {
+                gvProdBySup.Visibility = Visibility.Visible;
+                btnDelSP.Visibility = Visibility.Visible;
+                btnAddSP.Visibility = Visibility.Visible;
+                lblPNL.Visibility = Visibility.Visible;
+
+                btnShowSP.Content = "Hide";
+            }
+            else if (Convert.ToString(btnShowSP.Content) == "Hide")
+            {
+                gvProdBySup.Visibility = Visibility.Hidden;
+                btnDelSP.Visibility = Visibility.Hidden;
+                btnAddSP.Visibility = Visibility.Hidden;
+                lblPNL.Visibility = Visibility.Hidden;
+                btnShowSP.Content = "Show";
+            }
+        }
+
+        //Sheila Zhao, with edits by Ethan Shipley February 1 2019
+        // Clears the fields for the products page
+        private void BtnClearS_Click(object sender, RoutedEventArgs e)
+        {
+            txtSupName.Text = "";
+            btnDelPS.Visibility = Visibility.Hidden;
+            btnAddPS.Visibility = Visibility.Hidden;
+            gvProdBySup.Visibility = Visibility.Hidden;
+            btnSaveS.Visibility = Visibility.Hidden;
+            lblPNL.Visibility = Visibility.Hidden;
+            btnShowSP.Content = "Show";
+            UpdateBindingProdSup();
+        }
+
+        //Sheila Zhao, with edits by Ethan Shipley February 1 2019
+        // Deletes the product supplier
+        private void BtnDelSP_Click(object sender, RoutedEventArgs e)
+        {
+            int SupID, ProdID;
+            int Success = 0;
+            Supplier selectedSupplier = null;
+
+            if (gvProducts2.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0)
+            {
+                ProdID = Convert.ToInt32(gvProducts2.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts2.SelectedItem, null));
+                SupID = Convert.ToInt32(gvSuppliers2.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers2.SelectedItem, null));
+                //ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers del = new ProdSuppliers();
+
+                    del.ProdId = ProdID;
+                    del.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.DeleteSupProduct(del);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+                            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
+                            //{
+                            //    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                            //                                   row.Cells[1].Value.ToString());
+                            //}
+
+                            // Fix me
+                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+                            gvProducts2.ItemsSource = Prod;
+                            if (selectedSupplier != null)
+                            {
+                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                                gvProdBySup.ItemsSource = Prod;
+                            }
+                            MessageBox.Show("Product Deleted Successfully!");
+                            ScrollDown(gvProdBySup);
+                            //if (gvProdBySup.Rows.Count > 0)
+                            //{
+                            //    gvProdBySup.ClearSelection();
+
+                            //    int RowIndex = gvProdBySup.Rows.Count - 1;
+                            //    //    //int nColumnIndex = 0;
+
+                            //    gvProdBySup.Rows[RowIndex].Selected = true;
+                            //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                            //    //    //In case if you want to scroll down as well.
+                            //    gvProdBySup.FirstDisplayedScrollingRowIndex = RowIndex;
+                            //}
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Product deleted Failed, Go Home");
+                }
+            }
+        }
+
+        //Sheila Zhao, with edits by Ethan Shipley February 1 2019
+        // Creates the product supplier
+        private void BtnAddSP_Click(object sender, RoutedEventArgs e)
+        {
+            int ProdSupID, SupID;
+            int Success = 0;
+            Supplier selectedSupplier = null;
+
+            if ((gvProdBySup.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0) || (gvProducts2.SelectedCells.Count == 0))
+            {
+                SupID = Convert.ToInt32(gvSuppliers2.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers2.SelectedItem, null));
+                ProdSupID = Convert.ToInt32(gvProdBySup.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProdBySup.SelectedItem, null));
+
+                try
+                {
+                    // Make new object
+                    ProdSuppliers addNew = new ProdSuppliers();
+
+                    addNew.ProdId = ProdSupID;
+                    addNew.SupplierId = SupID;
+
+                    // Now sql query to add
+
+                    Success = ProdSupplierDB.InsertSupProduct(addNew);
+
+                    if (Success == 1)
+                    {
+
+                        // Refresh gridview
+                        try
+                        {
+                            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+                            //foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+                            //{
+                            //    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+                            //                                   row.Cells[1].Value.ToString());
+                            //}
+
+                            // Fix me
+                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+                            gvProducts2.ItemsSource = Prod;
+                            if (selectedSupplier != null)
+                            {
+                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                                gvProdBySup.ItemsSource = Prod;
+                            }
+                            MessageBox.Show("Product Added Successfully!");
+                            ScrollDown(gvProducts2);
+                            //if (gvProducts2.Rows.Count > 0)
+                            //{
+                            //    gvProducts2.ClearSelection();
+
+                            //    int RowIndex = gvProducts2.Rows.Count - 1;
+                            //    //    //int nColumnIndex = 0;
+
+                            //    gvProducts2.Rows[RowIndex].Selected = true;
+                            //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                            //    //    //In case if you want to scroll down as well.
+                            //    gvProducts2.FirstDisplayedScrollingRowIndex = RowIndex;
+                            //}
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+            //else if (gvProducts2.SelectedCells.Count == 0)
+            //{
+            //    //ProdID = Convert.ToInt32(gvProducts2.SelectedCells[0].Value);
+            //    SupID = Convert.ToInt32(gvSuppliers2.SelectedCells[0].Value);
+            //    ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
+
+            //    try
+            //    {
+            //        // Make new object
+            //        ProdSuppliers addNew = new ProdSuppliers();
+
+            //        addNew.ProdId = ProdSupID;
+            //        addNew.SupplierId = SupID;
+
+            //        // Now sql query to add
+
+            //        Success = ProdSupplierDB.InsertSupProduct(addNew);
+
+            //        if (Success == 1)
+            //        {
+
+            //            // Refresh gridview
+            //            try
+            //            {
+            //                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
+            //                {
+            //                    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
+            //                                                   row.Cells[1].Value.ToString());
+            //                }
+
+            //                // Fix me
+            //                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+            //                gvProducts2.DataSource = Prod;
+            //                if (selectedSupplier != null)
+            //                {
+            //                    Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+            //                    gvProdBySup.DataSource = Prod;
+            //                }
+            //                MessageBox.Show("Product Added Successfully!");
+
+            //                if (gvProducts2.Rows.Count > 0)
+            //                {
+            //                    gvProducts2.ClearSelection();
+
+            //                    int RowIndex = gvProducts2.Rows.Count - 1;
+            //                    //    //int nColumnIndex = 0;
+
+            //                    gvProducts2.Rows[RowIndex].Selected = true;
+            //                    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+            //                    //    //In case if you want to scroll down as well.
+            //                    gvProducts2.FirstDisplayedScrollingRowIndex = RowIndex;
+            //                }
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            //            }
+
+            //        }
+            //    }
+            //    catch (SqlException ex)
+            //    {
+            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
+            //    }
+            //}
+        }
+
+        //Ethan Shipley February 1, 2019
+        // Gets the selected datagrid row properties for product or supplier depending on user input. By default gets products
         private object GetSelected(DataGrid dg, string supprod="")
         {
             object row = dg.SelectedItem;
@@ -692,19 +1091,18 @@ namespace Travel_Experts_Services_WPF
                 dg.SelectedIndex = (dg.Items.Count) - 1;
                 row = dg.SelectedItem;
             }
+            object p;
             if (supprod=="Supplier")
             {
-                Supplier p = new Supplier(Convert.ToInt32(row.GetType().GetProperty("SupplierId").GetValue(row, null)),
+                p = new Supplier(Convert.ToInt32(row.GetType().GetProperty("SupplierId").GetValue(row, null)),
                                     Convert.ToString(row.GetType().GetProperty("SupName").GetValue(row, null)));
-                return p;
             }
             else
             {
-                Products p = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
+                p = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
                                     Convert.ToString(row.GetType().GetProperty("ProdName").GetValue(row, null)));
-                return p;
             }
-            
+            return p;
         }
 
         /*=======================================================================================================================*/
@@ -723,6 +1121,7 @@ namespace Travel_Experts_Services_WPF
         }
 
         // Sheila Zhao
+        // Gets the products itemsource for the products datagrid
         private void GetProduct(int productID)
         {
             Prod = ProductDB.GetProducts();
@@ -858,6 +1257,7 @@ namespace Travel_Experts_Services_WPF
         }
 
         // Sheila Zhao, Edits by Ethan Shipley
+        // Gets the edited products for the save function
         private Products GetEditProduct(Products oldp)
         {
             Products newp = new Products();
@@ -1261,8 +1661,6 @@ namespace Travel_Experts_Services_WPF
                 dg.ScrollIntoView(dg.Items[nRowIndex]);
             }
         }
-
-        
     }
 }
 

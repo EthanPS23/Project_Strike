@@ -167,15 +167,15 @@
                 <Button x:Name="btnSaveP" Content="Save" HorizontalAlignment="Left" Margin="141,327,0,0" VerticalAlignment="Top" Width="75" Click="BtnSaveP_Click"/>
                 <Button x:Name="btnShowPS" Content="Show" HorizontalAlignment="Left" Margin="502,279,0,0" VerticalAlignment="Top" Width="75" Click="BtnShowPS_Click"/>
                 <TextBlock x:Name="lblSL" HorizontalAlignment="Left" Margin="372,20,0,0" TextWrapping="Wrap" Text="Suppliers On List:" VerticalAlignment="Top" Width="145" Foreground="#FF30E3CA"/>
-                <TextBlock x:Name="lblSNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Suppliers Not On List:" VerticalAlignment="Top" Width="115" Foreground="#FF30E3CA"/>
+                <TextBlock x:Name="lblSNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Suppliers Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
             </Grid>
         </TabItem>
         <TabItem Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
             <Grid Background="#FF2F4858">
                 <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="40,20,0,0" TextWrapping="Wrap" Text="Supplier Name:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
                 <TextBox x:Name="txtSupName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
-                <Button x:Name="btnClearS" Content="Clear" HorizontalAlignment="Left" Margin="252,15,0,0" VerticalAlignment="Top" Width="80"/>
-                <DataGrid x:Name="gvSuppliers2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300">
+                <Button x:Name="btnClearS" Content="Clear" HorizontalAlignment="Left" Margin="252,15,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearS_Click"/>
+                <DataGrid x:Name="gvSuppliers2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectedCellsChanged="GvSuppliers2_SelectedCellsChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Visible"/>
                         <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
@@ -183,13 +183,14 @@
                 </DataGrid>
                 <DataGrid x:Name="gvProducts2" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300"/>
                 <DataGrid x:Name="gvProdBySup" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0" VerticalAlignment="Top" Width="300"/>
-                <Button x:Name="btnDelSP" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="679,110,0,0" VerticalAlignment="Top" Width="34"/>
-                <Button x:Name="btnAddSP" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="679,177,0,0" VerticalAlignment="Top" Width="34"/>
-                <Button x:Name="btnNewS" Content="Add New Supplier" HorizontalAlignment="Left" Margin="13,279,0,0" VerticalAlignment="Top" Width="105"/>
-                <Button x:Name="btnEditS" Content="Edit Supplier" HorizontalAlignment="Left" Margin="141,279,0,0" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="btnDelSup" Content="Delete Supplier" HorizontalAlignment="Left" Margin="239,279,0,0" VerticalAlignment="Top" Width="109"/>
-                <Button x:Name="btnSaveS" Content="Save" HorizontalAlignment="Left" Margin="141,327,0,0" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="btnShowSP" Content="Show" HorizontalAlignment="Left" Margin="502,279,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="btnDelSP" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="679,110,0,0" VerticalAlignment="Top" Width="34" Click="BtnDelSP_Click"/>
+                <Button x:Name="btnAddSP" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="679,177,0,0" VerticalAlignment="Top" Width="34" Click="BtnAddSP_Click"/>
+                <Button x:Name="btnNewS" Content="Add New Supplier" HorizontalAlignment="Left" Margin="13,279,0,0" VerticalAlignment="Top" Width="105" Click="BtnNewS_Click"/>
+                <Button x:Name="btnEditS" Content="Edit Supplier" HorizontalAlignment="Left" Margin="141,279,0,0" VerticalAlignment="Top" Width="75" Click="BtnEditS_Click"/>
+                <Button x:Name="btnDelSup" Content="Delete Supplier" HorizontalAlignment="Left" Margin="239,279,0,0" VerticalAlignment="Top" Width="109" Click="BtnDelSup_Click"/>
+                <Button x:Name="btnSaveS" Content="Save" HorizontalAlignment="Left" Margin="141,327,0,0" VerticalAlignment="Top" Width="75" Click="BtnSaveS_Click"/>
+                <Button x:Name="btnShowSP" Content="Show" HorizontalAlignment="Left" Margin="502,279,0,0" VerticalAlignment="Top" Width="75" Click="BtnShowSP_Click"/>
+                <TextBlock x:Name="lblPNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Products Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
             </Grid>
         </TabItem>
     </TabControl>
