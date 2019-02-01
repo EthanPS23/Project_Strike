@@ -1,0 +1,6 @@
+C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
+C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb
+C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.csprojAssemblyReference.cache
+C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
+C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
+C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb

@@ -23,26 +23,27 @@ namespace Travel_Experts_Services_WPF.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ELF8OOSD197837\\SQLEXPRESS;Initial Catalog=MMABooks;Integrated Securit" +
-            "y=True")]
-        public string MMABooksConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserName {
             get {
-                return ((string)(this["MMABooksConnectionString"]));
+                return ((string)(this["UserName"]));
+            }
+            set {
+                this["UserName"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\538003\\source\\repos\\" +
-            "DatabaseExample2\\DatabaseExample2\\MMABooks.mdf;Integrated Security=True;Connect " +
-            "Timeout=30")]
-        public string MMABooksConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Password {
             get {
-                return ((string)(this["MMABooksConnectionString1"]));
+                return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
             }
         }
     }
