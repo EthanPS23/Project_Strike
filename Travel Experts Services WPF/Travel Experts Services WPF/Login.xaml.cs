@@ -121,5 +121,13 @@ namespace Travel_Experts_Services_WPF
         {
             this.WindowState = System.Windows.WindowState.Minimized;
         }
+
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

@@ -93,7 +93,7 @@
         <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="462,279,0,0" VerticalAlignment="Top" Width="103" Height="33" FontSize="20" Click="btnReset_Click" RenderTransformOrigin="0.515,0.5"/>
         <CheckBox x:Name="ckbRemember" Content="Remember Me" HorizontalAlignment="Left" Margin="230,292,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Grid>
-            <Grid Grid.Row=" 0" x:Name="TitleBar" Height="Auto" MouseMove="TitleBar_MouseMove" Margin="0,0,0,405">
+            <Grid Grid.Row=" 0"  Background="PaleVioletRed" x:Name="TitleBar" Height="Auto" Margin="0,0,0,405" MouseMove="TitleBar_MouseMove">
                 <Button x:Name="btnExit" Content="X" HorizontalAlignment="Left" Margin="748,10,0,0" VerticalAlignment="Top" Width="42" Height="35" FontSize="20" Click="btnExit_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
                 <Button x:Name="btnMin" Content="一" HorizontalAlignment="Left" Margin="687,10,0,0" VerticalAlignment="Stretch" Width="42" Height="Auto" FontSize="20" Click="btnMin_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
             </Grid>
