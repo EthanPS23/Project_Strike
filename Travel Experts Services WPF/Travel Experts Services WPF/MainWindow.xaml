@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Travel Experts" Height="537.369" Width="1050"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" WindowStyle="None" FontSize="16" AllowsTransparency="True">
     <Window.Resources>
-        <Style TargetType="{x:Type Window}">
+        <!--<Style TargetType="{x:Type Window}">
             <Setter Property="Background" Value="#2f4858"/>
         </Style>
         <Style TargetType="Page">
@@ -19,10 +19,11 @@
         <Style TargetType="ScrollBar">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-        </Style>
+        </Style>-->
         <Style TargetType="{x:Type TabControl}">
             <Setter Property="Background" Value="#FF2F4858"/>
             <Setter Property="BorderBrush" Value="#FF2F4858"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
         </Style>
         <Style TargetType="{x:Type DatePickerTextBox}">
             <Setter Property="Text" Value="" />
@@ -55,18 +56,20 @@
             <Setter Property="VerticalGridLinesBrush" Value="#FF2F89FC"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
             <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="BorderThickness" Value="1,1,1,1"/>
             <Setter Property="IsReadOnly" Value="True"/>
         </Style>
         <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="Foreground" Value="#30e3ca"/>
-            <Setter Property="BorderBrush" Value="#FF40514E"/>
+            <Setter Property="BorderBrush" Value="#FF2F89FC"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
         </Style>
         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="Foreground" Value="#30e3ca"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+            <Setter Property="BorderThickness" Value="1,1,2,2"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="{x:Type TabPanel}">
