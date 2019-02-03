@@ -85,6 +85,7 @@ namespace Travel_Experts_Services_WPF
             //tabControl1.SelectedIndex = 1;
             //tabControl1.SelectedIndex = 0;
         }
+        
 
         //Ethan Shipley January 28 2019
         //Sets the data source and formatting for the packages datagridview
@@ -1681,6 +1682,16 @@ namespace Travel_Experts_Services_WPF
                 dg.UpdateLayout();
                 dg.ScrollIntoView(dg.Items[nRowIndex]);
             }
+        }
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Ethan Shipley
+            // Allow user to move form
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
         }
     }
 }
