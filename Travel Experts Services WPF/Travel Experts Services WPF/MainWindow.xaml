@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Travel_Experts_Services_WPF"
         mc:Ignorable="d"
         Title="Travel Experts" Height="492
-        " Width="1060"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" FontSize="16">
+        " Width="1060"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" FontSize="16" WindowStyle="None" AllowsTransparency="True">
     <Window.Resources>
-        <Style TargetType="{x:Type Window}">
+        <!--<Style TargetType="{x:Type Window}">
             <Setter Property="Background" Value="#2f4858"/>
         </Style>
         <Style TargetType="Page">
@@ -20,7 +20,7 @@
         <Style TargetType="ScrollBar">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-        </Style>
+        </Style>-->
         <Style TargetType="{x:Type TabControl}">
             <Setter Property="Background" Value="#FF2F4858"/>
             <Setter Property="BorderBrush" Value="#FF2F4858"/>
@@ -77,13 +77,13 @@
             <Setter Property="Background" Value="Black"/>
         </Style>
     </Window.Resources>
-    <Window.BorderBrush>
+    <!--<Window.BorderBrush>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF00FF0C"/>
             <GradientStop Color="Red" Offset="1"/>
             <GradientStop Color="#FF81E2FF" Offset="0.491"/>
         </LinearGradientBrush>
-    </Window.BorderBrush>
+    </Window.BorderBrush>-->
 
     <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="461" VerticalAlignment="Top" Width="1052" BorderThickness="0,0,0,0" BorderBrush="#30e3ca" >
         <TabItem Header="Main Page" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
