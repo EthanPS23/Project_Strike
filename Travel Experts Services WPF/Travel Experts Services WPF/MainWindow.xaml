@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travel_Experts_Services_WPF"
         mc:Ignorable="d"
-        Title="Travel Experts" Height="537.369" Width="1088.229"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" WindowStyle="None" FontSize="16">
+        Title="Travel Experts" Height="537.369" Width="1050"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" WindowStyle="None" FontSize="16" AllowsTransparency="True">
     <Window.Resources>
         <Style TargetType="{x:Type Window}">
             <Setter Property="Background" Value="#2f4858"/>
@@ -81,11 +81,17 @@
         </LinearGradientBrush>
     </Window.BorderBrush>
     <Grid Margin="0,0,46,2">
-        <Grid Grid.Row=" 0"  Background="PaleVioletRed" x:Name="TitleBar" Height="Auto" Margin="0,0,0,405" MouseMove="TitleBar_MouseMove">
-            <Button x:Name="btnExit" Content="X" HorizontalAlignment="Left" Margin="971,17,0,0" VerticalAlignment="Top" Width="42" Height="35" FontSize="20" Click="btnExit_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
-            <Button x:Name="btnMin" Content="一" HorizontalAlignment="Left" Margin="884,19,0,70" VerticalAlignment="Stretch" Width="42" Height="Auto" FontSize="20" Click="btnMin_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
+        <Grid Grid.Row=" 0" x:Name="TitleBar" Height="40" Margin="0,0,-46,495" MouseMove="TitleBar_MouseMove">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF40514E" Offset="0"/>
+                    <GradientStop Color="#FF2F4858" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Button x:Name="btnExit" Content="X" HorizontalAlignment="Left" Margin="1010,10,0,0" VerticalAlignment="Top" Width="30" Height="30" FontSize="20" Click="btnExit_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
+            <Button x:Name="btnMin" Content="一" HorizontalAlignment="Left" Margin="975,10,0,0" VerticalAlignment="Top" Width="30" Height="30" FontSize="20" Click="btnMin_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
         </Grid>
-        <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="474" VerticalAlignment="Top" Width="1050" Margin="0,53,0,0">
+        <TabControl x:Name="tabControl1" Margin="0,45,-46,-2" Height="492" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1050">
             <TabItem Header="Main Page" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
 
             </TabItem>
