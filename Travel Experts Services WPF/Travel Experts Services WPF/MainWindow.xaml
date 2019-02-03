@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travel_Experts_Services_WPF"
         mc:Ignorable="d"
-        Title="Travel Experts" Height="492
-        " Width="1060"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" FontSize="16">
+        Title="Travel Experts" Height="537.369" Width="1050"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" WindowStyle="None" FontSize="16" AllowsTransparency="True">
     <Window.Resources>
         <Style TargetType="{x:Type Window}">
             <Setter Property="Background" Value="#2f4858"/>
@@ -24,7 +23,6 @@
         <Style TargetType="{x:Type TabControl}">
             <Setter Property="Background" Value="#FF2F4858"/>
             <Setter Property="BorderBrush" Value="#FF2F4858"/>
-            <Setter Property="Margin" Value="0,0,0,0"/>
         </Style>
         <Style TargetType="{x:Type DatePickerTextBox}">
             <Setter Property="Text" Value="" />
@@ -57,20 +55,18 @@
             <Setter Property="VerticalGridLinesBrush" Value="#FF2F89FC"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
             <Setter Property="RowHeaderWidth" Value="0"/>
-            <Setter Property="BorderThickness" Value="1,1,1,1"/>
             <Setter Property="IsReadOnly" Value="True"/>
         </Style>
         <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="Foreground" Value="#30e3ca"/>
-            <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+            <Setter Property="BorderBrush" Value="#FF40514E"/>
         </Style>
         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="Foreground" Value="#30e3ca"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-            <Setter Property="BorderThickness" Value="1,1,2,2"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="{x:Type TabPanel}">
@@ -84,165 +80,175 @@
             <GradientStop Color="#FF81E2FF" Offset="0.491"/>
         </LinearGradientBrush>
     </Window.BorderBrush>
+    <Grid Margin="0,0,46,2">
+        <Grid Grid.Row=" 0" x:Name="TitleBar" Height="40" Margin="0,0,-46,495" MouseMove="TitleBar_MouseMove">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF40514E" Offset="0"/>
+                    <GradientStop Color="#FF2F4858" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Button x:Name="btnExit" Content="X" HorizontalAlignment="Left" Margin="1010,10,0,0" VerticalAlignment="Top" Width="30" Height="30" FontSize="20" Click="btnExit_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
+            <Button x:Name="btnMin" Content="一" HorizontalAlignment="Left" Margin="975,10,0,0" VerticalAlignment="Top" Width="30" Height="30" FontSize="20" Click="btnMin_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
+        </Grid>
+        <TabControl x:Name="tabControl1" Margin="0,45,-46,-2" Height="492" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1050">
+            <TabItem Header="Main Page" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
 
-    <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="461" VerticalAlignment="Top" Width="1052" BorderThickness="0,0,0,0" BorderBrush="#30e3ca" >
-        <TabItem Header="Main Page" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
-
-        </TabItem>
-        <TabItem Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="10,10,10,10">
-            <Grid Background="#FF2F4858">
-                <DataGrid x:Name="gvPackages" ColumnWidth="*" AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="1006" TabIndex="0" SelectionChanged="GvPackages_SelectionChanged" Loaded="GvPackages_Loaded">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Package Start Date" Binding="{Binding PkgStartDate, StringFormat=\{0:dd/MM/yy\}}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Package End Date" Binding="{Binding PkgEndDate, StringFormat=\{0:dd/MM/yy\}}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Package Desc" Binding="{Binding PkgDesc}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Base Price" Binding="{Binding PkgBasePrice, StringFormat=C}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Agency Commission" Binding="{Binding PkgAgencyCommission, StringFormat=C}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <DataGrid x:Name="gvProducts" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="135" Margin="10,223,0,0" VerticalAlignment="Top" Width="327" Background="#FF40514E">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Product Supplier Id" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Hidden"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <DataGrid x:Name="gvSuppliers" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="135" Margin="689,223,0,0" VerticalAlignment="Top" Width="327" Background="#FF40514E">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Supplier Id" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button x:Name="btnAddPkg" Content="Add Package" HorizontalAlignment="Left"  Margin="10,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnAddPkg_Click"/>
-                <Button x:Name="btnEditPkg" Content="Edit Package" HorizontalAlignment="Left"  Margin="906,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnEditPkg_Click"/>
-                <Button x:Name="btnDeletepkg" Content="Delete" HorizontalAlignment="Left" Height="25" Margin="470,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnDeletepkg_Click"/>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Packages" TabIndex="3" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
-            <Grid Background="#FF2F4858">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="1037*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock x:Name="lblPkgName" HorizontalAlignment="Left" Height="25" Margin="3,10,0,0" TextWrapping="Wrap" Text="Package Name:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA" Grid.Column="1"/>
-                <TextBox x:Name="txtPackageName" HorizontalAlignment="Left" Height="24" Margin="174,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1" TextChanged="TxtPackageName_TextChanged"/>
-                <TextBlock x:Name="lblPkgStartDate" HorizontalAlignment="Left" Height="25" Margin="3,59,0,0" TextWrapping="Wrap" Text="Package Start Date:" VerticalAlignment="Top" Width="107" Foreground="#FF30E3CA" Grid.Column="1"/>
-                <DatePicker x:Name="dtpPkgStartDate" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="50" Margin="167,55,0,0" VerticalAlignment="Top" Width="230" Background="{x:Null}" Foreground="#FF2F89FC" BorderBrush="{x:Null}" Grid.Column="1"/>
-                <TextBlock x:Name="lblPkgEndDate" HorizontalAlignment="Left" Height="25" Margin="3,114,0,0" TextWrapping="Wrap" Text="Package End Date:" VerticalAlignment="Top" Width="107" Foreground="#FF30E3CA" Grid.Column="1"/>
-                <DatePicker x:Name="dtpPkgEndDate" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="50" Margin="167,110,0,0" VerticalAlignment="Top" Width="230" Background="{x:Null}" Foreground="#FF2F89FC" BorderBrush="{x:Null}" Grid.Column="1"/>
-                <TextBox x:Name="txtPkgDesc" HorizontalAlignment="Left" Height="72
+            </TabItem>
+            <TabItem Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
+                <Grid Background="#FF2F4858">
+                    <DataGrid x:Name="gvPackages" ColumnWidth="*" AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="1006" TabIndex="0" SelectionChanged="GvPackages_SelectionChanged" Loaded="GvPackages_Loaded">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Package Start Date" Binding="{Binding PkgStartDate, StringFormat=\{0:dd/MM/yy\}}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Package End Date" Binding="{Binding PkgEndDate, StringFormat=\{0:dd/MM/yy\}}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Package Desc" Binding="{Binding PkgDesc}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Base Price" Binding="{Binding PkgBasePrice, StringFormat=C}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Agency Commission" Binding="{Binding PkgAgencyCommission, StringFormat=C}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="gvProducts" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="135" Margin="10,223,0,0" VerticalAlignment="Top" Width="327" Background="#FF40514E">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Product Supplier Id" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Hidden"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="gvSuppliers" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="135" Margin="689,223,0,0" VerticalAlignment="Top" Width="327" Background="#FF40514E">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Supplier Id" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnAddPkg" Content="Add Package" HorizontalAlignment="Left"  Margin="10,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnAddPkg_Click"/>
+                    <Button x:Name="btnEditPkg" Content="Edit Package" HorizontalAlignment="Left"  Margin="906,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnEditPkg_Click"/>
+                    <Button x:Name="btnDeletepkg" Content="Delete" HorizontalAlignment="Left" Height="25" Margin="470,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnDeletepkg_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Packages" TabIndex="3" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
+                <Grid Background="#FF2F4858">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="1037*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lblPkgName" HorizontalAlignment="Left" Height="25" Margin="3,10,0,0" TextWrapping="Wrap" Text="Package Name:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA" Grid.Column="1"/>
+                    <TextBox x:Name="txtPackageName" HorizontalAlignment="Left" Height="24" Margin="174,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1" TextChanged="TxtPackageName_TextChanged"/>
+                    <TextBlock x:Name="lblPkgStartDate" HorizontalAlignment="Left" Height="25" Margin="3,59,0,0" TextWrapping="Wrap" Text="Package Start Date:" VerticalAlignment="Top" Width="107" Foreground="#FF30E3CA" Grid.Column="1"/>
+                    <DatePicker x:Name="dtpPkgStartDate" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="50" Margin="167,55,0,0" VerticalAlignment="Top" Width="230" Background="{x:Null}" Foreground="#FF2F89FC" BorderBrush="{x:Null}" Grid.Column="1"/>
+                    <TextBlock x:Name="lblPkgEndDate" HorizontalAlignment="Left" Height="25" Margin="3,114,0,0" TextWrapping="Wrap" Text="Package End Date:" VerticalAlignment="Top" Width="107" Foreground="#FF30E3CA" Grid.Column="1"/>
+                    <DatePicker x:Name="dtpPkgEndDate" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="50" Margin="167,110,0,0" VerticalAlignment="Top" Width="230" Background="{x:Null}" Foreground="#FF2F89FC" BorderBrush="{x:Null}" Grid.Column="1"/>
+                    <TextBox x:Name="txtPkgDesc" HorizontalAlignment="Left" Height="72
                          " Margin="174,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1" TextChanged="TxtPkgDesc_TextChanged"/>
-                <TextBlock x:Name="lblPkgName_Copy1" HorizontalAlignment="Left" Height="25" Margin="3,164,0,0" TextWrapping="Wrap" Text="Package Description:" VerticalAlignment="Top" Width="117" Foreground="#FF30E3CA" Grid.Column="1"/>
-                <TextBlock x:Name="lblPkgBasePrice" HorizontalAlignment="Left"  Margin="3,259,0,0" TextWrapping="Wrap" Text="Package Base Price:" VerticalAlignment="Top" Width="117" Foreground="#FF30E3CA" Grid.Column="1"/>
-                <TextBox x:Name="txtPkgBasePrice" HorizontalAlignment="Left" Height="24" Margin="174,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1"/>
-                <TextBlock x:Name="lblPkgAgencyCommission" HorizontalAlignment="Left" Height="25" Margin="3,305,0,0" TextWrapping="Wrap" Text="Package Agency Commision:" VerticalAlignment="Top" Width="177" Foreground="#FF30E3CA" Grid.Column="1"/>
-                <TextBox x:Name="txtPkgAgencyCommission" HorizontalAlignment="Left" Height="24" Margin="174,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1"/>
-                <Button x:Name="btnAddEditPkg" Content="Save New Package" Margin="3,355,894,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnAddEditPkg_Click" Width="140"/>
+                    <TextBlock x:Name="lblPkgName_Copy1" HorizontalAlignment="Left" Height="25" Margin="3,164,0,0" TextWrapping="Wrap" Text="Package Description:" VerticalAlignment="Top" Width="117" Foreground="#FF30E3CA" Grid.Column="1"/>
+                    <TextBlock x:Name="lblPkgBasePrice" HorizontalAlignment="Left"  Margin="3,259,0,0" TextWrapping="Wrap" Text="Package Base Price:" VerticalAlignment="Top" Width="117" Foreground="#FF30E3CA" Grid.Column="1"/>
+                    <TextBox x:Name="txtPkgBasePrice" HorizontalAlignment="Left" Height="24" Margin="174,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1"/>
+                    <TextBlock x:Name="lblPkgAgencyCommission" HorizontalAlignment="Left" Height="25" Margin="3,305,0,0" TextWrapping="Wrap" Text="Package Agency Commision:" VerticalAlignment="Top" Width="177" Foreground="#FF30E3CA" Grid.Column="1"/>
+                    <TextBox x:Name="txtPkgAgencyCommission" HorizontalAlignment="Left" Height="24" Margin="174,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" Grid.Column="1"/>
+                    <Button x:Name="btnAddEditPkg" Content="Save New Package" Margin="3,355,894,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnAddEditPkg_Click" Width="140"/>
 
 
-                <DataGrid x:Name="gvProdSup_pkg" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="150" Margin="577,10,0,0" VerticalAlignment="Top" Width="450" Background="#FF40514E" Grid.Column="1" >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="PackageID" Binding="{Binding PackageID}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Pkg Name" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Pkg Start Date" Binding="{Binding ProdcustId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Pkg End Date" Binding="{Binding SupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Pkg Desc" Binding="{Binding PkgName}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                    <DataGrid x:Name="gvProdSup_pkg" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="150" Margin="577,10,0,0" VerticalAlignment="Top" Width="450" Background="#FF40514E" Grid.Column="1" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PackageID" Binding="{Binding PackageID}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg Name" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg Start Date" Binding="{Binding ProdcustId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg End Date" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg Desc" Binding="{Binding PkgName}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
 
-                <DataGrid x:Name="gvProdSup_all_pkgs" HorizontalAlignment="Left" Height="150" Margin="577,225,0,0" VerticalAlignment="Top" Width="450" Grid.Column="1"/>
-                <Button x:Name="btnNewPkgProdSup" Content="New Product" Grid.Column="1" HorizontalAlignment="Left" Margin="577,180,0,0" VerticalAlignment="Top" Width="110" Click="BtnNewPkgProdSup_Click"/>
-                <Button x:Name="btnDeletePkgProdSup_Click" Content="Delete Product" Grid.Column="1" HorizontalAlignment="Left" Margin="917,180,0,0" VerticalAlignment="Top" Width="110
+                    <DataGrid x:Name="gvProdSup_all_pkgs" HorizontalAlignment="Left" Height="150" Margin="577,225,0,0" VerticalAlignment="Top" Width="450" Grid.Column="1"/>
+                    <Button x:Name="btnNewPkgProdSup" Content="New Product" Grid.Column="1" HorizontalAlignment="Left" Margin="577,180,0,0" VerticalAlignment="Top" Width="110" Click="BtnNewPkgProdSup_Click"/>
+                    <Button x:Name="btnDeletePkgProdSup_Click" Content="Delete Product" Grid.Column="1" HorizontalAlignment="Left" Margin="917,180,0,0" VerticalAlignment="Top" Width="110
                         " Click="BtnDeletePkgProdSup_Click"/>
-                <Button x:Name="btnAddPkgProdSup" Content="Add New" Grid.Column="1" HorizontalAlignment="Left" Margin="577,390,0,0" VerticalAlignment="Top" Width="110" Click="BtnAddPkgProdSup_Click"/>
-                <Button x:Name="btnClearPkg" Content="Clear" Grid.Column="1" HorizontalAlignment="Left" Margin="292,355,0,0" VerticalAlignment="Top" Width="70" Click="BtnClearPkg_Click"/>
-                <TextBlock x:Name="lblPkgNameLength" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="375,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
-                <TextBlock x:Name="lblPkgDescLength" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="375,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+                    <Button x:Name="btnAddPkgProdSup" Content="Add New" Grid.Column="1" HorizontalAlignment="Left" Margin="577,390,0,0" VerticalAlignment="Top" Width="110" Click="BtnAddPkgProdSup_Click"/>
+                    <Button x:Name="btnClearPkg" Content="Clear" Grid.Column="1" HorizontalAlignment="Left" Margin="292,355,0,0" VerticalAlignment="Top" Width="70" Click="BtnClearPkg_Click"/>
+                    <TextBlock x:Name="lblPkgNameLength" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="375,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+                    <TextBlock x:Name="lblPkgDescLength" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="375,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
 
-            </Grid>
-        </TabItem>
-        <TabItem Header="Product" TabIndex="4" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
-            <Grid Background="#FF2F4858" Margin="0,0,0,19">
-                <TextBlock x:Name="lblProdName2" HorizontalAlignment="Left" Margin="40,20,0,0" TextWrapping="Wrap" Text="Product:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
-                <TextBox x:Name="txtProdName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
-                <Button x:Name="btnClearP" Content="Clear" HorizontalAlignment="Left" Margin="252,15,0,0" VerticalAlignment="Top" Width="80"/>
-                <DataGrid x:Name="gvProducts1" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="GvProducts1_SelectionChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <DataGrid x:Name="gvSuppliers1" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <DataGrid x:Name="gvSupByProd" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0" VerticalAlignment="Top" Width="300">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button x:Name="btnDelPS" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="679,110,0,0" VerticalAlignment="Top" Width="34" Click="BtnDelPS_Click"/>
-                <Button x:Name="btnAddPS" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="679,177,0,0" VerticalAlignment="Top" Width="34" Click="BtnAddPS_Click"/>
-                <Button x:Name="btnAddNewProd" Content="Add New Product" HorizontalAlignment="Left" Margin="34,256,0,0" VerticalAlignment="Top" Width="140" Click="BtnAddNewProd_Click" />
-                <Button x:Name="btnEditP" Content="Edit Product" HorizontalAlignment="Left" Margin="194,296,0,0" VerticalAlignment="Top" Width="140" Click="BtnEditP_Click"/>
-                <Button x:Name="btnDelProd" Content="Delete Product" HorizontalAlignment="Left" Margin="194,256,0,0" VerticalAlignment="Top" Width="140" Click="BtnDelProd_Click"/>
-                <Button x:Name="btnSaveP" Content="Save" HorizontalAlignment="Left" Margin="34,296,0,0" VerticalAlignment="Top" Width="140" Click="BtnSaveP_Click"/>
-                <Button x:Name="btnShowPS" Content="Show" HorizontalAlignment="Left" Margin="493,275,0,0" VerticalAlignment="Top" Width="70" Click="BtnShowPS_Click"/>
-                <TextBlock x:Name="lblSL" HorizontalAlignment="Left" Margin="372,20,0,0" TextWrapping="Wrap" Text="Suppliers On List:" VerticalAlignment="Top" Width="145" Foreground="#FF30E3CA" Grid.ColumnSpan="5"/>
-                <TextBlock x:Name="lblSNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Suppliers Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Suppliers"  TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
-            <Grid Background="#FF2F4858" Margin="0,0,0,1">
-                <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="40,20,0,0" TextWrapping="Wrap" Text="Supplier Name:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
-                <TextBox x:Name="txtSupName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
-                <Button x:Name="btnClearS" Content="Clear" HorizontalAlignment="Left" Margin="252,15,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearS_Click"/>
-                <DataGrid x:Name="gvSuppliers2" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectedCellsChanged="GvSuppliers2_SelectedCellsChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <DataGrid x:Name="gvProducts2" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <DataGrid x:Name="gvProdBySup" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0
-                          " VerticalAlignment="Top" Width="300">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button x:Name="btnDelSP" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="679,110,0,0" VerticalAlignment="Top" Width="34" Click="BtnDelSP_Click"/>
-                <Button x:Name="btnAddSP" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="679,177,0,0" VerticalAlignment="Top" Width="34" Click="BtnAddSP_Click"/>
-                <Button x:Name="btnNewS" Content="Add New Supplier" HorizontalAlignment="Left" Margin="34,256,0,0" VerticalAlignment="Top" Width="140" Click="BtnNewS_Click"/>
-                <Button x:Name="btnEditS" Content="Edit Supplier" HorizontalAlignment="Left" Margin="194,296,0,0" VerticalAlignment="Top" Width="140" Click="BtnEditS_Click"/>
-                <Button x:Name="btnDelSup" Content="Delete Supplier" HorizontalAlignment="Left" Margin="194,256,0,0" VerticalAlignment="Top" Width="140" Click="BtnDelSup_Click"/>
-                <Button x:Name="btnSaveS" Content="Save" HorizontalAlignment="Left" Margin="34,296,0,0" VerticalAlignment="Top" Width="140" Click="BtnSaveS_Click"/>
-                <Button x:Name="btnShowSP" Content="Show" HorizontalAlignment="Left" Margin="493,275,0,0" VerticalAlignment="Top" Width="70" Click="BtnShowSP_Click"/>
-                <TextBlock x:Name="lblPNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="727,20,0,0" TextWrapping="Wrap" Text="Products Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Product" TabIndex="4" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
+                <Grid Background="#FF2F4858">
 
-            </Grid>
-        </TabItem>
-    </TabControl>
+                    <TextBlock x:Name="lblProdName2" HorizontalAlignment="Left" Margin="40,20,0,0" TextWrapping="Wrap" Text="Product:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
+                    <TextBox x:Name="txtProdName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
+                    <Button x:Name="btnClearP" Content="Clear" HorizontalAlignment="Left" Margin="252,15,0,0" VerticalAlignment="Top" Width="80"/>
+                    <DataGrid x:Name="gvProducts1" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="GvProducts1_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="gvSuppliers1" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="gvSupByProd" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0" VerticalAlignment="Top" Width="300">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnDelPS" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="679,110,0,0" VerticalAlignment="Top" Width="34" Click="BtnDelPS_Click"/>
+                    <Button x:Name="btnAddPS" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="679,177,0,0" VerticalAlignment="Top" Width="34" Click="BtnAddPS_Click"/>
+                    <Button x:Name="btnAddNewProd" Content="Add New Product" HorizontalAlignment="Left" Margin="13,279,0,0" VerticalAlignment="Top" Width="105" Click="BtnAddNewProd_Click" />
+                    <Button x:Name="btnEditP" Content="Edit Product" HorizontalAlignment="Left" Margin="141,279,0,0" VerticalAlignment="Top" Width="75" Click="BtnEditP_Click"/>
+                    <Button x:Name="btnDelProd" Content="Delete Product" HorizontalAlignment="Left" Margin="239,279,0,0" VerticalAlignment="Top" Width="109" Click="BtnDelProd_Click"/>
+                    <Button x:Name="btnSaveP" Content="Save" HorizontalAlignment="Left" Margin="141,327,0,0" VerticalAlignment="Top" Width="75" Click="BtnSaveP_Click"/>
+                    <Button x:Name="btnShowPS" Content="Show" HorizontalAlignment="Left" Margin="495,288,0,0" VerticalAlignment="Top" Width="75" Click="BtnShowPS_Click"/>
+                    <TextBlock x:Name="lblSL" HorizontalAlignment="Left" Margin="372,20,0,0" TextWrapping="Wrap" Text="Suppliers On List:" VerticalAlignment="Top" Width="145" Foreground="#FF30E3CA" Grid.ColumnSpan="5"/>
+                    <TextBlock x:Name="lblSNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="280.744,20,0,0" TextWrapping="Wrap" Text="Suppliers Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA" Grid.Column="4"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
+                <Grid Background="#FF2F4858">
+                    <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="40,20,0,0" TextWrapping="Wrap" Text="Supplier Name:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
+                    <TextBox x:Name="txtSupName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
+                    <Button x:Name="btnClearS" Content="Clear" HorizontalAlignment="Left" Margin="252,15,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearS_Click"/>
+                    <DataGrid x:Name="gvSuppliers2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectedCellsChanged="GvSuppliers2_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="gvProducts2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="gvProdBySup" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0" VerticalAlignment="Top" Width="300">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnDelSP" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="679,110,0,0" VerticalAlignment="Top" Width="34" Click="BtnDelSP_Click"/>
+                    <Button x:Name="btnAddSP" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="679,177,0,0" VerticalAlignment="Top" Width="34" Click="BtnAddSP_Click"/>
+                    <Button x:Name="btnNewS" Content="Add New Supplier" HorizontalAlignment="Left" Margin="13,279,0,0" VerticalAlignment="Top" Width="105" Click="BtnNewS_Click"/>
+                    <Button x:Name="btnEditS" Content="Edit Supplier" HorizontalAlignment="Left" Margin="141,279,0,0" VerticalAlignment="Top" Width="75" Click="BtnEditS_Click"/>
+                    <Button x:Name="btnDelSup" Content="Delete Supplier" HorizontalAlignment="Left" Margin="239,279,0,0" VerticalAlignment="Top" Width="109" Click="BtnDelSup_Click"/>
+                    <Button x:Name="btnSaveS" Content="Save" HorizontalAlignment="Left" Margin="141,327,0,0" VerticalAlignment="Top" Width="75" Click="BtnSaveS_Click"/>
+                    <Button x:Name="btnShowSP" Content="Show" HorizontalAlignment="Left" Margin="502,279,0,0" VerticalAlignment="Top" Width="75" Click="BtnShowSP_Click"/>
+                    <TextBlock x:Name="lblPNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Products Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

@@ -85,7 +85,6 @@ namespace Travel_Experts_Services_WPF
             //tabControl1.SelectedIndex = 1;
             //tabControl1.SelectedIndex = 0;
         }
-        
 
         //Ethan Shipley January 28 2019
         //Sets the data source and formatting for the packages datagridview
@@ -276,7 +275,7 @@ namespace Travel_Experts_Services_WPF
             gvSuppliers2.ItemsSource = Supp;
 
             PackagesListDetails(gvProdSup_pkg);
-            
+
         }
 
         //Ethan Shipley
@@ -564,7 +563,7 @@ namespace Travel_Experts_Services_WPF
             gvProdSup_all_pkgs.ItemsSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
             hideunhide(true);
-            //slct_colmn = gvPackages.CurrentCell.RowIndex; 
+            //slct_colmn = gvPackages.CurrentCell.RowIndex;
             //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
             //gvPackages.CurrentCell = gvPackages[3, slct_colmn];
             //UpdateBinding(true);
@@ -1153,7 +1152,7 @@ namespace Travel_Experts_Services_WPF
 
         }
         //SHeila Zhao, with edits by Ethan Shipley
-        //Updates the item sources 
+        //Updates the item sources
         private void UpdateBindingProdSup()
         {
             gvProducts1.ItemsSource = Prodd;
@@ -1171,7 +1170,7 @@ namespace Travel_Experts_Services_WPF
                 //foreach (DataGridRow row in gvProducts1.SelectedItems)
                 //{
                 //object row = gvProducts1.SelectedItem;
-                //selectedProduct = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)), 
+                //selectedProduct = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
                 //                    Convert.ToString(row.GetType().GetProperty("ProdName").GetValue(row, null)));
                 //}
                 //selectedProduct = SelectedProd(gvProducts1);
@@ -1332,7 +1331,7 @@ namespace Travel_Experts_Services_WPF
                 btnSaveP.Visibility = Visibility.Hidden;
                 txtProdName.Text = "";
             }
-            
+
         }
         //Sheila Zhao, with edits by Ethan Shipley
         // Clears the fields for the products page
@@ -1684,17 +1683,30 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
-        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        private void TitleBar_MouseMove(object sender, MouseEventArgs e)
         {
-            //Ethan Shipley
-            // Allow user to move form
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    this.DragMove();
-                }
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void btnMin_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
-
-
-
