@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travel_Experts_Services_WPF"
         mc:Ignorable="d"
-        Title="Travel Experts" Height="461" Width="1052"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" FontSize="16" WindowStyle="None" AllowsTransparency="True">
+        Title="Travel Experts" Height="461" Width="1052"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" FontSize="16" AllowsTransparency="True" WindowStyle="None">
     <Window.Resources>
         <!--<Style TargetType="{x:Type Window}">
             <Setter Property="Background" Value="#2f4858"/>
