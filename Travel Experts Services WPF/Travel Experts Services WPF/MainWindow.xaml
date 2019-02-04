@@ -282,7 +282,7 @@ BorderThickness="0" />
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="gvPackages" ColumnWidth="*" AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="1024" TabIndex="0" SelectionChanged="GvPackages_SelectionChanged" Loaded="GvPackages_Loaded" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="gvPackages" ColumnWidth="*" AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="1024" TabIndex="0" SelectionChanged="GvPackages_SelectionChanged" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Package ID" Binding="{Binding PackageID}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="Package Name" Binding="{Binding PkgName}" Visibility="Visible"/>
