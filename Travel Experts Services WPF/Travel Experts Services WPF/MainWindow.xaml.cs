@@ -27,7 +27,6 @@ namespace Travel_Experts_Services_WPF
         const double PRICE_MAX = 922337203685477.5807;
         // variables
         int pkgid;
-        int check = -1;
         int slct_colmn = -1;
         // display products & suppliers
         List<Products> Prod = null;
@@ -171,14 +170,18 @@ namespace Travel_Experts_Services_WPF
             return Convert.ToInt32(item.GetType().GetProperty("PackageID").GetValue(item, null));
         }
 
+        //Ethan Shipley February 4, 2019
+        // Depending on whether the person is adding or editing a packages the button is changed size and writing
         private void AddEditPkgBtn(string content = "Add")
         {
+            // If user has added a new package
             if (content=="Add")
             {
                 btnAddEditPkg.Content = "Save New Package";
                 btnAddEditPkg.Width = 140;
                 btnAddEditPkg.Margin = new Thickness(10, 355, 894, 0);
             }
+            //if user has edited a package
             else if (content=="Edit")
             {
                 btnAddEditPkg.Content = "Save Edited Package";

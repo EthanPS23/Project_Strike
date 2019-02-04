@@ -123,7 +123,7 @@
                     <Image x:Name="HomeImage" HorizontalAlignment="Left" Visibility="Hidden" Height="345" Margin="252,109,0,0" VerticalAlignment="Top" Width="540" Source="images/pexels-photo-858115.png" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tbiPkgOverview" Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
+            <TabItem x:Name="tbiPkgOverview" Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
                 <Grid Background="#FF2F4858">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -167,7 +167,7 @@
                     <Button x:Name="btnDeletepkg" Content="Delete" HorizontalAlignment="Left" Height="25" Margin="467,179,0,0" VerticalAlignment="Top" Width="110" Click="BtnDeletepkg_Click" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tbiPackages" Header="Packages" TabIndex="3" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
+            <TabItem x:Name="tbiPackages" Header="Packages" TabIndex="3" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
                 <Grid Background="#FF2F4858">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -204,7 +204,7 @@
                     <Button x:Name="btnNewPkgProdSup" Content="New Product" HorizontalAlignment="Left" Margin="584,180,0,0" VerticalAlignment="Top" Width="110" Click="BtnNewPkgProdSup_Click" RenderTransformOrigin="0.5,0.5"/>
                     <Button x:Name="btnDeletePkgProdSup_Click" Content="Delete Product" HorizontalAlignment="Left" Margin="924,180,0,0" VerticalAlignment="Top" Width="110
                         " Click="BtnDeletePkgProdSup_Click"/>
-                    <Button x:Name="btnAddPkgProdSup" Visibility="Visible" Content="Add New" HorizontalAlignment="Left" Margin="584,390,0,0" VerticalAlignment="Top" Width="110" Click="BtnAddPkgProdSup_Click"/>
+                    <Button x:Name="btnAddPkgProdSup" Visibility="Hidden" Content="Add New" HorizontalAlignment="Left" Margin="584,390,0,0" VerticalAlignment="Top" Width="110" Click="BtnAddPkgProdSup_Click"/>
                     <Button x:Name="btnClearPkg" Content="Clear" HorizontalAlignment="Left" Margin="299,355,0,0" VerticalAlignment="Top" Width="70" Click="BtnClearPkg_Click"/>
                     <TextBlock x:Name="lblPkgNameLength" HorizontalAlignment="Left" Height="25" Margin="382,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
                     <TextBlock x:Name="lblPkgDescLength" HorizontalAlignment="Left" Height="25" Margin="382,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
