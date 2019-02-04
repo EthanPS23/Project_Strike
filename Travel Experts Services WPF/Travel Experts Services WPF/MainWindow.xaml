@@ -114,7 +114,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="lblMain" Height="105" Margin="149,10,147,349" TextWrapping="Wrap" Text="Travel Experts Login" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Width="748" TextAlignment="Center" Grid.ColumnSpan="2"/>
                     <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Stretch" Height="45" Margin="357,355,40,0" VerticalAlignment="Top" Click="BtnLogin_Click"/>
-                    <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnReset_Click"/>
+                    <Button x:Name="btnReset" Content="Clear" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnReset_Click"/>
                     <TextBlock x:Name="lblUserName" Height="25" Margin="392,195,40,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top"/>
                     <TextBlock x:Name="lblPassword" Height="25" Margin="392,235,40,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="40,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
@@ -218,7 +218,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="lblProdName2" HorizontalAlignment="Left" Margin="34,20,0,0" TextWrapping="Wrap" Text="Product:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
                     <TextBox x:Name="txtProdName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
-                    <Button x:Name="btnClearP" Content="Clear" HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="80"/>
+                    <Button x:Name="btnClearP" Content="Clear" HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearP_Click"/>
                     <DataGrid x:Name="gvProducts1" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="GvProducts1_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
