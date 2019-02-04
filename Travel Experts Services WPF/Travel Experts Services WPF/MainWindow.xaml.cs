@@ -1359,6 +1359,5 @@ namespace Travel_Experts_Services_WPF
                 dg.ScrollIntoView(dg.Items[nRowIndex]);
             }
         }
-
     }
 }
