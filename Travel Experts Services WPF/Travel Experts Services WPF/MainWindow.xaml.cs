@@ -59,6 +59,10 @@ namespace Travel_Experts_Services_WPF
         // On form load performs these actions
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            tbiPackages.Visibility = Visibility.Hidden;
+            tbiPkgOverview.Visibility = Visibility.Hidden;
+            tbiProducts.Visibility = Visibility.Hidden;
+            tbiSuppliers.Visibility = Visibility.Hidden;
 
             PackagesGrid();
             ProductList();
@@ -1712,9 +1716,17 @@ namespace Travel_Experts_Services_WPF
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             tbiPackages.Visibility = Visibility.Visible;
+            tbiMainPage.Header = "Home";
+            lblMain.Text = "Welcome Travel Experts";
             tbiPkgOverview.Visibility = Visibility.Visible;
             tbiProducts.Visibility = Visibility.Visible;
             tbiSuppliers.Visibility = Visibility.Visible;
+            lblPassword.Visibility = Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Hidden;
+            lblUserName.Visibility = Visibility.Hidden;
+            txtUserName.Visibility = Visibility.Hidden;
+            btnLogin.Visibility = Visibility.Hidden;
+            btnReset.Visibility = Visibility.Hidden;
         }
     }
 }

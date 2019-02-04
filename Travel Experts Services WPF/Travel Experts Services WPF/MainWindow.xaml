@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Travel Experts" Height="537.369" Width="1050"  Loaded="Window_Loaded" Background="#FF2F4858" Visibility="Visible" WindowStyle="None" FontSize="16" AllowsTransparency="True">
     <Window.Resources>
-        <!--<Style TargetType="{x:Type Window}">
+        <Style TargetType="{x:Type Window}">
             <Setter Property="Background" Value="#2f4858"/>
         </Style>
         <Style TargetType="Page">
@@ -19,7 +19,7 @@
         <Style TargetType="ScrollBar">
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-        </Style>-->
+        </Style>
         <Style TargetType="{x:Type TabControl}">
             <Setter Property="Background" Value="#FF2F4858"/>
             <Setter Property="BorderBrush" Value="#FF2F4858"/>
@@ -101,9 +101,9 @@
             <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" TextWrapping="Wrap" Text="Travel Experts" VerticalAlignment="Top" Width="255" Foreground="#FF30E3CA"/>
         </Grid>
         <TabControl x:Name="tabControl1" Margin="0,40,-46,-2" Height="497" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1050">
-            <TabItem x:Name="tbiMainPage" Header="Main Page" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1">
+            <TabItem x:Name="tbiMainPage" Header="Login" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid Background="#FF2F4858">
-                    <TextBlock Height="90" Margin="287,75,297,299" TextWrapping="Wrap" Text="Travel Experts" VerticalAlignment="Center" Width="460" FontSize="72" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="lblMain" Height="105" Margin="156,10,140,349" TextWrapping="Wrap" Text="Travel Experts Login" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Width="748" TextAlignment="Center"/>
                     <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Height="45" Margin="207,355,0,0" VerticalAlignment="Top" Width="140" Click="BtnLogin_Click"/>
                     <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Height="45" Margin="492,355,0,0" VerticalAlignment="Top" Width="140"/>
                     <TextBlock x:Name="lblUserName" HorizontalAlignment="Left" Height="25" Margin="257,195,0,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top" Width="90"/>
