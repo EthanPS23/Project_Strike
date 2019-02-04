@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using TravelExpertsDB;
-
+using Travel_Experts_Services_WPF.Properties;
 
 namespace Travel_Experts_Services_WPF
 {
@@ -59,6 +59,10 @@ namespace Travel_Experts_Services_WPF
         // On form load performs these actions
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            txtUserName.Text = Settings.Default.UserName;
+            txtPassword.Password = Settings.Default.Password;
+            txtUserName.Focus();
+
             tbiPackages.Visibility = Visibility.Hidden;
             tbiPkgOverview.Visibility = Visibility.Hidden;
             tbiProducts.Visibility = Visibility.Hidden;
@@ -88,6 +92,7 @@ namespace Travel_Experts_Services_WPF
             //gvPackages.SelectedItem = 0;
             //tabControl1.SelectedIndex = 1;
             //tabControl1.SelectedIndex = 0;
+
         }
 
         //Ethan Shipley January 28 2019
@@ -320,10 +325,10 @@ namespace Travel_Experts_Services_WPF
         // Confirms that the user wants to delete
         private bool deleteConfirm()
         {
-            var confirm = MessageBox.Show("Do you want to delete the package?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var confirm = MessageBox.Show("Do you want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (confirm == MessageBoxResult.Yes)
             {
-                confirm = MessageBox.Show("Do you really want to delete the package?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                confirm = MessageBox.Show("Do you really want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (confirm == MessageBoxResult.Yes)
                 {
                     return true;
@@ -1687,6 +1692,13 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+        /*=================================================TitleBar & Login======================================================*/
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+
+
         private void TitleBar_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -1715,18 +1727,95 @@ namespace Travel_Experts_Services_WPF
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            tbiPackages.Visibility = Visibility.Visible;
-            tbiMainPage.Header = "Home";
-            lblMain.Text = "Welcome Travel Experts";
-            tbiPkgOverview.Visibility = Visibility.Visible;
-            tbiProducts.Visibility = Visibility.Visible;
-            tbiSuppliers.Visibility = Visibility.Visible;
-            lblPassword.Visibility = Visibility.Hidden;
-            txtPassword.Visibility = Visibility.Hidden;
-            lblUserName.Visibility = Visibility.Hidden;
-            txtUserName.Visibility = Visibility.Hidden;
-            btnLogin.Visibility = Visibility.Hidden;
-            btnReset.Visibility = Visibility.Hidden;
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Please enter user name", "Error", MessageBoxButton.OK);
+                txtUserName.Focus();
+                return;
+            }
+            if (txtPassword.Password == "")
+            {
+                MessageBox.Show("Please enter password", "Error", MessageBoxButton.OK);
+                txtPassword.Focus();
+                return;
+            }
+            try
+            {
+                SqlConnection con = DBConnection.GetConnection();
+                //myConnection = new SqlConnection(cs);
+
+                // SqlCommand myCommand = default(SqlCommand);
+
+                String query = "SELECT Username, Password FROM Users " +
+                                "WHERE Username = @UserName " +
+                                "AND Password = @Password";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                //myCommand = new SqlCommand("SELECT Username, Password FROM Users WHERE Username = @Username");
+
+                SqlParameter uname = new SqlParameter("@UserName", SqlDbType.VarChar);
+                SqlParameter upassword = new SqlParameter("@Password", SqlDbType.VarChar);
+
+                uname.Value = txtUserName.Text;
+                upassword.Value = txtPassword.Password;
+
+                cmd.Parameters.Add(uname);
+                cmd.Parameters.Add(upassword);
+
+                cmd.Connection.Open();
+
+                SqlDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (myReader.Read() == true)
+                {
+                    if (ckbRemember.IsChecked ?? true)
+                    {
+                        Settings.Default.UserName = txtUserName.Text;
+                        Settings.Default.Password = txtPassword.Password;
+                        Settings.Default.Save();
+                    }
+                    tbiPackages.Visibility = Visibility.Visible;
+                    tbiPkgOverview.Visibility = Visibility.Visible;
+                    tbiProducts.Visibility = Visibility.Visible;
+                    tbiSuppliers.Visibility = Visibility.Visible;
+
+                    txtUserName.Visibility = Visibility.Hidden;
+                    txtPassword.Visibility = Visibility.Hidden;
+                    lblUserName.Visibility = Visibility.Hidden;
+                    lblPassword.Visibility = Visibility.Hidden;
+                    btnLogin.Visibility = Visibility.Hidden;
+                    btnReset.Visibility = Visibility.Hidden;
+                    ckbRemember.Visibility = Visibility.Hidden;
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Login Failed... Try again!", "Login Denied", MessageBoxButton.OK);
+
+                    txtUserName.Clear();
+                    txtPassword.Clear();
+                    txtUserName.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK);
+            }
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            txtUserName.Clear();
+            txtPassword.Clear();
+            txtUserName.Focus();
+            Settings.Default.Reset();
+        }
+
+        private void CkbRemember_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.Default.UserName = txtUserName.Text;
+            Settings.Default.Password = txtPassword.Password;
+            Settings.Default.Save();
         }
     }
 }

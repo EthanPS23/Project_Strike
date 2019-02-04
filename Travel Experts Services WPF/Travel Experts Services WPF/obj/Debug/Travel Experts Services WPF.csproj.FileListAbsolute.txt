@@ -16,8 +16,6 @@ C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\Travel Expe
 C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF.csproj.CopyComplete
 C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF.exe
 C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF.pdb
-C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Login.g.cs
-C:\xampp1\htdocs\test\mmm\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Login.baml
 C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\Travel Experts Services WPF\bin\Debug\Travel Experts Services WPF.exe.config
 C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\Travel Experts Services WPF\bin\Debug\Travel Experts Services WPF.exe
 C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\Travel Experts Services WPF\bin\Debug\Travel Experts Services WPF.pdb
