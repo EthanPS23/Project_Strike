@@ -114,7 +114,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="lblMain" Height="105" Margin="149,10,147,349" TextWrapping="Wrap" Text="Travel Experts Login" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Width="748" TextAlignment="Center" Grid.ColumnSpan="2"/>
                     <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Stretch" Height="45" Margin="357,355,40,0" VerticalAlignment="Top" Click="BtnLogin_Click"/>
-                    <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnReset_Click"/>
+                    <Button x:Name="btnReset" Content="Clear" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnReset_Click"/>
                     <TextBlock x:Name="lblUserName" Height="25" Margin="392,195,40,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top"/>
                     <TextBlock x:Name="lblPassword" Height="25" Margin="392,235,40,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="40,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
