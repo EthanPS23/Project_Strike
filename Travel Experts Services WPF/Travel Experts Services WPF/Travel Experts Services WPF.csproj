@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logomakr_1emsat_meitu_2_ZIS_icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -107,9 +108,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="pexels-photo-858115.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\pexels-photo-858115.jpeg" />
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logomakr_1emsat_meitu_2_ZIS_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="logomakr_1emsat_meitu_2_ZIS_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
