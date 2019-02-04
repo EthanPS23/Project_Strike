@@ -109,7 +109,8 @@
                     <TextBlock x:Name="lblUserName" HorizontalAlignment="Left" Height="25" Margin="257,195,0,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top" Width="90"/>
                     <TextBlock x:Name="lblPassword" HorizontalAlignment="Left" Height="25" Margin="257,235,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Width="90"/>
                     <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="382,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="25" Margin="382,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="25" Margin="382,235,0,0" Background="#40514e" VerticalAlignment="Top" Foreground="#FF2F89FC" Width="125"/>
+                    <CheckBox x:Name="ckbRemember" Content="Remember Me" HorizontalAlignment="Left" Margin="257,288,0,0" VerticalAlignment="Top" Foreground="#30e3ca" Checked="CkbRemember_Checked"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tbiPkgOverview" Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
