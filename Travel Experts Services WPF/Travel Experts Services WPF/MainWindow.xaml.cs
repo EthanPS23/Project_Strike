@@ -47,7 +47,7 @@ namespace Travel_Experts_Services_WPF
 
         private void GvPackages_Loaded(object sender, RoutedEventArgs e)
         {
-            check = 1;
+            //check = 1;
 
         }
 
