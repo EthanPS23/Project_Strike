@@ -67,29 +67,24 @@ namespace Travel_Experts_Services_WPF
                 txtUserName.Focus();
             }
 
-            tbiPackages.Visibility = Visibility.Hidden;
-            tbiPkgOverview.Visibility = Visibility.Hidden;
-            tbiProducts.Visibility = Visibility.Hidden;
-            tbiSuppliers.Visibility = Visibility.Hidden;
-
             PackagesGrid();
             ProductList();
             SupplierList();
-            btnSaveP.Visibility = Visibility.Hidden;
-            btnSaveS.Visibility = Visibility.Hidden;
+            //btnSaveP.Visibility = Visibility.Hidden;
+            //btnSaveS.Visibility = Visibility.Hidden;
 
-            gvProdBySup.Visibility = Visibility.Hidden;
-            gvSupByProd.Visibility = Visibility.Hidden;
+            //gvProdBySup.Visibility = Visibility.Hidden;
+            //gvSupByProd.Visibility = Visibility.Hidden;
 
-            btnAddSP.Visibility = Visibility.Hidden;
-            btnDelSP.Visibility = Visibility.Hidden;
-            btnAddPS.Visibility = Visibility.Hidden;
-            btnDelPS.Visibility = Visibility.Hidden;
+            //btnAddSP.Visibility = Visibility.Hidden;
+            //btnDelSP.Visibility = Visibility.Hidden;
+            //btnAddPS.Visibility = Visibility.Hidden;
+            //btnDelPS.Visibility = Visibility.Hidden;
             gvProdSup_pkg.ItemsSource = "";
             gvProdSup_pkg.ItemsSource = ppss;
-            tabControl1.TabIndex = 7;
-            gvProdSup_all_pkgs.Visibility = Visibility.Hidden;
-            btnAddPkgProdSup.Visibility = Visibility.Hidden;
+            //tabControl1.TabIndex = 7;
+            //gvProdSup_all_pkgs.Visibility = Visibility.Hidden;
+            //btnAddPkgProdSup.Visibility = Visibility.Hidden;
         }
 
         //Ethan Shipley January 28 2019
@@ -122,11 +117,13 @@ namespace Travel_Experts_Services_WPF
         // Hides and unhides prod suppplier gridview and button
         private void hideunhide(bool hd)
         {
+            // if hd is true then is shows the following fields
             if (hd)
             {
                 btnAddPkgProdSup.Visibility = Visibility.Visible;
                 gvProdSup_all_pkgs.Visibility = Visibility.Visible;
             }
+            // else if hd is false then the following are hidden
             else
             {
                 btnAddPkgProdSup.Visibility = Visibility.Hidden;
@@ -141,6 +138,7 @@ namespace Travel_Experts_Services_WPF
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 2;
             PackagesReset();
+            slct_colmn = -1;
         }
 
         //Ethan Shipley
@@ -149,17 +147,19 @@ namespace Travel_Experts_Services_WPF
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             txtPackageName.Text = "";
-            dtpPkgStartDate.Text = "";
-            dtpPkgEndDate.Text = "";
+            dtpPkgStartDate.Text = Convert.ToString(DateTime.Now);
+            dtpPkgEndDate.Text = Convert.ToString(DateTime.Now); ;
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgencyCommission.Text = "";
-
+            
+            // clears the data for the gridviews
             gvProdSup_pkg.ItemsSource = "";
             gvProdSup_all_pkgs.ItemsSource = "";
-
+            
+            //hides the button and datagrid
             hideunhide(false);
-            btnAddEditPkg.Content = "Save New Package";
+            AddEditPkgBtn();
         }
 
         //Ethan Shipley
@@ -168,6 +168,22 @@ namespace Travel_Experts_Services_WPF
         {
             object item = dataGridView.SelectedItem;
             return Convert.ToInt32(item.GetType().GetProperty("PackageID").GetValue(item, null));
+        }
+
+        private void AddEditPkgBtn(string content = "Add")
+        {
+            if (content=="Add")
+            {
+                btnAddEditPkg.Content = "Save New Package";
+                btnAddEditPkg.Width = 140;
+                btnAddEditPkg.Margin = new Thickness(10, 355, 894, 0);
+            }
+            else if (content=="Edit")
+            {
+                btnAddEditPkg.Content = "Save Edited Package";
+                btnAddEditPkg.Width = 152;
+                btnAddEditPkg.Margin = new Thickness(10, 355, 882, 0);
+            }
         }
 
         // Ethan Shipley
@@ -181,8 +197,9 @@ namespace Travel_Experts_Services_WPF
             }
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 2;
-            btnAddEditPkg.Content = "Save Edited Package";
+            AddEditPkgBtn("Edit");
 
+            //Grabs the selected package from the packages gridview
             var Packages = from Pkg in PackagesList
                            where Pkg.PackageID == getSelectedCellValue(gvPackages)
                            select new
@@ -195,9 +212,9 @@ namespace Travel_Experts_Services_WPF
                                Pkg.PkgBasePrice,
                                Pkg.PkgAgencyCommission
                            };
+            //once the package has been grabbed the packages page is filled out with all the fields to be changed
             foreach (var item in Packages)
             {
-
                 pkgid = item.PackageID;
                 txtPackageName.Text = item.PkgName;
                 dtpPkgStartDate.Text = item.PkgStartDate.ToString();
@@ -206,6 +223,7 @@ namespace Travel_Experts_Services_WPF
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
                 txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString("c");
             }
+            // updates the packages gridview and selects edited package then hides products_supplier packages gridview and add button
             UpdateBinding(true);
             hideunhide(false);
         }
@@ -217,6 +235,7 @@ namespace Travel_Experts_Services_WPF
         {
             //
             PackagesList = PackagesDB.GetPackages();
+            // if true an existing row is what is needed to be selected in packages gridview
             if (crnt_cell)
             {
                 slct_colmn = gvPackages.SelectedIndex;
@@ -224,6 +243,7 @@ namespace Travel_Experts_Services_WPF
                 gvPackages.SelectedIndex = slct_colmn;
                 gvPackages.Focus();
             }
+            //if false a new row is being created and is what is needed to be slected
             else
             {
                 int indx = gvPackages.Items.Count + 0;
@@ -233,9 +253,11 @@ namespace Travel_Experts_Services_WPF
                 slct_colmn = indx;
             }
 
+            // sets the itemsources for individual datagrids
             gvProdSup_pkg.ItemsSource = ppss;
             gvProdSup_all_pkgs.ItemsSource = psn;
 
+            // sets the itemsources for products and suppliers datagrids
             gvProducts1.ItemsSource = Prodd;
             gvSuppliers2.ItemsSource = Supp;
 
@@ -245,15 +267,18 @@ namespace Travel_Experts_Services_WPF
         // Deletes a selected package
         private void BtnDeletepkg_Click(object sender, RoutedEventArgs e)
         {
+            // Checks to see if a package has been selected, if no package selected then no package will be deleted
             if (gvPackages.SelectedIndex==-1)
             {
                 MessageBox.Show("Cannot delete package. Please select a package to delete.");
                 return;
             }
+            // confirms that the user wants to delete the package
             if (!deleteConfirm())
             {
                 return;
             }
+            //when user has confirmed deletion then the packages is deleted and data is reloaded
             PackagesDB.DeletePackage(pkgid);
             PackagesGrid();
             PackagesReset();
@@ -263,6 +288,7 @@ namespace Travel_Experts_Services_WPF
         // Confirms that the user wants to delete
         private bool deleteConfirm()
         {
+            // Displays message
             var confirm = MessageBox.Show("Do you want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (confirm == MessageBoxResult.Yes)
             {
@@ -570,7 +596,7 @@ namespace Travel_Experts_Services_WPF
                 //Inserts the package into the database and then refreshes the mainpage
                 PackagesDB.InsertPackages(pack);
                 UpdateBinding(false);
-                btnAddEditPkg.Content = "Save Edited Package";
+                AddEditPkgBtn("Edit");
             }
             else if (Convert.ToString(btnAddEditPkg.Content) == "Save Edited Package")
             {

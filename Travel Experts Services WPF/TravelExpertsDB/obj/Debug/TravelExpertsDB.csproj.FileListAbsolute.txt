@@ -10,3 +10,9 @@ C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\T
 C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
 C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
 C:\Users\760980\Downloads\Project_Strike-loginbind\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
+C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\bin\Debug\TravelExpertsDB.dll
+C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\bin\Debug\TravelExpertsDB.pdb
+C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.csprojAssemblyReference.cache
+C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.csproj.CoreCompileInputs.cache
+C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.dll
+C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\TravelExpertsDB\obj\Debug\TravelExpertsDB.pdb
