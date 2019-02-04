@@ -34,6 +34,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>logomakr_1emsat_meitu_2_ZIS_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,6 +109,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="pexels-photo-858115.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logomakr_1emsat_meitu_1_yHV_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logomakr_1emsat_meitu_1_ya1_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logomakr_1emsat_meitu_1_meitu_1_VHV_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logomakr_1emsat_meitu_2_ZIS_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
