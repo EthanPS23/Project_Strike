@@ -10,6 +10,7 @@ namespace TravelExpertsDB
 {
     public class ProductDB
     {
+        // Sheila Zhao
         public static List<Products> GetProducts()
         {
             List<Products> Prod = new List<Products>();
@@ -41,6 +42,9 @@ namespace TravelExpertsDB
             }
             return Prod;
         }
+
+        // Sheila Zhao
+        // Get the supplier by selected product
         public static List<Supplier> GetProductSuppliersByProduct(Products p)
         {
             if (p == null)
@@ -82,6 +86,9 @@ namespace TravelExpertsDB
                 return suppliers;
             }
         }
+
+        // Sheila Zhao
+        // Add new product
         public static void InsertProduct(Products np)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -104,6 +111,8 @@ namespace TravelExpertsDB
             }
         }
 
+        // Sheila Zhao
+        // for edit product
         public static void UpdateProduct(Products newp, Products oldp)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -129,6 +138,9 @@ namespace TravelExpertsDB
                 con.Close();
             }
         }
+
+        // Sheila Zhao
+        // Delete the product
         public static void DeleteProduct(Products dp)
         {
             SqlConnection con = DBConnection.GetConnection();
@@ -156,6 +168,8 @@ namespace TravelExpertsDB
             }
         }
 
+        // Sheila Zhao
+        // Get the product not on the list with selected supplier
         public static List<Products> GetSupProdNotInList(Supplier s)
         {
             List<Products> prooo = new List<Products>();

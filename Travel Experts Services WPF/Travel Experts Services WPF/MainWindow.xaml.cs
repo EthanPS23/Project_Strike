@@ -52,10 +52,11 @@ namespace Travel_Experts_Services_WPF
 
         }
 
-        //Ethan Shipley
+        //Ethan Shipley & Sheila Zhao
         // On form load performs these actions
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // load the username and password if the user checked RememberMe checkbox before
             if (Settings.Default.UserName != "")
             {
                 txtUserName.Text = Settings.Default.UserName;
@@ -282,6 +283,8 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        //Ethan Shipley & Sheila Zhao
+        // Gets the products and suppliers when a package is selected
         private void GvPackages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Packages selectedPackage = null;
@@ -317,7 +320,8 @@ namespace Travel_Experts_Services_WPF
         /*=======================================================================================================================*/
         /*=======================================================================================================================*/
 
-
+        // Sheila Zhao
+        // set the title bar grid to be able to drag move
         private void TitleBar_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -326,11 +330,15 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        // Sheila Zhao
+        // minimize the application when click 
         private void btnMin_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
         }
 
+        // Sheila Zhao
+        // set the title bar grid to be able to drag move
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -339,19 +347,25 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        // Sheila Zhao
+        // exit the application when click
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        // Sheila Zhao
+        //login to the application
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+            // username can not be empty
             if (txtUserName.Text == "")
             {
                 MessageBox.Show("Please enter user name", "Error", MessageBoxButton.OK);
                 txtUserName.Focus();
                 return;
             }
+            // password can not be empty
             if (txtPassword.Password == "")
             {
                 MessageBox.Show("Please enter password", "Error", MessageBoxButton.OK);
@@ -360,33 +374,39 @@ namespace Travel_Experts_Services_WPF
             }
             try
             {
-                SqlConnection con = DBConnection.GetConnection();
-
+                // define connection
+                SqlConnection con = DBConnection.GetConnection();                
+                // define the select query command
                 String query = "SELECT Username, Password FROM Users " +
                                 "WHERE Username = @UserName " +
                                 "AND Password = @Password";
+                
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 SqlParameter uname = new SqlParameter("@UserName", SqlDbType.VarChar);
                 SqlParameter upassword = new SqlParameter("@Password", SqlDbType.VarChar);
-
+                // get the input
                 uname.Value = txtUserName.Text;
                 upassword.Value = txtPassword.Password;
-
+                
                 cmd.Parameters.Add(uname);
                 cmd.Parameters.Add(upassword);
-
+                // open the connection
                 cmd.Connection.Open();
-
+                // execute the query
                 SqlDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                // if the user's username and password is correct, user gets access to other functions
                 if (myReader.Read() == true)
                 {
+                    // if user checks the remember me checkbox, username and password will be saved
                     if (ckbRemember.IsChecked ?? true)
                     {
                         Settings.Default.UserName = txtUserName.Text;
                         Settings.Default.Password = txtPassword.Password;
                         Settings.Default.Save();
                     }
+                    // display other tabs
                     tbiPackages.Visibility = Visibility.Visible;
                     tbiPkgOverview.Visibility = Visibility.Visible;
                     tbiProducts.Visibility = Visibility.Visible;
@@ -394,6 +414,7 @@ namespace Travel_Experts_Services_WPF
                     lblMain.Text = "Welcome Travel Experts";
                     tbiMainPage.Header = "Home";
 
+                    // hide the login part
                     txtUserName.Visibility = Visibility.Hidden;
                     txtPassword.Visibility = Visibility.Hidden;
                     lblUserName.Visibility = Visibility.Hidden;
@@ -419,6 +440,7 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        // save user's infomation when the checkbox is checked
         private void CkbRemember_Checked(object sender, RoutedEventArgs e)
         {
             Settings.Default.UserName = txtUserName.Text;
@@ -426,12 +448,13 @@ namespace Travel_Experts_Services_WPF
             Settings.Default.Save();
         }
 
-
+        // clear user's information when the checkbox is unchecked
         private void CkbRemember_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.Default.Reset();
         }
 
+        // clear textboxes and clear user's information when click reset
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
             txtUserName.Clear();
@@ -713,12 +736,13 @@ namespace Travel_Experts_Services_WPF
             try
             {
                 selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-
+                // display corresponding products with the selected supplier
                 Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                 gvProducts2.ItemsSource = Prod;
 
                 if (selectedSupplier != null)
                 {
+                    // display the product list which the selected supplier doesnt have
                     Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
                     gvProdBySup.ItemsSource = Prod;
                 }
@@ -740,17 +764,20 @@ namespace Travel_Experts_Services_WPF
             {
                 if (ns != null)
                 {
+                    // make sure user cannot create an empty name supplier
                     if (txtSupName.Text == "")
                     {
                         MessageBox.Show("Name can not be empty!");
                     }
                     else
                     {
+                        // create and save the new supplier, update the application
                         ns.SupName = txtSupName.Text;
                         SupplierDB.InsertSupplier(ns);
                         Supp = SupplierDB.GetSuppliers();
                         UpdateBindingProdSup();
 
+                        // make the supplier list to select the last row (new item)
                         ScrollDown(gvSuppliers2);
                     }
 
@@ -760,7 +787,7 @@ namespace Travel_Experts_Services_WPF
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-
+            // clear the textbox
             txtSupName.Text = "";
         }
 
@@ -882,7 +909,7 @@ namespace Travel_Experts_Services_WPF
         }
 
         //Sheila Zhao, with edits by Ethan Shipley February 1 2019
-        // Deletes the product supplier
+        // Deletes the product for selected supplier
         private void BtnDelSP_Click(object sender, RoutedEventArgs e)
         {
             int SupID, ProdID;
@@ -891,6 +918,7 @@ namespace Travel_Experts_Services_WPF
 
             if (gvProducts2.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0)
             {
+                // get the productID and the supplier ID
                 ProdID = Convert.ToInt32(gvProducts2.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts2.SelectedItem, null));
                 SupID = Convert.ToInt32(gvSuppliers2.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers2.SelectedItem, null));
 
@@ -902,19 +930,15 @@ namespace Travel_Experts_Services_WPF
                     del.ProdId = ProdID;
                     del.SupplierId = SupID;
 
-                    // Now sql query to add
-
+                    // delete the product
                     Success = ProdSupplierDB.DeleteSupProduct(del);
 
                     if (Success == 1)
-                    {
-
-                        // Refresh gridview
+                    {                        
                         try
                         {
                             selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-
-                            // Fix me
+                            // update the new list for both on list and not on list
                             Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                             gvProducts2.ItemsSource = Prod;
                             if (selectedSupplier != null)
@@ -939,7 +963,7 @@ namespace Travel_Experts_Services_WPF
         }
 
         //Sheila Zhao, with edits by Ethan Shipley February 1 2019
-        // Creates the product supplier
+        // Adds the product for selected supplier
         private void BtnAddSP_Click(object sender, RoutedEventArgs e)
         {
             int ProdSupID, SupID;
@@ -948,6 +972,7 @@ namespace Travel_Experts_Services_WPF
 
             if ((gvProdBySup.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0) || (gvProducts2.SelectedCells.Count == 0))
             {
+                // get supplierID and the productID
                 SupID = Convert.ToInt32(gvSuppliers2.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers2.SelectedItem, null));
                 ProdSupID = Convert.ToInt32(gvProdBySup.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProdBySup.SelectedItem, null));
 
@@ -958,20 +983,19 @@ namespace Travel_Experts_Services_WPF
 
                     addNew.ProdId = ProdSupID;
                     addNew.SupplierId = SupID;
-
-                    // Now sql query to add
-
+                  
+                    // add selected product to the list
                     Success = ProdSupplierDB.InsertSupProduct(addNew);
 
                     if (Success == 1)
                     {
 
-                        // Refresh gridview
+                        // refresh gridview
                         try
                         {
                             selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
 
-                            // Fix me
+                            // update both grid view
                             Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                             gvProducts2.ItemsSource = Prod;
                             if (selectedSupplier != null)
@@ -1065,6 +1089,7 @@ namespace Travel_Experts_Services_WPF
                 gvSuppliers1.ItemsSource = Sup;
                 if (selectedProduct != null)
                 {
+                    // also get the suppliers not on list with selected product
                     Sup = SupplierDB.GetProSupNotInList(selectedProduct);
                     gvSupByProd.ItemsSource = Sup;
                 }
@@ -1092,6 +1117,7 @@ namespace Travel_Experts_Services_WPF
                     }
                     else
                     {
+                        // add the new product and save it
                         np.ProdName = txtProdName.Text;
                         ProductDB.InsertProduct(np);
                         Prodd = ProductDB.GetProducts();
@@ -1109,7 +1135,7 @@ namespace Travel_Experts_Services_WPF
             txtProdName.Text = "";
         }
 
-        // Sheila Zhao, with edits by Ethan SHipley
+        // Sheila Zhao, with edits by Ethan Shipley
         // Allows editing of the products page
         private void BtnEditP_Click(object sender, RoutedEventArgs e)
         {
@@ -1148,6 +1174,7 @@ namespace Travel_Experts_Services_WPF
                 newp = GetEditProduct(oldp);
                 try
                 {
+                    // save the new name to the database
                     newp.ProdName = txtProdName.Text;
                     ProductDB.UpdateProduct(newp, oldp);
                     Prodd = ProductDB.GetProducts();
@@ -1227,7 +1254,7 @@ namespace Travel_Experts_Services_WPF
         }
 
         // Sheila Zhao, with edits by Ethan Shipley
-        // Deletes the product supplier
+        // Deletes the supplier for the selected product
         private void BtnDelPS_Click(object sender, RoutedEventArgs e)
         {
             int ProdSupID, ProdID;
@@ -1236,6 +1263,7 @@ namespace Travel_Experts_Services_WPF
             
             if (gvProducts1.SelectedCells.Count > 0 && gvSuppliers1.SelectedCells.Count > 0)
             {
+                // get the productID and supplierID
                 ProdID = Convert.ToInt32(gvProducts1.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts1.SelectedItem,null));
                 ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers1.SelectedItem, null));
 
@@ -1247,8 +1275,7 @@ namespace Travel_Experts_Services_WPF
                     del.ProdId = ProdID;
                     del.SupplierId = ProdSupID;
 
-                    // Now sql query to add
-
+                    // delete the supplier
                     Success = ProdSupplierDB.DeleteProdSupplier(del);
 
                     if (Success == 1)
@@ -1259,7 +1286,7 @@ namespace Travel_Experts_Services_WPF
                         {
                             selectedProduct = (Products)GetSelected(gvProducts1);
 
-                            // Fix me
+                            // update both not on list and on list gridview
                             Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
                             gvSuppliers1.ItemsSource = Sup;
                             if (selectedProduct != null)
@@ -1296,6 +1323,7 @@ namespace Travel_Experts_Services_WPF
             Products selectedProduct = null;
             if ((gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0) || (gvSuppliers1.SelectedCells.Count == 0 && gvSupByProd.SelectedCells.Count > 0))
             {
+                // get the productID and supplierID
                 ProdID = Convert.ToInt32(gvProducts1.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts1.SelectedItem, null));
                 SupID = Convert.ToInt32(gvSupByProd.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSupByProd.SelectedItem, null));
 
@@ -1306,9 +1334,8 @@ namespace Travel_Experts_Services_WPF
 
                     addNew.ProdId = ProdID;
                     addNew.SupplierId = SupID;
-
-                    // Now sql query to add
-
+                    
+                    // Insert the supplier to the selected product
                     Success = ProdSupplierDB.InsertProdSupplier(addNew);
 
                     if (Success == 1)

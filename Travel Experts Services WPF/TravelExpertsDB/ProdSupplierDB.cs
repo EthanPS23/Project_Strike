@@ -10,7 +10,7 @@ namespace TravelExpertsDB
 {
     public class ProdSupplierDB
     {      
-
+        // Sheila Zhao        
         public static ProdSuppliers GetProductSupplierById(int pId, int sId)
         {
             ProdSuppliers ps = new ProdSuppliers();
@@ -45,6 +45,8 @@ namespace TravelExpertsDB
             return ps;
         }        
 
+        // Sheila Zhao
+        // Insert a new product supplier
         public static int InsertProdSupplier(ProdSuppliers newps)
         {
             int InsertPS = 0;
@@ -72,6 +74,8 @@ namespace TravelExpertsDB
             return InsertPS;
         }
 
+        // Sheila Zhao
+        // delete the product supplier
         public static int DeleteProdSupplier(ProdSuppliers delps)
         {
             int DeletePS = 0;
@@ -100,6 +104,8 @@ namespace TravelExpertsDB
             return DeletePS;
         }
 
+        // Sheila Zhao
+        // insert the supplier product
         public static int InsertSupProduct(ProdSuppliers newsp)
         {
             int InsertSP = 0;
@@ -128,6 +134,8 @@ namespace TravelExpertsDB
             return InsertSP;
         }
 
+        // Sheila Zhao
+        // Delete the supplier product
         public static int DeleteSupProduct(ProdSuppliers delsp)
         {
             int DeleteSP = 0;
