@@ -45,12 +45,6 @@ namespace Travel_Experts_Services_WPF
             InitializeComponent();
         }
 
-        private void GvPackages_Loaded(object sender, RoutedEventArgs e)
-        {
-            check = 1;
-
-        }
-
         //Ethan Shipley & Sheila Zhao
         // On form load performs these actions
         private void Window_Loaded(object sender, RoutedEventArgs e)
