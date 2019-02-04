@@ -1708,5 +1708,13 @@ namespace Travel_Experts_Services_WPF
         {
             Application.Current.Shutdown();
         }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            tbiPackages.Visibility = Visibility.Visible;
+            tbiPkgOverview.Visibility = Visibility.Visible;
+            tbiProducts.Visibility = Visibility.Visible;
+            tbiSuppliers.Visibility = Visibility.Visible;
+        }
     }
 }
