@@ -42,12 +42,10 @@ C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Trav
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\bin\Debug\TravelExpertsDB.dll
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\bin\Debug\TravelExpertsDB.pdb
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF.csprojAssemblyReference.cache
-C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Login.g.cs
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\MainWindow.g.cs
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\App.g.cs
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF_MarkupCompile.cache
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF_MarkupCompile.lref
-C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Login.baml
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\MainWindow.baml
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel Experts Services WPF.g.resources
 C:\Users\538003\Documents\GitHub\Project_Strike\Travel Experts Services WPF\Travel Experts Services WPF\obj\Debug\Travel_Experts_Services_WPF.Properties.Resources.resources

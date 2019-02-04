@@ -106,5 +106,14 @@
   <ItemGroup>
     <Resource Include="pexels-photo-858115.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pexels-photo-858115.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pexels-photo-858115.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\LogoMakr_1emSAT_meitu_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

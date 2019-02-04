@@ -102,7 +102,8 @@
             </Grid.Background>
             <Button x:Name="btnExit" Content="X" HorizontalAlignment="Left" Margin="1015,5,0,0" VerticalAlignment="Top" Width="30" Height="30" FontSize="20" Click="btnExit_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314"/>
             <Button x:Name="btnMin" Content="________" HorizontalAlignment="Left" Margin="980,5,0,0" VerticalAlignment="Top" Width="30" Height="30" FontSize="11" Click="btnMin_Click" IsCancel="True" RenderTransformOrigin="-0.381,0.314" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" TextWrapping="Wrap" Text="Travel Experts" VerticalAlignment="Top" Width="255" Foreground="#FF30E3CA"/>
+            <TextBlock HorizontalAlignment="Left" Height="20" Margin="40,10,0,0" TextWrapping="Wrap" Text="Travel Experts" VerticalAlignment="Top" Width="255" Foreground="#FF30E3CA"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="5,10,0,0" VerticalAlignment="Top" Width="30" Source="images/LogoMakr_1emSAT_meitu_1.png"/>
         </Grid>
         <TabControl x:Name="tabControl1" Margin="0,40,-46,-2" Height="497" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1050">
             <TabItem x:Name="tbiMainPage" Header="Login" TabIndex="7" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -113,12 +114,13 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="lblMain" Height="105" Margin="149,10,147,349" TextWrapping="Wrap" Text="Travel Experts Login" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Width="748" TextAlignment="Center" Grid.ColumnSpan="2"/>
                     <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Stretch" Height="45" Margin="357,355,40,0" VerticalAlignment="Top" Click="BtnLogin_Click"/>
-                    <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnReset_Click"/>
                     <TextBlock x:Name="lblUserName" Height="25" Margin="392,195,40,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top"/>
                     <TextBlock x:Name="lblPassword" Height="25" Margin="392,235,40,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="40,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="25" Margin="40,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <CheckBox x:Name="ckbRemember" Content="Remember Me" HorizontalAlignment="Left" Margin="257,288,0,0" VerticalAlignment="Top" Foreground="#30e3ca" Checked="CkbRemember_Checked"/>
+                    <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="25" Margin="40,235,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
+                    <CheckBox x:Name="ckbRemember" Content="Remember Me" Background="#FF40514E" Margin="460,280,458,0" VerticalAlignment="Top" Foreground="#30e3ca" Checked="CkbRemember_Checked" Grid.ColumnSpan="2" BorderBrush="#FF30E3CA"/>
+                    <Image x:Name="HomeImage" HorizontalAlignment="Left" Visibility="Hidden" Height="345" Margin="252,109,0,0" VerticalAlignment="Top" Width="540" Source="images/pexels-photo-858115.png" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tbiPkgOverview" Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
