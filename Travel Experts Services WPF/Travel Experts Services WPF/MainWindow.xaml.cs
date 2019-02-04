@@ -64,21 +64,8 @@ namespace Travel_Experts_Services_WPF
             PackagesGrid();
             ProductList();
             SupplierList();
-            //btnSaveP.Visibility = Visibility.Hidden;
-            //btnSaveS.Visibility = Visibility.Hidden;
-
-            //gvProdBySup.Visibility = Visibility.Hidden;
-            //gvSupByProd.Visibility = Visibility.Hidden;
-
-            //btnAddSP.Visibility = Visibility.Hidden;
-            //btnDelSP.Visibility = Visibility.Hidden;
-            //btnAddPS.Visibility = Visibility.Hidden;
-            //btnDelPS.Visibility = Visibility.Hidden;
             gvProdSup_pkg.ItemsSource = "";
             gvProdSup_pkg.ItemsSource = ppss;
-            //tabControl1.TabIndex = 7;
-            //gvProdSup_all_pkgs.Visibility = Visibility.Hidden;
-            //btnAddPkgProdSup.Visibility = Visibility.Hidden;
         }
 
         //Ethan Shipley January 28 2019

@@ -72,7 +72,7 @@
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="Foreground" Value="#30e3ca"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
         </Style>
         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Background" Value="#FF40514E"/>
