@@ -323,12 +323,12 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="lblPkgName" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" TextWrapping="Wrap" Text="Package Name:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
-                    <TextBox x:Name="txtPackageName" HorizontalAlignment="Left" Height="24" Margin="181,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" TextChanged="TxtPackageName_TextChanged"/>
+                    <TextBox x:Name="txtPackageName" MaxLength="50" HorizontalAlignment="Left" Height="24" Margin="181,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" TextChanged="TxtPackageName_TextChanged"/>
                     <TextBlock x:Name="lblPkgStartDate" HorizontalAlignment="Left" Height="25" Margin="10,59,0,0" TextWrapping="Wrap" Text="Package Start Date:" VerticalAlignment="Top" Width="107" Foreground="#FF30E3CA"/>
                     <DatePicker x:Name="dtpPkgStartDate" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="50" Margin="174,55,0,0" VerticalAlignment="Top" Width="226" Background="{x:Null}" Foreground="#FF2F89FC" BorderBrush="{x:Null}"/>
                     <TextBlock x:Name="lblPkgEndDate" HorizontalAlignment="Left" Height="25" Margin="10,114,0,0" TextWrapping="Wrap" Text="Package End Date:" VerticalAlignment="Top" Width="107" Foreground="#FF30E3CA"/>
                     <DatePicker x:Name="dtpPkgEndDate" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="50" Margin="174,110,0,0" VerticalAlignment="Top" Width="226" Background="{x:Null}" Foreground="#FF2F89FC" BorderBrush="{x:Null}"/>
-                    <TextBox x:Name="txtPkgDesc" HorizontalAlignment="Left" Height="72" Margin="181,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" TextChanged="TxtPkgDesc_TextChanged"/>
+                    <TextBox x:Name="txtPkgDesc" MaxLength="50" HorizontalAlignment="Left" Height="72" Margin="181,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}" TextChanged="TxtPkgDesc_TextChanged"/>
                     <TextBlock x:Name="lblPkgName_Copy1" HorizontalAlignment="Left" Height="25" Margin="10,164,0,0" TextWrapping="Wrap" Text="Package Description:" VerticalAlignment="Top" Width="117" Foreground="#FF30E3CA"/>
                     <TextBlock x:Name="lblPkgBasePrice" HorizontalAlignment="Left"  Margin="10,259,0,0" TextWrapping="Wrap" Text="Package Base Price:" VerticalAlignment="Top" Width="117" Foreground="#FF30E3CA"/>
                     <TextBox x:Name="txtPkgBasePrice" HorizontalAlignment="Left" Height="24" Margin="181,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
@@ -367,7 +367,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="lblProdName2" HorizontalAlignment="Left" Margin="34,20,0,0" TextWrapping="Wrap" Text="Product:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
-                    <TextBox x:Name="txtProdName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="txtProdName" MaxLength="50" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnClearP" Content="Clear" HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearP_Click"/>
                     <DataGrid x:Name="gvProducts1" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="GvProducts1_SelectionChanged">
                         <DataGrid.Columns>
@@ -401,7 +401,7 @@
             <TabItem x:Name="tbiSuppliers" Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
                 <Grid Background="#FF2F4858" Margin="0,0,0,-3">
                     <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="34,20,0,0" TextWrapping="Wrap" Text="Supplier:" VerticalAlignment="Top" Width="123" Foreground="#FF30E3CA"/>
-                    <TextBox x:Name="txtSupName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="txtSupName" MaxLength="50" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnClearS" Content="Clear" HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearS_Click"/>
                     <DataGrid x:Name="gvSuppliers2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectedCellsChanged="GvSuppliers2_SelectedCellsChanged">
                         <DataGrid.Columns>
