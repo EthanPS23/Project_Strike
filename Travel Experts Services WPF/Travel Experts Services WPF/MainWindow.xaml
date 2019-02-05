@@ -88,8 +88,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Thumb}">
-                                <Border x:Name="border"  Background="#D6D4D4" BorderBrush="{TemplateBinding BorderBrush}"
-BorderThickness="0" />
+                                <Border x:Name="border"  Background="#D6D4D4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" />
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" TargetName="border" Value="#6A6A6A"></Setter>
@@ -107,10 +106,8 @@ BorderThickness="0" />
                             <RowDefinition Height="*"/>
                             <RowDefinition MaxHeight="18"/>
                         </Grid.RowDefinitions>
-                        <Border  Grid.RowSpan="3" CornerRadius="2"  Background="Transparent"  BorderThickness="0"
-	  BorderBrush="#FF2F89FC" />
-                        <RepeatButton  Grid.Row="0" Style="{StaticResource ScrollBarLineButton}"
-      Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
+                        <Border  Grid.RowSpan="3" CornerRadius="2"  Background="Transparent"  BorderThickness="0" BorderBrush="#FF2F89FC" />
+                        <RepeatButton  Grid.Row="0" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
                         <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
                             <Track.DecreaseRepeatButton>
                                 <RepeatButton Style="{StaticResource ScrollBarPageButton}"/>
@@ -165,7 +162,7 @@ BorderThickness="0" />
                 </Style>
             </Style.Resources>
         </Style>
-        
+
         <Style TargetType="DatePicker">
             <Setter Property="BorderBrush" Value="#FF40514E"/>
         </Style>
@@ -225,7 +222,7 @@ BorderThickness="0" />
             <Setter Property="Background" Value="#FF40514E"/>
             <Setter Property="Foreground" Value="#30e3ca"/>
             <Setter Property="BorderBrush" Value="#FF2F89FC"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
         </Style>
         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Background" Value="#FF40514E"/>
@@ -265,7 +262,7 @@ BorderThickness="0" />
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="lblMain" Height="105" Margin="149,10,147,349" TextWrapping="Wrap" Text="Travel Experts Login" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Width="748" TextAlignment="Center" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="lblMain" Height="105" Margin="149,1,147,358" TextWrapping="Wrap" Text="Travel Experts Login" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Width="748" TextAlignment="Center" Grid.ColumnSpan="2"/>
                     <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Stretch" Height="45" Margin="357,355,40,0" VerticalAlignment="Top" Click="BtnLogin_Click"/>
                     <Button x:Name="btnReset" Content="Clear" HorizontalAlignment="Stretch" Height="45" Margin="40,355,357,0" VerticalAlignment="Top" Grid.Column="1" Click="BtnReset_Click"/>
                     <TextBlock x:Name="lblUserName" Height="25" Margin="392,195,40,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top"/>
@@ -273,7 +270,7 @@ BorderThickness="0" />
                     <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="40,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
                     <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="25" Margin="40,235,0,0" VerticalAlignment="Top" Width="125" Grid.Column="1" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
                     <CheckBox x:Name="ckbRemember" Content="Remember Me" Background="#FF40514E" Margin="460,280,458,0" VerticalAlignment="Top" Foreground="#30e3ca" Checked="CkbRemember_Checked" Grid.ColumnSpan="2" BorderBrush="#FF30E3CA" Unchecked="CkbRemember_Unchecked"/>
-                    <Image x:Name="HomeImage" HorizontalAlignment="Left" Visibility="Hidden" Height="345" Margin="252,109,0,0" VerticalAlignment="Top" Width="540" Source="images/pexels-photo-858115.png" Grid.ColumnSpan="2"/>
+                    <Image x:Name="HomeImage" HorizontalAlignment="Left" Visibility="Hidden" Height="345" Margin="252,100,0,0" VerticalAlignment="Top" Width="540" Source="images/pexels-photo-858115.png" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tbiPkgOverview" Header="Packages Overview" TabIndex="2" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
@@ -372,19 +369,19 @@ BorderThickness="0" />
                     <TextBlock x:Name="lblProdName2" HorizontalAlignment="Left" Margin="34,20,0,0" TextWrapping="Wrap" Text="Product:" VerticalAlignment="Top" Width="87" Foreground="#FF30E3CA"/>
                     <TextBox x:Name="txtProdName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnClearP" Content="Clear" HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearP_Click"/>
-                    <DataGrid x:Name="gvProducts1" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="GvProducts1_SelectionChanged">
+                    <DataGrid x:Name="gvProducts1" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="GvProducts1_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="gvSuppliers1" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
+                    <DataGrid x:Name="gvSuppliers1" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="gvSupByProd" Visibility="Hidden" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0" VerticalAlignment="Top" Width="300">
+                    <DataGrid x:Name="gvSupByProd" Visibility="Hidden" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0" VerticalAlignment="Top" Width="300">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
@@ -406,13 +403,13 @@ BorderThickness="0" />
                     <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="34,20,0,0" TextWrapping="Wrap" Text="Supplier:" VerticalAlignment="Top" Width="123" Foreground="#FF30E3CA"/>
                     <TextBox x:Name="txtSupName" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnClearS" Content="Clear" HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="80" Click="BtnClearS_Click"/>
-                    <DataGrid x:Name="gvSuppliers2" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectedCellsChanged="GvSuppliers2_SelectedCellsChanged">
+                    <DataGrid x:Name="gvSuppliers2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="34,51,0,0" VerticalAlignment="Top" Width="300" SelectedCellsChanged="GvSuppliers2_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="gvProducts2" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
+                    <DataGrid x:Name="gvProducts2" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="372,51,0,0" VerticalAlignment="Top" Width="300">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>

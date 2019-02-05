@@ -281,10 +281,11 @@ namespace Travel_Experts_Services_WPF
         // Confirms that the user wants to delete
         private bool deleteConfirm()
         {
-            // Displays message
+            // Displays message asking user if they are sure that they want to delete the item
             var confirm = MessageBox.Show("Do you want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (confirm == MessageBoxResult.Yes)
             {
+                // confirms again that the user wants to perform the deletion
                 confirm = MessageBox.Show("Do you really want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (confirm == MessageBoxResult.Yes)
                 {
