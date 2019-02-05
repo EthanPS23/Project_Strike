@@ -63,7 +63,7 @@
                     <asp:TextBox CssClass="form-control" ID="txtHomePhone" runat="server"></asp:TextBox>
                     <br />
                     <asp:Label CssClass="regFields" ID="lblBusinessPhone" runat="server" Text="Business Phone"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="txtBusinessPhone" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" ID="txtBusinessPhone" runat="server" OnTextChanged="txtBusinessPhone_TextChanged"></asp:TextBox>
                     <br />
                     <asp:Label CssClass="regFields" ID="lblFax" runat="server" Text="Fax Number"></asp:Label>
                     <asp:TextBox CssClass="form-control" ID="txtFax" runat="server"></asp:TextBox>
