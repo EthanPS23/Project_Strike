@@ -372,7 +372,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tbiProducts" Header="Products" TabIndex="4" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
+            <TabItem x:Name="tbiProducts" Header="Products" TabIndex="4" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
                 <Grid Background="#FF2F4858" Margin="0,0,0,-1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -409,7 +409,7 @@
                     <TextBlock x:Name="lblSNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Suppliers Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tbiSuppliers" Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
+            <TabItem x:Name="tbiSuppliers" Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
                 <Grid Background="#FF2F4858" Margin="0,0,0,-3">
                     <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="34,20,0,0" TextWrapping="Wrap" Text="Supplier:" VerticalAlignment="Top" Width="123" Foreground="#FF30E3CA"/>
                     <TextBox x:Name="txtSupName" MaxLength="50" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
