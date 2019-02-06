@@ -19,9 +19,6 @@ using Travel_Experts_Services_WPF.Properties;
 
 namespace Travel_Experts_Services_WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         // create constants
@@ -30,7 +27,6 @@ namespace Travel_Experts_Services_WPF
         const double PRICE_MAX = 922337203685477.5807;
         // variables
         int pkgid;
-        int check = -1;
         int slct_colmn = -1;
         // display products & suppliers
         List<Products> Prod = null;
@@ -49,76 +45,44 @@ namespace Travel_Experts_Services_WPF
             InitializeComponent();
         }
 
+
         private void GvPackages_Loaded(object sender, RoutedEventArgs e)
         {
-            check = 1;
+            //check = 1;
 
         }
 
-        //Ethan Shipley
+
+        //Ethan Shipley & Sheila Zhao
         // On form load performs these actions
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            txtUserName.Text = Settings.Default.UserName;
-            txtPassword.Password = Settings.Default.Password;
-            txtUserName.Focus();
-
-            tbiPackages.Visibility = Visibility.Hidden;
-            tbiPkgOverview.Visibility = Visibility.Hidden;
-            tbiProducts.Visibility = Visibility.Hidden;
-            tbiSuppliers.Visibility = Visibility.Hidden;
-
+            // load the username and password if the user checked RememberMe checkbox before
+            if (Settings.Default.UserName != "")
+            {
+                txtUserName.Text = Settings.Default.UserName;
+                txtPassword.Password = Settings.Default.Password;
+                ckbRemember.IsChecked=true;
+            }
+            else
+            {
+                txtUserName.Focus();
+            }
 
             PackagesGrid();
             ProductList();
             SupplierList();
-
-            //gvProducts.Columns[0].Visibility = Visibility.Hidden;
-            //gvSuppliers.Columns[0].Visibility = Visibility.Hidden;
-            btnSaveP.Visibility = Visibility.Hidden;
-            btnSaveS.Visibility = Visibility.Hidden;
-
-            gvProdBySup.Visibility = Visibility.Hidden;
-            gvSupByProd.Visibility = Visibility.Hidden;
-
-            btnAddSP.Visibility = Visibility.Hidden;
-            btnDelSP.Visibility = Visibility.Hidden;
-            btnAddPS.Visibility = Visibility.Hidden;
-            btnDelPS.Visibility = Visibility.Hidden;
             gvProdSup_pkg.ItemsSource = "";
             gvProdSup_pkg.ItemsSource = ppss;
-            tabControl1.TabIndex = 7;
-            gvProdSup_all_pkgs.Visibility = Visibility.Hidden;
-            btnAddPkgProdSup.Visibility = Visibility.Hidden;
-            //gvPackages.SelectedItem = 0;
-            //tabControl1.SelectedIndex = 1;
-            //tabControl1.SelectedIndex = 0;
-            
         }
 
         //Ethan Shipley January 28 2019
         //Sets the data source and formatting for the packages datagridview
         private void PackagesGrid()
         {
-            //if (check==1)
-            //{
-
-            //}
             PackagesList = PackagesDB.GetPackages();
             gvPackages.ItemsSource = PackagesList;
-            //gvPackages.Columns[0].Visibility = Visibility.Hidden;
-            ////gvPackages.Columns[1].Header = "Package Name";
-            ////gvPackages.Columns[2].Header = "Package Start Date";
-            ////gvPackages.Columns[3].Header = "Package End Date";
-            ////gvPackages.Columns[4].Header = "Package Description";
-            ////gvPackages.Columns[5].Header = "Package Base Price";
-            ////gvPackages.Columns[5].DefaultCellStyle.Format = "C";
-            //gvPackages.Columns[6].Header = "Package Agency Commision";
-            ////gvPackages.Columns[6].DefaultCellStyle.Format = "C";
-            //gvPackages.CurrentItem = gvPackages.Items[0];
-            //gvPackages.SelectedIndex = 1;
             gvPackages.Focus();
-            //gvPackages.CurrentCell = gvPackages[1, 0];
 
         }
 
@@ -127,13 +91,6 @@ namespace Travel_Experts_Services_WPF
         private void ProductsGrid()
         {
             gvProducts.ItemsSource = ppss;
-            //gvProducts.Columns[0].Visibility = Visibility.Hidden;
-            //gvProducts.Columns[1].Visibility = Visibility.Hidden;
-            //gvProducts.Columns[2].Header = "Product ID";
-            //gvProducts.Columns[3].Visibility = Visibility.Hidden;
-            //gvProducts.Columns[4].Visibility = Visibility.Hidden;
-            //gvProducts.Columns[5].Header = "Product Name";
-            //gvProducts.Columns[6].Visibility = Visibility.Hidden;
         }
 
         //Ethan SHipley January 28 2019
@@ -141,13 +98,6 @@ namespace Travel_Experts_Services_WPF
         private void SuppliersGrid()
         {
             gvSuppliers.ItemsSource = ppss;
-            //gvSuppliers.Columns[0].Visibility = Visibility.Hidden;
-            //gvSuppliers.Columns[1].Visibility = Visibility.Hidden;
-            //gvSuppliers.Columns[2].Visibility = Visibility.Hidden;
-            //gvSuppliers.Columns[3].Header = "Supplier ID";
-            //gvSuppliers.Columns[4].Visibility = Visibility.Hidden;
-            //gvSuppliers.Columns[5].Visibility = Visibility.Hidden;
-            //gvSuppliers.Columns[6].Header = "Supplier Name";
         }
 
 
@@ -156,11 +106,13 @@ namespace Travel_Experts_Services_WPF
         // Hides and unhides prod suppplier gridview and button
         private void hideunhide(bool hd)
         {
+            // if hd is true then is shows the following fields
             if (hd)
             {
                 btnAddPkgProdSup.Visibility = Visibility.Visible;
                 gvProdSup_all_pkgs.Visibility = Visibility.Visible;
             }
+            // else if hd is false then the following are hidden
             else
             {
                 btnAddPkgProdSup.Visibility = Visibility.Hidden;
@@ -175,6 +127,7 @@ namespace Travel_Experts_Services_WPF
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 2;
             PackagesReset();
+            slct_colmn = -1;
         }
 
         //Ethan Shipley
@@ -183,17 +136,19 @@ namespace Travel_Experts_Services_WPF
         {
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             txtPackageName.Text = "";
-            dtpPkgStartDate.Text = "";
-            dtpPkgEndDate.Text = "";
+            dtpPkgStartDate.Text = Convert.ToString(DateTime.Now);
+            dtpPkgEndDate.Text = Convert.ToString(DateTime.Now); ;
             txtPkgDesc.Text = "";
             txtPkgBasePrice.Text = "";
             txtPkgAgencyCommission.Text = "";
-
+            
+            // clears the data for the gridviews
             gvProdSup_pkg.ItemsSource = "";
             gvProdSup_all_pkgs.ItemsSource = "";
-
+            
+            //hides the button and datagrid
             hideunhide(false);
-            btnAddEditPkg.Content = "Save New Package";
+            AddEditPkgBtn();
         }
 
         //Ethan Shipley
@@ -202,6 +157,26 @@ namespace Travel_Experts_Services_WPF
         {
             object item = dataGridView.SelectedItem;
             return Convert.ToInt32(item.GetType().GetProperty("PackageID").GetValue(item, null));
+        }
+
+        //Ethan Shipley February 4, 2019
+        // Depending on whether the person is adding or editing a packages the button is changed size and writing
+        private void AddEditPkgBtn(string content = "Add")
+        {
+            // If user has added a new package
+            if (content=="Add")
+            {
+                btnAddEditPkg.Content = "Save New Package";
+                btnAddEditPkg.Width = 140;
+                btnAddEditPkg.Margin = new Thickness(10, 355, 894, 0);
+            }
+            //if user has edited a package
+            else if (content=="Edit")
+            {
+                btnAddEditPkg.Content = "Save Edited Package";
+                btnAddEditPkg.Width = 152;
+                btnAddEditPkg.Margin = new Thickness(10, 355, 882, 0);
+            }
         }
 
         // Ethan Shipley
@@ -213,13 +188,11 @@ namespace Travel_Experts_Services_WPF
                 MessageBox.Show("Please select a package.");
                 return;
             }
-            //MessageBox.Show(Convert.ToString(gvPackages.SelectedIndex));
             // changes the text for the add/edit button on the packages pages and changes to the packages page
             tabControl1.SelectedIndex = 2;
-            //tabControl1.SelectedIndex = 0;
-            //tabControl1.SelectedIndex = 1;
-            btnAddEditPkg.Content = "Save Edited Package";
+            AddEditPkgBtn("Edit");
 
+            //Grabs the selected package from the packages gridview
             var Packages = from Pkg in PackagesList
                            where Pkg.PackageID == getSelectedCellValue(gvPackages)
                            select new
@@ -232,9 +205,9 @@ namespace Travel_Experts_Services_WPF
                                Pkg.PkgBasePrice,
                                Pkg.PkgAgencyCommission
                            };
+            //once the package has been grabbed the packages page is filled out with all the fields to be changed
             foreach (var item in Packages)
             {
-
                 pkgid = item.PackageID;
                 txtPackageName.Text = item.PkgName;
                 dtpPkgStartDate.Text = item.PkgStartDate.ToString();
@@ -243,8 +216,8 @@ namespace Travel_Experts_Services_WPF
                 txtPkgBasePrice.Text = item.PkgBasePrice.ToString("c");
                 txtPkgAgencyCommission.Text = item.PkgAgencyCommission.ToString("c");
             }
+            // updates the packages gridview and selects edited package then hides products_supplier packages gridview and add button
             UpdateBinding(true);
-            //PackagesListDetails(gvProdSup_pkg);
             hideunhide(false);
         }
 
@@ -255,68 +228,50 @@ namespace Travel_Experts_Services_WPF
         {
             //
             PackagesList = PackagesDB.GetPackages();
+            // if true an existing row is what is needed to be selected in packages gridview
             if (crnt_cell)
             {
-                //slct_colmn = gvPackages.CurrentCell.RowIndex;
                 slct_colmn = gvPackages.SelectedIndex;
-                //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
                 PackagesGrid();
-                //gvPackages.CurrentCell = gvPackages[3, slct_colmn];
                 gvPackages.SelectedIndex = slct_colmn;
                 gvPackages.Focus();
             }
+            //if false a new row is being created and is what is needed to be slected
             else
             {
                 int indx = gvPackages.Items.Count + 0;
                 PackagesGrid();
-                //gvPackages.Rows[indx].Selected = true;
-                //gvPackages.CurrentCell = gvPackages[1, indx];
                 gvPackages.SelectedIndex = indx;
                 gvPackages.Focus();
                 slct_colmn = indx;
-                //MessageBox.Show(Convert.ToString(gvPackages.SelectedIndex));
-                //MessageBox.Show(gvPackages.CurrentCell.Value.ToString());
             }
 
+            // sets the itemsources for individual datagrids
             gvProdSup_pkg.ItemsSource = ppss;
             gvProdSup_all_pkgs.ItemsSource = psn;
 
+            // sets the itemsources for products and suppliers datagrids
             gvProducts1.ItemsSource = Prodd;
             gvSuppliers2.ItemsSource = Supp;
 
-            PackagesListDetails(gvProdSup_pkg);
-
-        }
-
-        //Ethan Shipley
-        // Formats the ppackages prod and supplier details
-        private void PackagesListDetails(DataGrid dataGridView)
-        {
-            ////if (dataGridView.Columns.Count > 0)
-            ////{
-            //dataGridView.Columns[0].Visibility = Visibility.Hidden;
-            //dataGridView.Columns[1].Visibility = Visibility.Hidden;
-            //dataGridView.Columns[2].Visibility = Visibility.Hidden;
-            //dataGridView.Columns[3].Visibility = Visibility.Hidden;
-            //dataGridView.Columns[4].Visibility = Visibility.Hidden;
-            //dataGridView.Columns[5].Header = "Product Name";
-            //dataGridView.Columns[6].Header = "Supplier Name";
-            ////}
         }
 
         //Ethan Shipley
         // Deletes a selected package
         private void BtnDeletepkg_Click(object sender, RoutedEventArgs e)
         {
+            // Checks to see if a package has been selected, if no package selected then no package will be deleted
             if (gvPackages.SelectedIndex==-1)
             {
                 MessageBox.Show("Cannot delete package. Please select a package to delete.");
                 return;
             }
+            // confirms that the user wants to delete the package
             if (!deleteConfirm())
             {
                 return;
             }
+            //when user has confirmed deletion then the packages is deleted and data is reloaded
             PackagesDB.DeletePackage(pkgid);
             PackagesGrid();
             PackagesReset();
@@ -326,9 +281,11 @@ namespace Travel_Experts_Services_WPF
         // Confirms that the user wants to delete
         private bool deleteConfirm()
         {
+            // Displays message asking user if they are sure that they want to delete the item
             var confirm = MessageBox.Show("Do you want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (confirm == MessageBoxResult.Yes)
             {
+                // confirms again that the user wants to perform the deletion
                 confirm = MessageBox.Show("Do you really want to delete the item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (confirm == MessageBoxResult.Yes)
                 {
@@ -345,19 +302,14 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        //Ethan Shipley & Sheila Zhao
+        // Gets the products and suppliers when a package is selected
         private void GvPackages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Packages selectedPackage = null;
             try
             {
                 object row = gvPackages.SelectedItem;
-                //int PackageID = Convert.ToInt32(row.GetType().GetProperty("PackageID").GetValue(row, null));
-                //string PkgName = row.GetType().GetProperty("PkgName").GetValue(row, null).ToString();
-                //DateTime? PkgStartDate = (DateTime?)(row.GetType().GetProperty("PkgStartDate").GetValue(row, null));
-                //DateTime? PkgEndDate = (DateTime?)(row.GetType().GetProperty("PkgEndDate").GetValue(row, null));
-                //string PkgDesc = row.GetType().GetProperty("PkgDesc").GetValue(row, null).ToString();
-                //decimal PkgBasePrice = Convert.ToDecimal(row.GetType().GetProperty("PkgBasePrice").GetValue(row, null));
-                //decimal PkgAgencyCommission = Convert.ToDecimal(row.GetType().GetProperty("PkgAgencyCommission").GetValue(row, null));
                 selectedPackage = new Packages(
                         Convert.ToInt32(row.GetType().GetProperty("PackageID").GetValue(row, null)),
                         row.GetType().GetProperty("PkgName").GetValue(row, null).ToString(),
@@ -383,6 +335,156 @@ namespace Travel_Experts_Services_WPF
 
         /*=======================================================================================================================*/
         /*=======================================================================================================================*/
+        /*=================================================TitleBar & Login======================================================*/
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
+
+        // Sheila Zhao
+        // set the title bar grid to be able to drag move
+        private void TitleBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        // Sheila Zhao
+        // minimize the application when click 
+        private void btnMin_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        // Sheila Zhao
+        // set the title bar grid to be able to drag move
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        // Sheila Zhao
+        // exit the application when click
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        // Sheila Zhao
+        //login to the application
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {   
+            // username can not be empty
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Please enter user name", "Error", MessageBoxButton.OK);
+                txtUserName.Focus();
+                return;
+            }
+            // password can not be empty
+            if (txtPassword.Password == "")
+            {
+                MessageBox.Show("Please enter password", "Error", MessageBoxButton.OK);
+                txtPassword.Focus();
+                return;
+            }
+            try
+            {
+                // define connection
+                SqlConnection con = DBConnection.GetConnection();                
+                // define the select query command
+                String query = "SELECT Username, Password FROM Users " +
+                                "WHERE Username = @UserName " +
+                                "AND Password = @Password";
+                
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                SqlParameter uname = new SqlParameter("@UserName", SqlDbType.VarChar);
+                SqlParameter upassword = new SqlParameter("@Password", SqlDbType.VarChar);
+                // get the input
+                uname.Value = txtUserName.Text;
+                upassword.Value = txtPassword.Password;
+                
+                cmd.Parameters.Add(uname);
+                cmd.Parameters.Add(upassword);
+                // open the connection
+                cmd.Connection.Open();
+                // execute the query
+                SqlDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                // if the user's username and password is correct, user gets access to other functions
+                if (myReader.Read() == true)
+                {
+                    // if user checks the remember me checkbox, username and password will be saved
+                    if (ckbRemember.IsChecked ?? true)
+                    {
+                        Settings.Default.UserName = txtUserName.Text;
+                        Settings.Default.Password = txtPassword.Password;
+                        Settings.Default.Save();
+                    }
+                    // display other tabs
+                    tbiPackages.Visibility = Visibility.Visible;
+                    tbiPkgOverview.Visibility = Visibility.Visible;
+                    tbiProducts.Visibility = Visibility.Visible;
+                    tbiSuppliers.Visibility = Visibility.Visible;
+                    lblMain.Text = "Welcome Travel Experts";
+                    tbiMainPage.Header = "Home";
+
+                    // hide the login part
+                    txtUserName.Visibility = Visibility.Hidden;
+                    txtPassword.Visibility = Visibility.Hidden;
+                    lblUserName.Visibility = Visibility.Hidden;
+                    lblPassword.Visibility = Visibility.Hidden;
+                    btnLogin.Visibility = Visibility.Hidden;
+                    btnReset.Visibility = Visibility.Hidden;
+                    ckbRemember.Visibility = Visibility.Hidden;
+                    HomeImage.Visibility = Visibility.Visible;
+
+                }
+                else
+                {
+                    MessageBox.Show("Login Failed... Try again!", "Login Denied", MessageBoxButton.OK);
+
+                    txtUserName.Clear();
+                    txtPassword.Clear();
+                    txtUserName.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK);
+            }
+        }
+
+        // save user's infomation when the checkbox is checked
+        private void CkbRemember_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.Default.UserName = txtUserName.Text;
+            Settings.Default.Password = txtPassword.Password;
+            Settings.Default.Save();
+        }
+
+        // clear user's information when the checkbox is unchecked
+        private void CkbRemember_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.Default.Reset();
+        }
+
+        // clear textboxes and clear user's information when click reset
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        {
+            txtUserName.Clear();
+            txtPassword.Clear();
+            txtUserName.Focus();
+            ckbRemember.IsChecked = false;
+            Settings.Default.Reset();
+        }
+
+        /*=======================================================================================================================*/
+        /*=======================================================================================================================*/
         /*===================================================PACKAGES============================================================*/
         /*=======================================================================================================================*/
         /*=======================================================================================================================*/
@@ -395,9 +497,6 @@ namespace Travel_Experts_Services_WPF
             Packages pack = new Packages();
             DateTime? strt = dtpPkgStartDate.SelectedDate;
             DateTime? end = dtpPkgEndDate.SelectedDate;
-            //DateTime? strt = dtpPkgStartDate.SelectedDate.Value.Date.ToShortDateString();
-            //DateTime? end = dtpPkgEndDate.SelectedDate.ToString();
-            // verifies that the user entered a package name shorter then 50 characters
             if (txtPackageName.Text.Length > 50)
             {
                 MessageBox.Show("Please enter a package name shorter then 50 characters.");
@@ -421,14 +520,12 @@ namespace Travel_Experts_Services_WPF
 
             // checks that the user inputted valid dates for the package
             if (end < strt && !end.Value.Date.ToShortDateString().Equals(strt.Value.Date.ToShortDateString()))
-            //if (end < strt)
             {
                 dtpPkgEndDate.SelectedDate = dtpPkgStartDate.SelectedDate;
                 MessageBox.Show("Please enter an end date that is equal to or greater than the start date.");
                 return;
             }
             else if (strt < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.SelectedDate.Value.Date.ToShortDateString()))
-            //else if (strt < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.SelectedDate))
             {
 
                 MessageBox.Show("Please enter a start date that is greater than todays date.");
@@ -436,7 +533,6 @@ namespace Travel_Experts_Services_WPF
                 return;
             }
             else if (end < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.SelectedDate.Value.Date.ToShortDateString()))
-            //else if (end < DateTime.Now && !DateTime.Now.ToShortDateString().Equals(dtpPkgEndDate.SelectedDate))
             {
                 MessageBox.Show("Please enter an end date that is greater than todays date.");
                 dtpPkgEndDate.SelectedDate = DateTime.Now;
@@ -446,8 +542,6 @@ namespace Travel_Experts_Services_WPF
             {
                 pack.PkgStartDate = Convert.ToDateTime(strt.Value.Date.ToShortDateString());
                 pack.PkgEndDate = Convert.ToDateTime(end.Value.Date.ToShortDateString());
-                //pack.PkgStartDate = Convert.ToDateTime(strt);
-                //pack.PkgEndDate = Convert.ToDateTime(end);
             }
             // removes the unnecessary dollar sign and comma in the base price and commision
             decimal PkgBasePrice;
@@ -518,7 +612,7 @@ namespace Travel_Experts_Services_WPF
                 //Inserts the package into the database and then refreshes the mainpage
                 PackagesDB.InsertPackages(pack);
                 UpdateBinding(false);
-                btnAddEditPkg.Content = "Save Edited Package";
+                AddEditPkgBtn("Edit");
             }
             else if (Convert.ToString(btnAddEditPkg.Content) == "Save Edited Package")
             {
@@ -555,13 +649,11 @@ namespace Travel_Experts_Services_WPF
         // Adds the products suppliers to the package
         private void BtnAddPkgProdSup_Click(object sender, RoutedEventArgs e)
         {
-            //if (gvProdSup_all_pkgs.SelectedIndex==-1 || slct_colmn==-1)
             if (gvProdSup_all_pkgs.SelectedIndex==-1 || slct_colmn==-1)
             {
                 MessageBox.Show("Cannot add product. Please add a package or edit an existing package.");
                 return;
             }
-            //PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_all_pkgs, 0));
             PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValueProdSup(gvProdSup_all_pkgs));
             UpdateBinding(true);
 
@@ -573,17 +665,12 @@ namespace Travel_Experts_Services_WPF
             gvProdSup_all_pkgs.ItemsSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
             hideunhide(true);
-            //slct_colmn = gvPackages.CurrentCell.RowIndex;
-            //this.packagesTableAdapter.Fill(this.travelExpertsDataSet.Packages);
-            //gvPackages.CurrentCell = gvPackages[3, slct_colmn];
-            //UpdateBinding(true);
         }
 
         //Ethan Shipley
         // Deletes the products suppliers to the package
         private void BtnDeletePkgProdSup_Click(object sender, RoutedEventArgs e)
         {
-            //string useranswer = Interaction.InputBox("My msg", "title", "default response");
             if (gvProdSup_pkg.SelectedIndex==-1)
             {
                 MessageBox.Show("Cannot delete product. Please add a package or edit an existing package.");
@@ -593,11 +680,8 @@ namespace Travel_Experts_Services_WPF
             {
                 return;
             }
-            //PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValue(gvProdSup_pkg, 1));
             PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValueProdSup(gvProdSup_pkg));
-            //slct_colmn = gvPackages.CurrentCell.RowIndex;
             slct_colmn = gvPackages.SelectedIndex;
-            //gvPackages.CurrentCell = gvPackages[1, slct_colmn];
 
             UpdateBinding(true);
 
@@ -661,8 +745,6 @@ namespace Travel_Experts_Services_WPF
         private void SupplierList()
         {
             gvSuppliers2.ItemsSource = Supp;
-            //gvSuppliers2.Columns[0].Header = "ID";
-            //gvSuppliers2.Columns[1].Header = "Supplier Name";
         }
 
         //Sheila Zhao
@@ -672,19 +754,14 @@ namespace Travel_Experts_Services_WPF
             Supplier selectedSupplier = null;
             try
             {
-                //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
-                //{
-                //    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                //                                   row.Cells[1].Value.ToString());
-                //}
-
                 selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-
+                // display corresponding products with the selected supplier
                 Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
                 gvProducts2.ItemsSource = Prod;
 
                 if (selectedSupplier != null)
                 {
+                    // display the product list which the selected supplier doesnt have
                     Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
                     gvProdBySup.ItemsSource = Prod;
                 }
@@ -700,41 +777,32 @@ namespace Travel_Experts_Services_WPF
         private void BtnNewS_Click(object sender, RoutedEventArgs e)
         {
             Supplier ns = new Supplier();
-            //int selectedindex;
             btnSaveS.Visibility = Visibility.Hidden;
 
             try
             {
                 if (ns != null)
                 {
+                    // make sure user cannot create an empty name supplier
                     if (txtSupName.Text == "")
                     {
                         MessageBox.Show("Name can not be empty!");
                     }
                     else
                     {
+                        // create and save the new supplier, update the application
                         ns.SupName = txtSupName.Text;
                         SupplierDB.InsertSupplier(ns);
                         Supp = SupplierDB.GetSuppliers();
+
+
                         UpdateBindingProdSup();
+                        UpdatePNL();
+                        UpdateSNL();
 
+                       
+                        // make the supplier list to select the last row (new item)
                         ScrollDown(gvSuppliers2);
-
-                        //if (gvSuppliers2.Items.Count > 0)
-                        //{
-                        //    //gvSuppliers2.ClearSelection();
-                        //    gvSuppliers2.UnselectAll();
-
-                        //    int RowIndex = gvSuppliers2.Items.Count - 1;
-                        //    //    //int nColumnIndex = 0;
-
-                        //    gvSuppliers2.Rows[RowIndex].Selected = true;
-                        //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                        //    //    //In case if you want to scroll down as well.
-                        //    gvSuppliers2.FirstDisplayedScrollingRowIndex = RowIndex;
-
-                        //}
                     }
 
                 }
@@ -743,11 +811,8 @@ namespace Travel_Experts_Services_WPF
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-
+            // clear the textbox
             txtSupName.Text = "";
-            //selectedindex = gvProducts1.CurrentCell.RowIndex;
-            //this.productsTableAdapter.Fill(this.travelExpertsDataSet.Products);
-            //gvProducts1.CurrentCell = gvProducts1[1, selectedindex];
         }
 
         // Sheila Zhao, with edits by Ethan SHipley February 1, 2019
@@ -756,11 +821,6 @@ namespace Travel_Experts_Services_WPF
         {
             Supplier olds = null;
             btnSaveS.Visibility = Visibility.Visible;
-            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
-            //{
-            //    olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                        row.Cells[1].Value.ToString());
-            //}
             olds = (Supplier)GetSelected(gvSuppliers2, "Supplier");
             txtSupName.Text = olds.SupName;
             txtSupName.Focus();
@@ -772,11 +832,6 @@ namespace Travel_Experts_Services_WPF
         {
             Supplier news = new Supplier();
             news = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
-            //{
-            //    olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                        row.Cells[1].Value.ToString());
-            //}
             news.SupName = olds.SupName;
             news.SupplierId = olds.SupplierId;
             return news;
@@ -789,11 +844,6 @@ namespace Travel_Experts_Services_WPF
             Supplier news = new Supplier();
             Supplier olds = null;
             olds = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
-            //{
-            //    olds = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                        row.Cells[1].Value.ToString());
-            //}
             if (txtSupName.Text == "")
             {
                 MessageBox.Show("Name can not be empty!");
@@ -807,6 +857,8 @@ namespace Travel_Experts_Services_WPF
                     SupplierDB.UpdateSupplier(news, olds);
                     Supp = SupplierDB.GetSuppliers();
                     UpdateBindingProdSup();
+                    UpdatePNL();
+                    UpdateSNL();
                     MessageBox.Show("Supplier Saved!");
 
                 }
@@ -828,25 +880,17 @@ namespace Travel_Experts_Services_WPF
             {
                 Supplier delSup = null;
                 delSup = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-                //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
-                //{
-                //    delSup = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                //                                        row.Cells[1].Value.ToString());
-                //    txtSupName.Text = delSup.SupName;
-                //}
                 if (!deleteConfirm())
                 {
                     return;
                 }
-                MessageBox.Show("Item deleted");
                 SupplierDB.DeleteSupplier(delSup);
                 txtSupName.Text = "";
                 Supp = SupplierDB.GetSuppliers();
                 UpdateBindingProdSup();
+                UpdatePNL();
+                UpdateSNL();
                 ScrollDown(gvSuppliers2);
-                //int nRowIndex = gvSuppliers2.Rows.Count - 1;
-                //gvSuppliers2.ClearSelection();
-                //gvSuppliers2.FirstDisplayedScrollingRowIndex = nRowIndex;
             }
             catch (Exception ex)
             {
@@ -866,6 +910,8 @@ namespace Travel_Experts_Services_WPF
                 lblPNL.Visibility = Visibility.Visible;
 
                 btnShowSP.Content = "Hide";
+                UpdatePNL();
+               
             }
             else if (Convert.ToString(btnShowSP.Content) == "Hide")
             {
@@ -874,6 +920,22 @@ namespace Travel_Experts_Services_WPF
                 btnAddSP.Visibility = Visibility.Hidden;
                 lblPNL.Visibility = Visibility.Hidden;
                 btnShowSP.Content = "Show";
+
+                UpdatePNL();
+            }
+        }
+
+        private void UpdatePNL()
+        {
+            Supplier selectedSupplier = null;
+            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+            // update the new list for both on list and not on list
+            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+            gvProducts2.ItemsSource = Prod;
+            if (selectedSupplier != null)
+            {
+                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                gvProdBySup.ItemsSource = Prod;
             }
         }
 
@@ -892,18 +954,17 @@ namespace Travel_Experts_Services_WPF
         }
 
         //Sheila Zhao, with edits by Ethan Shipley February 1 2019
-        // Deletes the product supplier
+        // Deletes the product for selected supplier
         private void BtnDelSP_Click(object sender, RoutedEventArgs e)
         {
             int SupID, ProdID;
             int Success = 0;
-            Supplier selectedSupplier = null;
 
             if (gvProducts2.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0)
             {
+                // get the productID and the supplier ID
                 ProdID = Convert.ToInt32(gvProducts2.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts2.SelectedItem, null));
                 SupID = Convert.ToInt32(gvSuppliers2.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers2.SelectedItem, null));
-                //ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
 
                 try
                 {
@@ -913,46 +974,23 @@ namespace Travel_Experts_Services_WPF
                     del.ProdId = ProdID;
                     del.SupplierId = SupID;
 
-                    // Now sql query to add
-
+                    // delete the product
                     Success = ProdSupplierDB.DeleteSupProduct(del);
 
-                    if (Success == 1)
+                    if (gvProdSup_all_pkgs.Visibility == Visibility.Visible)
                     {
+                        psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        gvProdSup_all_pkgs.ItemsSource = psn;
+                        ProdSupListDetails(gvProdSup_all_pkgs);
+                    }
+                    
 
-                        // Refresh gridview
+                    if (Success == 1)
+                    {                        
                         try
                         {
-                            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-                            //foreach (DataGridRow row in gvSuppliers2.SelectedItems)
-                            //{
-                            //    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                            //                                   row.Cells[1].Value.ToString());
-                            //}
-
-                            // Fix me
-                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-                            gvProducts2.ItemsSource = Prod;
-                            if (selectedSupplier != null)
-                            {
-                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
-                                gvProdBySup.ItemsSource = Prod;
-                            }
-                            MessageBox.Show("Product Deleted Successfully!");
+                            UpdatePNL();
                             ScrollDown(gvProdBySup);
-                            //if (gvProdBySup.Rows.Count > 0)
-                            //{
-                            //    gvProdBySup.ClearSelection();
-
-                            //    int RowIndex = gvProdBySup.Rows.Count - 1;
-                            //    //    //int nColumnIndex = 0;
-
-                            //    gvProdBySup.Rows[RowIndex].Selected = true;
-                            //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                            //    //    //In case if you want to scroll down as well.
-                            //    gvProdBySup.FirstDisplayedScrollingRowIndex = RowIndex;
-                            //}
                         }
                         catch (Exception ex)
                         {
@@ -969,15 +1007,15 @@ namespace Travel_Experts_Services_WPF
         }
 
         //Sheila Zhao, with edits by Ethan Shipley February 1 2019
-        // Creates the product supplier
+        // Adds the product for selected supplier
         private void BtnAddSP_Click(object sender, RoutedEventArgs e)
         {
             int ProdSupID, SupID;
             int Success = 0;
-            Supplier selectedSupplier = null;
 
             if ((gvProdBySup.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0) || (gvProducts2.SelectedCells.Count == 0))
             {
+                // get supplierID and the productID
                 SupID = Convert.ToInt32(gvSuppliers2.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers2.SelectedItem, null));
                 ProdSupID = Convert.ToInt32(gvProdBySup.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProdBySup.SelectedItem, null));
 
@@ -988,47 +1026,25 @@ namespace Travel_Experts_Services_WPF
 
                     addNew.ProdId = ProdSupID;
                     addNew.SupplierId = SupID;
-
-                    // Now sql query to add
-
+                  
+                    // add selected product to the list
                     Success = ProdSupplierDB.InsertSupProduct(addNew);
+
+                    if (gvProdSup_all_pkgs.Visibility == Visibility.Visible)
+                    {
+                        psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        gvProdSup_all_pkgs.ItemsSource = psn;
+                        ProdSupListDetails(gvProdSup_all_pkgs);
+                    }
 
                     if (Success == 1)
                     {
 
-                        // Refresh gridview
+                        // refresh gridview
                         try
                         {
-                            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-                            //foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
-                            //{
-                            //    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                            //                                   row.Cells[1].Value.ToString());
-                            //}
-
-                            // Fix me
-                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-                            gvProducts2.ItemsSource = Prod;
-                            if (selectedSupplier != null)
-                            {
-                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
-                                gvProdBySup.ItemsSource = Prod;
-                            }
-                            MessageBox.Show("Product Added Successfully!");
+                            UpdatePNL();
                             ScrollDown(gvProducts2);
-                            //if (gvProducts2.Rows.Count > 0)
-                            //{
-                            //    gvProducts2.ClearSelection();
-
-                            //    int RowIndex = gvProducts2.Rows.Count - 1;
-                            //    //    //int nColumnIndex = 0;
-
-                            //    gvProducts2.Rows[RowIndex].Selected = true;
-                            //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                            //    //    //In case if you want to scroll down as well.
-                            //    gvProducts2.FirstDisplayedScrollingRowIndex = RowIndex;
-                            //}
                         }
                         catch (Exception ex)
                         {
@@ -1042,72 +1058,6 @@ namespace Travel_Experts_Services_WPF
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
             }
-            //else if (gvProducts2.SelectedCells.Count == 0)
-            //{
-            //    //ProdID = Convert.ToInt32(gvProducts2.SelectedCells[0].Value);
-            //    SupID = Convert.ToInt32(gvSuppliers2.SelectedCells[0].Value);
-            //    ProdSupID = Convert.ToInt32(gvProdBySup.SelectedCells[0].Value);
-
-            //    try
-            //    {
-            //        // Make new object
-            //        ProdSuppliers addNew = new ProdSuppliers();
-
-            //        addNew.ProdId = ProdSupID;
-            //        addNew.SupplierId = SupID;
-
-            //        // Now sql query to add
-
-            //        Success = ProdSupplierDB.InsertSupProduct(addNew);
-
-            //        if (Success == 1)
-            //        {
-
-            //            // Refresh gridview
-            //            try
-            //            {
-            //                foreach (DataGridViewRow row in gvSuppliers2.SelectedRows)
-            //                {
-            //                    selectedSupplier = new Supplier(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                                   row.Cells[1].Value.ToString());
-            //                }
-
-            //                // Fix me
-            //                Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-            //                gvProducts2.DataSource = Prod;
-            //                if (selectedSupplier != null)
-            //                {
-            //                    Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
-            //                    gvProdBySup.DataSource = Prod;
-            //                }
-            //                MessageBox.Show("Product Added Successfully!");
-
-            //                if (gvProducts2.Rows.Count > 0)
-            //                {
-            //                    gvProducts2.ClearSelection();
-
-            //                    int RowIndex = gvProducts2.Rows.Count - 1;
-            //                    //    //int nColumnIndex = 0;
-
-            //                    gvProducts2.Rows[RowIndex].Selected = true;
-            //                    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-            //                    //    //In case if you want to scroll down as well.
-            //                    gvProducts2.FirstDisplayedScrollingRowIndex = RowIndex;
-            //                }
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //            }
-
-            //        }
-            //    }
-            //    catch (SqlException ex)
-            //    {
-            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //    }
-            //}
         }
 
         //Ethan Shipley February 1, 2019
@@ -1145,8 +1095,6 @@ namespace Travel_Experts_Services_WPF
         private void ProductList()
         {
             gvProducts1.ItemsSource = Prodd;
-            //gvProducts1.Columns[0].Header = "ID";
-            //gvProducts1.Columns[1].Header = "Product Name";
         }
 
         // Sheila Zhao
@@ -1177,18 +1125,12 @@ namespace Travel_Experts_Services_WPF
 
             try
             {
-                //foreach (DataGridRow row in gvProducts1.SelectedItems)
-                //{
-                //object row = gvProducts1.SelectedItem;
-                //selectedProduct = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
-                //                    Convert.ToString(row.GetType().GetProperty("ProdName").GetValue(row, null)));
-                //}
-                //selectedProduct = SelectedProd(gvProducts1);
                 selectedProduct = (Products)GetSelected(gvProducts1);
                 Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
                 gvSuppliers1.ItemsSource = Sup;
                 if (selectedProduct != null)
                 {
+                    // also get the suppliers not on list with selected product
                     Sup = SupplierDB.GetProSupNotInList(selectedProduct);
                     gvSupByProd.ItemsSource = Sup;
                 }
@@ -1208,13 +1150,6 @@ namespace Travel_Experts_Services_WPF
 
             try
             {
-                //if (np != null)
-                //{
-                //    np.ProdName = txtProdName.Text;
-                //    ProductDB.InsertProduct(np);
-                //    Prodd = ProductDB.GetProducts();
-                //    UpdateBinding(true);
-                //}
                 if (np != null)
                 {
                     if (txtProdName.Text == "")
@@ -1223,26 +1158,21 @@ namespace Travel_Experts_Services_WPF
                     }
                     else
                     {
+                        // add the new product and save it
                         np.ProdName = txtProdName.Text;
                         ProductDB.InsertProduct(np);
                         Prodd = ProductDB.GetProducts();
                         UpdateBindingProdSup();
+                        UpdateSNL();
+                        UpdatePNL();
 
                         ScrollDown(gvProducts1);
-                        //if (gvProducts1.Items.Count > 0)
-                        //{
-                        //    gvProducts1.UnselectAll();
-
-                        //    //int nRowIndex = gvProducts1.Items.Count - 1;
-                        //    //int nColumnIndex = 0;
-
-                        //    //gvProducts1.Rows[nRowIndex].Selected = true;
-                        //    ////gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                        //    ////In case if you want to scroll down as well.
-                        //    //gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
-                        //    ScrollDown(gvProducts1);
-                        //}
+                        //psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        //gvProdSup_all_pkgs.ItemsSource = psn;
+                        //ProdSupListDetails(gvProdSup_all_pkgs);
+                        //hideunhide(true);
+                        ////ProdSupListDetails(gvProdSup_all_pkgs);
+                        //gvProdSup_all_pkgs.Visibility = Visibility.Visible;
                     }
                 }
             }
@@ -1252,34 +1182,14 @@ namespace Travel_Experts_Services_WPF
             }
 
             txtProdName.Text = "";
-
-            //if (gvProducts1.Items.Count > 0)
-            //{
-            //    gvProducts1.UnselectAll();
-
-            //    int nRowIndex = gvProducts1.Items.Count - 1;
-            //    gvProducts1.SelectedItem = nRowIndex;
-
-            //    //In case if you want to scroll down as well.
-            //    ScrollDown(gvProducts1, nRowIndex);
-            //}
         }
 
-        // Sheila Zhao, with edits by Ethan SHipley
+        // Sheila Zhao, with edits by Ethan Shipley
         // Allows editing of the products page
         private void BtnEditP_Click(object sender, RoutedEventArgs e)
         {
             Products oldp = null;
             btnSaveP.Visibility = Visibility.Visible;
-            //foreach (DataGridRow row in gvProducts1.SelectedItems)
-            //{
-            //    oldp = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                        row.Cells[1].Value.ToString());
-            //}
-            //object row = gvProducts1.SelectedItem;
-            //oldp = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
-            //                    Convert.ToString(row.GetType().GetProperty("ProdName").GetValue(row, null)));
-            //oldp = SelectedProd(gvProducts1);
             oldp = (Products)GetSelected(gvProducts1);
             txtProdName.Text = oldp.ProdName;
             txtProdName.Focus();
@@ -1290,15 +1200,6 @@ namespace Travel_Experts_Services_WPF
         private Products GetEditProduct(Products oldp)
         {
             Products newp = new Products();
-            //foreach (DataGridRow row in gvProducts1.SelectedItems)
-            //{
-            //    oldp = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                        row.Cells[1].Value.ToString());
-            //}
-            //object row = gvProducts1.SelectedItem;
-            //oldp = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
-            //                    Convert.ToString(row.GetType().GetProperty("ProdName").GetValue(row, null)));
-            //oldp = SelectedProd(gvProducts1);
             oldp = (Products)GetSelected(gvProducts1);
             newp.ProdName = oldp.ProdName;
             newp.ProductId = oldp.ProductId;
@@ -1311,12 +1212,6 @@ namespace Travel_Experts_Services_WPF
         {
             Products newp = new Products();
             Products oldp = null;
-            //foreach (DataGridRow row in gvProducts1.SelectedItems)
-            //{
-            //    oldp = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                        row.Cells[1].Value.ToString());
-            //}
-            //oldp = SelectedProd(gvProducts1);
             oldp = (Products)GetSelected(gvProducts1);
             if (txtProdName.Text == "")
             {
@@ -1328,10 +1223,13 @@ namespace Travel_Experts_Services_WPF
                 newp = GetEditProduct(oldp);
                 try
                 {
+                    // save the new name to the database
                     newp.ProdName = txtProdName.Text;
                     ProductDB.UpdateProduct(newp, oldp);
                     Prodd = ProductDB.GetProducts();
                     UpdateBindingProdSup();
+                    UpdatePNL();
+                    UpdateSNL();
                     MessageBox.Show("Product Saved!");
                 }
                 catch (Exception ex)
@@ -1365,29 +1263,18 @@ namespace Travel_Experts_Services_WPF
             try
             {
                 Products delProd = null;
-                //delProd = SelectedProd(gvProducts1);
                 delProd = (Products)GetSelected(gvProducts1);
-                //foreach (DataGridRow row in gvProducts1.SelectedItems)
-                //{
-                //    delProd = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                //                                        row.Cells[1].Value.ToString());
-                //    txtProdName.Text = delProd.ProdName;
-                //}
                 if (!deleteConfirm())
                 {
                     return;
                 }
-                MessageBox.Show("Item deleted");
                 ProductDB.DeleteProduct(delProd);
                 txtProdName.Text = "";
                 Prodd = ProductDB.GetProducts();
                 UpdateBindingProdSup();
-
-                //int nRowIndex = gvProducts1.Rows.Count - 1;
-                //gvProducts1.ClearSelection();
-                //gvProducts1.FirstDisplayedScrollingRowIndex = nRowIndex;
+                UpdatePNL();
+                UpdateSNL();
                 ScrollDown(gvProducts1);
-                //gvProducts1.CurrentItem = gvProducts1.Items[-1];
             }
             catch (Exception ex)
             {
@@ -1407,6 +1294,9 @@ namespace Travel_Experts_Services_WPF
                 lblSNL.Visibility = Visibility.Visible;
 
                 btnShowPS.Content = "Hide";
+                UpdateSNL();
+                UpdatePNL();
+                
             }
             else if (Convert.ToString(btnShowPS.Content) == "Hide")
             {
@@ -1415,27 +1305,38 @@ namespace Travel_Experts_Services_WPF
                 btnAddPS.Visibility = Visibility.Hidden;
                 lblSNL.Visibility = Visibility.Hidden;
                 btnShowPS.Content = "Show";
+
+                UpdatePNL();
+                UpdateSNL();
             }
         }
 
+
+        private void UpdateSNL()
+        {
+            Products selectedProduct = null;
+            selectedProduct = (Products)GetSelected(gvProducts1);
+
+            // update both not on list and on list gridview
+            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+            gvSuppliers1.ItemsSource = Sup;
+            if (selectedProduct != null)
+            {
+                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                gvSupByProd.ItemsSource = Sup;
+            }
+        }
         // Sheila Zhao, with edits by Ethan Shipley
-        // Deletes the product supplier
+        // Deletes the supplier for the selected product
         private void BtnDelPS_Click(object sender, RoutedEventArgs e)
         {
             int ProdSupID, ProdID;
             int Success = 0;
-            Products selectedProduct = null;
-
-
-            //if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
-            //    && gvSuppliers1.SelectedCells.Count > 0)
+            
             if (gvProducts1.SelectedCells.Count > 0 && gvSuppliers1.SelectedCells.Count > 0)
             {
-                //ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
-                //SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
-                //ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
+                // get the productID and supplierID
                 ProdID = Convert.ToInt32(gvProducts1.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts1.SelectedItem,null));
-                //SupID = Convert.ToInt32(gvSupByProd.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSupByProd.SelectedItem, null));
                 ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSuppliers1.SelectedItem, null));
 
                 try
@@ -1445,11 +1346,16 @@ namespace Travel_Experts_Services_WPF
 
                     del.ProdId = ProdID;
                     del.SupplierId = ProdSupID;
-                    //del.ProductSupplierId = ProdSupID;
 
-                    // Now sql query to add
-
+                    // delete the supplier
                     Success = ProdSupplierDB.DeleteProdSupplier(del);
+
+                    if (gvProdSup_all_pkgs.Visibility == Visibility.Visible)
+                    {
+                        psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        gvProdSup_all_pkgs.ItemsSource = psn;
+                        ProdSupListDetails(gvProdSup_all_pkgs);
+                    }
 
                     if (Success == 1)
                     {
@@ -1457,41 +1363,9 @@ namespace Travel_Experts_Services_WPF
                         // Refresh gridview
                         try
                         {
-                            //foreach (DataGridRow row in gvProducts1.SelectedItems)
-                            //{
-                            //    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                            //                                   row.Cells[1].Value.ToString());
-                            //}
-                            //selectedProduct = SelectedProd(gvProducts1);
-                            selectedProduct = (Products)GetSelected(gvProducts1);
-
-                            // Fix me
-                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                            gvSuppliers1.ItemsSource = Sup;
-                            if (selectedProduct != null)
-                            {
-                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                                gvSupByProd.ItemsSource = Sup;
-                            }
-                            MessageBox.Show("Supplier Deleted Successfully!");
+                            UpdateSNL();
 
                             ScrollDown(gvSupByProd);
-                            //if (gvSupByProd.Items.Count > 0)
-                            //{
-                            //    //gvSupByProd.ClearSelection();
-                            //    gvSupByProd.UnselectAll();
-                            //    ScrollDown(gvSupByProd);
-                            //    //int RowIndex = gvSupByProd.Items.Count - 1;
-                            //    ////    //int nColumnIndex = 0;
-
-                            //    //gvSupByProd.SelectedIndex = RowIndex;
-                            //    //gvSupByProd.Focus();
-                            //    ////gvSupByProd.Items[RowIndex].Selected = true;
-                            //    ////    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                            //    ////    //In case if you want to scroll down as well.
-                            //    //gvSupByProd.FirstDisplayedScrollingRowIndex = RowIndex;
-                            //}
                         }
                         catch (Exception ex)
                         {
@@ -1514,18 +1388,13 @@ namespace Travel_Experts_Services_WPF
         //Sheila Zhoa
         private void BtnAddPS_Click(object sender, RoutedEventArgs e)
         {
-            //int ProdSupID, SupID, ProdID;
             int SupID, ProdID;
             int Success = 0;
-            Products selectedProduct = null;
-
-            //if (gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0
-            //    && gvSuppliers1.SelectedCells.Count > 0)
             if ((gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0) || (gvSuppliers1.SelectedCells.Count == 0 && gvSupByProd.SelectedCells.Count > 0))
             {
+                // get the productID and supplierID
                 ProdID = Convert.ToInt32(gvProducts1.SelectedItem.GetType().GetProperty("ProductId").GetValue(gvProducts1.SelectedItem, null));
                 SupID = Convert.ToInt32(gvSupByProd.SelectedItem.GetType().GetProperty("SupplierId").GetValue(gvSupByProd.SelectedItem, null));
-                //ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
 
                 try
                 {
@@ -1534,10 +1403,16 @@ namespace Travel_Experts_Services_WPF
 
                     addNew.ProdId = ProdID;
                     addNew.SupplierId = SupID;
-
-                    // Now sql query to add
-
+                    
+                    // Insert the supplier to the selected product
                     Success = ProdSupplierDB.InsertProdSupplier(addNew);
+
+                    if (gvProdSup_all_pkgs.Visibility == Visibility.Visible)
+                    {
+                        psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        gvProdSup_all_pkgs.ItemsSource = psn;
+                        ProdSupListDetails(gvProdSup_all_pkgs);
+                    }
 
                     if (Success == 1)
                     {
@@ -1545,37 +1420,7 @@ namespace Travel_Experts_Services_WPF
                         // Refresh gridview
                         try
                         {
-                            //foreach (DataGridViewRow row in gvProducts1.SelectedRows)
-                            //{
-                            //    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-                            //                                   row.Cells[1].Value.ToString());
-                            //}
-                            //selectedProduct = SelectedProd(gvProducts1);
-                            selectedProduct = (Products)GetSelected(gvProducts1);
-
-                            // Fix me, Sheila needs to fix this
-                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                            gvSuppliers1.ItemsSource = Sup;
-                            if (selectedProduct != null)
-                            {
-                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                                gvSupByProd.ItemsSource = Sup;
-                            }
-                            MessageBox.Show("Supplier Added Successfully!");
-
-                            //if (gvSuppliers1.Items.Count > 0)
-                            //{
-                            //    gvSuppliers1.ClearSelection();
-
-                            //    int RowIndex = gvSuppliers1.Items.Count - 1;
-                            //    //    //int nColumnIndex = 0;
-
-                            //    gvSuppliers1.Rows[RowIndex].Selected = true;
-                            //    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                            //    //    //In case if you want to scroll down as well.
-                            //    gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
-                            //}
+                            UpdateSNL();
                             ScrollDown(gvSuppliers1);
                         }
                         catch (Exception ex)
@@ -1594,89 +1439,7 @@ namespace Travel_Experts_Services_WPF
             {
                 MessageBox.Show("Please select a supplier to add");
             }
-            //else if (gvSuppliers1.SelectedCells.Count == 0)
-            //{
-            //    ProdID = Convert.ToInt32(gvProducts1.SelectedCells[0].Value);
-            //    SupID = Convert.ToInt32(gvSupByProd.SelectedCells[0].Value);
-            //    //ProdSupID = Convert.ToInt32(gvSuppliers1.SelectedCells[0].Value);
-
-            //    try
-            //    {
-            //        // Make new object
-            //        ProdSuppliers addNew = new ProdSuppliers();
-
-            //        addNew.ProdId = ProdID;
-            //        addNew.SupplierId = SupID;
-
-            //        // Now sql query to add
-
-            //        Success = ProdSupplierDB.InsertProdSupplier(addNew);
-
-            //        if (Success == 1)
-            //        {
-
-            //            // Refresh gridview
-            //            try
-            //            {
-            //                foreach (DataGridViewRow row in gvProducts1.SelectedRows)
-            //                {
-            //                    selectedProduct = new Products(Convert.ToInt32(row.Cells[0].Value.ToString()),
-            //                                                   row.Cells[1].Value.ToString());
-            //                }
-
-            //                // Fix me
-            //                Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-            //                gvSuppliers1.DataSource = Sup;
-            //                if (selectedProduct != null)
-            //                {
-            //                    Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-            //                    gvSupByProd.DataSource = Sup;
-            //                }
-            //                MessageBox.Show("Supplier Added Successfully!");
-
-            //                if (gvSuppliers1.Rows.Count > 0)
-            //                {
-            //                    gvSuppliers1.ClearSelection();
-
-            //                    int RowIndex = gvSuppliers1.Rows.Count - 1;
-            //                    //    //int nColumnIndex = 0;
-
-            //                    gvSuppliers1.Rows[RowIndex].Selected = true;
-            //                    //    //gvProducts1.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-            //                    //    //In case if you want to scroll down as well.
-            //                    gvSuppliers1.FirstDisplayedScrollingRowIndex = RowIndex;
-            //                }
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //            }
-
-            //        }
-            //    }
-            //    catch (SqlException ex)
-            //    {
-            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //    }
-            //}
         }
-
-        ////Ethan SHipley January 30 2019
-        //// Gets the properties of the selected products
-        //private Products SelectedProd(DataGrid dg)
-        //{
-        //    object row = dg.SelectedItem;
-        //    if (row == null)
-        //    {
-        //        dg.SelectedIndex = (dg.Items.Count)-1;
-        //        row = dg.SelectedItem;
-        //    }
-        //    Products p = new Products(Convert.ToInt32(row.GetType().GetProperty("ProductId").GetValue(row, null)),
-        //                        Convert.ToString(row.GetType().GetProperty("ProdName").GetValue(row, null)));
-        //    return p;
-        //}
-
         //Ethan Shipley January 30 2019
         // Scroll to bottom
         private void ScrollDown(DataGrid dg)
@@ -1691,132 +1454,6 @@ namespace Travel_Experts_Services_WPF
                 dg.UpdateLayout();
                 dg.ScrollIntoView(dg.Items[nRowIndex]);
             }
-        }
-
-        /*=======================================================================================================================*/
-        /*=======================================================================================================================*/
-        /*=================================================TitleBar & Login======================================================*/
-        /*=======================================================================================================================*/
-        /*=======================================================================================================================*/
-
-
-        private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
-
-        private void btnMin_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = System.Windows.WindowState.Minimized;
-        }
-
-        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtUserName.Text == "")
-            {
-                MessageBox.Show("Please enter user name", "Error", MessageBoxButton.OK);
-                txtUserName.Focus();
-                return;
-            }
-            if (txtPassword.Password == "")
-            {
-                MessageBox.Show("Please enter password", "Error", MessageBoxButton.OK);
-                txtPassword.Focus();
-                return;
-            }
-            try
-            {
-                SqlConnection con = DBConnection.GetConnection();
-                //myConnection = new SqlConnection(cs);
-
-                // SqlCommand myCommand = default(SqlCommand);
-
-                String query = "SELECT Username, Password FROM Users " +
-                                "WHERE Username = @UserName " +
-                                "AND Password = @Password";
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                //myCommand = new SqlCommand("SELECT Username, Password FROM Users WHERE Username = @Username");
-
-                SqlParameter uname = new SqlParameter("@UserName", SqlDbType.VarChar);
-                SqlParameter upassword = new SqlParameter("@Password", SqlDbType.VarChar);
-
-                uname.Value = txtUserName.Text;
-                upassword.Value = txtPassword.Password;
-
-                cmd.Parameters.Add(uname);
-                cmd.Parameters.Add(upassword);
-
-                cmd.Connection.Open();
-
-                SqlDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                if (myReader.Read() == true)
-                {
-                    if (ckbRemember.IsChecked ?? true)
-                    {
-                        Settings.Default.UserName = txtUserName.Text;
-                        Settings.Default.Password = txtPassword.Password;
-                        Settings.Default.Save();
-                    }
-                    tbiPackages.Visibility = Visibility.Visible;
-                    tbiPkgOverview.Visibility = Visibility.Visible;
-                    tbiProducts.Visibility = Visibility.Visible;
-                    tbiSuppliers.Visibility = Visibility.Visible;
-
-                    txtUserName.Visibility = Visibility.Hidden;
-                    txtPassword.Visibility = Visibility.Hidden;
-                    lblUserName.Visibility = Visibility.Hidden;
-                    lblPassword.Visibility = Visibility.Hidden;
-                    btnLogin.Visibility = Visibility.Hidden;
-                    btnReset.Visibility = Visibility.Hidden;
-                    ckbRemember.Visibility = Visibility.Hidden;
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Login Failed... Try again!", "Login Denied", MessageBoxButton.OK);
-
-                    txtUserName.Clear();
-                    txtPassword.Clear();
-                    txtUserName.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK);
-            }           
-        }
-
-        private void btnReset_Click(object sender, RoutedEventArgs e)
-        {
-            txtUserName.Clear();
-            txtPassword.Clear();
-            txtUserName.Focus();
-            Settings.Default.Reset();
-        }
-
-        private void CkbRemember_Checked(object sender, RoutedEventArgs e)
-        {
-            Settings.Default.UserName = txtUserName.Text;
-            Settings.Default.Password = txtPassword.Password;
-            Settings.Default.Save();
         }
     }
 }

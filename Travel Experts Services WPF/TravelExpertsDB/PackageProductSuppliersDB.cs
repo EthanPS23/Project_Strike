@@ -9,6 +9,8 @@ namespace TravelExpertsDB
 {
     public class PackageProductSuppliersDB
     {
+        // Sheila Zhao
+        // display the package details 
         public static List<PackageProductSuppliers> GetProductSuppliersByPackage(Packages pkg)
         {
             List<PackageProductSuppliers> ppss = new List<PackageProductSuppliers>();
