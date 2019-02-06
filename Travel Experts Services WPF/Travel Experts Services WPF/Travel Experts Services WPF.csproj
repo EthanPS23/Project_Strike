@@ -35,8 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>png_meitu_2_JmG_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -116,6 +115,9 @@
   <ItemGroup>
     <Resource Include="images\png.png" />
     <Resource Include="images\png_meitu_2_JmG_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="png_meitu_2_JmG_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
