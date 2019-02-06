@@ -803,9 +803,6 @@ namespace Travel_Experts_Services_WPF
                         psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
                         gvProdSup_all_pkgs.ItemsSource = psn;
                         ProdSupListDetails(gvProdSup_all_pkgs);
-                        hideunhide(true);
-                        //ProdSupListDetails(gvProdSup_all_pkgs);
-                        gvProdSup_all_pkgs.Visibility = Visibility.Visible;
 
                         // make the supplier list to select the last row (new item)
                         ScrollDown(gvSuppliers2);
@@ -1169,9 +1166,6 @@ namespace Travel_Experts_Services_WPF
                         psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
                         gvProdSup_all_pkgs.ItemsSource = psn;
                         ProdSupListDetails(gvProdSup_all_pkgs);
-                        hideunhide(true);
-                        //ProdSupListDetails(gvProdSup_all_pkgs);
-                        gvProdSup_all_pkgs.Visibility = Visibility.Visible;
                     }
                 }
             }

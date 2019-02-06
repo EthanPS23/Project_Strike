@@ -350,7 +350,18 @@
                     </DataGrid>
 
 
-                    <DataGrid x:Name="gvProdSup_all_pkgs" Visibility="Hidden" HorizontalAlignment="Left" Height="150" Margin="584,225,0,0" VerticalAlignment="Top" Width="450"/>
+                    <DataGrid x:Name="gvProdSup_all_pkgs" Visibility="Hidden" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="150" Margin="584,225,0,0" VerticalAlignment="Top" Width="450">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PackageID" Binding="{Binding PackageID}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg Name" Binding="{Binding ProductSupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg Start Date" Binding="{Binding ProdcustId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg End Date" Binding="{Binding SupplierId}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Pkg Desc" Binding="{Binding PkgName}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
+                            <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupName}" Visibility="Visible"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
                     <Button x:Name="btnNewPkgProdSup" Content="New Product" HorizontalAlignment="Left" Margin="584,180,0,0" VerticalAlignment="Top" Width="110" Click="BtnNewPkgProdSup_Click" RenderTransformOrigin="0.5,0.5"/>
                     <Button x:Name="btnDeletePkgProdSup_Click" Content="Delete Product" HorizontalAlignment="Left" Margin="924,180,0,0" VerticalAlignment="Top" Width="110
                         " Click="BtnDeletePkgProdSup_Click"/>
@@ -361,7 +372,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tbiProducts" Header="Products" TabIndex="4" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
+            <TabItem x:Name="tbiProducts" Header="Products" TabIndex="4" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
                 <Grid Background="#FF2F4858" Margin="0,0,0,-1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -398,7 +409,7 @@
                     <TextBlock x:Name="lblSNL" Visibility="Hidden" HorizontalAlignment="Left" Margin="726,20,0,0" TextWrapping="Wrap" Text="Suppliers Not On List:" VerticalAlignment="Top" Width="200" Foreground="#FF30E3CA"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tbiSuppliers" Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Hidden">
+            <TabItem x:Name="tbiSuppliers" Header="Suppliers" TabIndex="5" Foreground="#30e3ca" Background="#40514e" BorderBrush="#30e3ca" BorderThickness="1,1,1,1" Visibility="Visible">
                 <Grid Background="#FF2F4858" Margin="0,0,0,-3">
                     <TextBlock x:Name="lblSupName2" HorizontalAlignment="Left" Height="25" Margin="34,20,0,0" TextWrapping="Wrap" Text="Supplier:" VerticalAlignment="Top" Width="123" Foreground="#FF30E3CA"/>
                     <TextBox x:Name="txtSupName" MaxLength="50" HorizontalAlignment="Left" Height="24" Margin="125,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="#FF2F89FC" Background="#FF40514E" BorderBrush="{x:Null}"/>
