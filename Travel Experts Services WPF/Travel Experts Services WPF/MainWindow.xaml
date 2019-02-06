@@ -415,7 +415,7 @@
                             <DataGridTextColumn Header="Product Name" Binding="{Binding ProdName}" Visibility="Visible"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="gvProdBySup" Visibility="Hidden" VerticalGridLinesBrush="#FF40514E" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0
+                    <DataGrid x:Name="gvProdBySup" Visibility="Hidden" ColumnWidth="*" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="200" Margin="726,51,0,0
                           " VerticalAlignment="Top" Width="300">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" Visibility="Hidden"/>

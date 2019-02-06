@@ -13,7 +13,7 @@ namespace TravelExpertsDB
         {
             List<Packages> Packages = new List<Packages>();
             Packages pkg;
-            string query = "SELECT * FROM Packages";
+            string query = "SELECT * FROM Packages order by 1";
             SqlConnection Connection = DBConnection.GetConnection(/*ServerName, DatabaseName*/);
             SqlCommand cmd = new SqlCommand(query, Connection);
             try
