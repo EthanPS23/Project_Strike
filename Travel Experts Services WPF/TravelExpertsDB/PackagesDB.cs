@@ -126,7 +126,7 @@ namespace TravelExpertsDB
             {
                 con.Open();
                 cmdInsert.ExecuteNonQuery();
-                MessageBox.Show("Add package successful");
+                //MessageBox.Show("Add package successful");
             }
             catch (SqlException ex)
             {

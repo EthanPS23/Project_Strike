@@ -794,7 +794,18 @@ namespace Travel_Experts_Services_WPF
                         ns.SupName = txtSupName.Text;
                         SupplierDB.InsertSupplier(ns);
                         Supp = SupplierDB.GetSuppliers();
+
+
                         UpdateBindingProdSup();
+                        UpdatePNL();
+                        UpdateSNL();
+
+                        psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        gvProdSup_all_pkgs.ItemsSource = psn;
+                        ProdSupListDetails(gvProdSup_all_pkgs);
+                        hideunhide(true);
+                        //ProdSupListDetails(gvProdSup_all_pkgs);
+                        gvProdSup_all_pkgs.Visibility = Visibility.Visible;
 
                         // make the supplier list to select the last row (new item)
                         ScrollDown(gvSuppliers2);
@@ -852,6 +863,8 @@ namespace Travel_Experts_Services_WPF
                     SupplierDB.UpdateSupplier(news, olds);
                     Supp = SupplierDB.GetSuppliers();
                     UpdateBindingProdSup();
+                    UpdatePNL();
+                    UpdateSNL();
                     MessageBox.Show("Supplier Saved!");
 
                 }
@@ -877,11 +890,12 @@ namespace Travel_Experts_Services_WPF
                 {
                     return;
                 }
-                MessageBox.Show("Item deleted");
                 SupplierDB.DeleteSupplier(delSup);
                 txtSupName.Text = "";
                 Supp = SupplierDB.GetSuppliers();
                 UpdateBindingProdSup();
+                UpdatePNL();
+                UpdateSNL();
                 ScrollDown(gvSuppliers2);
             }
             catch (Exception ex)
@@ -902,6 +916,8 @@ namespace Travel_Experts_Services_WPF
                 lblPNL.Visibility = Visibility.Visible;
 
                 btnShowSP.Content = "Hide";
+                UpdatePNL();
+               
             }
             else if (Convert.ToString(btnShowSP.Content) == "Hide")
             {
@@ -910,6 +926,22 @@ namespace Travel_Experts_Services_WPF
                 btnAddSP.Visibility = Visibility.Hidden;
                 lblPNL.Visibility = Visibility.Hidden;
                 btnShowSP.Content = "Show";
+
+                UpdatePNL();
+            }
+        }
+
+        private void UpdatePNL()
+        {
+            Supplier selectedSupplier = null;
+            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
+            // update the new list for both on list and not on list
+            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
+            gvProducts2.ItemsSource = Prod;
+            if (selectedSupplier != null)
+            {
+                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
+                gvProdBySup.ItemsSource = Prod;
             }
         }
 
@@ -933,7 +965,6 @@ namespace Travel_Experts_Services_WPF
         {
             int SupID, ProdID;
             int Success = 0;
-            Supplier selectedSupplier = null;
 
             if (gvProducts2.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0)
             {
@@ -952,19 +983,15 @@ namespace Travel_Experts_Services_WPF
                     // delete the product
                     Success = ProdSupplierDB.DeleteSupProduct(del);
 
+                    psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                    gvProdSup_all_pkgs.ItemsSource = psn;
+                    ProdSupListDetails(gvProdSup_all_pkgs);
+
                     if (Success == 1)
                     {                        
                         try
                         {
-                            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-                            // update the new list for both on list and not on list
-                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-                            gvProducts2.ItemsSource = Prod;
-                            if (selectedSupplier != null)
-                            {
-                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
-                                gvProdBySup.ItemsSource = Prod;
-                            }
+                            UpdatePNL();
                             ScrollDown(gvProdBySup);
                         }
                         catch (Exception ex)
@@ -987,7 +1014,6 @@ namespace Travel_Experts_Services_WPF
         {
             int ProdSupID, SupID;
             int Success = 0;
-            Supplier selectedSupplier = null;
 
             if ((gvProdBySup.SelectedCells.Count > 0 && gvSuppliers2.SelectedCells.Count > 0) || (gvProducts2.SelectedCells.Count == 0))
             {
@@ -1006,22 +1032,17 @@ namespace Travel_Experts_Services_WPF
                     // add selected product to the list
                     Success = ProdSupplierDB.InsertSupProduct(addNew);
 
+                    psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                    gvProdSup_all_pkgs.ItemsSource = psn;
+                    ProdSupListDetails(gvProdSup_all_pkgs);
+
                     if (Success == 1)
                     {
 
                         // refresh gridview
                         try
                         {
-                            selectedSupplier = (Supplier)GetSelected(gvSuppliers2, "Supplier");
-
-                            // update both grid view
-                            Prod = SupplierDB.GetProductsByProductSupplier(selectedSupplier);
-                            gvProducts2.ItemsSource = Prod;
-                            if (selectedSupplier != null)
-                            {
-                                Prod = ProductDB.GetSupProdNotInList(selectedSupplier);
-                                gvProdBySup.ItemsSource = Prod;
-                            }
+                            UpdatePNL();
                             ScrollDown(gvProducts2);
                         }
                         catch (Exception ex)
@@ -1141,8 +1162,16 @@ namespace Travel_Experts_Services_WPF
                         ProductDB.InsertProduct(np);
                         Prodd = ProductDB.GetProducts();
                         UpdateBindingProdSup();
+                        UpdateSNL();
+                        UpdatePNL();
 
                         ScrollDown(gvProducts1);
+                        psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                        gvProdSup_all_pkgs.ItemsSource = psn;
+                        ProdSupListDetails(gvProdSup_all_pkgs);
+                        hideunhide(true);
+                        //ProdSupListDetails(gvProdSup_all_pkgs);
+                        gvProdSup_all_pkgs.Visibility = Visibility.Visible;
                     }
                 }
             }
@@ -1198,6 +1227,8 @@ namespace Travel_Experts_Services_WPF
                     ProductDB.UpdateProduct(newp, oldp);
                     Prodd = ProductDB.GetProducts();
                     UpdateBindingProdSup();
+                    UpdatePNL();
+                    UpdateSNL();
                     MessageBox.Show("Product Saved!");
                 }
                 catch (Exception ex)
@@ -1236,11 +1267,12 @@ namespace Travel_Experts_Services_WPF
                 {
                     return;
                 }
-                MessageBox.Show("Item deleted");
                 ProductDB.DeleteProduct(delProd);
                 txtProdName.Text = "";
                 Prodd = ProductDB.GetProducts();
                 UpdateBindingProdSup();
+                UpdatePNL();
+                UpdateSNL();
                 ScrollDown(gvProducts1);
             }
             catch (Exception ex)
@@ -1261,6 +1293,9 @@ namespace Travel_Experts_Services_WPF
                 lblSNL.Visibility = Visibility.Visible;
 
                 btnShowPS.Content = "Hide";
+                UpdateSNL();
+                UpdatePNL();
+                
             }
             else if (Convert.ToString(btnShowPS.Content) == "Hide")
             {
@@ -1269,16 +1304,33 @@ namespace Travel_Experts_Services_WPF
                 btnAddPS.Visibility = Visibility.Hidden;
                 lblSNL.Visibility = Visibility.Hidden;
                 btnShowPS.Content = "Show";
+
+                UpdatePNL();
+                UpdateSNL();
             }
         }
 
+
+        private void UpdateSNL()
+        {
+            Products selectedProduct = null;
+            selectedProduct = (Products)GetSelected(gvProducts1);
+
+            // update both not on list and on list gridview
+            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
+            gvSuppliers1.ItemsSource = Sup;
+            if (selectedProduct != null)
+            {
+                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
+                gvSupByProd.ItemsSource = Sup;
+            }
+        }
         // Sheila Zhao, with edits by Ethan Shipley
         // Deletes the supplier for the selected product
         private void BtnDelPS_Click(object sender, RoutedEventArgs e)
         {
             int ProdSupID, ProdID;
             int Success = 0;
-            Products selectedProduct = null;
             
             if (gvProducts1.SelectedCells.Count > 0 && gvSuppliers1.SelectedCells.Count > 0)
             {
@@ -1297,22 +1349,17 @@ namespace Travel_Experts_Services_WPF
                     // delete the supplier
                     Success = ProdSupplierDB.DeleteProdSupplier(del);
 
+                    psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                    gvProdSup_all_pkgs.ItemsSource = psn;
+                    ProdSupListDetails(gvProdSup_all_pkgs);
+
                     if (Success == 1)
                     {
 
                         // Refresh gridview
                         try
                         {
-                            selectedProduct = (Products)GetSelected(gvProducts1);
-
-                            // update both not on list and on list gridview
-                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                            gvSuppliers1.ItemsSource = Sup;
-                            if (selectedProduct != null)
-                            {
-                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                                gvSupByProd.ItemsSource = Sup;
-                            }
+                            UpdateSNL();
 
                             ScrollDown(gvSupByProd);
                         }
@@ -1339,7 +1386,6 @@ namespace Travel_Experts_Services_WPF
         {
             int SupID, ProdID;
             int Success = 0;
-            Products selectedProduct = null;
             if ((gvProducts1.SelectedCells.Count > 0 && gvSupByProd.SelectedCells.Count > 0) || (gvSuppliers1.SelectedCells.Count == 0 && gvSupByProd.SelectedCells.Count > 0))
             {
                 // get the productID and supplierID
@@ -1357,20 +1403,17 @@ namespace Travel_Experts_Services_WPF
                     // Insert the supplier to the selected product
                     Success = ProdSupplierDB.InsertProdSupplier(addNew);
 
+                    psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
+                    gvProdSup_all_pkgs.ItemsSource = psn;
+                    ProdSupListDetails(gvProdSup_all_pkgs);
+
                     if (Success == 1)
                     {
 
                         // Refresh gridview
                         try
                         {
-                            selectedProduct = (Products)GetSelected(gvProducts1);
-                            Sup = ProductDB.GetProductSuppliersByProduct(selectedProduct);
-                            gvSuppliers1.ItemsSource = Sup;
-                            if (selectedProduct != null)
-                            {
-                                Sup = SupplierDB.GetProSupNotInList(selectedProduct);
-                                gvSupByProd.ItemsSource = Sup;
-                            }
+                            UpdateSNL();
                             ScrollDown(gvSuppliers1);
                         }
                         catch (Exception ex)
