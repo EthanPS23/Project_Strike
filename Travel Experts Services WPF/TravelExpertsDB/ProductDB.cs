@@ -158,9 +158,9 @@ namespace TravelExpertsDB
                 con.Open();
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+                MessageBox.Show("Delete failed. The product is already in another booked package");
             }
             finally
             {

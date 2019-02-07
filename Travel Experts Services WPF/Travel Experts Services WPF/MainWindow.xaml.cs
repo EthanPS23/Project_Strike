@@ -894,7 +894,7 @@ namespace Travel_Experts_Services_WPF
                 UpdatePNL();
                 UpdateSNL();
                 ScrollDown(gvSuppliers2);
-            }
+            }           
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());

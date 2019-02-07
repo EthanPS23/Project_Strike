@@ -162,9 +162,9 @@ namespace TravelExpertsDB
                 con.Open();
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("The error is " + ex.Message, ex.GetType().ToString());
+                MessageBox.Show("Delete Failed. The supplier is already in a booked package.");
             }
             finally
             {
