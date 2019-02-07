@@ -497,7 +497,7 @@ namespace Travel_Experts_Services_WPF
             Packages pack = new Packages();
             DateTime? strt = dtpPkgStartDate.SelectedDate;
             DateTime? end = dtpPkgEndDate.SelectedDate;
-            if (txtPackageName.Text.Length > 50)
+            if (txtPackageName.Text.Length > 50 || txtPackageName.Text.Length == 0)
             {
                 MessageBox.Show("Please enter a package name shorter then 50 characters.");
                 return;
@@ -508,7 +508,7 @@ namespace Travel_Experts_Services_WPF
             }
 
             // verifies that the user entered a package description shorter then 50 characters
-            if (txtPkgDesc.Text.Length > 50)
+            if (txtPkgDesc.Text.Length > 50 || txtPkgDesc.Text.Length == 0)
             {
                 MessageBox.Show("Please enter a package description shorter then 50 characters.");
                 return;
@@ -538,6 +538,12 @@ namespace Travel_Experts_Services_WPF
                 dtpPkgEndDate.SelectedDate = DateTime.Now;
                 return;
             }
+            else if (strt == null || end == null)
+            {
+                MessageBox.Show("Please enter a date.");
+                return;
+            }
+
             else
             {
                 pack.PkgStartDate = Convert.ToDateTime(strt.Value.Date.ToShortDateString());
