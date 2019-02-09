@@ -309,6 +309,7 @@ namespace Travel_Experts_Services_WPF
             Packages selectedPackage = null;
             try
             {
+                //trys to get the selected package on the packages overview page
                 object row = gvPackages.SelectedItem;
                 selectedPackage = new Packages(
                         Convert.ToInt32(row.GetType().GetProperty("PackageID").GetValue(row, null)),
@@ -318,8 +319,11 @@ namespace Travel_Experts_Services_WPF
                         row.GetType().GetProperty("PkgDesc").GetValue(row, null).ToString(),
                         Convert.ToDecimal(row.GetType().GetProperty("PkgBasePrice").GetValue(row, null)),
                         (decimal)(row.GetType().GetProperty("PkgAgencyCommission").GetValue(row, null)));
+                //retrieves the neccessary information of the selected package for travel experts database
                 ppss = PackageProductSuppliersDB.GetProductSuppliersByPackage(selectedPackage);
+                // gets the required package id
                 pkgid = selectedPackage.PackageID;
+                //sets the products grid and suppliers grid
                 ProductsGrid();
                 SuppliersGrid();
             }
@@ -459,6 +463,7 @@ namespace Travel_Experts_Services_WPF
             }
         }
 
+        // Sheila Zhao
         // save user's infomation when the checkbox is checked
         private void CkbRemember_Checked(object sender, RoutedEventArgs e)
         {
@@ -467,12 +472,14 @@ namespace Travel_Experts_Services_WPF
             Settings.Default.Save();
         }
 
+        //Sheila Zhao
         // clear user's information when the checkbox is unchecked
         private void CkbRemember_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.Default.Reset();
         }
 
+        // Sheila Zhao
         // clear textboxes and clear user's information when click reset
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
@@ -497,25 +504,29 @@ namespace Travel_Experts_Services_WPF
             Packages pack = new Packages();
             DateTime? strt = dtpPkgStartDate.SelectedDate;
             DateTime? end = dtpPkgEndDate.SelectedDate;
-            if (txtPackageName.Text.Length > 50 || txtPackageName.Text.Length == 0)
+            // removes unncessary spaces
+            string pkgnamedesc = txtPackageName.Text.Trim();
+            // checks to make sure that the package name is not empty and shorter than 50 characters
+            if (pkgnamedesc.Length > 50 || pkgnamedesc.Length == 0)
             {
-                MessageBox.Show("Please enter a package name shorter then 50 characters.");
+                MessageBox.Show("Please enter a package name shorter then 50 characters and greater then 0 characters.");
                 return;
             }
             else
             {
-                pack.PkgName = txtPackageName.Text.ToString();
+                pack.PkgName = pkgnamedesc;
             }
 
+            pkgnamedesc = txtPkgDesc.Text.Trim();
             // verifies that the user entered a package description shorter then 50 characters
-            if (txtPkgDesc.Text.Length > 50 || txtPkgDesc.Text.Length == 0)
+            if (pkgnamedesc.Length > 50 || pkgnamedesc.Length == 0)
             {
-                MessageBox.Show("Please enter a package description shorter then 50 characters.");
+                MessageBox.Show("Please enter a package description shorter then 50 characters and greater then 0 characters.");
                 return;
             }
             else
             {
-                pack.PkgDesc = txtPkgDesc.Text.ToString();
+                pack.PkgDesc = pkgnamedesc;
             }
 
             // checks that the user inputted valid dates for the package
@@ -543,7 +554,6 @@ namespace Travel_Experts_Services_WPF
                 MessageBox.Show("Please enter a date.");
                 return;
             }
-
             else
             {
                 pack.PkgStartDate = Convert.ToDateTime(strt.Value.Date.ToShortDateString());
@@ -552,15 +562,19 @@ namespace Travel_Experts_Services_WPF
             // removes the unnecessary dollar sign and comma in the base price and commision
             decimal PkgBasePrice;
             decimal PkgAgencyCommission;
+
+            // prevents overflows from occurring
             try
             {
                 PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text.ToString().Replace("$", "").Replace(",", ""));
+                //ensures that the base price is greater than 0
                 if (PkgBasePrice <= 0)
                 {
                     MessageBox.Show("Please enter a number for base price greater than zero.");
                     txtPkgBasePrice.Text = "";
                     return;
                 }
+                //ensures base price is less then the maximum value database can accept
                 if ((double)PkgBasePrice > PRICE_MAX)
                 {
                     MessageBox.Show("Please enter a number for base price less than 922,337,203,685,477.5807.");
@@ -581,15 +595,19 @@ namespace Travel_Experts_Services_WPF
                 return;
             }
             pack.PkgBasePrice = PkgBasePrice;
+
+            // prevents overflow from occuring and checks the size of the package commission
             try
             {
                 PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text.ToString().Replace("$", "").Replace(",", ""));
+                //checks that commision is greater than 0
                 if (PkgAgencyCommission <= 0)
                 {
                     MessageBox.Show("Please enter a number for agency commision greater than zero.");
                     txtPkgAgencyCommission.Text = "";
                     return;
                 }
+                //check that commision is less than the database max value
                 if ((double)PkgAgencyCommission > PRICE_MAX)
                 {
                     MessageBox.Show("Please enter a number for agency commision less than 922,337,203,685,477.5807.");
@@ -606,6 +624,13 @@ namespace Travel_Experts_Services_WPF
             catch (OverflowException)
             {
                 MessageBox.Show("Please enter a number for agency commision below 7.9228 x 102^8.");
+                txtPkgAgencyCommission.Text = "";
+                return;
+            }
+            // checks that commission is less then the base price
+            if (PkgAgencyCommission > PkgBasePrice)
+            {
+                MessageBox.Show("Please enter a number for agency commision less then base price.");
                 txtPkgAgencyCommission.Text = "";
                 return;
             }
@@ -629,7 +654,7 @@ namespace Travel_Experts_Services_WPF
         }
 
         //Ethan Shipley
-        // Dsiplays the list of available product suppliers
+        // Displays the list of available product suppliers
         private void BtnNewPkgProdSup_Click(object sender, RoutedEventArgs e)
         {
             psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
@@ -655,47 +680,46 @@ namespace Travel_Experts_Services_WPF
         // Adds the products suppliers to the package
         private void BtnAddPkgProdSup_Click(object sender, RoutedEventArgs e)
         {
+            // checks that a package is selected for adding a product too
             if (gvProdSup_all_pkgs.SelectedIndex==-1 || slct_colmn==-1)
             {
                 MessageBox.Show("Cannot add product. Please add a package or edit an existing package.");
                 return;
             }
             PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValueProdSup(gvProdSup_all_pkgs));
-            UpdateBinding(true);
+            UpdateProdSupplier();
+        }
 
-            //duplicate code
+        // Ethan Shipley
+        // Updates the product suppliers displayed on the packages page and unhides the available 
+        //products suppliers by default
+        private void UpdateProdSupplier(bool b=true)
+        {
+            UpdateBinding(true);
             psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
             gvProdSup_all_pkgs.ItemsSource = psn;
             ProdSupListDetails(gvProdSup_all_pkgs);
-            hideunhide(true);
-            gvProdSup_all_pkgs.ItemsSource = psn;
-            ProdSupListDetails(gvProdSup_all_pkgs);
-            hideunhide(true);
+            hideunhide(b);
         }
 
         //Ethan Shipley
         // Deletes the products suppliers to the package
         private void BtnDeletePkgProdSup_Click(object sender, RoutedEventArgs e)
         {
+            // prevents deleting of a product supplier when no package has been selected or created
             if (gvProdSup_pkg.SelectedIndex==-1)
             {
                 MessageBox.Show("Cannot delete product. Please add a package or edit an existing package.");
                 return;
             }
+            // confirms if the user wants to delete the product supplier
             if (!deleteConfirm())
             {
                 return;
             }
             PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValueProdSup(gvProdSup_pkg));
             slct_colmn = gvPackages.SelectedIndex;
-
-            UpdateBinding(true);
-
-            //duplicate code
-            psn = ProdSuppliersNamesDB.GetProdSupAll(ppss);
-            gvProdSup_all_pkgs.ItemsSource = psn;
-            ProdSupListDetails(gvProdSup_all_pkgs);
-            hideunhide(false);
+            UpdateProdSupplier(false);
         }
 
         // Ethan Shipley
