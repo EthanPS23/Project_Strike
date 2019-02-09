@@ -687,6 +687,7 @@ namespace Travel_Experts_Services_WPF
                 return;
             }
             PackageProductSuppliersDB.InsertProductSupplierIdPpkg(pkgid, getSelectedCellValueProdSup(gvProdSup_all_pkgs));
+            // update the product supplier datagrid and keeps it displayed
             UpdateProdSupplier();
         }
 
@@ -719,6 +720,7 @@ namespace Travel_Experts_Services_WPF
             }
             PackageProductSuppliersDB.DeleteProductSupplierIdPpkg(pkgid, getSelectedCellValueProdSup(gvProdSup_pkg));
             slct_colmn = gvPackages.SelectedIndex;
+            // update the product supplier datagrid and hides it
             UpdateProdSupplier(false);
         }
 
@@ -1461,6 +1463,7 @@ namespace Travel_Experts_Services_WPF
         // Scroll to bottom
         private void ScrollDown(DataGrid dg)
         {
+            // checks the item count and scrolls down the the bottom of the list
             if (dg.Items.Count > 0)
             {
                 dg.UnselectAll();
